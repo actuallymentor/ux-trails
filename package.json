@@ -1,0 +1,51 @@
+{
+  "name": "vite-mentorified-boilerplate",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "firebase": "^12.3.0",
+    "mentie": "^0.3.26",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1",
+    "react-toastify": "^11.0.5",
+    "styled-components": "^6.1.19",
+    "use-debounce": "^10.0.6",
+    "use-interval": "^1.4.0",
+    "use-query-params": "^2.2.1",
+    "zustand": "^5.0.8"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development vite",
+    "preview": "vite preview",
+    "start:functions": "cd functions && npm run serve",
+    "build": "vite build",
+    "cypress:open": "NODE_ENV=development cypress open --e2e --browser chrome",
+    "cypress:run": "CYPRESS_LOCAL=true NODE_ENV=development cypress run --browser chrome",
+    "test": "server-test 'start' 3000 'cypress:open'",
+    "test:production": "npm run build && NODE_ENV=production server-test 'serve build' 3000 'cypress:open'",
+    "test:ci": "NODE_ENV=production CI=true server-test 'start' 3000 'cypress:run'",
+    "test:ci:with_emulator": "NODE_ENV=production server-test 'start' 3000 'start:functions' 4000 'cypress:run'",
+    "lint": "eslint --fix src",
+    "upgrade:browserlist": "npx browserslist@latest --update-db",
+    "upgrade": "npm run upgrade:browserlist && ncu && read -p 'Press enter to upgrade above packages' && ncu -u && read -p 'Press enter to install new versions...' && npm i && npm outdated",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.28.4",
+    "@babel/preset-react": "^7.27.1",
+    "@poap/skunk-linter": "^0.0.3",
+    "@vitejs/plugin-react": "^5.0.3",
+    "airier": "^0.0.9",
+    "cypress": "^14.5.4",
+    "husky": "^9.1.7",
+    "npm-check-updates": "^18.3.0",
+    "start-server-and-test": "^2.1.2",
+    "vite": "^7.1.7",
+    "vite-plugin-mkcert": "^1.17.8",
+    "vite-plugin-pwa": "^1.0.3",
+    "vite-plugin-svgr": "^4.5.0"
+  }
+}
