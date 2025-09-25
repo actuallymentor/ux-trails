@@ -41,3 +41,9 @@ Data is generated randomly for each account. Data that will be visible:
   - [ ] Mark unread messages as read
 - [ ] Patient file (documents)
   - [ ] Read documents
+
+## Tecnology stack
+
+This application is a webapp built using `vite` and `react.js`. It is a frontend-only application that will use browser available APIs and not rely on anything external.
+
+The UX sins available to the app will be togglable through query parameters.
