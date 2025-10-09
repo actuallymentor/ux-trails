@@ -1,9 +1,10 @@
 import { log } from 'mentie'
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 
 const shared_colors = {
-    accent: 'lightgreen',
+    accent: 'darkslategray',
     success: 'green',
     error: 'red',
     shadow: {
@@ -47,8 +48,16 @@ const theme_dark = {
 export default function Theme( props ) {
 
     const [ dark, setDark ] = useState( false )
+    const [ darkmode ] = useQueryParam( 'darkmode', withDefault( StringParam, 'false' ) )
 
     useEffect( f => {
+
+        // If dark handling is explicitly set, use that, if auto, continue
+        if( darkmode !== 'auto' ) {
+            const use_dark = darkmode === 'true'
+            log.info( `User forced ${ use_dark ? 'dark' : 'light' } theme` )
+            return setDark( use_dark )
+        }
 
         // If API is not available, assume light
         if( !window.matchMedia ) {
@@ -67,7 +76,7 @@ export default function Theme( props ) {
             setDark( event.matches )
         } )
 
-    }, [] )
+    }, [ darkmode ] )
 
     return <ThemeProvider { ...props } theme={ dark ? theme_dark : theme } />
 }

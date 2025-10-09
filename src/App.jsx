@@ -10,18 +10,14 @@ import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'
 // ///////////////////////////////
 export default function App( ) {
 
-    return <Theme>
-
-        <Toast />
-
-        <Router>
-
-            <QueryParamProvider adapter={ ReactRouter6Adapter }>
+    return <Router>
+        <QueryParamProvider adapter={ ReactRouter6Adapter }>
+            <Theme>
+                <Toast />
                 <Routes />
-            </QueryParamProvider>
+            </Theme>
+        </QueryParamProvider>
+    </Router>
 
-        </Router>
-
-    </Theme>
 
 }

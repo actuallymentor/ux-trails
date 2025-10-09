@@ -2,23 +2,19 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
+import { useUserStore } from '../../stores/user_store'
+import { HomeIcon, KeyIcon, MenuIcon, XIcon } from 'lucide-react'
 
 const MenuBase = styled.nav`
 
-	position: ${ ( { $mobile_open } ) => $mobile_open ? 'fixed' : 'relative' };
+	position: fixed;
 	padding-left: inherit;
     padding-right: inherit;
-
-	// Height for animation
-	max-height: ${ ( { $mobile_open } ) => $mobile_open ? '100%' : '0' };
-	overflow: ${ ( { $mobile_open } ) => $mobile_open ? 'hidden' : 'visible' };
-	transition: max-height 1s;
 
 	z-index: 99;
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: ${ ( { $mobile_open, theme } ) => $mobile_open ? '3rem 0 3rem 1rem' : '0' };
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -28,62 +24,100 @@ const MenuBase = styled.nav`
 	background: ${ ( { $mobile_open, theme } ) => $mobile_open ? theme.colors.backdrop : '' };
 	box-shadow: ${ ( { $mobile_open, theme } ) => $mobile_open && `${ theme.shadows[2] }` };
 
+
+	.menu_burger {
+		/* margin: 0 ${ ( { $mobile_open } ) => $mobile_open ? '100px' : '0' } 0 0 20px; */
+
+		&.open {
+			position: absolute;
+		}
+		&.close {
+			position: relative;
+			top: 10px;
+		}
+
+		top: 10px;
+		left: ${ ( { $float } ) => $float === 'left' ? '10px' : 'auto' };
+		right: ${ ( { $float } ) => $float === 'right' ? '10px' : 'auto' };
+		padding: 10px;
+		cursor: pointer;
+	}
+
+	.menu_links.fullscreen {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: ${ ( { $float } ) => $float === 'left' ? 'flex-start' : 'flex-end' };
+		width: 100%;
+	}
+
+	.menu_links.burger {
+		position: fixed;
+		top: 0;
+		left: ${ ( { $float } ) => $float === 'left' ? '0' : 'auto' };
+		right: ${ ( { $float } ) => $float === 'right' ? '0' : 'auto' };
+		height: 100vh;
+		min-width: 300px;
+		background: ${ ( { theme } ) => theme.colors.backdrop };
+		box-shadow: ${ ( { theme } ) => theme.shadows[2] };
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: ${ ( { $float } ) => $float === 'left' ? 'flex-start' : 'flex-end' };
+		
+		/* Slide-in animation */
+		transform: translateX(${ ( { $float, $mobile_open } ) => {
+        if( !$mobile_open ) {
+            return $float === 'left' ? '-100%' : '100%'
+        }
+        return '0'
+    } });
+		transition: transform 0.3s ease-in-out;
+		
+		/* Ensure it starts off-screen when closed */
+		${ ( { $mobile_open } ) => !$mobile_open ? 'pointer-events: none;' : '' }
+		
+		/* Animate menu items with stagger effect */
+		& a {
+			opacity: ${ ( { $mobile_open } ) => $mobile_open ? '1' : '0' };
+			transform: translateY(${ ( { $mobile_open } ) => $mobile_open ? '0' : '20px' });
+			transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+			transition-delay: ${ ( { $mobile_open } ) => $mobile_open ? '0.2s' : '0s' };
+		}
+		
+		& a:nth-child(2) { transition-delay: ${ ( { $mobile_open } ) => $mobile_open ? '0.25s' : '0s' }; }
+		& a:nth-child(3) { transition-delay: ${ ( { $mobile_open } ) => $mobile_open ? '0.3s' : '0s' }; }
+		& a:nth-child(4) { transition-delay: ${ ( { $mobile_open } ) => $mobile_open ? '0.35s' : '0s' }; }
+	}
+
 	& a {
 
 		display: inline-block;
 
-		&.menu_burger {
-			margin: 0 ${ ( { $mobile_open } ) => $mobile_open ? '100px' : '0' } 0 0 20px;
-		}
-		&:not(:first-child) {
+		/* &:not(:first-child) {
 			width: ${ ( { $mobile_open } ) => $mobile_open ? '100%' : '' };
 			border-bottom: 1px solid ${ ( { theme, $mobile_open } ) => $mobile_open ? theme.colors.primary : 'rgba( 0,0,0,0 )' };
-			margin: .5rem .5rem 0;
-			padding: 0 0 .5rem;
-		}
+			margin: 1rem .5rem 0;
+			padding: 0 0 1rem;
+		} */
 		padding: 1rem;
 		margin: 0;
 		color: ${ ( { $mobile_open, theme } ) => $mobile_open ? theme.colors.primary : '' };
+
+		svg {
+			vertical-align: middle;
+			margin-right: 8px;
+			stroke: ${ ( { theme } ) => theme.colors.accent };
+		}
+
 	}
 
 `
 
-const Burger = styled.a`
-	position: ${ ( { $mobile_open } ) => $mobile_open ? 'fixed' : 'absolute' };
-	padding-left: inherit;
-    padding-right: inherit;
-	top: 0;
-	right: 0;
-	width: 50px;
-	height: 50px;
-	padding: 10px;
-	&:hover {
-		cursor: pointer;
-	opacity: .5;
-	}
-	display: inline-block;
-
-	span {
-		background: ${ ( { theme } ) => theme.colors.primary };
-		display: block;
-		height: 2px;
-		width: 100%;
-		position: relative;
-		transition: all 0.5s ease;
-		margin-top: 5px;
-
-	}
-`
-
-const Hamburger = ( { ...props } ) => <Burger className='menu_burger' { ...props }>
-    <span />
-    <span />
-    <span />
-</Burger>
-
-export default function Menu( { ...props } ) {
+export default function Menu( { $float='left', ...props } ) {
 
     const [ open, set_open ] = useState( false )
+    const { user, clear_user } = useUserStore()
     const width = useWidth()
     const menu_cutoff = 600
     const use_burger = width < menu_cutoff
@@ -92,15 +126,26 @@ export default function Menu( { ...props } ) {
         if( !use_burger ) set_open( false )
     }, [ width ] )
 
+    // Make list of link components
+    const links = [
+        <Link key="home" navigate='/'><HomeIcon size='1rem' />Startpagina</Link>,
+        !user ? <Link key="login" navigate='/login'><KeyIcon size='1rem' />Inloggen</Link> : <Link key="logout" onClick={ clear_user }><XIcon size='1rem' />Uitloggen</Link>
+    ]
 
+    return <MenuBase $float={ $float } $mobile_open={ open }>
 
-    return <MenuBase $mobile_open={ open }>
-	
-        { use_burger && <Hamburger $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
-        { (  use_burger && open  || !use_burger ) && <>
-            <Link navigate='/'>Home</Link>
-            <Link navigate='/'>Home</Link>
-        </> }
+        { use_burger && !open && <MenuIcon size='50' className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
+        
+        { /* Always render burger menu container for animation, but conditionally render fullscreen */ }
+        { use_burger && <span className='menu_links burger'>
+            <XIcon size='50' className='menu_burger close' $mobile_open={ open } onClick={ f => set_open( !open ) } />
+            { links }
+        </span> }
+        
+        { !use_burger && <span className='menu_links fullscreen'>
+            { links }
+            { user && <Link onClick={ clear_user }>Uitloggen</Link> }
+        </span> }
 
     </MenuBase>
 
