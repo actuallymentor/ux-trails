@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { passable_props } from '../component_base'
 
 const CardBase = styled.div`
     background-color: ${ ( { theme } ) => theme.colors.backdrop };
@@ -9,6 +10,7 @@ const CardBase = styled.div`
     width: 500px;
     flex-wrap: wrap;
     box-shadow: ${ ( { theme } ) => theme.shadows[0] };
+    ${ passable_props };
 `
 
 export default function Card( { ...props } ) {

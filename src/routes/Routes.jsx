@@ -1,22 +1,31 @@
 import { Route, Routes as DOMRoutes, useNavigate } from "react-router-dom"
-import { Suspense, useEffect } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import Loading from "../components/molecules/Loading"
 import Toast from "../components/molecules/ToastContainer"
+import { prefetch } from 'less-lazy'
 
 // Statically loaded pages
 import Homepage from "../components/pages/Homepage"
 import LoginPage from "../components/pages/Login"
 import { useUserStore } from "../stores/user_store"
+import { useLabTestScoreStore } from "../stores/labtest_score"
 
 // Lazy loaded pages
-// const Homepage = lazy( () => import( '../components/pages/Homepage' ) )
+const LabTests = lazy( prefetch( () => import( '../components/pages/LabTests' ) ) )
 
 export default function Routes() {
 
 
     const { user } = useUserStore()
+    const { init_dummy_scores } = useLabTestScoreStore()
     const navigate = useNavigate()
     const current_path = window.location.pathname
+    const public_paths = [ '/', '/login' ]
+
+    // Initialise stores
+    useEffect( () => {
+        init_dummy_scores()
+    }, [] )
 
     // Redirects
     useEffect( () => {
@@ -24,6 +33,8 @@ export default function Routes() {
         // If user is logged in, redirect away from login
         if( user && current_path === '/login'  ) navigate( '/' )
 
+        // If user is not logged in, redirect to home page if they are on anything other than public_paths
+        if( !user && !public_paths.includes( current_path ) ) navigate( '/' )
     }, [ user, navigate ] )
     
     return <Suspense fallback={ <Loading delay="500" message='Loading' /> }>
@@ -34,6 +45,8 @@ export default function Routes() {
 
             <Route exact path='/' element={ <Homepage /> } />
             <Route exact path='/login' element={ <LoginPage /> } />
+
+            <Route exact path='/profile/labs' element={ <LabTests /> } />
 
         </DOMRoutes>
 

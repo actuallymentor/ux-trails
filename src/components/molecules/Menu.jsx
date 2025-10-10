@@ -4,6 +4,7 @@ import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
 import { CalendarIcon, DropletIcon, FileArchive, HomeIcon, InboxIcon, KeyIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react'
+import { useLabTestScoreStore } from '../../stores/labtest_score'
 
 const MenuBase = styled.nav`
 
@@ -118,6 +119,7 @@ export default function Menu( { $float='left', ...props } ) {
 
     const [ open, set_open ] = useState( false )
     const { user, clear_user } = useUserStore()
+    const { clear_labs } = useLabTestScoreStore()
     const width = useWidth()
     const menu_cutoff = 600
     const use_burger = width < menu_cutoff
@@ -126,6 +128,12 @@ export default function Menu( { $float='left', ...props } ) {
         if( !use_burger ) set_open( false )
     }, [ width ] )
 
+    // Full logout function
+    const logout = () => {
+        clear_user()
+        clear_labs()
+    }
+
     // Make list of link components
     const icon_size = '1rem'
     const logged_in_links = [
@@ -133,7 +141,7 @@ export default function Menu( { $float='left', ...props } ) {
         <Link key='appointments' navigate='/profile/appointments'><CalendarIcon size={ icon_size } />Afspraken</Link>,
         <Link key='inbox' navigate='/profile/inbox'><InboxIcon size={ icon_size } />Berichten</Link>,
         <Link key='documenten' navigate='/profile/documents'><FileArchive size={ icon_size } />Documenten</Link>,
-        <Link key="logout" onClick={ clear_user }><LogOutIcon size={ icon_size } />Uitloggen</Link>
+        <Link key="logout" onClick={ logout }><LogOutIcon size={ icon_size } />Uitloggen</Link>
     ]
     const links = [
         <Link key="home" navigate='/'><HomeIcon size={ icon_size } />Startpagina</Link>,

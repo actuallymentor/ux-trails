@@ -42,7 +42,7 @@ Data is generated randomly for each account. Data that will be visible:
 - [ ] Patient file (documents)
   - [ ] Read documents
 
-## Tecnology stack
+## Technology stack
 
 This application is a webapp built using `vite` and `react.js`. It is a frontend-only application that will use browser available APIs and not rely on anything external.
 
