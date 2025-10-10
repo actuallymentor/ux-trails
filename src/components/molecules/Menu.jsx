@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { HomeIcon, KeyIcon, MenuIcon, XIcon } from 'lucide-react'
+import { CalendarIcon, DropletIcon, FileArchive, HomeIcon, InboxIcon, KeyIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react'
 
 const MenuBase = styled.nav`
 
@@ -127,10 +127,19 @@ export default function Menu( { $float='left', ...props } ) {
     }, [ width ] )
 
     // Make list of link components
-    const links = [
-        <Link key="home" navigate='/'><HomeIcon size='1rem' />Startpagina</Link>,
-        !user ? <Link key="login" navigate='/login'><KeyIcon size='1rem' />Inloggen</Link> : <Link key="logout" onClick={ clear_user }><XIcon size='1rem' />Uitloggen</Link>
+    const icon_size = '1rem'
+    const logged_in_links = [
+        <Link key='bloodtest' navigate='/profile/labs'><DropletIcon size={ icon_size } />Uitslagen</Link>,
+        <Link key='appointments' navigate='/profile/appointments'><CalendarIcon size={ icon_size } />Afspraken</Link>,
+        <Link key='inbox' navigate='/profile/inbox'><InboxIcon size={ icon_size } />Berichten</Link>,
+        <Link key='documenten' navigate='/profile/documents'><FileArchive size={ icon_size } />Documenten</Link>,
+        <Link key="logout" onClick={ clear_user }><LogOutIcon size={ icon_size } />Uitloggen</Link>
     ]
+    const links = [
+        <Link key="home" navigate='/'><HomeIcon size={ icon_size } />Startpagina</Link>,
+        !user && <Link key="login" navigate='/login'><KeyIcon size={ icon_size } />Inloggen</Link>,
+        user && logged_in_links,
+    ].filter( Boolean ).flat()
 
     return <MenuBase $float={ $float } $mobile_open={ open }>
 
@@ -144,7 +153,6 @@ export default function Menu( { $float='left', ...props } ) {
         
         { !use_burger && <span className='menu_links fullscreen'>
             { links }
-            { user && <Link onClick={ clear_user }>Uitloggen</Link> }
         </span> }
 
     </MenuBase>
