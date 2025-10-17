@@ -12,6 +12,7 @@ const ContainerBase = styled.div`
 	min-height: 100vh;
 	width: 100%;
 	box-sizing: border-box;
+	padding-top: ${ ( { $menu=true, $menu_height='55px' } ) => $menu ? $menu_height : '0' };
 
 	main {
 
@@ -37,11 +38,11 @@ const ContainerBase = styled.div`
 	}
 `
 
-export default function Container( { menu=true, $footer=true, children, ...props } ) {
+export default function Container( { menu_height='55px', menu=true, $footer=true, children, ...props } ) {
 
-    return <ContainerBase { ...props } $footer={ $footer }>
+    return <ContainerBase { ...props } $footer={ $footer } $menu_height={ menu_height }>
 
-        { menu && <Menu /> }
+        { menu && <Menu $menu_height={ menu_height } /> }
 
         <main>
             { children }

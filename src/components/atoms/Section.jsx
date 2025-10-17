@@ -10,6 +10,7 @@ const SectionBase = styled.section`
 	width: 100%;
 	max-width: 100%;
 	flex-wrap: wrap;
+	overflow: ${ ( { $overflow='visible' } ) => $overflow };
 	${ ( { $shadow, theme } ) => {
         if( $shadow ) return `box-shadow: ${ theme.shadows[1] }; background: ${ theme.colors.backdrop };`
     } }

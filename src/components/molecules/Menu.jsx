@@ -16,13 +16,14 @@ const MenuBase = styled.nav`
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: ${ ( { $menu_height='55px' } ) => $menu_height };
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	flex-wrap: wrap;
 	align-self: flex-start;
 
-	background: ${ ( { $mobile_open, theme } ) => $mobile_open ? theme.colors.backdrop : '' };
+	background: ${ ( { $mobile_open, theme } ) => theme.colors.backdrop };
 	box-shadow: ${ ( { $mobile_open, theme } ) => $mobile_open && `${ theme.shadows[2] }` };
 
 
@@ -115,7 +116,7 @@ const MenuBase = styled.nav`
 
 `
 
-export default function Menu( { $float='left', ...props } ) {
+export default function Menu( { $menu_height, $float='left', ...props } ) {
 
     const [ open, set_open ] = useState( false )
     const { user, clear_user } = useUserStore()
@@ -149,7 +150,7 @@ export default function Menu( { $float='left', ...props } ) {
         user && logged_in_links,
     ].filter( Boolean ).flat()
 
-    return <MenuBase $float={ $float } $mobile_open={ open }>
+    return <MenuBase $menu_height={ $menu_height } $float={ $float } $mobile_open={ open }>
 
         { use_burger && !open && <MenuIcon size='50' className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
         

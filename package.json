@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "dotenv": "^17.2.2",
+    "jspdf": "^3.0.3",
     "mentie": "^0.3.26",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

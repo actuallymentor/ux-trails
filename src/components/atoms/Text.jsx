@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { passable_props } from '../component_base'
 
 export const Text = styled.p`
-	font-size: 1rem;
+	font-size: ${ ( { $size='1rem' } ) => $size };
 	margin: 1rem 0;
 	line-height: 1.5rem;
 	color: ${ ( { theme, $color } ) => theme.colors[ $color ] || $color || theme.colors.text };
@@ -13,6 +13,7 @@ export const Text = styled.p`
 	flex-direction: row;
 	flex-wrap: wrap;
 	font-style: ${ ( { $style='normal' } ) => $style };
+	white-space: pre-wrap;
 	${ passable_props };
 `
 
