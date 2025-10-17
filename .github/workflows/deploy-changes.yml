@@ -12,6 +12,9 @@ jobs:
   deploy-frontend:
     name: Deploy frontend changes
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
 
     steps:
       # Clones repo to the commit that triggered the event
