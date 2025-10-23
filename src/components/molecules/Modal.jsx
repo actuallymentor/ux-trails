@@ -1,3 +1,4 @@
+import { log } from "mentie"
 import styled from "styled-components"
 
 const Backdrop = styled.div`
@@ -15,6 +16,14 @@ const Backdrop = styled.div`
 
 export default function Modal( { children, onClose } ) {
 
-    return <Backdrop onClick={ onClose }>{ children }</Backdrop>
+    const handle_close = ( event ) => {
+        // Only trigger close when the backdrop itself (not its children) is clicked
+        if( event.target !== event.currentTarget ) return
+
+        log.info( 'Modal backdrop clicked:', event.target )
+        if( onClose ) onClose()
+    }
+
+    return <Backdrop onClick={ handle_close }>{ children }</Backdrop>
 
 }

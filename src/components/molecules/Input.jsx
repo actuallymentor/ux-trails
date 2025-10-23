@@ -200,6 +200,9 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
             { options.map( ( option, index ) => <option key={ index } value={ option.value }>{ option.label }</option> ) }
         </select> }
 
+        { /* Datepicker input field */ }
+        { !title && type == 'datepicker' && <input data-testid={ internalId } { ...child_props } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type='date' /> }
+
         { title && <p id="title">{ title }</p> }
 
         { !is_typing && !empty && !valid && <p id="error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }

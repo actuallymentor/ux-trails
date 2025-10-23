@@ -14,6 +14,7 @@ import { useLabTestScoreStore } from "../stores/labtest_score"
 const LabTests = lazy( prefetch( () => import( '../components/pages/LabTests' ) ) )
 const Messages = lazy( prefetch( () => import( '../components/pages/Messages' ) ) )
 const Documents = lazy( prefetch( () => import( '../components/pages/Documents' ) ) )
+const Appointments = lazy( prefetch( () => import( '../components/pages/Appointments' ) ) ) 
 
 export default function Routes() {
 
@@ -51,6 +52,7 @@ export default function Routes() {
             <Route exact path='/profile/labs' element={ <LabTests /> } />
             <Route exact path='/profile/inbox' element={ <Messages /> } />
             <Route exact path='/profile/documents' element={ <Documents /> } />
+            <Route exact path='/profile/appointments' element={ <Appointments /> } />
 
         </DOMRoutes>
 
