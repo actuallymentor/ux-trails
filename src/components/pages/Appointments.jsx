@@ -6,7 +6,7 @@ import Button from "../atoms/Button"
 import Card from "../atoms/Card"
 import { useAppointmentsStore } from '../../stores/appointments'
 import Input from "../molecules/Input"
-import { log } from "mentie"
+import { log, truncate } from "mentie"
 import Section from "../atoms/Section"
 
 export default function Appointments() {
@@ -32,7 +32,7 @@ export default function Appointments() {
         <Section $wrap='nowrap'>
             { appointments.map( ( { date, time, reason }, index ) => <Card key={ index } $margin='.5rem 0' >
                 <Text>Datum: { date } om { time }</Text>
-                <Text>Reden: { reason }</Text>
+                <Text>Reden: { truncate( reason, 150 ) }</Text>
             </Card> ) }
             { appointments.length == 0 && <Text $margin='2rem 0'>U heeft nog geen afspraken gepland.</Text> }
         </Section>
