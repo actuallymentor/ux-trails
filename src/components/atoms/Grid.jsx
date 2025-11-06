@@ -3,8 +3,8 @@ import { passable_props } from "../component_base"
 
 const ColumnBase = styled.div`
     display: grid;
-    grid-template-columns: repeat( ${ ( { $columns=2 } ) => $columns }, 1fr );
-    gap: ${ ( { $gap='1rem' } ) => $gap };
+    grid-template-columns: repeat( ${ ( { $columns='auto-fit' } ) => $columns }, ${ ( { $minmax } ) => $minmax ? `minmax( ${ $minmax } )` : '' } );
+    gap: ${ ( { $gap='15px' } ) => $gap };
     ${ passable_props };
 `
 

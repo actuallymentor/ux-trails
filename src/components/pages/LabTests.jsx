@@ -41,24 +41,26 @@ export default function LabTests() {
             <Text $color='hint'>Selecteer een uitslag om details te bekijken.</Text>
         </Column>
 
-        <Grid $columns={ Math.min( labtest_scores.length, 3 ) || 1 } $width='100%' $max-width='1500px' $gap='2rem'>
 
-            { labtest_scores.map( ( { name, average, unit, readings } ) => {
+        <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
+            <Grid $minmax='500px, 1fr'>
+                { labtest_scores.map( ( { name, average, unit, readings } ) => {
 
-                const latest_reading = readings?.[ readings.length - 1 ]
+                    const latest_reading = readings?.[ readings.length - 1 ]
 
-                return <Card key={ name } $width='100%' $min-width='320px' $padding='2rem 2.5rem'>
-                    <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ name }</H2>
-                    <Badge $position='absolute' $right='2rem' $top='2rem'>Metingen: { readings.length }</Badge>
-                    <Text $color='hint'>Gemiddelde waarde: { average } { unit }</Text>
-                    { latest_reading && <Text $color='hint'>Laatste meting (dag { latest_reading.day }): { latest_reading.value } { latest_reading.unit }</Text> }
-                    <Button $variant='outline' $margin='2rem 0 0' onClick={ () => set_current_test( name ) }>
-                        Bekijk uitslagen
-                    </Button>
-                </Card>
-            } ) }
-            { labtest_scores.length == 0 && <Text $margin='2rem 0'>Er zijn nog geen labuitslagen beschikbaar.</Text> }
-        </Grid>
+                    return <Card key={ name } $width='100%' $min-width='320px' $padding='2rem 2.5rem'>
+                        <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ name }</H2>
+                        <Badge $position='absolute' $right='2rem' $top='2rem'>Metingen: { readings.length }</Badge>
+                        <Text $color='hint'>Gemiddelde waarde: { average } { unit }</Text>
+                        { latest_reading && <Text $color='hint'>Laatste meting (dag { latest_reading.day }): { latest_reading.value } { latest_reading.unit }</Text> }
+                        <Button $variant='outline' $margin='2rem 0 0' onClick={ () => set_current_test( name ) }>
+                            Bekijk uitslagen
+                        </Button>
+                    </Card>
+                } ) }
+                { labtest_scores.length == 0 && <Text $margin='2rem 0'>Er zijn nog geen labuitslagen beschikbaar.</Text> }
+            </Grid>
+        </Section>
 
     </Container>
 

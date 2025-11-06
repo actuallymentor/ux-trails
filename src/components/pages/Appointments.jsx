@@ -13,6 +13,7 @@ import { toast } from "react-toastify"
 import { date_after_timestamp_validator, date_to_locale_string, is_future, tomorrow_yyyy_mm_dd } from "../../modules/dates"
 import Grid from "../atoms/Grid"
 import Badge from "../molecules/Badge"
+import Section from "../atoms/Section"
 
 export default function Appointments() {
 
@@ -65,32 +66,34 @@ export default function Appointments() {
             <Button onClick={ () => set_makenew( true ) }>Nieuwe Afspraak</Button>
         </Column>
 
-        <Grid>
-            { appointments.map( ( { date, time, reason }, index ) => {
+        <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
+            <Grid $minmax='500px, 1fr'>
+                { appointments.map( ( { date, time, reason }, index ) => {
 
-                const future = is_future( date )
+                    const future = is_future( date )
 
-                return <Card key={ index } $min-width='500px' $width='calc( 33.333% - calc( 2rem / 3 ) )' $margin='.5rem 0' $padding='2rem 3rem' $justify='flex-start' >
+                    return <Card key={ index } $min-width='500px' $width='calc( 33.333% - calc( 2rem / 3 ) )' $margin='.5rem 0' $padding='2rem 3rem' $justify='flex-start' >
                 
-                    <H2 $margin='0'>Afspraak</H2>
-                    <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? 'Aankomend' : 'Verleden' }</Badge>
+                        <H2 $margin='0'>Afspraak</H2>
+                        <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? 'Aankomend' : 'Verleden' }</Badge>
 
-                    <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
-                        { date && <Text $color='hint'><CalendarIcon />{ date_to_locale_string( date ) }</Text> }
-                        { time && <Text $color='hint'><ClockIcon />{ time }</Text> }
-                    </Column>
-                    <Text $color='hint' $margin='0 0 1rem'><MapPinIcon />{ appointments[ index ]?.location || 'In de praktijk' }</Text>
-                    { reason && <Text $color='hint' $margin='0'><PencilIcon />{ truncate( reason, 40 ) }</Text> }
+                        <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
+                            { date && <Text $color='hint'><CalendarIcon />{ date_to_locale_string( date ) }</Text> }
+                            { time && <Text $color='hint'><ClockIcon />{ time }</Text> }
+                        </Column>
+                        <Text $color='hint' $margin='0 0 1rem'><MapPinIcon />{ appointments[ index ]?.location || 'In de praktijk' }</Text>
+                        { reason && <Text $color='hint' $margin='0'><PencilIcon />{ truncate( reason, 40 ) }</Text> }
                 
-                    <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
-                        <Button $variant='outline' $margin='2rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>Bekijk Details</Button>  
-                        <Button $variant='outline' $margin='2rem 0 0' onClick={ () => cancel_appointment( index ) }>Afspraak Annuleren</Button>
-                    </Column>
-                </Card>
+                        <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
+                            <Button $variant='outline' $margin='2rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>Bekijk Details</Button>  
+                            <Button $variant='outline' $margin='2rem 0 0' onClick={ () => cancel_appointment( index ) }>Afspraak Annuleren</Button>
+                        </Column>
+                    </Card>
             
-            } ) }
-            { appointments.length == 0 && <Text $margin='2rem 0'>U heeft nog geen afspraken gepland.</Text> }
-        </Grid>
+                } ) }
+                { appointments.length == 0 && <Text $margin='2rem 0'>U heeft nog geen afspraken gepland.</Text> }
+            </Grid>
+        </Section>
 
         { view_appointment && <Modal onClose={ () => set_view_appointment( null ) }>
             <Card>
