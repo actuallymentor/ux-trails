@@ -42,13 +42,13 @@ export default function LabTests() {
         </Column>
 
 
-        <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
+        <Section $width='1600px' $align='center' $justify='center' $padding='0 .5rem' $margin='0' >
             <Grid $minmax='500px, 1fr'>
                 { labtest_scores.map( ( { name, average, unit, readings } ) => {
 
                     const latest_reading = readings?.[ readings.length - 1 ]
 
-                    return <Card key={ name } $width='100%' $min-width='320px' $padding='2rem 2.5rem'>
+                    return <Card key={ name } $padding='2rem 2.5rem'>
                         <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ name }</H2>
                         <Badge $position='absolute' $right='2rem' $top='2rem'>Metingen: { readings.length }</Badge>
                         <Text $color='hint'>Gemiddelde waarde: { average } { unit }</Text>

@@ -72,7 +72,7 @@ export default function Appointments() {
 
                     const future = is_future( date )
 
-                    return <Card key={ index } $min-width='500px' $width='calc( 33.333% - calc( 2rem / 3 ) )' $margin='.5rem 0' $padding='2rem 3rem' $justify='flex-start' >
+                    return <Card key={ index } $width='500px' $margin='.5rem 0' $padding='2rem 3rem' $justify='flex-start' >
                 
                         <H2 $margin='0'>Afspraak</H2>
                         <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? 'Aankomend' : 'Verleden' }</Badge>
