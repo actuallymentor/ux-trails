@@ -1,7 +1,7 @@
 
 export const passable_props = props => {
 
-    const allowed_props = [ '$padding', '$margin', '$width', '$height', '$align', '$justify', '$direction', '$min-height', '$min-width', '$gap', '$wrap' ]
+    const allowed_props = [ '$padding', '$margin', '$width', '$height', '$align', '$justify', '$direction', '$min-height', '$min-width', '$gap', '$wrap', '$scale' ]
 
     // The CSS string to add to styled components
     let css_string = allowed_props.reduce( ( acc, allowed_prop ) => {

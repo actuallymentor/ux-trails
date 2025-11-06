@@ -10,6 +10,11 @@ const ButtonBase = styled.a`
 	border: 2px solid ${ ( { $color='accent', theme } ) => theme.colors[ $color ] || $color };
 	display: inline-block;
 
+	svg {
+		vertical-align: middle;
+		margin-right: 0.5rem;
+	}
+
 	// Variants
 	${ ( { $color='accent', theme, $variant='solid' } ) => {
         if( $variant == 'outline' ) return `

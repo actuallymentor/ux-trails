@@ -14,6 +14,10 @@ export const Text = styled.p`
 	flex-wrap: wrap;
 	font-style: ${ ( { $style='normal' } ) => $style };
 	white-space: pre-wrap;
+	svg {
+		margin-right: 0.5rem;
+		vertical-align: middle;
+	}
 	${ passable_props };
 `
 
@@ -33,6 +37,10 @@ export const H1 = styled.h1`
 	text-align: ${ ( { $align } ) => $align || 'left' };
 	color: ${ ( { theme, $color='primary' } ) => theme.colors[ $color ] || $color || theme.colors.text };
 	overflow-wrap: anywhere;
+	svg {
+		margin-right: 0.5rem;
+		vertical-align: vertical;
+	}
 	${ passable_props };
 `
 
@@ -44,6 +52,10 @@ export const H2 = styled.h2`
 	text-align: ${ ( { $align } ) => $align || 'left' };
 	color: ${ ( { theme, $color='accent' } ) => theme.colors[ $color ] || $color || theme.colors.text };
 	overflow-wrap: anywhere;
+	svg {
+		margin-right: 0.5rem;
+		vertical-align: vertical;
+	}
 	${ passable_props };
 `
 

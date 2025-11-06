@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 
 const shared_colors = {
-    accent: 'darkslategray',
+    accent: '#1193d4',
     success: 'green',
     error: 'red',
     shadow: {

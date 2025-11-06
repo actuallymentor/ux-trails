@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const StyledPill = styled.aside`
-    position: fixed;
+    position: ${ ( { $position='fixed' } ) => $position };
     right: 1rem;
     bottom: 1rem;
     background: ${ ( { theme } ) => theme.colors.backdrop };

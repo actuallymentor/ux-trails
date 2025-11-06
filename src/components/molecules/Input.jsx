@@ -164,6 +164,7 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
             if( typeof validate == 'function' && !validate( value ) ) return set_raw_valid( false )
 
             // If validate is a string, assume it is a regex, match it against the value
+            log.info( 'Validating with regex:', { value, validate } )
             if( value?.match?.( validate ) ) return set_raw_valid( true )
             if( !value?.match?.( validate ) ) return set_raw_valid( false )
 
@@ -180,7 +181,7 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
     const time_to_idle_in_ms = validation_delay
     useInterval( () => {
         const typing_timed_out = Date.now() - last_edit > time_to_idle_in_ms
-        log.info( `TTime since typing: ${ Date.now() - last_edit }ms` )
+        if( ![ 'date' ].includes( type ) ) log.info( `Time since typing: ${ Date.now() - last_edit }ms` )
         if( verbose ) log.info( 'Typing timed out: ', typing_timed_out, { last_edit, time_to_idle_in_ms, is_typing, empty, valid } )
         if( typing_timed_out && is_typing ) set_is_typing( false )
     }, value && !valid ? 1000 : null )

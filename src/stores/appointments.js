@@ -66,6 +66,10 @@ export const useAppointmentsStore = create()( persist(
         add_appointment: ( appointment ) => set( {
             appointments: [ ...get().appointments, appointment ]
         } ),
+        clear_appointment: ( index ) => {
+            const new_appointments = get().appointments.filter( ( _, i ) => i !== index )
+            set( { appointments: new_appointments } )
+        },
         clear_appointments: () => set( { appointments: [] } )
     } ),
 
