@@ -15,6 +15,7 @@ const LabTests = lazy( prefetch( () => import( '../components/pages/LabTests' ) 
 const Messages = lazy( prefetch( () => import( '../components/pages/Messages' ) ) )
 const Documents = lazy( prefetch( () => import( '../components/pages/Documents' ) ) )
 const Appointments = lazy( prefetch( () => import( '../components/pages/Appointments' ) ) ) 
+const Settings = lazy( prefetch( () => import( '../components/pages/Settings' ) ) )
 
 export default function Routes() {
 
@@ -53,6 +54,7 @@ export default function Routes() {
             <Route exact path='/profile/inbox' element={ <Messages /> } />
             <Route exact path='/profile/documents' element={ <Documents /> } />
             <Route exact path='/profile/appointments' element={ <Appointments /> } />
+            <Route exact path='/profile/settings' element={ <Settings /> } />
 
         </DOMRoutes>
 

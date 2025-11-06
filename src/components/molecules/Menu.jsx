@@ -142,6 +142,7 @@ export default function Menu( { $menu_height, $float='left', ...props } ) {
         <Link key='appointments' navigate='/profile/appointments'><CalendarIcon size={ icon_size } />Afspraken</Link>,
         <Link key='inbox' navigate='/profile/inbox'><InboxIcon size={ icon_size } />Berichten</Link>,
         <Link key='documenten' navigate='/profile/documents'><FileArchive size={ icon_size } />Documenten</Link>,
+        <Link key='settings' navigate='/profile/settings'><KeyIcon size={ icon_size } />Instellingen</Link>,
         <Link key="logout" onClick={ logout }><LogOutIcon size={ icon_size } />Uitloggen</Link>
     ]
     const links = [

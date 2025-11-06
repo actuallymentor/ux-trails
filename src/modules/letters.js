@@ -16,7 +16,9 @@ export function measurements_to_letters( { patient_name='heer/mevrouw', labtest_
 
         Geachte ${ patient_name },
 
-        U bent recent bij ons geweest voor een ${ name } onderzoek. Zie bijgesloten de uitslag van uw onderzoek.
+        U bent recent bij ons geweest voor een ${ name } onderzoek.
+        
+        Zie bijgesloten de uitslag van uw onderzoek.
 
         De waarde van uw ${ name } is ${ value } ${ unit } gemeten op ${ day }.
 

@@ -22,6 +22,7 @@ export default function Documents() {
             format: 'a4'
         }  )
 
+        doc.setFontSize( 14 )
         doc.text( letters[ index ].message, 10, 10 )
         doc.save( `document-${ letters[ index ].subject }-${ letters[ index ].day }.pdf` )
 
