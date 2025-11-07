@@ -32,7 +32,8 @@ const InputBase = styled.span`
 	& select, input, textarea, & p#title {
 		padding: 1rem 2rem 1rem 1rem;
 		width: 100%;
-        ${ props => passable_props( props ) }
+        border-radius: 5px;
+        ${ passable_props }
 	}
 
 	textarea {

@@ -5,6 +5,8 @@ import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
 import { CalendarIcon, DropletIcon, FileArchive, HomeIcon, InboxIcon, KeyIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
+import { useAppointmentsStore } from '../../stores/appointments'
+import { log } from 'mentie'
 
 const MenuBase = styled.nav`
 
@@ -121,6 +123,7 @@ export default function Menu( { $menu_height, $float='left', ...props } ) {
     const [ open, set_open ] = useState( false )
     const { user, clear_user } = useUserStore()
     const { clear_labs } = useLabTestScoreStore()
+    const { clear_appointments } = useAppointmentsStore()
     const width = useWidth()
     const menu_cutoff = 600
     const use_burger = width < menu_cutoff
@@ -133,6 +136,8 @@ export default function Menu( { $menu_height, $float='left', ...props } ) {
     const logout = () => {
         clear_user()
         clear_labs()
+        clear_appointments()
+        log.info( 'User logged out' )
     }
 
     // Make list of link components

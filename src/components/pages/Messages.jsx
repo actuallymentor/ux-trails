@@ -18,7 +18,6 @@ export default function Berichten() {
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ labtest_scores ] )
     const [ letter_index, set_letter_index ] = useState( null )
 
-
     return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >

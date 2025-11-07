@@ -29,7 +29,7 @@ export default function Routes() {
     // Initialise stores
     useEffect( () => {
         init_dummy_scores()
-    }, [] )
+    }, [ user?.email ] )
 
     // Redirects
     useEffect( () => {
