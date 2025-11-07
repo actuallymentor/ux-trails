@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const ButtonBase = styled.a`
 	padding: ${ ( { scale=1 } ) => `${ scale * .5 }rem ${ scale }rem` };
 	font-size: ${ ( { scale=1 } ) => `${ scale }rem` };
+	transform-origin: left;
 	text-decoration: none;
 	border-radius: 5px;
 	border: 2px solid ${ ( { $color='accent', theme } ) => theme.colors[ $color ] || $color };

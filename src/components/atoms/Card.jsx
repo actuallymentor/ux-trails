@@ -12,6 +12,8 @@ const CardBase = styled.div`
     width: 500px;
     flex-wrap: wrap;
     box-shadow: ${ ( { theme } ) => theme.shadows[0] };
+    max-width: 100%;
+    flex: ${ ( { $flex='initial' } ) => $flex };
     ${ passable_props };
 `
 

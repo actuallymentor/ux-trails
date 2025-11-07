@@ -17,6 +17,7 @@ export const Text = styled.p`
 	svg {
 		margin-right: 0.5rem;
 		vertical-align: middle;
+		padding: 2px;
 	}
 	${ passable_props };
 `

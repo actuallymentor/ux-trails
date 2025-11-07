@@ -12,6 +12,7 @@ const ContainerBase = styled.div`
 	min-height: 100vh;
 	width: 100%;
 	box-sizing: border-box;
+	padding: .5rem 1rem;
 	padding-top: ${ ( { $menu=true, $menu_height='55px' } ) => $menu ? $menu_height : '0' };
 
 	main {
@@ -23,6 +24,7 @@ const ContainerBase = styled.div`
 		flex: 1;
 		min-height: 100%;
 		max-width: 100%;
+		padding: 3rem 0;
 
 		// Implement generic passable props
 		${ passable_props };

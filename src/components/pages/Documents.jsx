@@ -4,8 +4,11 @@ import Container from "../atoms/Container"
 import Section from "../atoms/Section"
 import { measurements_to_letters } from "../../modules/letters"
 import { useUserStore } from "../../stores/user_store"
-import { H2, Text } from "../atoms/Text"
-import A from "../atoms/Link"
+import { H1, Text } from "../atoms/Text"
+import Column from "../atoms/Column"
+import { FileTextIcon } from "lucide-react"
+import Card from "../atoms/Card"
+import Button from "../atoms/Button"
 
 export default function Documents() {
 
@@ -29,10 +32,22 @@ export default function Documents() {
     }
 
     return <Container $align='center' $justify='center'>
-        <H2 $margin='2rem 0 1rem'>Uw Documenten</H2>
-        <Text>Hieronder vindt u al uw medische documenten in PDF-formaat. Klik op een document om het te downloaden.</Text>
-        <Section $height='80vh' $wrap='nowrap'>
-            { letters.map( ( { subject, message, day }, index ) => <A key={ subject } $margin='.25rem 0' onClick={ () => download_pdf( index ) }>document-{ subject }-{ day }.pdf</A> ) }
+        <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
+            <H1 $margin='0'><FileTextIcon size='2.2rem' />Uw Documenten</H1>
+        </Column>
+
+
+        <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
+
+            { letters.map( ( { subject, message, day }, index ) => <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
+                <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
+                    <Text><FileTextIcon />{ subject }</Text>
+                    <Button $variant='outline' onClick={ () => download_pdf( index ) } >
+                        Download document
+                    </Button>
+                </Section>
+            </Card> ) }
+
         </Section>
 
     </Container>
