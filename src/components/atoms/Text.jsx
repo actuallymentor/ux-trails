@@ -16,7 +16,7 @@ export const Text = styled.p`
 	white-space: pre-wrap;
 	svg {
 		margin-right: 0.5rem;
-		vertical-align: middle;
+		vertical-align: text-top;
 		padding: 2px;
 	}
 	${ passable_props };
@@ -31,7 +31,7 @@ export const Span = styled.span`
 `
 
 export const H1 = styled.h1`
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 500;
 	line-height: 1.2;
 	font-family: Helvetica, sans-serif;
@@ -40,7 +40,7 @@ export const H1 = styled.h1`
 	overflow-wrap: anywhere;
 	svg {
 		margin-right: 0.5rem;
-		vertical-align: vertical;
+		vertical-align: text-top;
 	}
 	${ passable_props };
 `
@@ -55,7 +55,7 @@ export const H2 = styled.h2`
 	overflow-wrap: anywhere;
 	svg {
 		margin-right: 0.5rem;
-		vertical-align: vertical;
+		vertical-align: text-top;
 	}
 	${ passable_props };
 `
