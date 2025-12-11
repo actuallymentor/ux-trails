@@ -7,6 +7,9 @@ import { H1, Sidenote } from "../atoms/Text"
 import Input from "../molecules/Input"
 import { toast } from "react-toastify"
 import { capitalise } from "mentie"
+import Card from "../atoms/Card"
+import A from "../atoms/Link"
+import Spacer from "../atoms/Spacer"
 
 export default function LoginPage() {
 
@@ -59,12 +62,21 @@ export default function LoginPage() {
 
         <Section $width='800px' $justify="center" $align="center">
 
-            <H1>Inloggen</H1>
-            { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label="Volledige naam" info='Uw volledige naam' type="text" placeholder="Jan Jansen" /> }
-            <Input value={ email } onChange={ e => set_email( e.target.value ) } label="Email of gebruikersnaam" info='Uw email adres' type="email" placeholder="uw@email.com" />
-            <Input value={ password } onChange={ e => set_password( e.target.value ) } label="Wachtwoord" info='Uw wachtwoord' type="password" placeholder="wachtwoord" />
-            <Button onClick={ mode === 'login' ? login : register }>{ capitalise( mode ) }</Button>
-            <Sidenote>Of <span onClick={ toggle_mode }>{ mode === 'login' ? 'Registreer' : 'Log in' }</span></Sidenote>
+            <Card>
+                <H1>{ mode === 'login' ? 'Inloggen' : 'Registreren' }</H1>
+                <Sidenote $align="left" $margin='2rem 0'>{
+                    mode === 'login' ? <>Log in met uw inloggegevens of <A onClick={ toggle_mode }>creëer een nieuw account.</A> </>
+                        : <>Registreer een nieuw account of <A onClick={ toggle_mode }>log in met uw bestaande gegevens.</A></>
+                }</Sidenote>
+                { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label="Volledige naam" info='Uw volledige naam' type="text" placeholder="Jan Jansen" /> }
+                <Input value={ email } onChange={ e => set_email( e.target.value ) } label="Email of gebruikersnaam" info='Uw email adres' type="email" placeholder="uw@email.com" />
+                <Input value={ password } onChange={ e => set_password( e.target.value ) } label="Wachtwoord" info='Uw wachtwoord' type="password" placeholder="wachtwoord" />
+                <Spacer />
+                <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ capitalise( mode ) }</Button>
+                <Spacer />
+
+            </Card>
+
         </Section>
 
     </Container>

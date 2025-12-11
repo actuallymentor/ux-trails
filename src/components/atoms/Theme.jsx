@@ -4,9 +4,11 @@ import { ThemeProvider } from 'styled-components'
 import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 
 const shared_colors = {
-    accent: '#1193d4',
+    accent: '#2d5795',
+    info: '#d1e5f7',
     success: 'green',
     error: 'red',
+    borders: '#d9d9d9',
     shadow: {
         light: 'rgba( 0, 0, 0, .2 )',
         dark: 'rgba( 255, 255, 255, .4 )'
@@ -14,10 +16,11 @@ const shared_colors = {
 }
 
 const theme = {
+    container: 1200,
     colors: {
-        primary: 'black',
-        text: 'black',
-        hint: 'grey',
+        primary: '#1E1E1E',
+        text: '#1E1E1E',
+        hint: '#757575',
         backdrop: 'white',
         ...shared_colors
     },

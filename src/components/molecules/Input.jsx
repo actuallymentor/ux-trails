@@ -4,12 +4,14 @@ import { passable_props } from '../component_base'
 import { useDebounce } from 'use-debounce'
 import useInterval from 'use-interval'
 import { log } from 'mentie'
+import { EyeClosedIcon, EyeIcon } from 'lucide-react'
 
 const InputBase = styled.span`
 
 	display: flex;
 	flex-direction: column;
 	margin: 1rem 0;
+    position: relative;
 
 	width: 100%;
 	max-width: 100%;
@@ -21,7 +23,7 @@ const InputBase = styled.span`
 		color: ${ ( { theme } ) => theme.colors.text };
 
 		// Default border
-		border-left: 2px solid ${ ( { theme, highlight } ) => highlight ? theme.colors.accent : theme.colors.primary };
+		border: 1px solid ${ ( { theme, highlight } ) => highlight ? theme.colors.accent : theme.colors.borders };
 
 		// Validity based border, only if the property valid exists
 		${ ( { $valid, theme, $has_content } ) => $has_content && $valid === true && `border-left: 2px solid ${ theme.colors.success }` }
@@ -55,8 +57,8 @@ const InputBase = styled.span`
 
 		// The actual label
 		span:first-child {
-			opacity: .5;
-			font-style: italic;
+			/* opacity: .5; */
+			/* font-style: italic; */
 			margin-bottom: .5rem;
 			width: 100%;
 			color: ${ ( { theme } ) => theme.colors.text };
@@ -70,13 +72,27 @@ const InputBase = styled.span`
 			font-size: .9rem;
 			margin-left: auto;
 			font-style: normal;
+            font-weight: bold;
 			background: ${ ( { theme } ) => theme.colors.backdrop };
-			color: ${ ( { theme } ) => theme.colors.primary };
+			color: ${ ( { theme } ) => theme.colors.accent };
 			border-radius: 50%;
 			width: 20px;
 			height: 20px;
+            &:hover {
+                cursor: pointer;
+                background: ${ ( { theme } ) => theme.colors.info };
+                /* color: ${ ( { theme } ) => theme.colors.backdrop }; */
+            }
 		}
 	}
+
+    .password_visibility {
+        position: absolute;
+        right: 1rem;
+        top: 2.5rem;
+        cursor: pointer;
+        color: ${ ( { theme } ) => theme.colors.primary };
+    }
 
 	${ props => passable_props( props ) }
 
@@ -119,6 +135,7 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
     const [ valid ] = useDebounce( empty || raw_valid, validation_delay, { leading: true } )
     const [ last_edit, set_last_edit ] = useState( Date.now() )
     const [ is_typing, set_is_typing ] = useState( false )
+    const [ type_override, set_type_override ] = useState( type )
 
     // Handle focus events
     const handle_focus = () => set_is_focused( true )
@@ -192,10 +209,15 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
         { label && <label htmlFor={ internalId }><span>{ label }</span> { info && <span onClick={ f => alert( info ) } onMouseDown={ e => e.preventDefault() }>?</span> }</label> }
 
         { /* Regular input field */ } 
-        { !title && !special_types.includes( type ) && <input data-testid={ internalId } { ...child_props } onKeyDown={ handle_enter } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type={ type || 'text' } /> }
+        { !title && !special_types.includes( type ) && <input data-testid={ internalId } { ...child_props } onKeyDown={ handle_enter } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type={ type_override || type || 'text' } /> }
 
         { /* Textarea input field */ }
-        { !title && type == 'textarea' && <textarea data-testid={ internalId } { ...child_props } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type={ type || 'text' } /> }
+        { !title && type == 'textarea' && <textarea data-testid={ internalId } { ...child_props } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type={ type_override || type || 'text' } /> }
+        { /* Password eye */ }
+        { !title && type == 'password' && <span className='password_visibility'>
+            { type_override == 'password' && <EyeIcon onClick={ () => set_type_override( 'text' ) } /> }
+            { type_override == 'text' && <EyeClosedIcon onClick={ () => set_type_override( 'password' ) } /> }
+        </span> }     
 
         { /* Dropdown input field */ }
         { !title && type == 'dropdown' && <select id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } { ...child_props }>

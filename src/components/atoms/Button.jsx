@@ -10,6 +10,7 @@ const ButtonBase = styled.a`
 	border-radius: 5px;
 	border: 2px solid ${ ( { $color='accent', theme } ) => theme.colors[ $color ] || $color };
 	display: inline-block;
+	text-align: ${ ( { $align='center' } ) => $align };
 
 	svg {
 		vertical-align: middle;

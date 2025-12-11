@@ -4,10 +4,10 @@ import { H1, H2 } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import Section from "../atoms/Section"
 import { CalendarIcon, FileTextIcon, FlaskConicalIcon, MailIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import Tile from "../molecules/Tile"
+import Grid from "../atoms/Grid"
 
 export default function Homepage() {
 
@@ -28,9 +28,13 @@ export default function Homepage() {
             <H2>Welkom { user.name }</H2>
         </Card>
 
-        <Section $direction="row" $flexwrap="wrap" $justify="center" $align="center" $margin="2rem 0" >
+        { /* <Section $direction="row" $flexwrap="wrap" $justify="space-between" $align="center" $margin="2rem 0" $padding='0' >
             { tiles.map( ( tile, index ) => <Tile { ...tile } key={ index } onClick={ () => navigate( tile.nav ) } /> ) }
-        </Section>
+        </Section> */ }
+
+        <Grid>
+            { tiles.map( ( tile, index ) => <Tile { ...tile } key={ index } onClick={ () => navigate( tile.nav ) } /> ) }
+        </Grid>
 
     </Container>
 

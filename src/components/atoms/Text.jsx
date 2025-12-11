@@ -64,7 +64,7 @@ export const Sidenote = styled.p`
 	color: ${ ( { theme } ) => theme.colors.hint };
 	font-style: italic;
 	margin-top:  1rem;
-	text-align: center;
+	text-align: ${ ( { $align } ) => $align || 'center' };
 	overflow-wrap: anywhere;
 	${ passable_props };
 `

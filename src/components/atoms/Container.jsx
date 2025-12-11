@@ -9,10 +9,12 @@ const ContainerBase = styled.div`
 	background: ${ ( { theme } ) => theme.colors.backdrop };
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	min-height: 100vh;
-	width: 100%;
+	width: ${ ( { theme } ) => `${ theme.container }px` };
+	max-width: 100%;
+	margin: 0 auto;
 	box-sizing: border-box;
-	padding: .5rem 1rem;
 	padding-top: ${ ( { $menu=true, $menu_height='55px' } ) => $menu ? $menu_height : '0' };
 
 	main {
@@ -24,7 +26,12 @@ const ContainerBase = styled.div`
 		flex: 1;
 		min-height: 100%;
 		max-width: 100%;
-		padding: 3rem 0;
+		width: 100%;
+
+		// When body is under theme.container size add padding
+		@media ( max-width: ${ ( { theme } ) => `${ theme.container + 40 }px` } ) {
+			padding: 0 1rem;
+		}
 
 		// Implement generic passable props
 		${ passable_props };

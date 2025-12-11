@@ -11,6 +11,8 @@ import { Spinner } from "../molecules/Loading"
 import { H1, H2, Text } from '../atoms/Text'
 import Button from "../atoms/Button"
 import Badge from "../molecules/Badge"
+import { useTheme } from "styled-components"
+import Grid from "../atoms/Grid"
 const LabChart = lazy( prefetch( () => import( "../molecules/LabChart" ) ) )
 
 
@@ -19,6 +21,7 @@ export default function LabTests() {
     const { labtest_scores } = useLabTestScoreStore()
     const [ current_test, set_current_test ] = useQueryParam( 'name' )
     const current_data = labtest_scores.find( t => t.name == current_test )
+    const theme = useTheme()
 
     if( current_test && !current_data ) {
         return <Container $align='center' $justify='center'>
@@ -35,18 +38,18 @@ export default function LabTests() {
     // Return overview if no test is selected
     if( !current_test ) return <Container $align='center' $justify='center'>
 
-        <Column $direction='row' $justify='space-between' $align='center' $width='100%' $max-width='1100px' $margin='0 0 2rem'>
+        <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0 0 2rem'>
             <H1 $margin='0'><FlaskConicalIcon size='2.2rem' />Labuitslagen</H1>
         </Column>
 
 
-        <Section $width='1600px' $align='center' $justify='center' $padding='0 .5rem' $margin='0' >
-            <Column $direction='row' $gap='1rem' $justify='flex-start' $align='center' $width='100%' $margin='0 0 1rem' >
+        <Section $align='center' $justify='center' $padding='0' $margin='0' >
+            <Grid>
                 { labtest_scores.map( ( { name, average, unit, readings } ) => {
 
                     const latest_reading = readings?.[ readings.length - 1 ]
 
-                    return <Card key={ name } $padding='1rem 1.5rem' $flex='1 0 400px'>
+                    return <Card key={ name } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
                         <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ name }</H2>
                         <Badge $position='absolute' $right='1.5rem' $top='1rem'>Metingen: { readings.length }</Badge>
                         <Text $margin='0' $color='hint'>Gemiddelde waarde: { average } { unit }</Text>
@@ -57,7 +60,7 @@ export default function LabTests() {
                     </Card>
                 } ) }
                 { labtest_scores.length == 0 && <Text $margin='2rem 0'>Er zijn nog geen labuitslagen beschikbaar.</Text> }
-            </Column>
+            </Grid>
         </Section>
 
     </Container>

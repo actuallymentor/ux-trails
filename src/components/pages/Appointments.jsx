@@ -13,6 +13,7 @@ import { toast } from "react-toastify"
 import { date_after_timestamp_validator, date_to_locale_string, is_future, tomorrow_yyyy_mm_dd } from "../../modules/dates"
 import Badge from "../molecules/Badge"
 import Section from "../atoms/Section"
+import Grid from "../atoms/Grid"
 
 export default function Appointments() {
 
@@ -66,7 +67,7 @@ export default function Appointments() {
         </Column>
 
         <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
-            <Column $direction='row' $gap='1rem' $justify='flex-start' $align='center' $width='100%' $margin='0 0 1rem' >
+            <Grid>
                 { appointments.map( ( { date, time, reason }, index ) => {
 
                     const future = is_future( date )
@@ -91,7 +92,7 @@ export default function Appointments() {
             
                 } ) }
                 { appointments.length == 0 && <Text $margin='2rem 0'>U heeft nog geen afspraken gepland.</Text> }
-            </Column>
+            </Grid>
         </Section>
 
         { view_appointment && <Modal onClose={ () => set_view_appointment( null ) }>
