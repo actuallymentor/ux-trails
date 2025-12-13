@@ -8,24 +8,26 @@ import { CalendarIcon, FileTextIcon, FlaskConicalIcon, MailIcon } from "lucide-r
 import { useNavigate } from "react-router-dom"
 import Tile from "../molecules/Tile"
 import Grid from "../atoms/Grid"
+import { useTranslation } from "react-i18next"
 
 export default function Homepage() {
 
     const { user } = useUserStore()
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     const tiles = [
-        { icon: FlaskConicalIcon, title: 'Uitslagen', nav: '/profile/labs', text: 'Klik hier om uw testuitslagen te belijken.' },
-        { icon: CalendarIcon, title: 'Afspraken', nav: '/profile/appointments', text: 'Klik hier om uw afspraken te beheren.' },
-        { icon: FileTextIcon, title: 'Documenten', nav: '/profile/documents', text: 'Klik hier om uw documenten te bekijken.' },
-        { icon: MailIcon, title: 'Berichten', nav: '/profile/inbox', text: 'Klik hier om uw berichten te lezen.' },
+        { icon: FlaskConicalIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
+        { icon: CalendarIcon, title: t( 'homepage.tiles.appointments.title' ), nav: '/profile/appointments', text: t( 'homepage.tiles.appointments.body' ) },
+        { icon: FileTextIcon, title: t( 'homepage.tiles.documents.title' ), nav: '/profile/documents', text: t( 'homepage.tiles.documents.body' ) },
+        { icon: MailIcon, title: t( 'homepage.tiles.messages.title' ), nav: '/profile/inbox', text: t( 'homepage.tiles.messages.body' ) },
     ]
 
     if( user ) return <Container>
 
         <Card $width="100%">
-            <H1 $margin=".5rem 0">Patientomgeving</H1>
-            <H2>Welkom { user.name }</H2>
+            <H1 $margin=".5rem 0">{ t( 'homepage.patientArea' ) }</H1>
+            <H2>{ t( 'homepage.welcomeUser', { name: user.name } ) }</H2>
         </Card>
 
         { /* <Section $direction="row" $flexwrap="wrap" $justify="space-between" $align="center" $margin="2rem 0" $padding='0' >
@@ -41,9 +43,9 @@ export default function Homepage() {
     return <Container $padding='0'>
 
         <Hero>
-            <H1 $margin="0">Welkom bij de patiëntenomgeving</H1>
-            <H2>Log in om uw gegevens te bekijken</H2>
-            <Button navigate="/login" $color="primary" $variant="solid">Inloggen</Button>
+            <H1 $margin="0">{ t( 'homepage.heroTitle' ) }</H1>
+            <H2>{ t( 'homepage.heroSubtitle' ) }</H2>
+            <Button navigate="/login" $color="primary" $variant="solid">{ t( 'homepage.loginButton' ) }</Button>
         </Hero>
 
     </Container>

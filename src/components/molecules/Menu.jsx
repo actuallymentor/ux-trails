@@ -7,6 +7,8 @@ import { CalendarIcon, DropletIcon, FileArchive, HomeIcon, InboxIcon, KeyIcon, L
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from './LanguageDropdown'
 
 const MenuBase = styled.nav`
 
@@ -51,7 +53,7 @@ const MenuBase = styled.nav`
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: ${ ( { $float } ) => $float === 'left' ? 'flex-start' : 'flex-end' };
+		align-items: center;
 		width: ${ ( { theme } ) => `${ theme.container }px` };
 		margin: 0 auto;
 	}
@@ -95,16 +97,11 @@ const MenuBase = styled.nav`
 		& a:nth-child(4) { transition-delay: ${ ( { $mobile_open } ) => $mobile_open ? '0.35s' : '0s' }; }
 	}
 
+	// Style the links inside the menu
 	& a {
 
 		display: inline-block;
 
-		/* &:not(:first-child) {
-			width: ${ ( { $mobile_open } ) => $mobile_open ? '100%' : '' };
-			border-bottom: 1px solid ${ ( { theme, $mobile_open } ) => $mobile_open ? theme.colors.primary : 'rgba( 0,0,0,0 )' };
-			margin: 1rem .5rem 0;
-			padding: 0 0 1rem;
-		} */
 		padding: 1rem;
 		margin: 0;
 		color: ${ ( { $mobile_open, theme } ) => $mobile_open ? theme.colors.primary : '' };
@@ -118,6 +115,7 @@ const MenuBase = styled.nav`
 
 	}
 
+
 `
 
 export default function Menu( { $menu_height, $float='center', ...props } ) {
@@ -130,6 +128,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const menu_cutoff = 1000
     const use_burger = width < menu_cutoff
     $float = use_burger ? 'left' : $float
+    const { t, i18n } = useTranslation()
 
     useEffect( () => {
         if( !use_burger ) set_open( false )
@@ -146,18 +145,21 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     // Make list of link components
     const icon_size = '1rem'
     const logged_in_links = [
-        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><DropletIcon size={ icon_size } />Uitslagen</Link>,
-        <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><CalendarIcon size={ icon_size } />Afspraken</Link>,
-        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><InboxIcon size={ icon_size } />Berichten</Link>,
-        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileArchive size={ icon_size } />Documenten</Link>,
-        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><KeyIcon size={ icon_size } />Instellingen</Link>,
-        <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />Uitloggen</Link>
+        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><DropletIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
+        <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><CalendarIcon size={ icon_size } />{ t( 'menu.appointments' ) }</Link>,
+        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><InboxIcon size={ icon_size } />{ t( 'menu.messages' ) }</Link>,
+        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileArchive size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
+        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><KeyIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
+        <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
     ]
     const links = [
-        <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><HomeIcon size={ icon_size } />Startpagina</Link>,
-        !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><KeyIcon size={ icon_size } />Inloggen</Link>,
+        <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><HomeIcon size={ icon_size } />{ t( 'menu.home' ) }</Link>,
+        !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><KeyIcon size={ icon_size } />{ t( 'menu.login' ) }</Link>,
         user && logged_in_links,
     ].filter( Boolean ).flat()
+
+
+    
 
     return <MenuBase $menu_height={ $menu_height } $float={ $float } $mobile_open={ open }>
 
@@ -167,10 +169,12 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
         { use_burger && <span className='menu_links burger'>
             <XIcon size='50' className='menu_burger close' $mobile_open={ open } onClick={ f => set_open( !open ) } />
             { links }
+            <LanguageSelector />
         </span> }
         
         { !use_burger && <span className='menu_links fullscreen'>
             { links }
+            <LanguageSelector />
         </span> }
 
     </MenuBase>

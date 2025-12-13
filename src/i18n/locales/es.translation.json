@@ -1,0 +1,181 @@
+{
+    "common": {
+        "loading": "Cargando",
+        "close": "Cerrar",
+        "save": "Guardar",
+        "backToOverview": "Volver al resumen"
+    },
+    "menu": {
+        "home": "Inicio",
+        "login": "Iniciar sesión",
+        "labs": "Resultados",
+        "appointments": "Citas",
+        "messages": "Mensajes",
+        "documents": "Documentos",
+        "settings": "Configuración",
+        "logout": "Cerrar sesión"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Portal del paciente",
+        "welcomeUser": "Bienvenido/a {{name}}",
+        "heroTitle": "Bienvenido/a al portal del paciente",
+        "heroSubtitle": "Inicie sesión para ver su información",
+        "loginButton": "Iniciar sesión",
+        "tiles": {
+            "labs": {
+                "title": "Resultados",
+                "body": "Haga clic aquí para ver sus resultados de laboratorio."
+            },
+            "appointments": {
+                "title": "Citas",
+                "body": "Haga clic aquí para gestionar sus citas."
+            },
+            "documents": {
+                "title": "Documentos",
+                "body": "Haga clic aquí para ver sus documentos."
+            },
+            "messages": {
+                "title": "Mensajes",
+                "body": "Haga clic aquí para leer sus mensajes."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Sus citas",
+        "new": "Nueva cita",
+        "cardTitle": "Cita",
+        "badgeUpcoming": "Próxima",
+        "badgePast": "Pasada",
+        "defaultLocation": "En la consulta",
+        "viewDetails": "Ver detalles",
+        "cancel": "Cancelar cita",
+        "emptyState": "Todavía no tiene citas programadas.",
+        "detailsTitle": "Detalles de la cita",
+        "selectTime": "Seleccione una hora disponible:",
+        "noSlots": "No hay franjas horarias disponibles en esta fecha.",
+        "form": {
+            "dateLabel": "Fecha de la cita",
+            "dateError": "Elija una fecha en el futuro.",
+            "reasonLabel": "Motivo de la cita",
+            "reasonPlaceholder": "Por ejemplo, \"Revisión rutinaria\"",
+            "reasonError": "Introduzca un motivo válido (mínimo 10 caracteres).",
+            "confirm": "Confirmar cita"
+        },
+        "toast": {
+            "missingReason": "Introduzca un motivo, por favor.",
+            "invalidDate": "Elija una fecha válida, por favor.",
+            "missingSlot": "Seleccione una franja horaria, por favor.",
+            "cancelConfirm": "¿Está seguro/a de que desea cancelar su cita del {{date}}?",
+            "cancelConfirmWithTime": "¿Está seguro/a de que desea cancelar su cita del {{date}} a las {{time}}?",
+            "cancelSuccess": "Cita cancelada correctamente.",
+            "cancelAbort": "La cita no fue cancelada."
+        }
+    },
+    "documents": {
+        "pageTitle": "Sus documentos",
+        "download": "Descargar documento"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Presión arterial",
+            "cholesterol": "Colesterol",
+            "glucose": "Glucosa en sangre"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Resultado desconocido",
+        "unknownDescription": "No pudimos encontrar este resultado de laboratorio. Vuelva a intentarlo desde el resumen.",
+        "pageTitle": "Resultados de laboratorio",
+        "metrics": "Mediciones: {{count}}",
+        "average": "Valor medio: {{value}} {{unit}}",
+        "latestReading": "Última medición (día {{day}}): {{value}} {{unit}}",
+        "view": "Ver resultados",
+        "emptyState": "Aún no hay resultados de laboratorio disponibles.",
+        "trend": "Tendencia",
+        "averageBadge": "Promedio: {{value}} {{unit}}",
+        "overview": "Resumen",
+        "readingsCount": "Hay {{count}} mediciones disponibles.",
+        "readingItem": "Medición {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "loginDescription": "Inicie sesión con sus credenciales o",
+        "createAccount": "cree una cuenta nueva.",
+        "registerDescription": "Registre una cuenta nueva o",
+        "loginExisting": "inicie sesión con sus datos existentes.",
+        "labels": {
+            "name": "Nombre completo",
+            "email": "Correo electrónico o usuario",
+            "password": "Contraseña"
+        },
+        "info": {
+            "name": "Su nombre completo",
+            "email": "Su dirección de correo electrónico",
+            "password": "Su contraseña"
+        },
+        "placeholders": {
+            "name": "Juan Pérez",
+            "email": "correo@ejemplo.com",
+            "password": "contraseña"
+        },
+        "button": {
+            "login": "Iniciar sesión",
+            "register": "Registrarse"
+        },
+        "toast": {
+            "userNotFound": "Usuario no encontrado",
+            "wrongPassword": "La contraseña es incorrecta",
+            "loggedIn": "Sesión iniciada",
+            "userExists": "El usuario ya existe",
+            "registered": "Registrado/a y con sesión iniciada"
+        }
+    },
+    "messages": {
+        "pageTitle": "Su bandeja de entrada",
+        "view": "Ver mensaje",
+        "close": "Cerrar mensaje"
+    },
+    "settings": {
+        "pageTitle": "Configuración",
+        "labels": {
+            "name": "Nombre completo",
+            "phone": "Número de teléfono",
+            "address": "Dirección",
+            "doctor": "Médico de cabecera",
+            "email": "Correo electrónico o usuario",
+            "password": "Contraseña"
+        },
+        "info": {
+            "name": "Su nombre completo tal como aparece en el sistema",
+            "phone": "Su número de teléfono",
+            "address": "Su dirección",
+            "doctor": "Nombre de su médico de cabecera",
+            "email": "Su dirección de correo electrónico",
+            "password": "Su contraseña"
+        },
+        "placeholders": {
+            "name": "Juan Pérez",
+            "phone": "+34 600 123 456",
+            "address": "Calle Principal 1, 28000 Madrid",
+            "doctor": "Dr. García",
+            "email": "correo@ejemplo.com",
+            "password": "contraseña"
+        },
+        "toast": {
+            "success": "Perfil guardado",
+            "missingRequired": "El correo electrónico y la contraseña son obligatorios",
+            "duplicateEmail": "Ya existe un usuario con este correo electrónico",
+            "invalidEmail": "Dirección de correo electrónico no válida",
+            "genericError": "Error al guardar el perfil: {{message}}"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "señor/a",
+        "subject": "Resultado del análisis de {{testName}} día {{day}}",
+        "message": "Estimado/a {{patientName}},\n\nRecientemente nos visitó para un análisis de {{testName}}.\n\nAdjunto encontrará el resultado de su análisis.\n\nEl valor de su {{testName}} es {{value}} {{unit}} medido el día {{day}}.\n\nAtentamente,\n\nSu profesional sanitario"
+    }
+}

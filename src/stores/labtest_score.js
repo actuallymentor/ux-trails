@@ -1,6 +1,7 @@
 import { dev, log, random_number_between } from "mentie"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
+import i18n from "../i18n"
 
 // Generic value generator
 function random_values( { amount_of_readings, min_value, max_value, unit } ) {
@@ -25,9 +26,9 @@ function random_values( { amount_of_readings, min_value, max_value, unit } ) {
 }
 
 const dummy_value_spec = [
-    { name: 'Bloeddruk', amount_of_readings: random_number_between( 12, 3 ), min_value: 90, max_value: 140, unit: 'mmHg' },
-    { name: 'Cholesterol', amount_of_readings: random_number_between( 12, 3 ), min_value: 150, max_value: 250, unit: 'mg/dL' },
-    { name: 'Bloedsuiker', amount_of_readings: random_number_between( 12, 3 ), min_value: 70, max_value: 130, unit: 'mg/dL' },
+    { type: 'bloodpressure', amount_of_readings: random_number_between( 12, 3 ), min_value: 90, max_value: 140, unit: 'mmHg' },
+    { type: 'cholesterol', amount_of_readings: random_number_between( 12, 3 ), min_value: 150, max_value: 250, unit: 'mg/dL' },
+    { type: 'glucose', amount_of_readings: random_number_between( 12, 3 ), min_value: 70, max_value: 130, unit: 'mg/dL' },
 ]
 
 
@@ -52,7 +53,8 @@ export const useLabTestScoreStore = create()( persist(
             log.info( 'Initialising dummy lab test scores' )
             const dummy_data = dummy_value_spec.reduce( ( acc, spec ) => {
                 const values = random_values( spec )
-                acc.push( { ...spec, ...values } )
+                const name = i18n.t( `labs.types.${ spec.type }`, { defaultValue: spec.type } )
+                acc.push( { ...spec, name, ...values } )
                 return acc
             }, [] )
             log.info( 'Dummy lab test scores', dummy_data )

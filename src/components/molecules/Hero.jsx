@@ -74,7 +74,7 @@ export default function Hero( { children, ...props } ) {
     return <HeroBase { ...props }>
 
         { $background_image && <HeroContainer { ...props }>
-            <img className="background" src={ $background_image } alt="Hero background image" />
+            <img className="background" src={ $background_image } />
         </HeroContainer> }
         <HeroContainer { ...props }>{ children }</HeroContainer>
 		

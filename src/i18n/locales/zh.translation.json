@@ -1,0 +1,181 @@
+{
+    "common": {
+        "loading": "加载中",
+        "close": "关闭",
+        "save": "保存",
+        "backToOverview": "返回概览"
+    },
+    "menu": {
+        "home": "首页",
+        "login": "登录",
+        "labs": "检验结果",
+        "appointments": "预约",
+        "messages": "消息",
+        "documents": "文档",
+        "settings": "设置",
+        "logout": "退出登录"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "患者门户",
+        "welcomeUser": "欢迎 {{name}}",
+        "heroTitle": "欢迎来到患者门户",
+        "heroSubtitle": "请登录查看您的信息",
+        "loginButton": "登录",
+        "tiles": {
+            "labs": {
+                "title": "检验结果",
+                "body": "点击此处查看您的检验结果。"
+            },
+            "appointments": {
+                "title": "预约",
+                "body": "点击此处管理您的预约。"
+            },
+            "documents": {
+                "title": "文档",
+                "body": "点击此处查看您的文档。"
+            },
+            "messages": {
+                "title": "消息",
+                "body": "点击此处阅读您的消息。"
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "您的预约",
+        "new": "新建预约",
+        "cardTitle": "预约",
+        "badgeUpcoming": "即将到来",
+        "badgePast": "已过期",
+        "defaultLocation": "在诊所",
+        "viewDetails": "查看详情",
+        "cancel": "取消预约",
+        "emptyState": "您尚未安排任何预约。",
+        "detailsTitle": "预约详情",
+        "selectTime": "请选择可用时间：",
+        "noSlots": "该日期没有可用的时间段。",
+        "form": {
+            "dateLabel": "预约日期",
+            "dateError": "请选择一个将来的日期。",
+            "reasonLabel": "预约原因",
+            "reasonPlaceholder": "例如\"常规检查\"",
+            "reasonError": "请输入有效的原因（至少10个字符）。",
+            "confirm": "确认预约"
+        },
+        "toast": {
+            "missingReason": "请输入预约原因。",
+            "invalidDate": "请选择有效日期。",
+            "missingSlot": "请选择时间段。",
+            "cancelConfirm": "您确定要取消 {{date}} 的预约吗？",
+            "cancelConfirmWithTime": "您确定要取消 {{date}} {{time}} 的预约吗？",
+            "cancelSuccess": "预约已成功取消。",
+            "cancelAbort": "预约未被取消。"
+        }
+    },
+    "documents": {
+        "pageTitle": "您的文档",
+        "download": "下载文档"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "血压",
+            "cholesterol": "胆固醇",
+            "glucose": "血糖"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "未知结果",
+        "unknownDescription": "我们未能找到此化验结果。请从概览页面重试。",
+        "pageTitle": "化验结果",
+        "metrics": "测量次数：{{count}}",
+        "average": "平均值：{{value}} {{unit}}",
+        "latestReading": "最近一次测量（第 {{day}} 天）：{{value}} {{unit}}",
+        "view": "查看结果",
+        "emptyState": "暂无可用的化验结果。",
+        "trend": "趋势",
+        "averageBadge": "平均值：{{value}} {{unit}}",
+        "overview": "概览",
+        "readingsCount": "共有 {{count}} 条测量记录。",
+        "readingItem": "第 {{day}} 天测量：{{value}} {{unit}}"
+    },
+    "login": {
+        "login": "登录",
+        "register": "注册",
+        "loginDescription": "使用您的凭据登录或",
+        "createAccount": "创建新账户。",
+        "registerDescription": "注册新账户或",
+        "loginExisting": "使用现有信息登录。",
+        "labels": {
+            "name": "全名",
+            "email": "电子邮件或用户名",
+            "password": "密码"
+        },
+        "info": {
+            "name": "您的全名",
+            "email": "您的电子邮件地址",
+            "password": "您的密码"
+        },
+        "placeholders": {
+            "name": "张伟",
+            "email": "you@email.com",
+            "password": "密码"
+        },
+        "button": {
+            "login": "登录",
+            "register": "注册"
+        },
+        "toast": {
+            "userNotFound": "未找到用户",
+            "wrongPassword": "密码不正确",
+            "loggedIn": "已登录",
+            "userExists": "用户已存在",
+            "registered": "已注册并登录"
+        }
+    },
+    "messages": {
+        "pageTitle": "您的收件箱",
+        "view": "查看消息",
+        "close": "关闭消息"
+    },
+    "settings": {
+        "pageTitle": "设置",
+        "labels": {
+            "name": "全名",
+            "phone": "电话号码",
+            "address": "地址",
+            "doctor": "家庭医生",
+            "email": "电子邮件或用户名",
+            "password": "密码"
+        },
+        "info": {
+            "name": "您在系统中显示的全名",
+            "phone": "您的电话号码",
+            "address": "您的家庭地址",
+            "doctor": "您的家庭医生姓名",
+            "email": "您的电子邮件地址",
+            "password": "您的密码"
+        },
+        "placeholders": {
+            "name": "张伟",
+            "phone": "+86 138 0000 0000",
+            "address": "北京市朝阳区某街道1号",
+            "doctor": "李医生",
+            "email": "you@email.com",
+            "password": "密码"
+        },
+        "toast": {
+            "success": "个人资料已保存",
+            "missingRequired": "电子邮件和密码为必填项",
+            "duplicateEmail": "该电子邮件地址已被使用",
+            "invalidEmail": "电子邮件地址无效",
+            "genericError": "保存个人资料时出错：{{message}}"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "先生/女士",
+        "subject": "{{testName}}检查结果 第{{day}}天",
+        "message": "尊敬的 {{patientName}}，\n\n您最近到访我们进行了{{testName}}检查。\n\n附件为您的检查结果。\n\n您的{{testName}}值为 {{value}} {{unit}}，测量于第 {{day}} 天。\n\n此致，\n\n您的医疗服务提供者"
+    }
+}

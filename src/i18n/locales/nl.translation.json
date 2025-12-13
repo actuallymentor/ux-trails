@@ -1,0 +1,181 @@
+{
+    "common": {
+        "loading": "Laden",
+        "close": "Sluiten",
+        "save": "Opslaan",
+        "backToOverview": "Terug naar overzicht"
+    },
+    "menu": {
+        "home": "Startpagina",
+        "login": "Inloggen",
+        "labs": "Uitslagen",
+        "appointments": "Afspraken",
+        "messages": "Berichten",
+        "documents": "Documenten",
+        "settings": "Instellingen",
+        "logout": "Uitloggen"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Patiëntenomgeving",
+        "welcomeUser": "Welkom {{name}}",
+        "heroTitle": "Welkom bij de patiëntenomgeving",
+        "heroSubtitle": "Log in om uw gegevens te bekijken",
+        "loginButton": "Inloggen",
+        "tiles": {
+            "labs": {
+                "title": "Uitslagen",
+                "body": "Klik hier om uw testuitslagen te bekijken."
+            },
+            "appointments": {
+                "title": "Afspraken",
+                "body": "Klik hier om uw afspraken te beheren."
+            },
+            "documents": {
+                "title": "Documenten",
+                "body": "Klik hier om uw documenten te bekijken."
+            },
+            "messages": {
+                "title": "Berichten",
+                "body": "Klik hier om uw berichten te lezen."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Uw afspraken",
+        "new": "Nieuwe afspraak",
+        "cardTitle": "Afspraak",
+        "badgeUpcoming": "Aankomend",
+        "badgePast": "Verleden",
+        "defaultLocation": "In de praktijk",
+        "viewDetails": "Bekijk details",
+        "cancel": "Afspraak annuleren",
+        "emptyState": "U heeft nog geen afspraken gepland.",
+        "detailsTitle": "Afspraakdetails",
+        "selectTime": "Selecteer een beschikbare tijd:",
+        "noSlots": "Geen beschikbare tijdsloten op deze datum.",
+        "form": {
+            "dateLabel": "Datum van afspraak",
+            "dateError": "Kies een datum in de toekomst.",
+            "reasonLabel": "Reden van afspraak",
+            "reasonPlaceholder": "Bijv. \"Routinecontrole\"",
+            "reasonError": "Vul alstublieft een geldige reden in (minimaal 10 tekens).",
+            "confirm": "Bevestig afspraak"
+        },
+        "toast": {
+            "missingReason": "Vul alstublieft een reden in.",
+            "invalidDate": "Selecteer alstublieft een geldige datum.",
+            "missingSlot": "Selecteer alstublieft een tijdslot.",
+            "cancelConfirm": "Weet u zeker dat u uw afspraak op {{date}} wilt annuleren?",
+            "cancelConfirmWithTime": "Weet u zeker dat u uw afspraak op {{date}} om {{time}} wilt annuleren?",
+            "cancelSuccess": "Afspraak succesvol geannuleerd.",
+            "cancelAbort": "Afspraak niet geannuleerd."
+        }
+    },
+    "documents": {
+        "pageTitle": "Uw documenten",
+        "download": "Download document"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Bloeddruk",
+            "cholesterol": "Cholesterol",
+            "glucose": "Bloedsuiker"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Onbekende uitslag",
+        "unknownDescription": "We konden deze laboratoriumuitslag niet vinden. Probeer het opnieuw vanuit het overzicht.",
+        "pageTitle": "Labuitslagen",
+        "metrics": "Metingen: {{count}}",
+        "average": "Gemiddelde waarde: {{value}} {{unit}}",
+        "latestReading": "Laatste meting (dag {{day}}): {{value}} {{unit}}",
+        "view": "Bekijk uitslagen",
+        "emptyState": "Er zijn nog geen labuitslagen beschikbaar.",
+        "trend": "Trend",
+        "averageBadge": "Gemiddelde: {{value}} {{unit}}",
+        "overview": "Overzicht",
+        "readingsCount": "Er zijn {{count}} metingen beschikbaar.",
+        "readingItem": "Meting {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Inloggen",
+        "register": "Registreren",
+        "loginDescription": "Log in met uw inloggegevens of",
+        "createAccount": "creëer een nieuw account.",
+        "registerDescription": "Registreer een nieuw account of",
+        "loginExisting": "log in met uw bestaande gegevens.",
+        "labels": {
+            "name": "Volledige naam",
+            "email": "Email of gebruikersnaam",
+            "password": "Wachtwoord"
+        },
+        "info": {
+            "name": "Uw volledige naam",
+            "email": "Uw email adres",
+            "password": "Uw wachtwoord"
+        },
+        "placeholders": {
+            "name": "Jan Jansen",
+            "email": "uw@email.com",
+            "password": "wachtwoord"
+        },
+        "button": {
+            "login": "Inloggen",
+            "register": "Registreren"
+        },
+        "toast": {
+            "userNotFound": "Gebruiker niet gevonden",
+            "wrongPassword": "Wachtwoord is onjuist",
+            "loggedIn": "Ingelogd",
+            "userExists": "Gebruiker bestaat al",
+            "registered": "Geregistreerd en ingelogd"
+        }
+    },
+    "messages": {
+        "pageTitle": "Uw berichtenbox",
+        "view": "Bekijk bericht",
+        "close": "Sluit bericht"
+    },
+    "settings": {
+        "pageTitle": "Instellingen",
+        "labels": {
+            "name": "Volledige naam",
+            "phone": "Telefoonnummer",
+            "address": "Adres",
+            "doctor": "Huisarts",
+            "email": "Email of gebruikersnaam",
+            "password": "Wachtwoord"
+        },
+        "info": {
+            "name": "Uw volledige naam zoals deze in het systeem wordt weergegeven",
+            "phone": "Uw telefoonnummer",
+            "address": "Uw woonadres",
+            "doctor": "Naam van uw huisarts",
+            "email": "Uw email adres",
+            "password": "Uw wachtwoord"
+        },
+        "placeholders": {
+            "name": "Jan Jansen",
+            "phone": "+31 6 12345678",
+            "address": "Straatnaam 1, 1234 AB, Plaats",
+            "doctor": "Dr. Pietersen",
+            "email": "uw@email.com",
+            "password": "wachtwoord"
+        },
+        "toast": {
+            "success": "Profiel opgeslagen",
+            "missingRequired": "Email en wachtwoord zijn verplicht",
+            "duplicateEmail": "Er bestaat al een gebruiker met dit email adres",
+            "invalidEmail": "Ongeldig email adres",
+            "genericError": "Fout bij opslaan profiel: {{message}}"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "heer/mevrouw",
+        "subject": "Uitslag {{testName}} onderzoek {{day}}",
+        "message": "Geachte {{patientName}},\n\nU bent recent bij ons geweest voor een {{testName}} onderzoek.\n\nZie bijgesloten de uitslag van uw onderzoek.\n\nDe waarde van uw {{testName}} is {{value}} {{unit}} gemeten op {{day}}.\n\nMet vriendelijke groet,\n\nUw zorgverlener"
+    }
+}

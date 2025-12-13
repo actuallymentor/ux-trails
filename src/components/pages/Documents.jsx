@@ -9,12 +9,14 @@ import Column from "../atoms/Column"
 import { FileTextIcon } from "lucide-react"
 import Card from "../atoms/Card"
 import Button from "../atoms/Button"
+import { useTranslation } from "react-i18next"
 
 export default function Documents() {
 
     const { user } = useUserStore()
     const { labtest_scores } = useLabTestScoreStore()
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ labtest_scores ] )
+    const { t } = useTranslation()
 
     async function download_pdf( index ) {
 
@@ -33,7 +35,7 @@ export default function Documents() {
 
     return <Container $align='center' $justify='center'>
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
-            <H1 $margin='0'><FileTextIcon size='2.2rem' />Uw Documenten</H1>
+            <H1 $margin='0'><FileTextIcon size='2.2rem' />{ t( 'documents.pageTitle' ) }</H1>
         </Column>
 
 
@@ -43,7 +45,7 @@ export default function Documents() {
                 <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
                     <Text><FileTextIcon />{ subject }</Text>
                     <Button $variant='outline' onClick={ () => download_pdf( index ) } >
-                        Download document
+                        { t( 'documents.download' ) }
                     </Button>
                 </Section>
             </Card> ) }

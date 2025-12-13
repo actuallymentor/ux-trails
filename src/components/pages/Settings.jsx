@@ -7,12 +7,14 @@ import { H1 } from "../atoms/Text"
 import Input from "../molecules/Input"
 import { toast } from "react-toastify"
 import { email_regex, log } from "mentie"
+import { useTranslation } from "react-i18next"
 
 export default function Settings() {
 
-    const [ mode, set_mode ] = useState( 'login' )
     const { user, set_user, users_by_email } = useUserStore()
     const [ profile, set_profile ] = useState( { ...user } )
+    const { t } = useTranslation()
+    const known_error_keys = new Set( [ 'missingRequired', 'duplicateEmail', 'invalidEmail' ] )
 
     const save = () => {
 
@@ -23,22 +25,27 @@ export default function Settings() {
             const { email, password } = profile
 
             // Required fields
-            if( !email?.length || !password?.length ) throw new Error( 'Email en wachtwoord zijn verplicht' )
+            if( !email?.length || !password?.length ) throw new Error( 'missingRequired' )
 
             // Unique email
             const existing_user = users_by_email[ email ]
-            if( existing_user && existing_user.id !== profile.id ) throw new Error( 'Er bestaat al een gebruiker met dit email adres' )
+            if( existing_user && existing_user.id !== profile.id ) throw new Error( 'duplicateEmail' )
 
             // Email validity
-            if( !email.match( email_regex ) ) throw new Error( 'Ongeldig email adres' )
+            if( !email.match( email_regex ) ) throw new Error( 'invalidEmail' )
 
             // All good, save profile
             set_user( profile )
-            toast.success( 'Profiel opgeslagen' )
+            toast.success( t( 'settings.toast.success' ) )
 
         } catch ( e ) {
 
-            toast.error( `Fout bij opslaan profiel: ${ e.message }` )
+            const message_key = e.message
+            if( known_error_keys.has( message_key ) ) {
+                toast.error( t( `settings.toast.${ message_key }` ) )
+            } else {
+                toast.error( t( 'settings.toast.genericError', { message: message_key } ) )
+            }
 
         }
 
@@ -49,14 +56,14 @@ export default function Settings() {
 
         <Section $width='800px' $justify="center" $align="center">
 
-            <H1>Instellingen</H1>
-            <Input value={ profile?.name } onChange={ e => set_profile( { ...profile, name: e.target.value } ) } label="Volledige naam" info='Uw volledige naam zoals deze in het systeem wordt weergegeven' type="text" placeholder="Jan Jansen" />
-            <Input value={ profile?.phone } onChange={ e => set_profile( { ...profile, phone: e.target.value } ) } label="Telefoonnummer" info='Uw telefoonnummer' type="tel" placeholder="+31 6 12345678" />
-            <Input value={ profile?.address } onChange={ e => set_profile( { ...profile, address: e.target.value } ) } label="Adres" info='Uw woonadres' type="text" placeholder="Straatnaam 1, 1234 AB, Plaats" />
-            <Input value={ profile?.doctor } onChange={ e => set_profile( { ...profile, doctor: e.target.value } ) } label="Huisarts" info='Naam van uw huisarts' type="text" placeholder="Dr. Pietersen" />
-            <Input value={ profile?.email } onChange={ e => set_profile( { ...profile, email: e.target.value } ) } label="Email of gebruikersnaam" info='Uw email adres' type="email" placeholder="uw@email.com" />
-            <Input value={ profile?.password } onChange={ e => set_profile( { ...profile, password: e.target.value } ) } label="Wachtwoord" info='Uw wachtwoord' type="password" placeholder="wachtwoord" />
-            <Button onClick={ save }>Opslaan</Button>
+            <H1>{ t( 'settings.pageTitle' ) }</H1>
+            <Input value={ profile?.name } onChange={ e => set_profile( { ...profile, name: e.target.value } ) } label={ t( 'settings.labels.name' ) } info={ t( 'settings.info.name' ) } type="text" placeholder={ t( 'settings.placeholders.name' ) } />
+            <Input value={ profile?.phone } onChange={ e => set_profile( { ...profile, phone: e.target.value } ) } label={ t( 'settings.labels.phone' ) } info={ t( 'settings.info.phone' ) } type="tel" placeholder={ t( 'settings.placeholders.phone' ) } />
+            <Input value={ profile?.address } onChange={ e => set_profile( { ...profile, address: e.target.value } ) } label={ t( 'settings.labels.address' ) } info={ t( 'settings.info.address' ) } type="text" placeholder={ t( 'settings.placeholders.address' ) } />
+            <Input value={ profile?.doctor } onChange={ e => set_profile( { ...profile, doctor: e.target.value } ) } label={ t( 'settings.labels.doctor' ) } info={ t( 'settings.info.doctor' ) } type="text" placeholder={ t( 'settings.placeholders.doctor' ) } />
+            <Input value={ profile?.email } onChange={ e => set_profile( { ...profile, email: e.target.value } ) } label={ t( 'settings.labels.email' ) } info={ t( 'settings.info.email' ) } type="email" placeholder={ t( 'settings.placeholders.email' ) } />
+            <Input value={ profile?.password } onChange={ e => set_profile( { ...profile, password: e.target.value } ) } label={ t( 'settings.labels.password' ) } info={ t( 'settings.info.password' ) } type="password" placeholder={ t( 'settings.placeholders.password' ) } />
+            <Button onClick={ save }>{ t( 'common.save' ) }</Button>
         </Section>
 
     </Container>

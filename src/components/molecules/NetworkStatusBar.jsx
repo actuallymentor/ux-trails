@@ -58,7 +58,7 @@ export default function NetworkStatus( ) {
     // ///////////////////////////////
     return <BottomBar animate={ wasoffline } success={ online }>
         <Text align="center">
-            Network { online ? 'On' : 'Off' }line!
+            { online ? 'Online' : 'Offline' }
         </Text>
     </BottomBar>
 

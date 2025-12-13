@@ -6,10 +6,10 @@ import Section from "../atoms/Section"
 import { H1, Sidenote } from "../atoms/Text"
 import Input from "../molecules/Input"
 import { toast } from "react-toastify"
-import { capitalise } from "mentie"
 import Card from "../atoms/Card"
 import A from "../atoms/Link"
 import Spacer from "../atoms/Spacer"
+import { useTranslation } from "react-i18next"
 
 export default function LoginPage() {
 
@@ -18,6 +18,7 @@ export default function LoginPage() {
     const [ email, set_email ] = useState( '' )
     const [ password, set_password ] = useState( '' )
     const [ name, set_name ] = useState( '' )
+    const { t } = useTranslation()
 
     // Helpers
     const toggle_mode = () => set_mode( mode === 'login' ? 'register' : 'login' )
@@ -27,19 +28,19 @@ export default function LoginPage() {
         // Check if user exists, toast error if not
         const existing_user = users_by_email[ email ]
         if( !existing_user ) {
-            toast.error( 'Gebruiker niet gevonden' )
+            toast.error( t( 'login.toast.userNotFound' ) )
             return
         }
 
         // Check if password matches, toast error if not
         if( existing_user.password !== password ) {
-            toast.error( 'Wachtwoord is onjuist' )
+            toast.error( t( 'login.toast.wrongPassword' ) )
             return
         }
 
         // Otherwise, log in with toast
         set_user( { ...existing_user } )
-        toast.success( 'Ingelogd' )
+        toast.success( t( 'login.toast.loggedIn' ) )
 
     }
     const register = () => {
@@ -47,14 +48,14 @@ export default function LoginPage() {
         // Check if user already exists, toast error if so
         const existing_user = users_by_email[ email ]
         if( existing_user ) {
-            toast.error( 'Gebruiker bestaat al' )
+            toast.error( t( 'login.toast.userExists' ) )
             return
         }
 
         // Create new user
         const new_user = { name, email, password }
         set_user( new_user )
-        toast.success( 'Geregistreerd en ingelogd' )
+        toast.success( t( 'login.toast.registered' ) )
 
     }
 
@@ -63,16 +64,20 @@ export default function LoginPage() {
         <Section $width='800px' $justify="center" $align="center">
 
             <Card>
-                <H1>{ mode === 'login' ? 'Inloggen' : 'Registreren' }</H1>
+                <H1>{ mode === 'login' ? t( 'login.login' ) : t( 'login.register' ) }</H1>
                 <Sidenote $align="left" $margin='2rem 0'>{
-                    mode === 'login' ? <>Log in met uw inloggegevens of <A onClick={ toggle_mode }>creëer een nieuw account.</A> </>
-                        : <>Registreer een nieuw account of <A onClick={ toggle_mode }>log in met uw bestaande gegevens.</A></>
+                    mode === 'login' ? <>
+                        { t( 'login.loginDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.createAccount' ) }</A>
+                    </>
+                        : <>
+                            { t( 'login.registerDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.loginExisting' ) }</A>
+                        </>
                 }</Sidenote>
-                { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label="Volledige naam" info='Uw volledige naam' type="text" placeholder="Jan Jansen" /> }
-                <Input value={ email } onChange={ e => set_email( e.target.value ) } label="Email of gebruikersnaam" info='Uw email adres' type="email" placeholder="uw@email.com" />
-                <Input value={ password } onChange={ e => set_password( e.target.value ) } label="Wachtwoord" info='Uw wachtwoord' type="password" placeholder="wachtwoord" />
+                { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label={ t( 'login.labels.name' ) } info={ t( 'login.info.name' ) } type="text" placeholder={ t( 'login.placeholders.name' ) } /> }
+                <Input value={ email } onChange={ e => set_email( e.target.value ) } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
+                <Input value={ password } onChange={ e => set_password( e.target.value ) } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } />
                 <Spacer />
-                <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ capitalise( mode ) }</Button>
+                <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
                 <Spacer />
 
             </Card>

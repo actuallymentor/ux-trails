@@ -13,6 +13,7 @@ import Button from "../atoms/Button"
 import Badge from "../molecules/Badge"
 import { useTheme } from "styled-components"
 import Grid from "../atoms/Grid"
+import { useTranslation } from "react-i18next"
 const LabChart = lazy( prefetch( () => import( "../molecules/LabChart" ) ) )
 
 
@@ -22,14 +23,15 @@ export default function LabTests() {
     const [ current_test, set_current_test ] = useQueryParam( 'name' )
     const current_data = labtest_scores.find( t => t.name == current_test )
     const theme = useTheme()
+    const { t } = useTranslation()
 
     if( current_test && !current_data ) {
         return <Container $align='center' $justify='center'>
             <Card $width='600px' $padding='3rem 3.5rem'>
-                <H2 $margin='0 0 1rem'>Onbekende uitslag</H2>
-                <Text $color='hint' $margin='0 0 2rem'>We konden deze laboratoriumuitslag niet vinden. Probeer het opnieuw vanuit het overzicht.</Text>
+                <H2 $margin='0 0 1rem'>{ t( 'labTests.unknownTitle' ) }</H2>
+                <Text $color='hint' $margin='0 0 2rem'>{ t( 'labTests.unknownDescription' ) }</Text>
                 <Button $variant='outline' onClick={ () => set_current_test( undefined ) }>
-                    <ArrowLeftIcon size='1.2rem' />Terug naar overzicht
+                    <ArrowLeftIcon size='1.2rem' />{ t( 'common.backToOverview' ) }
                 </Button>
             </Card>
         </Container>
@@ -39,7 +41,7 @@ export default function LabTests() {
     if( !current_test ) return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0 0 2rem'>
-            <H1 $margin='0'><FlaskConicalIcon size='2.2rem' />Labuitslagen</H1>
+            <H1 $margin='0'><FlaskConicalIcon size='2.2rem' />{ t( 'labTests.pageTitle' ) }</H1>
         </Column>
 
 
@@ -51,15 +53,15 @@ export default function LabTests() {
 
                     return <Card key={ name } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
                         <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ name }</H2>
-                        <Badge $position='absolute' $right='1.5rem' $top='1rem'>Metingen: { readings.length }</Badge>
-                        <Text $margin='0' $color='hint'>Gemiddelde waarde: { average } { unit }</Text>
-                        { latest_reading && <Text $margin='0' $color='hint'>Laatste meting (dag { latest_reading.day }): { latest_reading.value } { latest_reading.unit }</Text> }
+                        <Badge $position='absolute' $right='1.5rem' $top='1rem'>{ t( 'labTests.metrics', { count: readings.length } ) }</Badge>
+                        <Text $margin='0' $color='hint'>{ t( 'labTests.average', { value: average, unit } ) }</Text>
+                        { latest_reading && <Text $margin='0' $color='hint'>{ t( 'labTests.latestReading', { day: latest_reading.day, value: latest_reading.value, unit: latest_reading.unit } ) }</Text> }
                         <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_current_test( name ) }>
-                            Bekijk uitslagen
+                            { t( 'labTests.view' ) }
                         </Button>
                     </Card>
                 } ) }
-                { labtest_scores.length == 0 && <Text $margin='2rem 0'>Er zijn nog geen labuitslagen beschikbaar.</Text> }
+                { labtest_scores.length == 0 && <Text $margin='2rem 0'>{ t( 'labTests.emptyState' ) }</Text> }
             </Grid>
         </Section>
 
@@ -73,24 +75,24 @@ export default function LabTests() {
                 <FlaskConicalIcon size='2.2rem' />{ current_data?.name }
             </H1>
             <Button $variant='outline' onClick={ () => set_current_test( undefined ) }>
-                <ArrowLeftIcon size='1.2rem' />Terug naar overzicht
+                <ArrowLeftIcon size='1.2rem' />{ t( 'common.backToOverview' ) }
             </Button>
         </Column>
 
         <Section $direction='row' $width='100%' $align='center' $justify='center' $max-width='100%' $gap='2rem'>
             <Card $width='50%' $justify='center' $min-width='min(450px, 100%)' $padding='2rem 2.5rem'>
-                <H2 $align='center' $margin='0'><BarChart3Icon size='1.6rem' /> Trend</H2>
+                <H2 $align='center' $margin='0'><BarChart3Icon size='1.6rem' /> { t( 'labTests.trend' ) }</H2>
                 <Suspense fallback={ <Spinner /> }>
                     <LabChart data={ current_data } width={ 600 } />
                 </Suspense>
             </Card>
 
             <Card $width='40%' $min-width='min(450px, 100%)' $padding='2rem 2.5rem'>
-                <Badge $position='absolute' $right='2rem' $top='2rem'>Gemiddelde: { current_data?.average } { current_data?.unit }</Badge>
-                <H2 $margin='0 0 1rem'>Overzicht</H2>
-                <Text $color='hint'>Er zijn { current_data?.readings.length } metingen beschikbaar.</Text>
+                <Badge $position='absolute' $right='2rem' $top='2rem'>{ t( 'labTests.averageBadge', { value: current_data?.average, unit: current_data?.unit } ) }</Badge>
+                <H2 $margin='0 0 1rem'>{ t( 'labTests.overview' ) }</H2>
+                <Text $color='hint'>{ t( 'labTests.readingsCount', { count: current_data?.readings.length } ) }</Text>
                 <Column $width='100%' $margin='1.5rem 0 0' $gap='0.5rem'>
-                    { current_data?.readings.map( ( { day, value, unit }, index ) => <Text key={ `${ current_data.name }-${ index }` } $margin='.2rem 0' $color='hint'>Meting { day }: { value } { unit }</Text> ) }
+                    { current_data?.readings.map( ( { day, value, unit }, index ) => <Text key={ `${ current_data.name }-${ index }` } $margin='.2rem 0' $color='hint'>{ t( 'labTests.readingItem', { day, value, unit } ) }</Text> ) }
                 </Column>
             </Card>
         </Section>

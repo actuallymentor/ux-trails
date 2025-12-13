@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Link from '../atoms/Link'
+import { useTranslation } from 'react-i18next'
 
 const FooterBase = styled.nav`
 	flex-wrap: wrap;
@@ -23,9 +24,10 @@ const FooterBase = styled.nav`
 `
 
 export default function Footer( { ...props } ) {
+	const { t } = useTranslation()
     return <FooterBase { ...props }>
 	
-        <Link href='https://github.com/actuallymentor' target='_blank'>© Mentor</Link>
+		<Link href='https://github.com/actuallymentor' target='_blank'>{ t( 'footer.copyright' ) }</Link>
 
     </FooterBase>
 }

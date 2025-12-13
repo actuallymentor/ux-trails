@@ -14,6 +14,7 @@ import { date_after_timestamp_validator, date_to_locale_string, is_future, tomor
 import Badge from "../molecules/Badge"
 import Section from "../atoms/Section"
 import Grid from "../atoms/Grid"
+import { useTranslation } from "react-i18next"
 
 export default function Appointments() {
 
@@ -22,6 +23,7 @@ export default function Appointments() {
     const [ view_appointment, set_view_appointment ] = useState( null )
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
     const slots = get_slots_for_date( new_appointment.date )
+    const { t } = useTranslation()
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -32,9 +34,9 @@ export default function Appointments() {
         log.info( 'Saving new appointment with data:', new_appointment, { ms_to_appointment } )
 
         // Validations
-        if( !`${ reason }`.length ) return toast.error( 'Vul alstublieft een reden in.' )
-        if( ms_to_appointment < 0 ) return toast.error( 'Selecteer alstublieft een geldige datum.' )
-        if( !slot?.time ) return toast.error( 'Selecteer alstublieft een tijdslot.' )
+        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
+        if( ms_to_appointment < 0 ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+        if( !slot?.time ) return toast.error( t( 'appointments.toast.missingSlot' ) )
 
         log.info( 'Saving appointment:', { ...slot, reason } )
 
@@ -51,19 +53,20 @@ export default function Appointments() {
     function cancel_appointment( index ) {
         log.info( 'Cancel appointment at index', index )
         const { date, time } = appointments[ index ]
-        const confirmed = confirm( `Weet u zeker dat u uw afspraak op ${ date } ${ time ? `om ${ time }` : '' } wilt annuleren?` )
+        const confirmation_key = time ? 'appointments.toast.cancelConfirmWithTime' : 'appointments.toast.cancelConfirm'
+        const confirmed = confirm( t( confirmation_key, { date, time } ) )
         if( confirmed ) {
             clear_appointment( index )
-            toast.success( 'Afspraak succesvol geannuleerd.' )
+            toast.success( t( 'appointments.toast.cancelSuccess' ) )
         }
-        if( !confirmed ) toast.info( 'Afspraak niet geannuleerd.' )
+        if( !confirmed ) toast.info( t( 'appointments.toast.cancelAbort' ) )
     }
 
     return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
-            <H1 $margin='0'><CalendarIcon size='2.2rem' />Uw Afspraken</H1>
-            <Button onClick={ () => set_makenew( true ) }>Nieuwe Afspraak</Button>
+            <H1 $margin='0'><CalendarIcon size='2.2rem' />{ t( 'appointments.pageTitle' ) }</H1>
+            <Button onClick={ () => set_makenew( true ) }>{ t( 'appointments.new' ) }</Button>
         </Column>
 
         <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
@@ -74,62 +77,62 @@ export default function Appointments() {
 
                     return <Card key={ index } $margin='.5rem 0' $padding='2rem 3rem' $justify='flex-start' $flex='1 0 500px'>
                 
-                        <H2 $margin='0 0 1rem'>Afspraak</H2>
-                        <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? 'Aankomend' : 'Verleden' }</Badge>
+                        <H2 $margin='0 0 1rem'>{ t( 'appointments.cardTitle' ) }</H2>
+                        <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? t( 'appointments.badgeUpcoming' ) : t( 'appointments.badgePast' ) }</Badge>
 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
                             { date && <Text $margin='.1rem 0' $color='hint'><CalendarIcon />{ date_to_locale_string( date ) }</Text> }
                             { time && <Text $margin='.1rem 0' $color='hint'><ClockIcon />{ time }</Text> }
                         </Column>
-                        <Text $color='hint' $margin='.1rem 0'><MapPinIcon />{ appointments[ index ]?.location || 'In de praktijk' }</Text>
+                        <Text $color='hint' $margin='.1rem 0'><MapPinIcon />{ appointments[ index ]?.location || t( 'appointments.defaultLocation' ) }</Text>
                         { reason && <Text $color='hint' $margin='0'><PencilIcon />{ truncate( reason, 40 ) }</Text> }
                 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='0rem' >
-                            <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>Bekijk Details</Button>  
-                            <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => cancel_appointment( index ) }>Afspraak Annuleren</Button>
+                            <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>{ t( 'appointments.viewDetails' ) }</Button>  
+                            <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => cancel_appointment( index ) }>{ t( 'appointments.cancel' ) }</Button>
                         </Column>
                     </Card>
             
                 } ) }
-                { appointments.length == 0 && <Text $margin='2rem 0'>U heeft nog geen afspraken gepland.</Text> }
+                { appointments.length == 0 && <Text $margin='2rem 0'>{ t( 'appointments.emptyState' ) }</Text> }
             </Grid>
         </Section>
 
         { view_appointment && <Modal onClose={ () => set_view_appointment( null ) }>
             <Card>
-                <H2>Afspraak Details</H2>
+                <H2>{ t( 'appointments.detailsTitle' ) }</H2>
                 { view_appointment?.date && <Text><CalendarIcon />{ view_appointment?.date }</Text> }
                 { view_appointment?.time && <Text><ClockIcon />{ view_appointment?.time }</Text> }
                 { view_appointment?.location && <Text><MapPinIcon />{ view_appointment?.location }</Text> }
                 { view_appointment?.reason && <Text><NotebookIcon />{ view_appointment?.reason }</Text> }
-                <Button $margin='1rem 0 0' onClick={ () => set_view_appointment( null ) }>Sluit</Button>
+                <Button $margin='1rem 0 0' onClick={ () => set_view_appointment( null ) }>{ t( 'common.close' ) }</Button>
             </Card>
         </Modal> }
 
         { makenew && <Modal onClose={ () => set_makenew( false ) }>
             <Card>
                 <Input
-                    label='Datum van Afspraak'
+                    label={ t( 'appointments.form.dateLabel' ) }
                     type='date'
                     value={ new_appointment.date }
                     validate={ date_after_timestamp_validator }
-                    error="Kies een datum in de toekomst."
+                    error={ t( 'appointments.form.dateError' ) }
                     min={ tomorrow_yyyy_mm_dd }
                     onChange={ ( e ) => set_new_appointment( prev => ( { ...prev, date: e.target.value, slot: null, slot_index: null } ) ) }
                 />
                 { new_appointment.date && <>
-                    <Text $margin='1rem 0 0.5rem'>Selecteer een beschikbare tijd:</Text>
+                    <Text $margin='1rem 0 0.5rem'>{ t( 'appointments.selectTime' ) }</Text>
                     { slots.map( ( slot, slot_index ) => {
                         return <Button key={ slot_index } $variant={ slot_index == new_appointment.slot_index ? 'solid' : 'outline' } $margin='.1rem .3rem'  onClick={ () => set_new_appointment( prev => ( { ...prev, slot, slot_index } ) ) }>{ slot.time }</Button>
                     } ) }
-                    { slots.length == 0 && <Text>Geen beschikbare tijdsloten op deze datum.</Text> }
+                    { slots.length == 0 && <Text>{ t( 'appointments.noSlots' ) }</Text> }
                 </> }
                 <Input
-                    label='Reden van Afspraak'
-                    placeholder='Bijv. "Routine Controle"'
+                    label={ t( 'appointments.form.reasonLabel' ) }
+                    placeholder={ t( 'appointments.form.reasonPlaceholder' ) }
                     type='textarea'
                     validate={ value => value?.length >= 10 }
-                    error="Vul alstublieft een geldige reden in (minimaal 10 tekens)."
+                    error={ t( 'appointments.form.reasonError' ) }
                     value={ new_appointment.reason }
                     onChange={ ( e ) => set_new_appointment( prev => ( { ...prev, reason: e.target.value } ) ) }
                 />
@@ -138,7 +141,7 @@ export default function Appointments() {
                     onClick={ save_appointment }
                     disabled={ !new_appointment.date || new_appointment.slot_index == null || !new_appointment.reason }
                 >
-                    Bevestig Afspraak
+                    { t( 'appointments.form.confirm' ) }
                 </Button>
             </Card>
         </Modal> }

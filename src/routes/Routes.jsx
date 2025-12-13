@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from "react"
 import Loading from "../components/molecules/Loading"
 import Toast from "../components/molecules/ToastContainer"
 import { prefetch } from 'less-lazy'
+import { useTranslation } from "react-i18next"
 
 // Statically loaded pages
 import Homepage from "../components/pages/Homepage"
@@ -25,6 +26,7 @@ export default function Routes() {
     const navigate = useNavigate()
     const current_path = window.location.pathname
     const public_paths = [ '/', '/login' ]
+    const { t } = useTranslation()
 
     // Initialise stores
     useEffect( () => {
@@ -41,7 +43,7 @@ export default function Routes() {
         if( !user && !public_paths.includes( current_path ) ) navigate( '/' )
     }, [ user, navigate ] )
     
-    return <Suspense fallback={ <Loading delay="500" message='Loading' /> }>
+    return <Suspense fallback={ <Loading delay="500" message={ t( 'common.loading' ) } /> }>
 
         <Toast />
         

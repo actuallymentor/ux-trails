@@ -1,0 +1,181 @@
+{
+    "common": {
+        "loading": "Loading",
+        "close": "Close",
+        "save": "Save",
+        "backToOverview": "Back to overview"
+    },
+    "menu": {
+        "home": "Home",
+        "login": "Log in",
+        "labs": "Results",
+        "appointments": "Appointments",
+        "messages": "Messages",
+        "documents": "Documents",
+        "settings": "Settings",
+        "logout": "Log out"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Patient portal",
+        "welcomeUser": "Welcome {{name}}",
+        "heroTitle": "Welcome to the patient portal",
+        "heroSubtitle": "Log in to view your information",
+        "loginButton": "Log in",
+        "tiles": {
+            "labs": {
+                "title": "Results",
+                "body": "Click here to view your test results."
+            },
+            "appointments": {
+                "title": "Appointments",
+                "body": "Click here to manage your appointments."
+            },
+            "documents": {
+                "title": "Documents",
+                "body": "Click here to view your documents."
+            },
+            "messages": {
+                "title": "Messages",
+                "body": "Click here to read your messages."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Your appointments",
+        "new": "New appointment",
+        "cardTitle": "Appointment",
+        "badgeUpcoming": "Upcoming",
+        "badgePast": "Past",
+        "defaultLocation": "At the practice",
+        "viewDetails": "View details",
+        "cancel": "Cancel appointment",
+        "emptyState": "You have no appointments scheduled.",
+        "detailsTitle": "Appointment details",
+        "selectTime": "Select an available time:",
+        "noSlots": "No time slots available on this date.",
+        "form": {
+            "dateLabel": "Appointment date",
+            "dateError": "Please choose a future date.",
+            "reasonLabel": "Appointment reason",
+            "reasonPlaceholder": "e.g. \"Routine Check\"",
+            "reasonError": "Please enter a valid reason (minimum 10 characters).",
+            "confirm": "Confirm appointment"
+        },
+        "toast": {
+            "missingReason": "Please enter a reason.",
+            "invalidDate": "Please choose a valid date.",
+            "missingSlot": "Please select a time slot.",
+            "cancelConfirm": "Are you sure you want to cancel your appointment on {{date}}?",
+            "cancelConfirmWithTime": "Are you sure you want to cancel your appointment on {{date}} at {{time}}?",
+            "cancelSuccess": "Appointment cancelled successfully.",
+            "cancelAbort": "Appointment not cancelled."
+        }
+    },
+    "documents": {
+        "pageTitle": "Your documents",
+        "download": "Download document"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Blood pressure",
+            "cholesterol": "Cholesterol",
+            "glucose": "Blood glucose"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Unknown result",
+        "unknownDescription": "We could not find this laboratory result. Please try again from the overview.",
+        "pageTitle": "Lab results",
+        "metrics": "Measurements: {{count}}",
+        "average": "Average value: {{value}} {{unit}}",
+        "latestReading": "Latest reading (day {{day}}): {{value}} {{unit}}",
+        "view": "View results",
+        "emptyState": "No lab results available yet.",
+        "trend": "Trend",
+        "averageBadge": "Average: {{value}} {{unit}}",
+        "overview": "Overview",
+        "readingsCount": "There are {{count}} readings available.",
+        "readingItem": "Reading {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Log in",
+        "register": "Register",
+        "loginDescription": "Log in with your credentials or",
+        "createAccount": "create a new account.",
+        "registerDescription": "Register a new account or",
+        "loginExisting": "log in with your existing details.",
+        "labels": {
+            "name": "Full name",
+            "email": "Email or username",
+            "password": "Password"
+        },
+        "info": {
+            "name": "Your full name",
+            "email": "Your email address",
+            "password": "Your password"
+        },
+        "placeholders": {
+            "name": "Jan Jansen",
+            "email": "you@email.com",
+            "password": "password"
+        },
+        "button": {
+            "login": "Log in",
+            "register": "Register"
+        },
+        "toast": {
+            "userNotFound": "User not found",
+            "wrongPassword": "Password is incorrect",
+            "loggedIn": "Logged in",
+            "userExists": "User already exists",
+            "registered": "Registered and logged in"
+        }
+    },
+    "messages": {
+        "pageTitle": "Your inbox",
+        "view": "View message",
+        "close": "Close message"
+    },
+    "settings": {
+        "pageTitle": "Settings",
+        "labels": {
+            "name": "Full name",
+            "phone": "Phone number",
+            "address": "Address",
+            "doctor": "Family doctor",
+            "email": "Email or username",
+            "password": "Password"
+        },
+        "info": {
+            "name": "Your full name as shown in the system",
+            "phone": "Your phone number",
+            "address": "Your home address",
+            "doctor": "Name of your family doctor",
+            "email": "Your email address",
+            "password": "Your password"
+        },
+        "placeholders": {
+            "name": "Jan Jansen",
+            "phone": "+31 6 12345678",
+            "address": "Street name 1, 1234 AB, City",
+            "doctor": "Dr. Pietersen",
+            "email": "you@email.com",
+            "password": "password"
+        },
+        "toast": {
+            "success": "Profile saved",
+            "missingRequired": "Email and password are required",
+            "duplicateEmail": "A user with this email address already exists",
+            "invalidEmail": "Invalid email address",
+            "genericError": "Error saving profile: {{message}}"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "sir/madam",
+        "subject": "Result for {{testName}} test {{day}}",
+        "message": "Dear {{patientName}},\n\nYou recently visited us for a {{testName}} test.\n\nSee the attached result of your test.\n\nThe value of your {{testName}} is {{value}} {{unit}} measured on {{day}}.\n\nKind regards,\n\nYour healthcare provider"
+    }
+}
