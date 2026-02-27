@@ -1,6 +1,6 @@
 import Container from "../atoms/Container"
 import Hero from "../molecules/Hero"
-import { H1, H2 } from "../atoms/Text"
+import { H1, H2, Sidenote } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
@@ -29,6 +29,7 @@ export default function Homepage() {
         <Card $width="100%">
             <H1 $margin=".5rem 0">{ t( 'homepage.patientArea' ) }</H1>
             <H2>{ t( 'homepage.welcomeUser', { name: user.name } ) }</H2>
+            <Sidenote $align="left" $margin="0">{ t( 'homepage.welcomeSubtext' ) }</Sidenote>
         </Card>
 
         { /* <Section $direction="row" $flexwrap="wrap" $justify="space-between" $align="center" $margin="2rem 0" $padding='0' >

@@ -21,6 +21,7 @@
     "homepage": {
         "patientArea": "患者门户",
         "welcomeUser": "欢迎 {{name}}",
+        "welcomeSubtext": "以下是您的健康信息概览",
         "heroTitle": "欢迎来到患者门户",
         "heroSubtitle": "请登录查看您的信息",
         "loginButton": "登录",

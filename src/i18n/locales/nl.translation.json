@@ -21,6 +21,7 @@
     "homepage": {
         "patientArea": "Patiëntenomgeving",
         "welcomeUser": "Welkom {{name}}",
+        "welcomeSubtext": "Hier is een overzicht van uw gezondheidsinformatie",
         "heroTitle": "Welkom bij de patiëntenomgeving",
         "heroSubtitle": "Log in om uw gegevens te bekijken",
         "loginButton": "Inloggen",

@@ -21,6 +21,7 @@
     "homepage": {
         "patientArea": "Patient portal",
         "welcomeUser": "Welcome {{name}}",
+        "welcomeSubtext": "Here is an overview of your health information",
         "heroTitle": "Welcome to the patient portal",
         "heroSubtitle": "Log in to view your information",
         "loginButton": "Log in",
