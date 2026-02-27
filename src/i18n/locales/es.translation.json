@@ -146,7 +146,7 @@
         "labels": {
             "name": "Nombre completo",
             "phone": "Número de teléfono",
-            "address": "Dirección",
+            "postcode": "Código postal",
             "doctor": "Médico de cabecera",
             "email": "Correo electrónico o usuario",
             "password": "Contraseña"
@@ -154,7 +154,7 @@
         "info": {
             "name": "Su nombre completo tal como aparece en el sistema",
             "phone": "Su número de teléfono",
-            "address": "Su dirección",
+            "postcode": "Su código postal",
             "doctor": "Nombre de su médico de cabecera",
             "email": "Su dirección de correo electrónico",
             "password": "Su contraseña"
@@ -162,7 +162,7 @@
         "placeholders": {
             "name": "Juan Pérez",
             "phone": "+34 600 123 456",
-            "address": "Calle Principal 1, 28000 Madrid",
+            "postcode": "28000",
             "doctor": "Dr. García",
             "email": "correo@ejemplo.com",
             "password": "contraseña"

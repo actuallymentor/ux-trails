@@ -146,7 +146,7 @@
         "labels": {
             "name": "Full name",
             "phone": "Phone number",
-            "address": "Address",
+            "postcode": "Postcode",
             "doctor": "Family doctor",
             "email": "Email or username",
             "password": "Password"
@@ -154,7 +154,7 @@
         "info": {
             "name": "Your full name as shown in the system",
             "phone": "Your phone number",
-            "address": "Your home address",
+            "postcode": "Your postal code",
             "doctor": "Name of your family doctor",
             "email": "Your email address",
             "password": "Your password"
@@ -162,7 +162,7 @@
         "placeholders": {
             "name": "Jan Jansen",
             "phone": "+31 6 12345678",
-            "address": "Street name 1, 1234 AB, City",
+            "postcode": "1234 AB",
             "doctor": "Dr. Pietersen",
             "email": "you@email.com",
             "password": "password"

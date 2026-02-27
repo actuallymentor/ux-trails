@@ -146,7 +146,7 @@
         "labels": {
             "name": "Volledige naam",
             "phone": "Telefoonnummer",
-            "address": "Adres",
+            "postcode": "Postcode",
             "doctor": "Huisarts",
             "email": "Email of gebruikersnaam",
             "password": "Wachtwoord"
@@ -154,7 +154,7 @@
         "info": {
             "name": "Uw volledige naam zoals deze in het systeem wordt weergegeven",
             "phone": "Uw telefoonnummer",
-            "address": "Uw woonadres",
+            "postcode": "Uw postcode",
             "doctor": "Naam van uw huisarts",
             "email": "Uw email adres",
             "password": "Uw wachtwoord"
@@ -162,7 +162,7 @@
         "placeholders": {
             "name": "Jan Jansen",
             "phone": "+31 6 12345678",
-            "address": "Straatnaam 1, 1234 AB, Plaats",
+            "postcode": "1234 AB",
             "doctor": "Dr. Pietersen",
             "email": "uw@email.com",
             "password": "wachtwoord"
