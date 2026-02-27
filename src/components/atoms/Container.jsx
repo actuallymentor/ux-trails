@@ -30,7 +30,7 @@ const ContainerBase = styled.div`
 
 		// When body is under theme.container size add padding
 		@media ( max-width: ${ ( { theme } ) => `${ theme.container + 40 }px` } ) {
-			padding: 0 1rem;
+			padding: 0 2rem;
 		}
 
 		// Implement generic passable props
