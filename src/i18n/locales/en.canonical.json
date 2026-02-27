@@ -6,13 +6,13 @@
         "backToOverview": "Back to overview"
     },
     "menu": {
-        "home": "Home",
+        "home": "Dashboard",
         "login": "Log in",
-        "labs": "Results",
+        "labs": "Lab results",
         "appointments": "Appointments",
         "messages": "Messages",
         "documents": "Documents",
-        "settings": "Settings",
+        "settings": "Profile",
         "logout": "Log out"
     },
     "footer": {

@@ -6,13 +6,13 @@
         "backToOverview": "返回概览"
     },
     "menu": {
-        "home": "首页",
+        "home": "仪表盘",
         "login": "登录",
-        "labs": "检验结果",
+        "labs": "化验结果",
         "appointments": "预约",
         "messages": "消息",
         "documents": "文档",
-        "settings": "设置",
+        "settings": "个人资料",
         "logout": "退出登录"
     },
     "footer": {

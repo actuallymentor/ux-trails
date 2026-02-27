@@ -6,13 +6,13 @@
         "backToOverview": "Terug naar overzicht"
     },
     "menu": {
-        "home": "Startpagina",
+        "home": "Dashboard",
         "login": "Inloggen",
-        "labs": "Uitslagen",
+        "labs": "Labuitslagen",
         "appointments": "Afspraken",
         "messages": "Berichten",
         "documents": "Documenten",
-        "settings": "Instellingen",
+        "settings": "Profiel",
         "logout": "Uitloggen"
     },
     "footer": {

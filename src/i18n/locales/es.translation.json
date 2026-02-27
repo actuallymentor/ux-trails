@@ -6,13 +6,13 @@
         "backToOverview": "Volver al resumen"
     },
     "menu": {
-        "home": "Inicio",
+        "home": "Panel",
         "login": "Iniciar sesión",
-        "labs": "Resultados",
+        "labs": "Resultados de laboratorio",
         "appointments": "Citas",
         "messages": "Mensajes",
         "documents": "Documentos",
-        "settings": "Configuración",
+        "settings": "Perfil",
         "logout": "Cerrar sesión"
     },
     "footer": {

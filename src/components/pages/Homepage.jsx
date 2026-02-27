@@ -4,7 +4,7 @@ import { H1, H2 } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import { CalendarIcon, FileTextIcon, FlaskConicalIcon, MailIcon } from "lucide-react"
+import { CalendarIcon, FileTextIcon, MailIcon, TestTubesIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import Tile from "../molecules/Tile"
 import Grid from "../atoms/Grid"
@@ -17,7 +17,7 @@ export default function Homepage() {
     const { t } = useTranslation()
 
     const tiles = [
-        { icon: FlaskConicalIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
+        { icon: TestTubesIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
         { icon: CalendarIcon, title: t( 'homepage.tiles.appointments.title' ), nav: '/profile/appointments', text: t( 'homepage.tiles.appointments.body' ) },
         { icon: FileTextIcon, title: t( 'homepage.tiles.documents.title' ), nav: '/profile/documents', text: t( 'homepage.tiles.documents.body' ) },
         { icon: MailIcon, title: t( 'homepage.tiles.messages.title' ), nav: '/profile/inbox', text: t( 'homepage.tiles.messages.body' ) },
