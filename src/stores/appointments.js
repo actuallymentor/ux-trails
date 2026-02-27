@@ -42,8 +42,9 @@ export const useAppointmentsStore = create()( persist(
         available_slots: {},
         get_slots_for_date: ( date ) => {
 
-            // If date is not set, return empty array
+            // If date is not set or is in the past, return empty array
             if( !date ) return []
+            if( new Date( date ).getTime() <= Date.now() ) return []
 
             // If slot is available, return it
             const slots = get().available_slots[ date ]

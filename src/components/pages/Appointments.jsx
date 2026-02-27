@@ -28,15 +28,17 @@ export default function Appointments() {
 
     function save_appointment() {
 
-        const { slot, reason } = new_appointment
-        const { date, time, available } = slot
-        const ms_to_appointment = new Date( `${ date }T${ time }:00` ).getTime() - Date.now()
-        log.info( 'Saving new appointment with data:', new_appointment, { ms_to_appointment } )
+        const { slot, reason, date } = new_appointment
+        log.info( 'Saving new appointment with data:', new_appointment )
 
-        // Validations
-        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
-        if( ms_to_appointment < 0 ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+        // Validate date is in the future (mobile browsers may bypass the min attribute)
+        if( !date || !is_future( date ) ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+
+        // Validate a time slot was selected
         if( !slot?.time ) return toast.error( t( 'appointments.toast.missingSlot' ) )
+
+        // Validate reason was provided
+        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
 
         log.info( 'Saving appointment:', { ...slot, reason } )
 
