@@ -11,6 +11,18 @@ import Card from "../atoms/Card"
 import A from "../atoms/Link"
 import Spacer from "../atoms/Spacer"
 import { useTranslation } from "react-i18next"
+import styled, { useTheme } from "styled-components"
+
+const LoginBackground = styled.div`
+    width: 100%;
+    min-height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: ${ ( { theme } ) => `linear-gradient( 135deg, ${ theme.colors.info } 0%, ${ theme.colors.backdrop } 100% )` };
+`
 
 export default function LoginPage() {
 
@@ -66,30 +78,32 @@ export default function LoginPage() {
 
     }
 
-    return <Container $justify="center" $align="center" $padding="4rem 1rem" >
+    return <Container $justify="center" $align="center" $padding="0" >
 
-        <Section $width='800px' $justify="center" $align="center">
+        <LoginBackground>
+            <Section $width='800px' $justify="center" $align="center" $padding="4rem 1rem">
 
-            <Card>
-                <H1>{ mode === 'login' ? t( 'login.login' ) : t( 'login.register' ) }</H1>
-                <Sidenote $align="left" $margin='2rem 0'>{
-                    mode === 'login' ? <>
-                        { t( 'login.loginDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.createAccount' ) }</A>
-                    </>
-                        : <>
-                            { t( 'login.registerDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.loginExisting' ) }</A>
+                <Card>
+                    <H1>{ mode === 'login' ? t( 'login.login' ) : t( 'login.register' ) }</H1>
+                    <Sidenote $align="left" $margin='2rem 0'>{
+                        mode === 'login' ? <>
+                            { t( 'login.loginDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.createAccount' ) }</A>
                         </>
-                }</Sidenote>
-                { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label={ t( 'login.labels.name' ) } info={ t( 'login.info.name' ) } type="text" placeholder={ t( 'login.placeholders.name' ) } /> }
-                <Input value={ email } onChange={ e => set_email( e.target.value ) } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
-                <Input value={ password } onChange={ e => set_password( e.target.value ) } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } />
-                <Spacer />
-                <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
-                <Spacer />
+                            : <>
+                                { t( 'login.registerDescription' ) } <A onClick={ toggle_mode }>{ t( 'login.loginExisting' ) }</A>
+                            </>
+                    }</Sidenote>
+                    { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label={ t( 'login.labels.name' ) } info={ t( 'login.info.name' ) } type="text" placeholder={ t( 'login.placeholders.name' ) } /> }
+                    <Input value={ email } onChange={ e => set_email( e.target.value ) } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
+                    <Input value={ password } onChange={ e => set_password( e.target.value ) } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } />
+                    <Spacer />
+                    <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
+                    <Spacer />
 
-            </Card>
+                </Card>
 
-        </Section>
+            </Section>
+        </LoginBackground>
 
     </Container>
 }
