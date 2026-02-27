@@ -6,6 +6,7 @@ import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
 import { CalendarIcon, FileTextIcon, MailIcon, TestTubesIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import Spacer from "../atoms/Spacer"
 import Tile from "../molecules/Tile"
 import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
@@ -46,6 +47,8 @@ export default function Homepage() {
             <H1 $margin="0">{ t( 'homepage.heroTitle' ) }</H1>
             <H2>{ t( 'homepage.heroSubtitle' ) }</H2>
             <Button navigate="/login" $color="primary" $variant="solid">{ t( 'homepage.loginButton' ) }</Button>
+            <Spacer $padding=".5rem" />
+            <Button navigate="/login?register=true" $color="primary" $variant="outline">{ t( 'homepage.registerButton' ) }</Button>
         </Hero>
 
     </Container>

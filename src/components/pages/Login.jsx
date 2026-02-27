@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import { useUserStore } from "../../stores/user_store"
 import Button from "../atoms/Button"
 import Container from "../atoms/Container"
@@ -13,8 +14,14 @@ import { useTranslation } from "react-i18next"
 
 export default function LoginPage() {
 
-    const [ mode, set_mode ] = useState( 'login' )
+    const [ searchParams ] = useSearchParams()
+    const [ mode, set_mode ] = useState( searchParams.get( 'register' ) ? 'register' : 'login' )
     const { user, set_user, users_by_email } = useUserStore()
+
+    // Switch to register mode when navigated with ?register=true
+    useEffect( () => {
+        if( searchParams.get( 'register' ) ) set_mode( 'register' )
+    }, [ searchParams ] )
     const [ email, set_email ] = useState( '' )
     const [ password, set_password ] = useState( '' )
     const [ name, set_name ] = useState( '' )

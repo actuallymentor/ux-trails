@@ -24,6 +24,7 @@
         "heroTitle": "欢迎来到患者门户",
         "heroSubtitle": "请登录查看您的信息",
         "loginButton": "登录",
+        "registerButton": "注册",
         "tiles": {
             "labs": {
                 "title": "检验结果",

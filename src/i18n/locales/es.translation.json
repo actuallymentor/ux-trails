@@ -24,6 +24,7 @@
         "heroTitle": "Bienvenido/a al portal del paciente",
         "heroSubtitle": "Inicie sesión para ver su información",
         "loginButton": "Iniciar sesión",
+        "registerButton": "Registrarse",
         "tiles": {
             "labs": {
                 "title": "Resultados",

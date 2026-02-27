@@ -24,6 +24,7 @@
         "heroTitle": "Welkom bij de patiëntenomgeving",
         "heroSubtitle": "Log in om uw gegevens te bekijken",
         "loginButton": "Inloggen",
+        "registerButton": "Registreren",
         "tiles": {
             "labs": {
                 "title": "Uitslagen",

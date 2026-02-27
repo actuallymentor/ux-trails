@@ -24,6 +24,7 @@
         "heroTitle": "Welcome to the patient portal",
         "heroSubtitle": "Log in to view your information",
         "loginButton": "Log in",
+        "registerButton": "Register",
         "tiles": {
             "labs": {
                 "title": "Results",
