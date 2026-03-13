@@ -1,7 +1,7 @@
 import { log, random_number_between } from "mentie"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
-import { is_future } from "../modules/dates"
+import { is_future, local_date_string } from "../modules/dates"
 
 function generate_random_slots( date ) {
     const slots = []
@@ -47,23 +47,24 @@ export const useAppointmentsStore = create()( persist(
             if( !date ) return []
             if( !is_future( date ) ) return []
 
-            // If slot is available, return it
-            const slots = get().available_slots[ date ]
-            if( Array.isArray( slots ) ) return slots
+            // Resolve slots from cache or generate new ones
+            let slots = get().available_slots[ date ]
+            if( !Array.isArray( slots ) ) {
+                slots = generate_random_slots( date )
+                log.info( `Generated ${ slots.length } slots for date ${ date }:`, slots )
+                set( { available_slots: { ...get().available_slots, [ date ]: slots } } )
+            }
 
-            // If no slot is found for this date, generate a random slot list
-            const generated_slots = generate_random_slots( date )
-            log.info( `Generated ${ generated_slots.length } slots for date ${ date }:`, generated_slots )
+            // For today, only show time slots that are still in the future
+            if( date === local_date_string() ) {
+                const now = new Date()
+                return slots.filter( slot => {
+                    const [ hour, minute ] = slot.time.split( ':' ).map( Number )
+                    return hour > now.getHours() || ( hour === now.getHours() && minute > now.getMinutes() )
+                } )
+            }
 
-            // Save generated slots to store
-            set( {
-                available_slots: {
-                    ...get().available_slots,
-                    [ date ]: generated_slots
-                }
-            } )
-
-            return generated_slots
+            return slots
         },
         add_appointment: ( appointment ) => set( {
             appointments: [ ...get().appointments, appointment ]

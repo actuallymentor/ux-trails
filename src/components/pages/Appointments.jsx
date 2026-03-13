@@ -10,7 +10,7 @@ import { log, truncate } from "mentie"
 import { CalendarIcon, ClockIcon, MapPinIcon, NotebookIcon, PencilIcon } from "lucide-react"
 import Column from "../atoms/Column"
 import { toast } from "react-toastify"
-import { date_after_timestamp_validator, date_to_locale_string, is_future, tomorrow_yyyy_mm_dd } from "../../modules/dates"
+import { date_after_timestamp_validator, date_to_locale_string, is_future, today_yyyy_mm_dd } from "../../modules/dates"
 import Badge from "../molecules/Badge"
 import Section from "../atoms/Section"
 import Grid from "../atoms/Grid"
@@ -119,7 +119,7 @@ export default function Appointments() {
                     value={ new_appointment.date }
                     validate={ date_after_timestamp_validator }
                     error={ t( 'appointments.form.dateError' ) }
-                    min={ tomorrow_yyyy_mm_dd }
+                    min={ today_yyyy_mm_dd }
                     onChange={ ( e ) => set_new_appointment( prev => ( { ...prev, date: e.target.value, slot: null, slot_index: null } ) ) }
                 />
                 { new_appointment.date && <>

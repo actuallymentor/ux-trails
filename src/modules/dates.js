@@ -14,7 +14,8 @@ export function local_date_string( date = new Date() ) {
     return `${ year }-${ month }-${ day }`
 }
 
-// Tomorrow as YYYY-MM-DD in local time
+// Today and tomorrow as YYYY-MM-DD in local time
+export const today_yyyy_mm_dd = local_date_string()
 const tomorrow = new Date()
 tomorrow.setDate( tomorrow.getDate() + 1 )
 export const tomorrow_yyyy_mm_dd = local_date_string( tomorrow )
@@ -33,16 +34,16 @@ export function get_day_month_year( timestamp ) {
 
 
 /**
- * Validator function that checks if input date string is strictly after today.
+ * Validator function that checks if input date string is today or later.
  * Compares YYYY-MM-DD strings in local time to avoid UTC-offset issues.
  * @param {String} date_string - Date in yyyy-mm-dd format
- * @returns {Boolean} - True if input date is after today, false otherwise
+ * @returns {Boolean} - True if input date is today or in the future, false otherwise
  */
 export function date_after_timestamp_validator( date_string ) {
 
     const today = local_date_string()
-    const valid = date_string > today
-    log.info( 'Date after today validation result:', { date_string, today, valid } )
+    const valid = date_string >= today
+    log.info( 'Date validation result:', { date_string, today, valid } )
     return valid
 
 }

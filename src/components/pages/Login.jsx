@@ -11,7 +11,7 @@ import Card from "../atoms/Card"
 import A from "../atoms/Link"
 import Spacer from "../atoms/Spacer"
 import { useTranslation } from "react-i18next"
-import styled, { useTheme } from "styled-components"
+import styled from "styled-components"
 
 const LoginBackground = styled.div`
     width: 100%;

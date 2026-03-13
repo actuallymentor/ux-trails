@@ -50,7 +50,7 @@ export default function LabTests() {
                 { labtest_scores.map( ( { type, average, unit, readings } ) => {
 
                     const latest_reading = readings?.[ readings.length - 1 ]
-                    const display_name = t( `labs.types.${ type }` )
+                    const display_name = t( `labs.types.${ type }`, { defaultValue: type } )
 
                     return <Card key={ type } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
                         <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ display_name }</H2>
@@ -73,7 +73,7 @@ export default function LabTests() {
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $max-width='1100px' $margin='0 0 2rem'>
             <H1 $margin='0'>
-                <FlaskConicalIcon size='2.2rem' />{ t( `labs.types.${ current_data?.type }` ) }
+                <FlaskConicalIcon size='2.2rem' />{ t( `labs.types.${ current_data?.type }`, { defaultValue: current_data?.type } ) }
             </H1>
             <Button $variant='outline' onClick={ () => set_current_test( undefined ) }>
                 <ArrowLeftIcon size='1.2rem' />{ t( 'common.backToOverview' ) }
@@ -84,7 +84,7 @@ export default function LabTests() {
             <Card $width='50%' $justify='center' $min-width='min(450px, 100%)' $padding='2rem 2.5rem'>
                 <H2 $align='center' $margin='0'><BarChart3Icon size='1.6rem' /> { t( 'labTests.trend' ) }</H2>
                 <Suspense fallback={ <Spinner /> }>
-                    <LabChart data={ current_data } display_name={ t( `labs.types.${ current_data?.type }` ) } width={ 600 } />
+                    <LabChart data={ current_data } display_name={ t( `labs.types.${ current_data?.type }`, { defaultValue: current_data?.type } ) } width={ 600 } />
                 </Suspense>
             </Card>
 
