@@ -60,7 +60,7 @@
         "noSlots": "Geen beschikbare tijdsloten op deze datum.",
         "form": {
             "dateLabel": "Datum van afspraak",
-            "dateError": "Kies een datum in de toekomst.",
+            "dateError": "Kies vandaag of een datum in de toekomst.",
             "reasonLabel": "Reden van afspraak",
             "reasonPlaceholder": "Bijv. \"Routinecontrole\"",
             "reasonError": "Vul alstublieft een geldige reden in (minimaal 10 tekens).",

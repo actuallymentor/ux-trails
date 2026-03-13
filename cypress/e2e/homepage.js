@@ -8,7 +8,7 @@ context( "Frontpage tests", () => {
         cy.visit( `/` )
 
         // Page renders
-        cy.contains( `Home` )
+        cy.contains( `Dashboard` )
 
     } )
 

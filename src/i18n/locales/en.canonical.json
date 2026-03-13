@@ -60,7 +60,7 @@
         "noSlots": "No time slots available on this date.",
         "form": {
             "dateLabel": "Appointment date",
-            "dateError": "Please choose a future date.",
+            "dateError": "Please choose today or a future date.",
             "reasonLabel": "Appointment reason",
             "reasonPlaceholder": "e.g. \"Routine Check\"",
             "reasonError": "Please enter a valid reason (minimum 10 characters).",

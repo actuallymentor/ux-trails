@@ -60,7 +60,7 @@
         "noSlots": "该日期没有可用的时间段。",
         "form": {
             "dateLabel": "预约日期",
-            "dateError": "请选择一个将来的日期。",
+            "dateError": "请选择今天或将来的日期。",
             "reasonLabel": "预约原因",
             "reasonPlaceholder": "例如\"常规检查\"",
             "reasonError": "请输入有效的原因（至少10个字符）。",

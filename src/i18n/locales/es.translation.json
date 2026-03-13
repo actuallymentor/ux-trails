@@ -60,7 +60,7 @@
         "noSlots": "No hay franjas horarias disponibles en esta fecha.",
         "form": {
             "dateLabel": "Fecha de la cita",
-            "dateError": "Elija una fecha en el futuro.",
+            "dateError": "Elija hoy o una fecha en el futuro.",
             "reasonLabel": "Motivo de la cita",
             "reasonPlaceholder": "Por ejemplo, \"Revisión rutinaria\"",
             "reasonError": "Introduzca un motivo válido (mínimo 10 caracteres).",
