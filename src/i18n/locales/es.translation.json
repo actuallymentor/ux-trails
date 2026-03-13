@@ -172,6 +172,7 @@
             "missingRequired": "El correo electrónico y la contraseña son obligatorios",
             "duplicateEmail": "Ya existe un usuario con este correo electrónico",
             "invalidEmail": "Dirección de correo electrónico no válida",
+            "invalidPostcode": "Código postal no válido (ej. 1234 AB)",
             "genericError": "Error al guardar el perfil: {{message}}"
         }
     },

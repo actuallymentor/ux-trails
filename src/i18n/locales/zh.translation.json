@@ -172,6 +172,7 @@
             "missingRequired": "电子邮件和密码为必填项",
             "duplicateEmail": "该电子邮件地址已被使用",
             "invalidEmail": "电子邮件地址无效",
+            "invalidPostcode": "邮政编码无效（例如 1234 AB）",
             "genericError": "保存个人资料时出错：{{message}}"
         }
     },

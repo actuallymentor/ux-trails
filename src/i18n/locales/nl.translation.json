@@ -172,6 +172,7 @@
             "missingRequired": "Email en wachtwoord zijn verplicht",
             "duplicateEmail": "Er bestaat al een gebruiker met dit email adres",
             "invalidEmail": "Ongeldig email adres",
+            "invalidPostcode": "Ongeldige postcode (bijv. 1234 AB)",
             "genericError": "Fout bij opslaan profiel: {{message}}"
         }
     },

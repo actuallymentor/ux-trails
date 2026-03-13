@@ -172,6 +172,7 @@
             "missingRequired": "Email and password are required",
             "duplicateEmail": "A user with this email address already exists",
             "invalidEmail": "Invalid email address",
+            "invalidPostcode": "Invalid postcode (e.g. 1234 AB)",
             "genericError": "Error saving profile: {{message}}"
         }
     },

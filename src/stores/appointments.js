@@ -1,6 +1,7 @@
 import { log, random_number_between } from "mentie"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
+import { is_future } from "../modules/dates"
 
 function generate_random_slots( date ) {
     const slots = []
@@ -44,7 +45,7 @@ export const useAppointmentsStore = create()( persist(
 
             // If date is not set or is in the past, return empty array
             if( !date ) return []
-            if( new Date( date ).getTime() <= Date.now() ) return []
+            if( !is_future( date ) ) return []
 
             // If slot is available, return it
             const slots = get().available_slots[ date ]
