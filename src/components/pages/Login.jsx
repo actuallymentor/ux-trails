@@ -78,7 +78,7 @@ export default function LoginPage() {
 
     }
 
-    return <Container $justify="center" $align="center" $padding="0" >
+    return <Container $justify="center" $align="center" $padding="0" $width="100%" >
 
         <LoginBackground>
             <Section $width='800px' $justify="center" $align="center" $padding="4rem 1rem">

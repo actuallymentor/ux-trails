@@ -154,6 +154,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     ]
     const links = [
         <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><HomeIcon size={ icon_size } />{ t( 'menu.home' ) }</Link>,
+        !user && !use_burger && <span key="nav-spacer" style={ { flex: 1 } } />,
         !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><LogInIcon size={ icon_size } />{ t( 'menu.login' ) }</Link>,
         user && logged_in_links,
     ].filter( Boolean ).flat()
