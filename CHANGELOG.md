@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-03-13
+
+### Fixed
+- translate lab test names dynamically on language switch instead of using stale store values
+- regenerate document/message letters when language changes
+
 ## [0.2.0] - 2026-03-13
 
 ### Fixed

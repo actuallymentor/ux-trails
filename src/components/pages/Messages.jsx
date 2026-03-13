@@ -16,9 +16,9 @@ export default function Berichten() {
 
     const { user } = useUserStore()
     const { labtest_scores } = useLabTestScoreStore()
-    const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ labtest_scores ] )
+    const { t, i18n: { language } } = useTranslation()
+    const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ labtest_scores, language ] )
     const [ letter_index, set_letter_index ] = useState( null )
-    const { t } = useTranslation()
 
     return <Container $align='center' $justify='center'>
 
