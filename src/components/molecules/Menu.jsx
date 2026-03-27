@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { CalendarIcon, DropletIcon, FileArchive, HomeIcon, InboxIcon, KeyIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react'
+import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
@@ -145,16 +145,17 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     // Make list of link components
     const icon_size = '1rem'
     const logged_in_links = [
-        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><DropletIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
+        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><TestTubesIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
         <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><CalendarIcon size={ icon_size } />{ t( 'menu.appointments' ) }</Link>,
-        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><InboxIcon size={ icon_size } />{ t( 'menu.messages' ) }</Link>,
-        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileArchive size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
-        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><KeyIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
+        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MailIcon size={ icon_size } />{ t( 'menu.messages' ) }</Link>,
+        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileTextIcon size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
+        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><UserIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
         <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
     ]
     const links = [
         <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><HomeIcon size={ icon_size } />{ t( 'menu.home' ) }</Link>,
-        !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><KeyIcon size={ icon_size } />{ t( 'menu.login' ) }</Link>,
+        !user && !use_burger && <span key="nav-spacer" style={ { flex: 1 } } />,
+        !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><LogInIcon size={ icon_size } />{ t( 'menu.login' ) }</Link>,
         user && logged_in_links,
     ].filter( Boolean ).flat()
 

@@ -10,7 +10,7 @@ import { log, truncate } from "mentie"
 import { CalendarIcon, ClockIcon, MapPinIcon, NotebookIcon, PencilIcon } from "lucide-react"
 import Column from "../atoms/Column"
 import { toast } from "react-toastify"
-import { date_after_timestamp_validator, date_to_locale_string, is_future, tomorrow_yyyy_mm_dd } from "../../modules/dates"
+import { date_after_timestamp_validator, date_to_locale_string, is_future, today_yyyy_mm_dd } from "../../modules/dates"
 import Badge from "../molecules/Badge"
 import Section from "../atoms/Section"
 import Grid from "../atoms/Grid"
@@ -28,15 +28,21 @@ export default function Appointments() {
 
     function save_appointment() {
 
-        const { slot, reason } = new_appointment
-        const { date, time, available } = slot
-        const ms_to_appointment = new Date( `${ date }T${ time }:00` ).getTime() - Date.now()
-        log.info( 'Saving new appointment with data:', new_appointment, { ms_to_appointment } )
+        const { slot, reason, date } = new_appointment
+        log.info( 'Saving new appointment with data:', new_appointment )
 
-        // Validations
-        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
-        if( ms_to_appointment < 0 ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+        // Validate date is today or in the future (mobile browsers may bypass the min attribute)
+        if( !date || !is_future( date ) ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+
+        // Validate a time slot was selected
         if( !slot?.time ) return toast.error( t( 'appointments.toast.missingSlot' ) )
+
+        // Validate the combined date+time is still in the future (guards against stale selections)
+        const appointment_time = new Date( `${ date }T${ slot.time }:00` )
+        if( Number.isNaN( appointment_time.getTime() ) || appointment_time.getTime() <= Date.now() ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+
+        // Validate reason was provided
+        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
 
         log.info( 'Saving appointment:', { ...slot, reason } )
 
@@ -117,7 +123,7 @@ export default function Appointments() {
                     value={ new_appointment.date }
                     validate={ date_after_timestamp_validator }
                     error={ t( 'appointments.form.dateError' ) }
-                    min={ tomorrow_yyyy_mm_dd }
+                    min={ today_yyyy_mm_dd }
                     onChange={ ( e ) => set_new_appointment( prev => ( { ...prev, date: e.target.value, slot: null, slot_index: null } ) ) }
                 />
                 { new_appointment.date && <>

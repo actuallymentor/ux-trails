@@ -6,13 +6,13 @@
         "backToOverview": "Back to overview"
     },
     "menu": {
-        "home": "Home",
+        "home": "Dashboard",
         "login": "Log in",
-        "labs": "Results",
+        "labs": "Lab results",
         "appointments": "Appointments",
         "messages": "Messages",
         "documents": "Documents",
-        "settings": "Settings",
+        "settings": "Profile",
         "logout": "Log out"
     },
     "footer": {
@@ -21,9 +21,11 @@
     "homepage": {
         "patientArea": "Patient portal",
         "welcomeUser": "Welcome {{name}}",
+        "welcomeSubtext": "Here is an overview of your health information",
         "heroTitle": "Welcome to the patient portal",
         "heroSubtitle": "Log in to view your information",
         "loginButton": "Log in",
+        "registerButton": "Register",
         "tiles": {
             "labs": {
                 "title": "Results",
@@ -58,7 +60,7 @@
         "noSlots": "No time slots available on this date.",
         "form": {
             "dateLabel": "Appointment date",
-            "dateError": "Please choose a future date.",
+            "dateError": "Please choose today or a future date.",
             "reasonLabel": "Appointment reason",
             "reasonPlaceholder": "e.g. \"Routine Check\"",
             "reasonError": "Please enter a valid reason (minimum 10 characters).",
@@ -144,7 +146,7 @@
         "labels": {
             "name": "Full name",
             "phone": "Phone number",
-            "address": "Address",
+            "postcode": "Postcode",
             "doctor": "Family doctor",
             "email": "Email or username",
             "password": "Password"
@@ -152,7 +154,7 @@
         "info": {
             "name": "Your full name as shown in the system",
             "phone": "Your phone number",
-            "address": "Your home address",
+            "postcode": "Your postal code",
             "doctor": "Name of your family doctor",
             "email": "Your email address",
             "password": "Your password"
@@ -160,7 +162,7 @@
         "placeholders": {
             "name": "Jan Jansen",
             "phone": "+31 6 12345678",
-            "address": "Street name 1, 1234 AB, City",
+            "postcode": "1234 AB",
             "doctor": "Dr. Pietersen",
             "email": "you@email.com",
             "password": "password"
@@ -170,6 +172,7 @@
             "missingRequired": "Email and password are required",
             "duplicateEmail": "A user with this email address already exists",
             "invalidEmail": "Invalid email address",
+            "invalidPostcode": "Invalid postcode (e.g. 1234 AB)",
             "genericError": "Error saving profile: {{message}}"
         }
     },

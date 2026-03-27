@@ -1,7 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import { useTheme } from 'styled-components'
 
-export default ( { data, width=500, height=400, label_angle=30, ...props } ) => {
+export default ( { data, display_name, width=500, height=400, label_angle=30, ...props } ) => {
 
     const theme = useTheme()
 
@@ -24,7 +24,7 @@ export default ( { data, width=500, height=400, label_angle=30, ...props } ) => 
         <YAxis />
         <Tooltip contentStyle={ { background: theme.colors.backdrop } } labelStyle={ { color: theme.colors.primary, marginBottom: 10 } } />
         <Legend />
-        <Line name={ `${ data.name } (${ data.unit })` } type="monotone" dataKey="value" stroke={ theme.colors.accent } />
+        <Line name={ `${ display_name || data.name } (${ data.unit })` } type="monotone" dataKey="value" stroke={ theme.colors.accent } />
     </LineChart>
 
 }

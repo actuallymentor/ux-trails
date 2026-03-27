@@ -6,13 +6,13 @@
         "backToOverview": "Volver al resumen"
     },
     "menu": {
-        "home": "Inicio",
+        "home": "Panel",
         "login": "Iniciar sesión",
-        "labs": "Resultados",
+        "labs": "Resultados de laboratorio",
         "appointments": "Citas",
         "messages": "Mensajes",
         "documents": "Documentos",
-        "settings": "Configuración",
+        "settings": "Perfil",
         "logout": "Cerrar sesión"
     },
     "footer": {
@@ -21,9 +21,11 @@
     "homepage": {
         "patientArea": "Portal del paciente",
         "welcomeUser": "Bienvenido/a {{name}}",
+        "welcomeSubtext": "Aquí tiene un resumen de su información de salud",
         "heroTitle": "Bienvenido/a al portal del paciente",
         "heroSubtitle": "Inicie sesión para ver su información",
         "loginButton": "Iniciar sesión",
+        "registerButton": "Registrarse",
         "tiles": {
             "labs": {
                 "title": "Resultados",
@@ -58,7 +60,7 @@
         "noSlots": "No hay franjas horarias disponibles en esta fecha.",
         "form": {
             "dateLabel": "Fecha de la cita",
-            "dateError": "Elija una fecha en el futuro.",
+            "dateError": "Elija hoy o una fecha en el futuro.",
             "reasonLabel": "Motivo de la cita",
             "reasonPlaceholder": "Por ejemplo, \"Revisión rutinaria\"",
             "reasonError": "Introduzca un motivo válido (mínimo 10 caracteres).",
@@ -144,7 +146,7 @@
         "labels": {
             "name": "Nombre completo",
             "phone": "Número de teléfono",
-            "address": "Dirección",
+            "postcode": "Código postal",
             "doctor": "Médico de cabecera",
             "email": "Correo electrónico o usuario",
             "password": "Contraseña"
@@ -152,7 +154,7 @@
         "info": {
             "name": "Su nombre completo tal como aparece en el sistema",
             "phone": "Su número de teléfono",
-            "address": "Su dirección",
+            "postcode": "Su código postal",
             "doctor": "Nombre de su médico de cabecera",
             "email": "Su dirección de correo electrónico",
             "password": "Su contraseña"
@@ -160,7 +162,7 @@
         "placeholders": {
             "name": "Juan Pérez",
             "phone": "+34 600 123 456",
-            "address": "Calle Principal 1, 28000 Madrid",
+            "postcode": "28000",
             "doctor": "Dr. García",
             "email": "correo@ejemplo.com",
             "password": "contraseña"
@@ -170,6 +172,7 @@
             "missingRequired": "El correo electrónico y la contraseña son obligatorios",
             "duplicateEmail": "Ya existe un usuario con este correo electrónico",
             "invalidEmail": "Dirección de correo electrónico no válida",
+            "invalidPostcode": "Código postal no válido (ej. 1234 AB)",
             "genericError": "Error al guardar el perfil: {{message}}"
         }
     },

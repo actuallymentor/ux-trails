@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { passable_props } from '../component_base'
 
 const SectionBase = styled.section`
-	padding:  2rem min( 4rem, max( 1rem, calc( 30vw - 8rem ) ) );
+	padding: 2rem min( 6rem, max( 2rem, calc( 30vw - 6rem ) ) );
 	margin: ${ ( { $margin='1rem 0' } ) => $margin };
 	display: flex;
 	flex-direction: column;

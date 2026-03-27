@@ -1,6 +1,24 @@
 import { log } from "mentie"
 
-export const [ tomorrow_yyyy_mm_dd ] = new Date( Date.now() + 60_000 * 60 * 24 ).toISOString().split( 'T' )
+/**
+ * Formats a Date object as a local YYYY-MM-DD string.
+ * Using local time avoids UTC-offset bugs where midnight UTC
+ * falls on a different calendar day than the user's local date.
+ * @param {Date} date - Date object to format
+ * @returns {String} - Date in yyyy-mm-dd format
+ */
+export function local_date_string( date = new Date() ) {
+    const year = date.getFullYear()
+    const month = String( date.getMonth() + 1 ).padStart( 2, '0' )
+    const day = String( date.getDate() ).padStart( 2, '0' )
+    return `${ year }-${ month }-${ day }`
+}
+
+// Today and tomorrow as YYYY-MM-DD in local time
+export const today_yyyy_mm_dd = local_date_string()
+const tomorrow = new Date()
+tomorrow.setDate( tomorrow.getDate() + 1 )
+export const tomorrow_yyyy_mm_dd = local_date_string( tomorrow )
 
 // Get the day, month, and year of a timestamp
 export function get_day_month_year( timestamp ) {
@@ -16,17 +34,16 @@ export function get_day_month_year( timestamp ) {
 
 
 /**
- * Validator function that checks if input date string is after a given timestamp
+ * Validator function that checks if input date string is today or later.
+ * Compares YYYY-MM-DD strings in local time to avoid UTC-offset issues.
  * @param {String} date_string - Date in yyyy-mm-dd format
- * @param {Number} timestamp - Timestamp to compare against, defaults to 24 hours from now
- * @returns {Boolean} - True if input date is after timestamp, false otherwise
+ * @returns {Boolean} - True if input date is today or in the future, false otherwise
  */
-export function date_after_timestamp_validator( date_string, timestamp=Date.now() + 60_000 * 60 * 24 ) {
+export function date_after_timestamp_validator( date_string ) {
 
-    const input_date = new Date( date_string )
-    const compare_date = new Date( timestamp )
-    const valid = input_date.getTime() > compare_date.getTime() 
-    log.info( 'Date after timestamp validation result:', { date_string, input_date, compare_date, valid } )
+    const today = local_date_string()
+    const valid = date_string >= today
+    log.info( 'Date validation result:', { date_string, today, valid } )
     return valid
 
 }
@@ -43,11 +60,12 @@ export function date_to_locale_string( date, locale=navigator.language || 'nl-NL
 }
 
 /**
- * Checks if a given date string represents a future date
- * @param {String} date_string - Date string
- * @returns {Boolean} - True if the date is in the future, false otherwise
+ * Checks if a given date string represents today or a future date.
+ * Compares YYYY-MM-DD strings in local time to avoid UTC-offset issues
+ * where midnight UTC can fall on a different calendar day.
+ * @param {String} date_string - Date string in yyyy-mm-dd format
+ * @returns {Boolean} - True if the date is today or in the future, false otherwise
  */
 export function is_future( date_string ) {
-    const input_date = new Date( date_string )
-    return input_date.getTime() > Date.now()
+    return date_string >= local_date_string()
 }

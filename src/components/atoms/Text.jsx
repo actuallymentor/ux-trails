@@ -55,7 +55,7 @@ export const H2 = styled.h2`
 	overflow-wrap: anywhere;
 	svg {
 		margin-right: 0.5rem;
-		vertical-align: text-top;
+		vertical-align: middle;
 	}
 	${ passable_props };
 `

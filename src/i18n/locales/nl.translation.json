@@ -6,13 +6,13 @@
         "backToOverview": "Terug naar overzicht"
     },
     "menu": {
-        "home": "Startpagina",
+        "home": "Dashboard",
         "login": "Inloggen",
-        "labs": "Uitslagen",
+        "labs": "Labuitslagen",
         "appointments": "Afspraken",
         "messages": "Berichten",
         "documents": "Documenten",
-        "settings": "Instellingen",
+        "settings": "Profiel",
         "logout": "Uitloggen"
     },
     "footer": {
@@ -21,9 +21,11 @@
     "homepage": {
         "patientArea": "Patiëntenomgeving",
         "welcomeUser": "Welkom {{name}}",
+        "welcomeSubtext": "Hier is een overzicht van uw gezondheidsinformatie",
         "heroTitle": "Welkom bij de patiëntenomgeving",
         "heroSubtitle": "Log in om uw gegevens te bekijken",
         "loginButton": "Inloggen",
+        "registerButton": "Registreren",
         "tiles": {
             "labs": {
                 "title": "Uitslagen",
@@ -58,7 +60,7 @@
         "noSlots": "Geen beschikbare tijdsloten op deze datum.",
         "form": {
             "dateLabel": "Datum van afspraak",
-            "dateError": "Kies een datum in de toekomst.",
+            "dateError": "Kies vandaag of een datum in de toekomst.",
             "reasonLabel": "Reden van afspraak",
             "reasonPlaceholder": "Bijv. \"Routinecontrole\"",
             "reasonError": "Vul alstublieft een geldige reden in (minimaal 10 tekens).",
@@ -144,7 +146,7 @@
         "labels": {
             "name": "Volledige naam",
             "phone": "Telefoonnummer",
-            "address": "Adres",
+            "postcode": "Postcode",
             "doctor": "Huisarts",
             "email": "Email of gebruikersnaam",
             "password": "Wachtwoord"
@@ -152,7 +154,7 @@
         "info": {
             "name": "Uw volledige naam zoals deze in het systeem wordt weergegeven",
             "phone": "Uw telefoonnummer",
-            "address": "Uw woonadres",
+            "postcode": "Uw postcode",
             "doctor": "Naam van uw huisarts",
             "email": "Uw email adres",
             "password": "Uw wachtwoord"
@@ -160,7 +162,7 @@
         "placeholders": {
             "name": "Jan Jansen",
             "phone": "+31 6 12345678",
-            "address": "Straatnaam 1, 1234 AB, Plaats",
+            "postcode": "1234 AB",
             "doctor": "Dr. Pietersen",
             "email": "uw@email.com",
             "password": "wachtwoord"
@@ -170,6 +172,7 @@
             "missingRequired": "Email en wachtwoord zijn verplicht",
             "duplicateEmail": "Er bestaat al een gebruiker met dit email adres",
             "invalidEmail": "Ongeldig email adres",
+            "invalidPostcode": "Ongeldige postcode (bijv. 1234 AB)",
             "genericError": "Fout bij opslaan profiel: {{message}}"
         }
     },
