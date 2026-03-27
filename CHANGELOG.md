@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0] - 2026-03-27
+
+### Added
+- add UX sins infrastructure: Zustand store, admin panel (/admin), config page (/config)
+- add researcher toggle panel with QR code sharing for cross-device configuration
+- add first UX sin: hidden password requirements on registration form
+- add translations for admin/config pages in all 4 locales (EN, NL, ES, ZH)
+- add `qrcode.react` dependency for QR code rendering
+
 ## [0.2.1] - 2026-03-13
 
 ### Fixed

@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next"
 // Statically loaded pages
 import Homepage from "../components/pages/Homepage"
 import LoginPage from "../components/pages/Login"
+import AdminPage from "../components/pages/AdminPage"
+import ConfigPage from "../components/pages/ConfigPage"
 import { useUserStore } from "../stores/user_store"
 import { useLabTestScoreStore } from "../stores/labtest_score"
 
@@ -25,7 +27,7 @@ export default function Routes() {
     const { init_dummy_scores } = useLabTestScoreStore()
     const navigate = useNavigate()
     const current_path = window.location.pathname
-    const public_paths = [ '/', '/login' ]
+    const public_paths = [ '/', '/login', '/admin', '/config' ]
     const { t } = useTranslation()
 
     // Initialise stores
@@ -51,6 +53,8 @@ export default function Routes() {
 
             <Route exact path='/' element={ <Homepage /> } />
             <Route exact path='/login' element={ <LoginPage /> } />
+            <Route exact path='/admin' element={ <AdminPage /> } />
+            <Route exact path='/config' element={ <ConfigPage /> } />
 
             <Route exact path='/profile/labs' element={ <LabTests /> } />
             <Route exact path='/profile/inbox' element={ <Messages /> } />

@@ -123,7 +123,8 @@
             "password": "密码必须至少包含5个字符"
         },
         "error": {
-            "password": "密码必须至少包含5个字符"
+            "password": "密码必须至少包含5个字符",
+            "passwordVague": "密码不符合要求"
         },
         "placeholders": {
             "name": "张伟",
@@ -180,6 +181,25 @@
             "invalidEmail": "电子邮件地址无效",
             "invalidPostcode": "邮政编码无效（例如 1234 AB）",
             "genericError": "保存个人资料时出错：{{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "UX 问题配置",
+        "pageDescription": "切换 UX 反模式以展示其对用户体验的影响。",
+        "shareTitle": "分享配置",
+        "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",
+        "copyUrl": "复制 URL",
+        "toast": {
+            "copied": "URL 已复制到剪贴板"
+        }
+    },
+    "config": {
+        "pageTitle": "配置已应用",
+        "pageDescription": "以下 UX 模式已在此设备上激活。",
+        "noSins": "当前没有活跃的 UX 模式。",
+        "goHome": "前往首页",
+        "toast": {
+            "applied": "配置应用成功"
         }
     },
     "letters": {
