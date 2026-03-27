@@ -64,6 +64,9 @@ export default function LoginPage() {
     }
     const register = () => {
 
+        // Check password meets minimum requirements
+        if( password.length < 5 ) return toast.error( t( 'login.error.password' ) )
+
         // Check if user already exists, toast error if so
         const existing_user = users_by_email[ email ]
         if( existing_user ) {
@@ -94,8 +97,8 @@ export default function LoginPage() {
                             </>
                     }</Sidenote>
                     { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label={ t( 'login.labels.name' ) } info={ t( 'login.info.name' ) } type="text" placeholder={ t( 'login.placeholders.name' ) } /> }
-                    <Input value={ email } onChange={ e => set_email( e.target.value ) } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
-                    <Input value={ password } onChange={ e => set_password( e.target.value ) } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } />
+                    <Input value={ email } onChange={ e => set_email( e.target.value ) } onEnter={ mode === 'login' ? login : undefined } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
+                    <Input value={ password } onChange={ e => set_password( e.target.value ) } onEnter={ mode === 'login' ? login : register } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } validate={ value => value?.length >= 5 } error={ t( 'login.error.password' ) } hint={ mode === 'register' ? t( 'login.hint.password' ) : undefined } />
                     <Spacer />
                     <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
                     <Spacer />

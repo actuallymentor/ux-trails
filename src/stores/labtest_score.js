@@ -16,7 +16,7 @@ function random_values( { amount_of_readings, min_value, max_value, unit } ) {
     for( let i=0; i<amount_of_readings; i++ ) {
         const value = random_number_between( max_value, min_value )
         const day =  new Date( now -  day_offset * 24 * 60 * 60 * 1000  ) .toLocaleDateString( 'nl-NL' )
-        day_offset -= random_number_between( 30 )
+        day_offset += random_number_between( 30 )
         readings.push( { value, unit, day } )
         average += value
     }
@@ -45,6 +45,24 @@ export const useLabTestScoreStore = create()( persist(
             // First check if already initialised
             const { labtest_scores } = get()
             if( labtest_scores.length > 0 ) {
+
+                // Clean up any readings with future dates from previously generated data
+                const now = new Date()
+                now.setHours( 23, 59, 59, 999 )
+                const now_ts = now.getTime()
+                const cleaned = labtest_scores.map( score => ( {
+                    ...score,
+                    readings: score.readings.filter( r => {
+                        const [ day, month, year ] = r.day.split( '-' ).map( Number )
+                        return new Date( year, month - 1, day ).getTime() <= now_ts
+                    } )
+                } ) )
+                const has_future = labtest_scores.some( ( score, i ) => score.readings.length !== cleaned[ i ].readings.length )
+                if( has_future ) {
+                    log.info( 'Removed future-dated readings from lab test scores' )
+                    set( { labtest_scores: cleaned } )
+                }
+
                 log.info( 'Lab test scores already initialised, skipping:', labtest_scores )
                 return
             }

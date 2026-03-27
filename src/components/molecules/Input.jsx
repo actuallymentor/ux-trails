@@ -50,6 +50,10 @@ const InputBase = styled.span`
 		color: red;
 	}
 
+	p#hint {
+		color: ${ ( { theme } ) => theme.colors.hint };
+	}
+
 	& label {
 		
 		display: flex;
@@ -119,7 +123,7 @@ const InputBase = styled.span`
  * @param {number} props.validation_delay - The delay in milliseconds for input validation.
  * @returns {JSX.Element} The rendered Input component.
  */
-export default function Input( { onChange, onEnter, type, label, info, highlight, id, title, onClick, options, validate, error, verbose=false, validation_delay=500, ...props } ) {
+export default function Input( { onChange, onEnter, type, label, info, hint, highlight, id, title, onClick, options, validate, error, verbose=false, validation_delay=500, ...props } ) {
 
     const { current: internalId } = useRef( id || `input-${ Math.random() }` )
     const special_types = [ 'dropdown', 'textarea' ]
@@ -229,6 +233,7 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
 
         { title && <p id="title">{ title }</p> }
 
+        { hint && <p id="hint">{ hint }</p> }
         { !is_typing && !empty && !valid && <p id="error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
 		
     </InputBase>

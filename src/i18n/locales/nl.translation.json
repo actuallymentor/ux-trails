@@ -117,7 +117,13 @@
         "info": {
             "name": "Uw volledige naam",
             "email": "Uw email adres",
-            "password": "Uw wachtwoord"
+            "password": "Wachtwoord moet minimaal 5 tekens lang zijn"
+        },
+        "hint": {
+            "password": "Wachtwoord moet minimaal 5 tekens bevatten"
+        },
+        "error": {
+            "password": "Wachtwoord moet minimaal 5 tekens bevatten"
         },
         "placeholders": {
             "name": "Jan Jansen",

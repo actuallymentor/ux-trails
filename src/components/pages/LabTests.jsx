@@ -17,6 +17,16 @@ import { useTranslation } from "react-i18next"
 const LabChart = lazy( prefetch( () => import( "../molecules/LabChart" ) ) )
 
 
+// Parse nl-NL date format (D-M-YYYY) into a timestamp for sorting
+function parse_nl_date( date_string ) {
+    const [ day, month, year ] = date_string.split( '-' ).map( Number )
+    return new Date( year, month - 1, day ).getTime()
+}
+
+function sort_readings_newest_first( readings ) {
+    return [ ...readings ].sort( ( a, b ) => parse_nl_date( b.day ) - parse_nl_date( a.day ) )
+}
+
 export default function LabTests() {
 
     const { labtest_scores } = useLabTestScoreStore()
@@ -49,7 +59,7 @@ export default function LabTests() {
             <Grid>
                 { labtest_scores.map( ( { type, average, unit, readings } ) => {
 
-                    const latest_reading = readings?.[ readings.length - 1 ]
+                    const latest_reading = sort_readings_newest_first( readings || [] )[ 0 ]
                     const display_name = t( `labs.types.${ type }`, { defaultValue: type } )
 
                     return <Card key={ type } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
@@ -93,7 +103,7 @@ export default function LabTests() {
                 <H2 $margin='0 0 1rem'>{ t( 'labTests.overview' ) }</H2>
                 <Text $color='hint'>{ t( 'labTests.readingsCount', { count: current_data?.readings.length } ) }</Text>
                 <Column $width='100%' $margin='1.5rem 0 0' $gap='0.5rem'>
-                    { current_data?.readings.map( ( { day, value, unit }, index ) => <Text key={ `${ current_data.type }-${ index }` } $margin='.2rem 0' $color='hint'>{ t( 'labTests.readingItem', { day, value, unit } ) }</Text> ) }
+                    { sort_readings_newest_first( current_data?.readings || [] ).map( ( { day, value, unit }, index ) => <Text key={ `${ current_data.type }-${ index }` } $margin='.2rem 0' $color='hint'>{ t( 'labTests.readingItem', { day, value, unit } ) }</Text> ) }
                 </Column>
             </Card>
         </Section>
