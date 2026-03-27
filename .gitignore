@@ -143,3 +143,5 @@ vite.config.ts.timestamp-*
 dev-dist
 public
 build
+cypress/videos
+cypress/screenshots

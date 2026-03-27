@@ -117,7 +117,13 @@
         "info": {
             "name": "Your full name",
             "email": "Your email address",
-            "password": "Your password"
+            "password": "Password must be at least 5 characters long"
+        },
+        "hint": {
+            "password": "Password must be at least 5 characters"
+        },
+        "error": {
+            "password": "Password must be at least 5 characters"
         },
         "placeholders": {
             "name": "Jan Jansen",

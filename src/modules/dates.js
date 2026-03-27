@@ -39,11 +39,11 @@ export function get_day_month_year( timestamp ) {
  * @param {String} date_string - Date in yyyy-mm-dd format
  * @returns {Boolean} - True if input date is today or in the future, false otherwise
  */
-export function date_after_timestamp_validator( date_string ) {
+export function date_after_timestamp_validator( date_string, { verbose = false } = {} ) {
 
     const today = local_date_string()
     const valid = date_string >= today
-    log.info( 'Date validation result:', { date_string, today, valid } )
+    if( verbose ) log.info( 'Date validation result:', { date_string, today, valid } )
     return valid
 
 }

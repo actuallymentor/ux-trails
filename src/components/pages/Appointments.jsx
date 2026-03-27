@@ -7,7 +7,7 @@ import Card from "../atoms/Card"
 import { useAppointmentsStore } from '../../stores/appointments'
 import Input from "../molecules/Input"
 import { log, truncate } from "mentie"
-import { CalendarIcon, ClockIcon, MapPinIcon, NotebookIcon, PencilIcon } from "lucide-react"
+import { CalendarIcon, ClockIcon, MapPinIcon, NotebookIcon, PencilIcon, XIcon } from "lucide-react"
 import Column from "../atoms/Column"
 import { toast } from "react-toastify"
 import { date_after_timestamp_validator, date_to_locale_string, is_future, today_yyyy_mm_dd } from "../../modules/dates"
@@ -41,8 +41,8 @@ export default function Appointments() {
         const appointment_time = new Date( `${ date }T${ slot.time }:00` )
         if( Number.isNaN( appointment_time.getTime() ) || appointment_time.getTime() <= Date.now() ) return toast.error( t( 'appointments.toast.invalidDate' ) )
 
-        // Validate reason was provided
-        if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )
+        // Validate reason was provided and meets minimum length
+        if( !reason || reason.length < 10 ) return toast.error( t( 'appointments.toast.missingReason' ) )
 
         log.info( 'Saving appointment:', { ...slot, reason } )
 
@@ -106,6 +106,15 @@ export default function Appointments() {
 
         { view_appointment && <Modal onClose={ () => set_view_appointment( null ) }>
             <Card>
+                <button
+                    type="button"
+                    data-testid="close-view-appointment-modal"
+                    onClick={ () => set_view_appointment( null ) }
+                    aria-label={ t( 'common.close' ) }
+                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer', background: 'none', border: 'none', padding: 0 } }
+                >
+                    <XIcon size={ 20 } />
+                </button>
                 <H2>{ t( 'appointments.detailsTitle' ) }</H2>
                 { view_appointment?.date && <Text><CalendarIcon />{ view_appointment?.date }</Text> }
                 { view_appointment?.time && <Text><ClockIcon />{ view_appointment?.time }</Text> }
@@ -117,6 +126,15 @@ export default function Appointments() {
 
         { makenew && <Modal onClose={ () => set_makenew( false ) }>
             <Card>
+                <button
+                    type="button"
+                    data-testid="close-new-appointment-modal"
+                    onClick={ () => set_makenew( false ) }
+                    aria-label={ t( 'common.close' ) }
+                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer', background: 'none', border: 'none', padding: 0 } }
+                >
+                    <XIcon size={ 20 } />
+                </button>
                 <Input
                     label={ t( 'appointments.form.dateLabel' ) }
                     type='date'
@@ -145,7 +163,7 @@ export default function Appointments() {
                 <Button
                     $margin='1rem 0 0'
                     onClick={ save_appointment }
-                    disabled={ !new_appointment.date || new_appointment.slot_index == null || !new_appointment.reason }
+                    disabled={ !new_appointment.date || !date_after_timestamp_validator( new_appointment.date ) || new_appointment.slot_index == null || !new_appointment.reason || new_appointment.reason.length < 10 }
                 >
                     { t( 'appointments.form.confirm' ) }
                 </Button>

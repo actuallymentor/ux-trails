@@ -117,7 +117,13 @@
         "info": {
             "name": "您的全名",
             "email": "您的电子邮件地址",
-            "password": "您的密码"
+            "password": "密码必须至少包含5个字符"
+        },
+        "hint": {
+            "password": "密码必须至少包含5个字符"
+        },
+        "error": {
+            "password": "密码必须至少包含5个字符"
         },
         "placeholders": {
             "name": "张伟",

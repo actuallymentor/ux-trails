@@ -117,7 +117,13 @@
         "info": {
             "name": "Su nombre completo",
             "email": "Su dirección de correo electrónico",
-            "password": "Su contraseña"
+            "password": "La contraseña debe tener al menos 5 caracteres"
+        },
+        "hint": {
+            "password": "La contraseña debe tener al menos 5 caracteres"
+        },
+        "error": {
+            "password": "La contraseña debe tener al menos 5 caracteres"
         },
         "placeholders": {
             "name": "Juan Pérez",

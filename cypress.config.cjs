@@ -34,7 +34,7 @@ module.exports = defineConfig( {
 
         },
         specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
-        baseUrl: "http://localhost:3000/#",
+        baseUrl: "https://localhost:3000",
         experimentalRunAllSpecs: true,
 
     }

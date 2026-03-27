@@ -35,6 +35,7 @@ const ButtonBase = styled.a`
 	}
 	&[disabled] {
 		opacity: 0.5;
+		pointer-events: none;
 	}
 	${ passable_props };
 `

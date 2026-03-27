@@ -46,8 +46,12 @@ const InputBase = styled.span`
 		font-size: .7rem;
 	}
 
-	p#error {
+	p.input-error {
 		color: red;
+	}
+
+	p.input-hint {
+		color: ${ ( { theme } ) => theme.colors.hint };
 	}
 
 	& label {
@@ -105,6 +109,7 @@ const InputBase = styled.span`
  * @component
  * @param {Object} props - The input component props.
  * @param {Function} props.onChange - The function to handle input change.
+ * @param {Function} props.onEnter - Callback fired when Enter key is pressed.
  * @param {string} props.type - The type of input field.
  * @param {string} props.label - The label for the input field.
  * @param {string} props.info - Additional information for the input field.
@@ -115,11 +120,12 @@ const InputBase = styled.span`
  * @param {Array} props.options - The options for dropdown input field.
  * @param {Function|string} props.validate - The validation function or regex pattern for input field.
  * @param {string} props.error - The error message for invalid input.
+ * @param {string} props.hint - Persistent hint text displayed below the input field.
  * @param {boolean} props.verbose - Whether to enable verbose mode.
  * @param {number} props.validation_delay - The delay in milliseconds for input validation.
  * @returns {JSX.Element} The rendered Input component.
  */
-export default function Input( { onChange, onEnter, type, label, info, highlight, id, title, onClick, options, validate, error, verbose=false, validation_delay=500, ...props } ) {
+export default function Input( { onChange, onEnter, type, label, info, hint, highlight, id, title, onClick, options, validate, error, verbose=false, validation_delay=500, ...props } ) {
 
     const { current: internalId } = useRef( id || `input-${ Math.random() }` )
     const special_types = [ 'dropdown', 'textarea' ]
@@ -229,7 +235,8 @@ export default function Input( { onChange, onEnter, type, label, info, highlight
 
         { title && <p id="title">{ title }</p> }
 
-        { !is_typing && !empty && !valid && <p id="error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
+        { hint && <p className="input-hint">{ hint }</p> }
+        { !is_typing && !empty && !valid && <p className="input-error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
 		
     </InputBase>
 
