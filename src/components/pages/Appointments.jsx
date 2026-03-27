@@ -39,7 +39,7 @@ export default function Appointments() {
 
         // Validate the combined date+time is still in the future (guards against stale selections)
         const appointment_time = new Date( `${ date }T${ slot.time }:00` )
-        if( appointment_time.getTime() <= Date.now() ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+        if( Number.isNaN( appointment_time.getTime() ) || appointment_time.getTime() <= Date.now() ) return toast.error( t( 'appointments.toast.invalidDate' ) )
 
         // Validate reason was provided
         if( !`${ reason }`.length ) return toast.error( t( 'appointments.toast.missingReason' ) )

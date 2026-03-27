@@ -37,7 +37,8 @@ export default function Settings() {
             // Email validity
             if( !email.match( email_regex ) ) throw new Error( 'invalidEmail' )
 
-            // Postcode validity (only validate if a value was entered)
+            // Normalize and validate postcode (trim whitespace, uppercase)
+            if( profile.postcode ) profile.postcode = profile.postcode.trim().toUpperCase()
             if( profile.postcode?.length && !postcode_regex.test( profile.postcode ) ) throw new Error( 'invalidPostcode' )
 
             // All good, save profile

@@ -16,7 +16,7 @@ export default function Documents() {
     const { user } = useUserStore()
     const { labtest_scores } = useLabTestScoreStore()
     const { t, i18n: { language } } = useTranslation()
-    const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ labtest_scores, language ] )
+    const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ user?.name, labtest_scores, language ] )
 
     async function download_pdf( index ) {
 

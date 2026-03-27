@@ -60,7 +60,7 @@ export const useAppointmentsStore = create()( persist(
                 const now = new Date()
                 return slots.filter( slot => {
                     const [ hour, minute ] = slot.time.split( ':' ).map( Number )
-                    return hour > now.getHours() ||  hour === now.getHours() && minute > now.getMinutes() 
+                    return hour > now.getHours() || ( hour === now.getHours() && minute > now.getMinutes() )
                 } )
             }
 
