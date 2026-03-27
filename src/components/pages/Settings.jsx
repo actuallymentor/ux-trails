@@ -38,11 +38,14 @@ export default function Settings() {
             if( !email.match( email_regex ) ) throw new Error( 'invalidEmail' )
 
             // Normalize and validate postcode (trim whitespace, uppercase)
-            if( profile.postcode ) profile.postcode = profile.postcode.trim().toUpperCase()
-            if( profile.postcode?.length && !postcode_regex.test( profile.postcode ) ) throw new Error( 'invalidPostcode' )
+            const updated_profile = {
+                ...profile,
+                postcode: profile.postcode?.trim().toUpperCase()
+            }
+            if( updated_profile.postcode?.length && !postcode_regex.test( updated_profile.postcode ) ) throw new Error( 'invalidPostcode' )
 
             // All good, save profile
-            set_user( profile )
+            set_user( updated_profile )
             toast.success( t( 'settings.toast.success' ) )
 
         } catch ( e ) {
@@ -66,7 +69,7 @@ export default function Settings() {
             <H1>{ t( 'settings.pageTitle' ) }</H1>
             <Input value={ profile?.name } onChange={ e => set_profile( { ...profile, name: e.target.value } ) } label={ t( 'settings.labels.name' ) } info={ t( 'settings.info.name' ) } type="text" placeholder={ t( 'settings.placeholders.name' ) } />
             <Input value={ profile?.phone } onChange={ e => set_profile( { ...profile, phone: e.target.value } ) } label={ t( 'settings.labels.phone' ) } info={ t( 'settings.info.phone' ) } type="tel" placeholder={ t( 'settings.placeholders.phone' ) } />
-            <Input value={ profile?.postcode } onChange={ e => set_profile( { ...profile, postcode: e.target.value } ) } label={ t( 'settings.labels.postcode' ) } info={ t( 'settings.info.postcode' ) } type="text" placeholder={ t( 'settings.placeholders.postcode' ) } validate={ val => !val?.length || postcode_regex.test( val ) } error={ t( 'settings.toast.invalidPostcode' ) } />
+            <Input value={ profile?.postcode } onChange={ e => set_profile( { ...profile, postcode: e.target.value } ) } label={ t( 'settings.labels.postcode' ) } info={ t( 'settings.info.postcode' ) } type="text" placeholder={ t( 'settings.placeholders.postcode' ) } validate={ val => { const v = ( val || `` ).trim().toUpperCase(); return !v.length || postcode_regex.test( v ) } } error={ t( 'settings.toast.invalidPostcode' ) } />
             <Input value={ profile?.doctor } onChange={ e => set_profile( { ...profile, doctor: e.target.value } ) } label={ t( 'settings.labels.doctor' ) } info={ t( 'settings.info.doctor' ) } type="text" placeholder={ t( 'settings.placeholders.doctor' ) } />
             <Input value={ profile?.email } onChange={ e => set_profile( { ...profile, email: e.target.value } ) } label={ t( 'settings.labels.email' ) } info={ t( 'settings.info.email' ) } type="email" placeholder={ t( 'settings.placeholders.email' ) } />
             <Input value={ profile?.password } onChange={ e => set_profile( { ...profile, password: e.target.value } ) } label={ t( 'settings.labels.password' ) } info={ t( 'settings.info.password' ) } type="password" placeholder={ t( 'settings.placeholders.password' ) } />
