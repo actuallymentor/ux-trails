@@ -1,28 +1,11 @@
 
-
-// Force English locale for consistent test selectors
-function set_english( win ) {
-    win.localStorage.setItem( 'ux-trails-lang', 'en' )
-}
-
-// Helper: register and login a user to access protected pages
-function login_as_test_user() {
-    cy.visit( '/login', { onBeforeLoad: set_english } )
-    cy.contains( 'create a new account' ).click()
-    const email = `settings-test-${ Date.now() }@test.com`
-    cy.get( 'input[type="text"]' ).type( 'Settings Test User' )
-    cy.get( 'input[type="email"]' ).type( email )
-    cy.get( 'input[type="password"]' ).type( 'testpass' )
-    cy.contains( 'a', 'Register' ).click()
-    cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
-}
-
+import { set_english, login_as_test_user } from '../support/commands'
 
 context( 'Settings page display', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'settings' )
         cy.visit( '/profile/settings', { onBeforeLoad: set_english } )
     } )
 
@@ -40,7 +23,7 @@ context( 'Settings page display', () => {
     it( 'Pre-fills name and email from registration', () => {
         cy.get( 'input[type="email"]' ).should( 'not.have.value', '' )
         // Name field should have the registered name
-        cy.get( 'input[type="text"]' ).first().should( 'have.value', 'Settings Test User' )
+        cy.get( 'input[type="text"]' ).first().should( 'have.value', 'settings Test User' )
     } )
 
 } )
@@ -50,7 +33,7 @@ context( 'Settings form validation', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'settings' )
         cy.visit( '/profile/settings', { onBeforeLoad: set_english } )
     } )
 

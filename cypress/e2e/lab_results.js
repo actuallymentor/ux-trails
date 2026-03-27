@@ -1,31 +1,15 @@
 
-// Force English locale for consistent test selectors
-function set_english( win ) {
-    win.localStorage.setItem( 'ux-trails-lang', 'en' )
-}
-
-// Helper: register and login a user to access protected pages
-function login_as_test_user() {
-    cy.visit( '/login', { onBeforeLoad: set_english } )
-    cy.contains( 'create a new account' ).click()
-    const email = `lab-test-${ Date.now() }@test.com`
-    cy.get( 'input[type="text"]' ).type( 'Lab Test User' )
-    cy.get( 'input[type="email"]' ).type( email )
-    cy.get( 'input[type="password"]' ).type( 'testpass' )
-    cy.contains( 'a', 'Register' ).click()
-    cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
-}
-
+import { login_as_test_user } from '../support/commands'
 
 context( 'Lab results sorting and date validation', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'lab' )
     } )
 
     it( 'No reading dates are in the future', () => {
-        cy.visit( '/profile/labs', { onBeforeLoad: set_english } )
+        cy.visit( '/profile/labs', { onBeforeLoad: win => win.localStorage.setItem( 'ux-trails-lang', 'en' ) } )
 
         // Click on the first lab test to see its readings
         cy.contains( 'View results' ).first().click()
@@ -54,7 +38,7 @@ context( 'Lab results sorting and date validation', () => {
     } )
 
     it( 'Readings are sorted from newest to oldest', () => {
-        cy.visit( '/profile/labs', { onBeforeLoad: set_english } )
+        cy.visit( '/profile/labs', { onBeforeLoad: win => win.localStorage.setItem( 'ux-trails-lang', 'en' ) } )
 
         // Click on the first lab test to see its readings
         cy.contains( 'View results' ).first().click()

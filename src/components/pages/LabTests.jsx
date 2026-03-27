@@ -18,9 +18,11 @@ const LabChart = lazy( prefetch( () => import( "../molecules/LabChart" ) ) )
 
 
 // Parse nl-NL date format (D-M-YYYY) into a timestamp for sorting
+// Returns 0 for unparseable dates so they sort to the end
 function parse_nl_date( date_string ) {
-    const [ day, month, year ] = date_string.split( '-' ).map( Number )
-    return new Date( year, month - 1, day ).getTime()
+    const [ day, month, year ] = ( date_string || '' ).split( '-' ).map( Number )
+    const ts = new Date( year, month - 1, day ).getTime()
+    return Number.isNaN( ts ) ? 0 : ts
 }
 
 function sort_readings_newest_first( readings ) {

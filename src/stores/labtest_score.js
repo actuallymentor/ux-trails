@@ -52,8 +52,11 @@ export const useLabTestScoreStore = create()( persist(
                 const now_ts = now.getTime()
                 const cleaned = labtest_scores.map( score => {
                     const readings = score.readings.filter( r => {
-                        const [ day, month, year ] = r.day.split( '-' ).map( Number )
-                        return new Date( year, month - 1, day ).getTime() <= now_ts
+                        const [ day, month, year ] = ( r.day || '' ).split( '-' ).map( Number )
+                        const ts = new Date( year, month - 1, day ).getTime()
+                        // Keep readings with unparseable dates (don't silently drop them)
+                        if( Number.isNaN( ts ) ) return true
+                        return ts <= now_ts
                     } )
                     // Recompute average from the cleaned readings
                     const average = readings.length > 0

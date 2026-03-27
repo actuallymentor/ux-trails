@@ -1,14 +1,5 @@
 
-// Force English locale for consistent test selectors
-function set_english( win ) {
-    win.localStorage.setItem( 'ux-trails-lang', 'en' )
-}
-
-// Navigate to the registration form
-function visit_register() {
-    cy.visit( '/login', { onBeforeLoad: set_english } )
-    cy.contains( 'create a new account' ).click()
-}
+import { set_english, visit_register } from '../support/commands'
 
 context( 'Registration password requirements', () => {
 

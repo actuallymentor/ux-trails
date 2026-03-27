@@ -1,28 +1,11 @@
 
-
-// Force English locale for consistent test selectors
-function set_english( win ) {
-    win.localStorage.setItem( 'ux-trails-lang', 'en' )
-}
-
-// Helper: register and login a user to access protected pages
-function login_as_test_user() {
-    cy.visit( '/login', { onBeforeLoad: set_english } )
-    cy.contains( 'create a new account' ).click()
-    const email = `doc-test-${ Date.now() }@test.com`
-    cy.get( 'input[type="text"]' ).type( 'Document Test User' )
-    cy.get( 'input[type="email"]' ).type( email )
-    cy.get( 'input[type="password"]' ).type( 'testpass' )
-    cy.contains( 'a', 'Register' ).click()
-    cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
-}
-
+import { set_english, login_as_test_user } from '../support/commands'
 
 context( 'Documents page', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'doc' )
         cy.visit( '/profile/documents', { onBeforeLoad: set_english } )
     } )
 

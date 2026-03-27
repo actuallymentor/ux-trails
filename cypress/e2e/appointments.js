@@ -1,37 +1,11 @@
 
-// Force English locale for consistent test selectors
-function set_english( win ) {
-    win.localStorage.setItem( 'ux-trails-lang', 'en' )
-}
-
-// Helper: register and login a user to access protected pages
-function login_as_test_user() {
-    cy.visit( '/login', { onBeforeLoad: set_english } )
-    cy.contains( 'create a new account' ).click()
-    const email = `appt-test-${ Date.now() }@test.com`
-    cy.get( 'input[type="text"]' ).type( 'Appt Test User' )
-    cy.get( 'input[type="email"]' ).type( email )
-    cy.get( 'input[type="password"]' ).type( 'testpass' )
-    cy.contains( 'a', 'Register' ).click()
-    cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
-}
-
-// Get tomorrow's date in YYYY-MM-DD format (local time, not UTC)
-function tomorrow_date() {
-    const d = new Date()
-    d.setDate( d.getDate() + 1 )
-    const year = d.getFullYear()
-    const month = String( d.getMonth() + 1 ).padStart( 2, '0' )
-    const day = String( d.getDate() ).padStart( 2, '0' )
-    return `${ year }-${ month }-${ day }`
-}
-
+import { set_english, login_as_test_user, tomorrow_date } from '../support/commands'
 
 context( 'New appointment modal close button', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'appt' )
         cy.visit( '/profile/appointments', { onBeforeLoad: set_english } )
     } )
 
@@ -70,7 +44,7 @@ context( 'New appointment form validation', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        login_as_test_user()
+        login_as_test_user( 'appt' )
         cy.visit( '/profile/appointments', { onBeforeLoad: set_english } )
         cy.contains( 'New appointment' ).click()
     } )

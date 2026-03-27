@@ -109,6 +109,7 @@ const InputBase = styled.span`
  * @component
  * @param {Object} props - The input component props.
  * @param {Function} props.onChange - The function to handle input change.
+ * @param {Function} props.onEnter - Callback fired when Enter key is pressed.
  * @param {string} props.type - The type of input field.
  * @param {string} props.label - The label for the input field.
  * @param {string} props.info - Additional information for the input field.
