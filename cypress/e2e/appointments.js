@@ -15,11 +15,14 @@ function login_as_test_user() {
     cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
 }
 
-// Get tomorrow's date in YYYY-MM-DD format
+// Get tomorrow's date in YYYY-MM-DD format (local time, not UTC)
 function tomorrow_date() {
     const d = new Date()
     d.setDate( d.getDate() + 1 )
-    return d.toISOString().split( 'T' )[ 0 ]
+    const year = d.getFullYear()
+    const month = String( d.getMonth() + 1 ).padStart( 2, '0' )
+    const day = String( d.getDate() ).padStart( 2, '0' )
+    return `${ year }-${ month }-${ day }`
 }
 
 

@@ -46,11 +46,11 @@ const InputBase = styled.span`
 		font-size: .7rem;
 	}
 
-	p#error {
+	p.input-error {
 		color: red;
 	}
 
-	p#hint {
+	p.input-hint {
 		color: ${ ( { theme } ) => theme.colors.hint };
 	}
 
@@ -234,8 +234,8 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
 
         { title && <p id="title">{ title }</p> }
 
-        { hint && <p id="hint">{ hint }</p> }
-        { !is_typing && !empty && !valid && <p id="error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
+        { hint && <p className="input-hint">{ hint }</p> }
+        { !is_typing && !empty && !valid && <p className="input-error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
 		
     </InputBase>
 

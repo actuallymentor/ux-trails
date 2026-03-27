@@ -15,12 +15,6 @@ function login_as_test_user() {
     cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
 }
 
-// Parse a nl-NL date string (D-M-YYYY) into a Date object
-function parse_nl_date( date_string ) {
-    const [ day, month, year ] = date_string.split( '-' ).map( Number )
-    return new Date( year, month - 1, day )
-}
-
 
 context( 'Lab results sorting and date validation', () => {
 

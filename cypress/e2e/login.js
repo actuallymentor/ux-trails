@@ -4,15 +4,6 @@ function set_english() {
     localStorage.setItem( 'ux-trails-lang', 'en' )
 }
 
-// Helper: register a test user via the registration form
-function register_user( name, email, password ) {
-    cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
-    cy.get( 'input[type="text"]' ).type( name )
-    cy.get( 'input[type="email"]' ).type( email )
-    cy.get( 'input[type="password"]' ).type( password )
-    cy.contains( 'Register' ).click()
-}
-
 context( 'Registration password requirements', () => {
 
     beforeEach( () => {
@@ -21,20 +12,20 @@ context( 'Registration password requirements', () => {
     } )
 
     it( 'Shows password hint text on the registration form', () => {
-        cy.get( 'p#hint' ).should( 'be.visible' )
-        cy.get( 'p#hint' ).invoke( 'text' ).should( 'have.length.greaterThan', 0 )
+        cy.get( 'p.input-hint' ).should( 'be.visible' )
+        cy.get( 'p.input-hint' ).invoke( 'text' ).should( 'have.length.greaterThan', 0 )
     } )
 
     it( 'Does not show password hint on the login form', () => {
         cy.visit( '/login', { onBeforeLoad: set_english } )
-        cy.get( 'p#hint' ).should( 'not.exist' )
+        cy.get( 'p.input-hint' ).should( 'not.exist' )
     } )
 
     it( 'Shows error for password shorter than 5 characters', () => {
         cy.get( 'input[type="password"]' ).type( 'abc' )
 
         // Wait for debounce to finish and error to appear
-        cy.get( 'p#error', { timeout: 3000 } ).should( 'be.visible' )
+        cy.get( 'p.input-error', { timeout: 3000 } ).should( 'be.visible' )
     } )
 
     it( 'Shows valid state for password with 5 or more characters', () => {
@@ -42,7 +33,7 @@ context( 'Registration password requirements', () => {
 
         // Error should not appear after debounce
         cy.wait( 1000 )
-        cy.get( 'p#error' ).should( 'not.exist' )
+        cy.get( 'p.input-error' ).should( 'not.exist' )
     } )
 
     it( 'Shows toast error when registering with short password', () => {

@@ -106,12 +106,15 @@ export default function Appointments() {
 
         { view_appointment && <Modal onClose={ () => set_view_appointment( null ) }>
             <Card>
-                <XIcon
+                <button
+                    type="button"
                     data-testid="close-view-appointment-modal"
                     onClick={ () => set_view_appointment( null ) }
-                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer' } }
-                    size={ 20 }
-                />
+                    aria-label={ t( 'common.close' ) }
+                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer', background: 'none', border: 'none', padding: 0 } }
+                >
+                    <XIcon size={ 20 } />
+                </button>
                 <H2>{ t( 'appointments.detailsTitle' ) }</H2>
                 { view_appointment?.date && <Text><CalendarIcon />{ view_appointment?.date }</Text> }
                 { view_appointment?.time && <Text><ClockIcon />{ view_appointment?.time }</Text> }
@@ -123,12 +126,15 @@ export default function Appointments() {
 
         { makenew && <Modal onClose={ () => set_makenew( false ) }>
             <Card>
-                <XIcon
+                <button
+                    type="button"
                     data-testid="close-new-appointment-modal"
                     onClick={ () => set_makenew( false ) }
-                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer' } }
-                    size={ 20 }
-                />
+                    aria-label={ t( 'common.close' ) }
+                    style={ { position: 'absolute', top: '1rem', right: '1rem', cursor: 'pointer', background: 'none', border: 'none', padding: 0 } }
+                >
+                    <XIcon size={ 20 } />
+                </button>
                 <Input
                     label={ t( 'appointments.form.dateLabel' ) }
                     type='date'
