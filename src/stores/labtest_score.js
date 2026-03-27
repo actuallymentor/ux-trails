@@ -50,13 +50,17 @@ export const useLabTestScoreStore = create()( persist(
                 const now = new Date()
                 now.setHours( 23, 59, 59, 999 )
                 const now_ts = now.getTime()
-                const cleaned = labtest_scores.map( score => ( {
-                    ...score,
-                    readings: score.readings.filter( r => {
+                const cleaned = labtest_scores.map( score => {
+                    const readings = score.readings.filter( r => {
                         const [ day, month, year ] = r.day.split( '-' ).map( Number )
                         return new Date( year, month - 1, day ).getTime() <= now_ts
                     } )
-                } ) )
+                    // Recompute average from the cleaned readings
+                    const average = readings.length > 0
+                        ? Math.round( readings.reduce( ( sum, r ) => sum + r.value, 0 ) / readings.length )
+                        : 0
+                    return { ...score, readings, average }
+                } )
                 const has_future = labtest_scores.some( ( score, i ) => score.readings.length !== cleaned[ i ].readings.length )
                 if( has_future ) {
                     log.info( 'Removed future-dated readings from lab test scores' )

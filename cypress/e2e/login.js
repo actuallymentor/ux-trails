@@ -1,7 +1,12 @@
 
+// Force English locale for consistent test selectors
+function set_english() {
+    localStorage.setItem( 'ux-trails-lang', 'en' )
+}
+
 // Helper: register a test user via the registration form
 function register_user( name, email, password ) {
-    cy.visit( '/login?register=true' )
+    cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
     cy.get( 'input[type="text"]' ).type( name )
     cy.get( 'input[type="email"]' ).type( email )
     cy.get( 'input[type="password"]' ).type( password )
@@ -12,7 +17,7 @@ context( 'Registration password requirements', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        cy.visit( '/login?register=true' )
+        cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
     } )
 
     it( 'Shows password hint text on the registration form', () => {
@@ -21,7 +26,7 @@ context( 'Registration password requirements', () => {
     } )
 
     it( 'Does not show password hint on the login form', () => {
-        cy.visit( '/login' )
+        cy.visit( '/login', { onBeforeLoad: set_english } )
         cy.get( 'p#hint' ).should( 'not.exist' )
     } )
 
@@ -71,7 +76,7 @@ context( 'Enter key triggers login/register', () => {
     } )
 
     it( 'Pressing Enter on the password field triggers login', () => {
-        cy.visit( '/login' )
+        cy.visit( '/login', { onBeforeLoad: set_english } )
         cy.get( 'input[type="email"]' ).type( 'nonexistent@test.com' )
         cy.get( 'input[type="password"]' ).type( 'somepass{enter}' )
 
@@ -80,7 +85,7 @@ context( 'Enter key triggers login/register', () => {
     } )
 
     it( 'Pressing Enter on the email field triggers login', () => {
-        cy.visit( '/login' )
+        cy.visit( '/login', { onBeforeLoad: set_english } )
         cy.get( 'input[type="email"]' ).type( 'nonexistent@test.com{enter}' )
 
         // Should show a toast (user not found)
@@ -88,7 +93,7 @@ context( 'Enter key triggers login/register', () => {
     } )
 
     it( 'Pressing Enter on the password field triggers registration', () => {
-        cy.visit( '/login?register=true' )
+        cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
         const email = `enter-reg-${ Date.now() }@test.com`
         cy.get( 'input[type="text"]' ).type( 'Test User' )
         cy.get( 'input[type="email"]' ).type( email )

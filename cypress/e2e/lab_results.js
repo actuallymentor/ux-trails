@@ -1,7 +1,12 @@
 
+// Force English locale for consistent test selectors
+function set_english() {
+    localStorage.setItem( 'ux-trails-lang', 'en' )
+}
+
 // Helper: register and login a user to access protected pages
 function login_as_test_user() {
-    cy.visit( '/login?register=true' )
+    cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
     const email = `lab-test-${ Date.now() }@test.com`
     cy.get( 'input[type="text"]' ).type( 'Lab Test User' )
     cy.get( 'input[type="email"]' ).type( email )
@@ -25,7 +30,7 @@ context( 'Lab results sorting and date validation', () => {
     } )
 
     it( 'No reading dates are in the future', () => {
-        cy.visit( '/profile/labs' )
+        cy.visit( '/profile/labs', { onBeforeLoad: set_english } )
 
         // Click on the first lab test to see its readings
         cy.contains( 'View results' ).first().click()
@@ -54,7 +59,7 @@ context( 'Lab results sorting and date validation', () => {
     } )
 
     it( 'Readings are sorted from newest to oldest', () => {
-        cy.visit( '/profile/labs' )
+        cy.visit( '/profile/labs', { onBeforeLoad: set_english } )
 
         // Click on the first lab test to see its readings
         cy.contains( 'View results' ).first().click()

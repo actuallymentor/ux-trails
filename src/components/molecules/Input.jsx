@@ -119,6 +119,7 @@ const InputBase = styled.span`
  * @param {Array} props.options - The options for dropdown input field.
  * @param {Function|string} props.validate - The validation function or regex pattern for input field.
  * @param {string} props.error - The error message for invalid input.
+ * @param {string} props.hint - Persistent hint text displayed below the input field.
  * @param {boolean} props.verbose - Whether to enable verbose mode.
  * @param {number} props.validation_delay - The delay in milliseconds for input validation.
  * @returns {JSX.Element} The rendered Input component.

@@ -1,7 +1,12 @@
 
+// Force English locale for consistent test selectors
+function set_english() {
+    localStorage.setItem( 'ux-trails-lang', 'en' )
+}
+
 // Helper: register and login a user to access protected pages
 function login_as_test_user() {
-    cy.visit( '/login?register=true' )
+    cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
     const email = `appt-test-${ Date.now() }@test.com`
     cy.get( 'input[type="text"]' ).type( 'Appt Test User' )
     cy.get( 'input[type="email"]' ).type( email )
@@ -23,7 +28,7 @@ context( 'New appointment modal close button', () => {
     beforeEach( () => {
         cy.clearLocalStorage()
         login_as_test_user()
-        cy.visit( '/profile/appointments' )
+        cy.visit( '/profile/appointments', { onBeforeLoad: set_english } )
     } )
 
     it( 'X button is visible and closes the new appointment modal', () => {
@@ -62,7 +67,7 @@ context( 'New appointment form validation', () => {
     beforeEach( () => {
         cy.clearLocalStorage()
         login_as_test_user()
-        cy.visit( '/profile/appointments' )
+        cy.visit( '/profile/appointments', { onBeforeLoad: set_english } )
         cy.contains( 'New appointment' ).click()
     } )
 
