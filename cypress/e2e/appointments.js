@@ -6,12 +6,13 @@ function set_english( win ) {
 
 // Helper: register and login a user to access protected pages
 function login_as_test_user() {
-    cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
+    cy.visit( '/login', { onBeforeLoad: set_english } )
+    cy.contains( 'create a new account' ).click()
     const email = `appt-test-${ Date.now() }@test.com`
     cy.get( 'input[type="text"]' ).type( 'Appt Test User' )
     cy.get( 'input[type="email"]' ).type( email )
     cy.get( 'input[type="password"]' ).type( 'testpass' )
-    cy.contains( 'Register' ).click()
+    cy.contains( 'a', 'Register' ).click()
     cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
 }
 

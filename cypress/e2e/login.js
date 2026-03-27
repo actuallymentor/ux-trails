@@ -4,11 +4,17 @@ function set_english( win ) {
     win.localStorage.setItem( 'ux-trails-lang', 'en' )
 }
 
+// Navigate to the registration form
+function visit_register() {
+    cy.visit( '/login', { onBeforeLoad: set_english } )
+    cy.contains( 'create a new account' ).click()
+}
+
 context( 'Registration password requirements', () => {
 
     beforeEach( () => {
         cy.clearLocalStorage()
-        cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
+        visit_register()
     } )
 
     it( 'Shows password hint text on the registration form', () => {
@@ -40,7 +46,7 @@ context( 'Registration password requirements', () => {
         cy.get( 'input[type="text"]' ).type( 'Test User' )
         cy.get( 'input[type="email"]' ).type( 'short-pass@test.com' )
         cy.get( 'input[type="password"]' ).type( 'abc' )
-        cy.contains( 'Register' ).click()
+        cy.contains( 'a', 'Register' ).click()
 
         // Toast error should appear
         cy.get( '.Toastify__toast--error', { timeout: 5000 } ).should( 'be.visible' )
@@ -51,7 +57,7 @@ context( 'Registration password requirements', () => {
         cy.get( 'input[type="text"]' ).type( 'Test User' )
         cy.get( 'input[type="email"]' ).type( email )
         cy.get( 'input[type="password"]' ).type( 'validpass' )
-        cy.contains( 'Register' ).click()
+        cy.contains( 'a', 'Register' ).click()
 
         // Toast success should appear
         cy.get( '.Toastify__toast--success', { timeout: 5000 } ).should( 'be.visible' )
@@ -84,7 +90,7 @@ context( 'Enter key triggers login/register', () => {
     } )
 
     it( 'Pressing Enter on the password field triggers registration', () => {
-        cy.visit( '/login?register=true', { onBeforeLoad: set_english } )
+        visit_register()
         const email = `enter-reg-${ Date.now() }@test.com`
         cy.get( 'input[type="text"]' ).type( 'Test User' )
         cy.get( 'input[type="email"]' ).type( email )
