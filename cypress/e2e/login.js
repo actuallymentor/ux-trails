@@ -1,7 +1,7 @@
 
 // Force English locale for consistent test selectors
-function set_english() {
-    localStorage.setItem( 'ux-trails-lang', 'en' )
+function set_english( win ) {
+    win.localStorage.setItem( 'ux-trails-lang', 'en' )
 }
 
 context( 'Registration password requirements', () => {
