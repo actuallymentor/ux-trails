@@ -90,7 +90,8 @@ export default function AdminPage() {
 
     const copy_url = () => {
         navigator.clipboard.writeText( url )
-        toast.success( t( 'admin.toast.copied' ) )
+            .then( () => toast.success( t( 'admin.toast.copied' ) ) )
+            .catch( () => toast.error( t( 'admin.toast.copyError', 'Failed to copy URL' ) ) )
     }
 
     return <Container>
