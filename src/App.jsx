@@ -27,7 +27,7 @@ const NoIconsStyle = createGlobalStyle`
 // Most components use rem units, so targeting html scales everything.
 const SmallTextStyle = createGlobalStyle`
     html {
-        font-size: 70% !important;
+        font-size: 10px !important;
     }
 `
 
