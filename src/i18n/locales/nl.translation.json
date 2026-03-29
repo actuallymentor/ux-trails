@@ -190,7 +190,8 @@
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",
         "copyUrl": "URL kopiëren",
         "toast": {
-            "copied": "URL gekopieerd naar klembord"
+            "copied": "URL gekopieerd naar klembord",
+            "copyError": "Kon URL niet kopiëren"
         }
     },
     "config": {

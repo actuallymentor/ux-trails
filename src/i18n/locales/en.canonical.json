@@ -190,7 +190,8 @@
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",
         "copyUrl": "Copy URL",
         "toast": {
-            "copied": "URL copied to clipboard"
+            "copied": "URL copied to clipboard",
+            "copyError": "Failed to copy URL"
         }
     },
     "config": {

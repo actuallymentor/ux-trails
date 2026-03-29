@@ -190,7 +190,8 @@
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",
         "copyUrl": "复制 URL",
         "toast": {
-            "copied": "URL 已复制到剪贴板"
+            "copied": "URL 已复制到剪贴板",
+            "copyError": "无法复制 URL"
         }
     },
     "config": {
