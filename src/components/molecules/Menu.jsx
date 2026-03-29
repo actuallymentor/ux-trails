@@ -131,7 +131,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const menu_cutoff = 1000
     const use_burger = force_hamburger || width < menu_cutoff
     $float = force_hamburger ? 'right' : ( use_burger ? 'left' : $float )
-    const burger_icon_size = force_hamburger ? '32' : '50'
+    const burger_icon_size = force_hamburger ? '36' : '50'
     const { t, i18n } = useTranslation()
 
     useEffect( () => {
