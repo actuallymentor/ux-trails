@@ -49,5 +49,5 @@ export default function Button( { href, navigate, ...props } ) {
         if( href ) window.open( href, '_blank' ).focus()
     }
 
-    return <ButtonBase onClick={ handle_navigate } { ...props } />
+    return <ButtonBase onClick={ handle_navigate } data-ux-button { ...props } />
 }

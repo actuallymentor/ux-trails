@@ -9,6 +9,7 @@ import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
 import { useTranslation } from 'react-i18next'
 import LanguageSelector from './LanguageDropdown'
+import { useUxSinsStore } from '../../stores/ux_sins_store'
 
 const MenuBase = styled.nav`
 
@@ -124,10 +125,13 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const { user, clear_user } = useUserStore()
     const { clear_labs } = useLabTestScoreStore()
     const { clear_appointments } = useAppointmentsStore()
+    const { enabled_sins } = useUxSinsStore()
+    const force_hamburger = !!enabled_sins?.forced_small_hamburger
     const width = useWidth()
     const menu_cutoff = 1000
-    const use_burger = width < menu_cutoff
-    $float = use_burger ? 'left' : $float
+    const use_burger = force_hamburger || width < menu_cutoff
+    $float = force_hamburger ? 'right' : ( use_burger ? 'left' : $float )
+    const burger_icon_size = force_hamburger ? '36' : '50'
     const { t, i18n } = useTranslation()
 
     useEffect( () => {
@@ -164,11 +168,11 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
 
     return <MenuBase $menu_height={ $menu_height } $float={ $float } $mobile_open={ open }>
 
-        { use_burger && !open && <MenuIcon size='50' className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
-        
+        { use_burger && !open && <MenuIcon size={ burger_icon_size } className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
+
         { /* Always render burger menu container for animation, but conditionally render fullscreen */ }
         { use_burger && <span className='menu_links burger'>
-            <XIcon size='50' className='menu_burger close' $mobile_open={ open } onClick={ f => set_open( !open ) } />
+            <XIcon size={ burger_icon_size } className='menu_burger close' $mobile_open={ open } onClick={ f => set_open( !open ) } />
             { links }
             <LanguageSelector />
         </span> }

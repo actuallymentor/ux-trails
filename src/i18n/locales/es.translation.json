@@ -123,7 +123,8 @@
             "password": "La contraseña debe tener al menos 5 caracteres"
         },
         "error": {
-            "password": "La contraseña debe tener al menos 5 caracteres"
+            "password": "La contraseña debe tener al menos 5 caracteres",
+            "passwordVague": "La contraseña no cumple con los requisitos"
         },
         "placeholders": {
             "name": "Juan Pérez",
@@ -180,6 +181,26 @@
             "invalidEmail": "Dirección de correo electrónico no válida",
             "invalidPostcode": "Código postal no válido (ej. 1234 AB)",
             "genericError": "Error al guardar el perfil: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "Configuración de pecados UX",
+        "pageDescription": "Active o desactive antipatrones de UX para demostrar su impacto en la experiencia del usuario.",
+        "shareTitle": "Compartir configuración",
+        "shareDescription": "Comparta esta URL o escanee el código QR para aplicar esta configuración en otro dispositivo.",
+        "copyUrl": "Copiar URL",
+        "toast": {
+            "copied": "URL copiada al portapapeles",
+            "copyError": "No se pudo copiar la URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Configuración aplicada",
+        "pageDescription": "Los siguientes patrones de UX han sido activados en este dispositivo.",
+        "noSins": "No hay patrones de UX activos actualmente.",
+        "goHome": "Ir a la página principal",
+        "toast": {
+            "applied": "Configuración aplicada correctamente"
         }
     },
     "letters": {

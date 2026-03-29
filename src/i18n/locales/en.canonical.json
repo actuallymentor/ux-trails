@@ -123,7 +123,8 @@
             "password": "Password must be at least 5 characters"
         },
         "error": {
-            "password": "Password must be at least 5 characters"
+            "password": "Password must be at least 5 characters",
+            "passwordVague": "Password does not meet the requirements"
         },
         "placeholders": {
             "name": "Jan Jansen",
@@ -180,6 +181,26 @@
             "invalidEmail": "Invalid email address",
             "invalidPostcode": "Invalid postcode (e.g. 1234 AB)",
             "genericError": "Error saving profile: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "UX Sins Configuration",
+        "pageDescription": "Toggle UX anti-patterns to demonstrate their impact on user experience.",
+        "shareTitle": "Share Configuration",
+        "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",
+        "copyUrl": "Copy URL",
+        "toast": {
+            "copied": "URL copied to clipboard",
+            "copyError": "Failed to copy URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Configuration Applied",
+        "pageDescription": "The following UX patterns have been activated on this device.",
+        "noSins": "No UX patterns are currently active.",
+        "goHome": "Go to homepage",
+        "toast": {
+            "applied": "Configuration applied successfully"
         }
     },
     "letters": {

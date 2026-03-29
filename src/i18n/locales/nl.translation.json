@@ -123,7 +123,8 @@
             "password": "Wachtwoord moet minimaal 5 tekens bevatten"
         },
         "error": {
-            "password": "Wachtwoord moet minimaal 5 tekens bevatten"
+            "password": "Wachtwoord moet minimaal 5 tekens bevatten",
+            "passwordVague": "Wachtwoord voldoet niet aan de vereisten"
         },
         "placeholders": {
             "name": "Jan Jansen",
@@ -180,6 +181,26 @@
             "invalidEmail": "Ongeldig email adres",
             "invalidPostcode": "Ongeldige postcode (bijv. 1234 AB)",
             "genericError": "Fout bij opslaan profiel: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "UX-zonden configuratie",
+        "pageDescription": "Schakel UX-antipatronen in of uit om hun impact op de gebruikerservaring te demonstreren.",
+        "shareTitle": "Configuratie delen",
+        "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",
+        "copyUrl": "URL kopiëren",
+        "toast": {
+            "copied": "URL gekopieerd naar klembord",
+            "copyError": "Kon URL niet kopiëren"
+        }
+    },
+    "config": {
+        "pageTitle": "Configuratie toegepast",
+        "pageDescription": "De volgende UX-patronen zijn geactiveerd op dit apparaat.",
+        "noSins": "Er zijn momenteel geen UX-patronen actief.",
+        "goHome": "Ga naar startpagina",
+        "toast": {
+            "applied": "Configuratie succesvol toegepast"
         }
     },
     "letters": {

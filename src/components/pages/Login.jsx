@@ -12,6 +12,7 @@ import A from "../atoms/Link"
 import Spacer from "../atoms/Spacer"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 
 const LoginBackground = styled.div`
     width: 100%;
@@ -29,6 +30,8 @@ export default function LoginPage() {
     const [ searchParams ] = useSearchParams()
     const [ mode, set_mode ] = useState( searchParams.get( 'register' ) ? 'register' : 'login' )
     const { user, set_user, users_by_email } = useUserStore()
+    const { enabled_sins } = useUxSinsStore()
+    const hide_password_requirements = enabled_sins?.hidden_password_requirements
 
     // Switch to register mode when navigated with ?register=true
     useEffect( () => {
@@ -65,7 +68,7 @@ export default function LoginPage() {
     const register = () => {
 
         // Check password meets minimum requirements
-        if( password.length < 5 ) return toast.error( t( 'login.error.password' ) )
+        if( password.length < 5 ) return toast.error( hide_password_requirements ? t( 'login.error.passwordVague' ) : t( 'login.error.password' ) )
 
         // Check if user already exists, toast error if so
         const existing_user = users_by_email[ email ]
@@ -98,7 +101,17 @@ export default function LoginPage() {
                     }</Sidenote>
                     { mode === 'register' && <Input value={ name } onChange={ e => set_name( e.target.value ) } label={ t( 'login.labels.name' ) } info={ t( 'login.info.name' ) } type="text" placeholder={ t( 'login.placeholders.name' ) } /> }
                     <Input value={ email } onChange={ e => set_email( e.target.value ) } onEnter={ mode === 'login' ? login : undefined } label={ t( 'login.labels.email' ) } info={ t( 'login.info.email' ) } type="email" placeholder={ t( 'login.placeholders.email' ) } />
-                    <Input value={ password } onChange={ e => set_password( e.target.value ) } onEnter={ mode === 'login' ? login : register } label={ t( 'login.labels.password' ) } info={ t( 'login.info.password' ) } type="password" placeholder={ t( 'login.placeholders.password' ) } validate={ mode === 'register' ? ( value => value?.length >= 5 ) : undefined } error={ mode === 'register' ? t( 'login.error.password' ) : undefined } hint={ mode === 'register' ? t( 'login.hint.password' ) : undefined } />
+                    <Input
+                        value={ password }
+                        onChange={ e => set_password( e.target.value ) }
+                        onEnter={ mode === 'login' ? login : register }
+                        label={ t( 'login.labels.password' ) }
+                        info={ mode === 'register' && !hide_password_requirements ? t( 'login.info.password' ) : undefined }
+                        type="password"
+                        placeholder={ t( 'login.placeholders.password' ) }
+                        validate={ mode === 'register' ? ( value => value?.length >= 5 ) : undefined }
+                        error={ mode === 'register' ? ( hide_password_requirements ? t( 'login.error.passwordVague' ) : t( 'login.error.password' ) ) : undefined }
+                    />
                     <Spacer />
                     <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
                     <Spacer />
