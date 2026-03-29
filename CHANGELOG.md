@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0] - 2026-03-29
+
+### Added
+- add UX sin: forced small hamburger menu on all screen sizes with half-size icon
+
+### Fixed
+- fix duplicate toast rendering from redundant ToastContainer in Routes (5fe981c)
+
 ## [0.4.0] - 2026-03-29
 
 ### Added

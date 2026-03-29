@@ -17,6 +17,11 @@ export const SIN_CATALOG = [
         name: 'Toast notifications in center of screen',
         description: 'Toast notifications appear in the center of the screen, blocking content and requiring the user to wait for them to disappear.',
     },
+    {
+        id: 'forced_small_hamburger',
+        name: 'Forced small hamburger menu',
+        description: 'The navigation is always collapsed into a tiny hamburger icon in the top-right corner, even on desktop. The icon is half its normal size, making it hard to tap.',
+    },
 ]
 
 // Build the default enabled_sins map from the catalog (all disabled)

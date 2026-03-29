@@ -169,3 +169,66 @@ context( 'UX Sin: Centered toast notifications', () => {
     } )
 
 } )
+
+context( 'UX Sin: Forced small hamburger menu', () => {
+
+    context( 'When sin is disabled (default)', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.viewport( 1200, 800 )
+            cy.visit( '/', { onBeforeLoad: set_english } )
+        } )
+
+        it( 'Shows full navigation on desktop width', () => {
+            cy.get( '.menu_links.fullscreen' ).should( 'be.visible' )
+            cy.get( '.menu_burger' ).should( 'not.exist' )
+        } )
+
+    } )
+
+    context( 'When sin is enabled', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.viewport( 1200, 800 )
+            cy.visit( '/', {
+                onBeforeLoad: win => enable_sin( win, 'forced_small_hamburger' ),
+            } )
+        } )
+
+        it( 'Shows hamburger menu instead of full navigation on desktop', () => {
+            cy.get( '.menu_links.fullscreen' ).should( 'not.exist' )
+            cy.get( '.menu_burger' ).should( 'be.visible' )
+        } )
+
+        it( 'Hamburger icon is smaller than default', () => {
+            // The forced hamburger uses size 25 instead of default 50
+            cy.get( '.menu_burger' ).first().then( $el => {
+                const svg = $el.find( 'svg' )[0] || $el[0]
+                const size = parseInt( svg.getAttribute( 'width' ) || svg.getAttribute( 'height' ) )
+                expect( size ).to.be.lessThan( 30 )
+            } )
+        } )
+
+        it( 'Hamburger icon is positioned on the right side', () => {
+            cy.window().then( win => {
+                cy.get( '.menu_burger' ).first().then( $el => {
+                    const rect = $el[0].getBoundingClientRect()
+                    const viewport_mid_x = win.innerWidth / 2
+
+                    // The burger should be on the right half of the screen
+                    expect( rect.left ).to.be.greaterThan( viewport_mid_x )
+                } )
+            } )
+        } )
+
+        it( 'Hamburger menu still opens and shows navigation links', () => {
+            cy.get( '.menu_burger' ).first().click()
+            cy.get( '.menu_links.burger' ).should( 'be.visible' )
+            cy.contains( 'Dashboard' ).should( 'be.visible' )
+        } )
+
+    } )
+
+} )
