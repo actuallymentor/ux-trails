@@ -8,9 +8,8 @@ context( 'Registration password requirements', () => {
         visit_register()
     } )
 
-    it( 'Shows password hint text on the registration form', () => {
-        cy.get( 'p.input-hint' ).should( 'be.visible' )
-        cy.get( 'p.input-hint' ).invoke( 'text' ).should( 'have.length.greaterThan', 0 )
+    it( 'Does not show password hint text (details are in the tooltip)', () => {
+        cy.get( 'p.input-hint' ).should( 'not.exist' )
     } )
 
     it( 'Does not show password hint on the login form', () => {

@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.1] - 2026-03-29
+
+### Fixed
+- remove redundant password hint text; requirement details now only in label tooltip
+
 ## [0.3.0] - 2026-03-27
 
 ### Added

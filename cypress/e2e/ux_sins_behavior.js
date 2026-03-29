@@ -17,9 +17,8 @@ context( 'UX Sin: Hidden password requirements', () => {
             visit_register()
         } )
 
-        it( 'Shows password hint text', () => {
-            cy.get( 'p.input-hint' ).should( 'be.visible' )
-            cy.get( 'p.input-hint' ).should( 'contain', 'Password must be at least 5 characters' )
+        it( 'Does NOT show password hint text (details are in the tooltip)', () => {
+            cy.get( 'p.input-hint' ).should( 'not.exist' )
         } )
 
         it( 'Shows info tooltip on password field', () => {

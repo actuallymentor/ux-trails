@@ -111,7 +111,6 @@ export default function LoginPage() {
                         placeholder={ t( 'login.placeholders.password' ) }
                         validate={ mode === 'register' ? ( value => value?.length >= 5 ) : undefined }
                         error={ mode === 'register' ? ( hide_password_requirements ? t( 'login.error.passwordVague' ) : t( 'login.error.password' ) ) : undefined }
-                        hint={ mode === 'register' && !hide_password_requirements ? t( 'login.hint.password' ) : undefined }
                     />
                     <Spacer />
                     <Button $align="center" $width='100%' onClick={ mode === 'login' ? login : register }>{ mode === 'login' ? t( 'login.button.login' ) : t( 'login.button.register' ) }</Button>
