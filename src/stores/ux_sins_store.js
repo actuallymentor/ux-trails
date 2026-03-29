@@ -12,6 +12,11 @@ export const SIN_CATALOG = [
         name: 'Hidden password requirements',
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
+    {
+        id: 'centered_toast',
+        name: 'Toast notifications in center of screen',
+        description: 'Toast notifications appear in the center of the screen, blocking content and requiring the user to wait for them to disappear.',
+    },
 ]
 
 // Build the default enabled_sins map from the catalog (all disabled)

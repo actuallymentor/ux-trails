@@ -102,3 +102,70 @@ context( 'UX Sin: Hidden password requirements', () => {
     } )
 
 } )
+
+context( 'UX Sin: Centered toast notifications', () => {
+
+    // Trigger a toast by attempting to log in with a nonexistent user
+    function trigger_toast() {
+        cy.get( 'input[type="email"]' ).type( `nonexistent-${ Date.now() }@test.com` )
+        cy.get( 'input[type="password"]' ).type( 'somepass{enter}' )
+        cy.get( '.Toastify__toast', { timeout: 5000 } ).should( 'be.visible' )
+    }
+
+    context( 'When sin is disabled (default)', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/login', { onBeforeLoad: set_english } )
+        } )
+
+        it( 'Toast container is NOT centered on screen', () => {
+            trigger_toast()
+
+            // The toast container should be near the top, not vertically centered
+            cy.window().then( win => {
+                cy.get( '.Toastify__toast-container' ).then( $el => {
+                    const rect = $el[0].getBoundingClientRect()
+                    const viewport_mid = win.innerHeight / 2
+
+                    // Top of toast should be well above the viewport midpoint
+                    expect( rect.top ).to.be.lessThan( viewport_mid - 100 )
+                } )
+            } )
+        } )
+
+    } )
+
+    context( 'When sin is enabled', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/login', {
+                onBeforeLoad: win => enable_sin( win, 'centered_toast' ),
+            } )
+        } )
+
+        it( 'Toast container is centered on screen', () => {
+            trigger_toast()
+
+            // The toast container should be roughly centered in the viewport
+            cy.window().then( win => {
+                cy.get( '.Toastify__toast-container' ).then( $el => {
+                    const rect = $el[0].getBoundingClientRect()
+                    const viewport_mid_y = win.innerHeight / 2
+                    const el_center_y = rect.top + rect.height / 2
+
+                    // Center should be within 150px of viewport center vertically
+                    expect( Math.abs( el_center_y - viewport_mid_y ) ).to.be.lessThan( 150 )
+                } )
+            } )
+        } )
+
+        it( 'Toast still functions normally (shows messages)', () => {
+            trigger_toast()
+            cy.get( '.Toastify__toast--error' ).should( 'be.visible' )
+        } )
+
+    } )
+
+} )

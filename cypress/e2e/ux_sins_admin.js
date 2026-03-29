@@ -13,22 +13,26 @@ context( 'Admin page (/admin)', () => {
         cy.contains( 'Toggle UX anti-patterns' ).should( 'be.visible' )
     } )
 
-    it( 'Shows the first sin with toggle, name, and description', () => {
+    it( 'Shows all sins with toggle, name, and description', () => {
         cy.contains( 'Hidden password requirements' ).should( 'be.visible' )
         cy.contains( 'Password requirements are not shown' ).should( 'be.visible' )
-        cy.get( 'input[type="checkbox"]' ).should( 'exist' )
+        cy.contains( 'Toast notifications in center of screen' ).should( 'be.visible' )
+        cy.contains( 'blocking content' ).should( 'be.visible' )
+        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 2 )
     } )
 
-    it( 'Toggle starts unchecked by default', () => {
-        cy.get( 'input[type="checkbox"]' ).should( 'not.be.checked' )
+    it( 'Toggles start unchecked by default', () => {
+        cy.get( 'input[type="checkbox"]' ).each( $el => {
+            cy.wrap( $el ).should( 'not.be.checked' )
+        } )
     } )
 
     it( 'Toggle can be checked and unchecked', () => {
-        cy.get( 'input[type="checkbox"]' ).check( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).should( 'be.checked' )
+        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
+        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
 
-        cy.get( 'input[type="checkbox"]' ).uncheck( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).should( 'not.be.checked' )
+        cy.get( 'input[type="checkbox"]' ).first().uncheck( { force: true } )
+        cy.get( 'input[type="checkbox"]' ).first().should( 'not.be.checked' )
     } )
 
     it( 'Shows share section with URL and QR code', () => {
@@ -43,20 +47,20 @@ context( 'Admin page (/admin)', () => {
         cy.get( 'code' ).invoke( 'text' ).should( 'include', '/config' )
         cy.get( 'code' ).invoke( 'text' ).should( 'not.include', 'sins=' )
 
-        // Toggle sin on
-        cy.get( 'input[type="checkbox"]' ).check( { force: true } )
+        // Toggle first sin on
+        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
 
         // URL should now include the sin ID
         cy.get( 'code' ).invoke( 'text' ).should( 'include', 'sins=hidden_password_requirements' )
     } )
 
     it( 'Persists toggle state across page reloads', () => {
-        cy.get( 'input[type="checkbox"]' ).check( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).should( 'be.checked' )
+        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
+        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
 
         // Reload and verify persistence
         cy.visit( '/admin', { onBeforeLoad: set_english } )
-        cy.get( 'input[type="checkbox"]' ).should( 'be.checked' )
+        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
     } )
 
 } )

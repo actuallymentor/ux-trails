@@ -1,6 +1,9 @@
 # Changelog
 
-## [0.3.1] - 2026-03-29
+## [0.4.0] - 2026-03-29
+
+### Added
+- add UX sin: centered toast notifications that block screen center when enabled
 
 ### Fixed
 - remove redundant password hint text; requirement details now only in label tooltip
