@@ -27,6 +27,11 @@ export const SIN_CATALOG = [
         name: 'No informative icons',
         description: 'All informative and decorative icons are hidden. Functional icons like the hamburger menu, modal close buttons, and password visibility toggles are preserved.',
     },
+    {
+        id: 'buttons_as_text',
+        name: 'Buttons disguised as text',
+        description: 'Buttons lose all visual distinction — no background, no border, no color difference. They look like regular text and only reveal themselves with an underline on hover.',
+    },
 ]
 
 // Build the default enabled_sins map from the catalog (all disabled)

@@ -281,3 +281,63 @@ context( 'UX Sin: No informative icons', () => {
     } )
 
 } )
+
+context( 'UX Sin: Buttons disguised as text', () => {
+
+    context( 'When sin is disabled (default)', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', { onBeforeLoad: set_english } )
+        } )
+
+        it( 'Buttons have visible border and background', () => {
+            cy.get( '[data-ux-button]' ).first().then( $el => {
+                const styles = window.getComputedStyle( $el[0] )
+                // Default buttons should have a non-transparent background or a visible border
+                expect( styles.borderStyle ).to.not.equal( 'none' )
+            } )
+        } )
+
+    } )
+
+    context( 'When sin is enabled', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', {
+                onBeforeLoad: win => enable_sin( win, 'buttons_as_text' ),
+            } )
+        } )
+
+        it( 'Buttons have no border or background', () => {
+            cy.get( '[data-ux-button]' ).first().then( $el => {
+                const styles = window.getComputedStyle( $el[0] )
+                expect( styles.borderStyle ).to.equal( 'none' )
+                expect( styles.backgroundColor ).to.equal( 'rgba(0, 0, 0, 0)' )
+            } )
+        } )
+
+        it( 'Button text uses the same color as surrounding text', () => {
+            cy.window().then( win => {
+                cy.get( '[data-ux-button]' ).first().then( $btn => {
+                    const btn_color = win.getComputedStyle( $btn[0] ).color
+
+                    // Compare against a heading/paragraph — themed text, not body default
+                    cy.get( 'h1, h2, p' ).first().then( $text => {
+                        const text_color = win.getComputedStyle( $text[0] ).color
+                        expect( btn_color ).to.equal( text_color )
+                    } )
+                } )
+            } )
+        } )
+
+        it( 'Buttons are still clickable', () => {
+            // The "Log in" button on homepage should still navigate
+            cy.contains( '[data-ux-button]', 'Log in' ).click()
+            cy.url().should( 'include', '/login' )
+        } )
+
+    } )
+
+} )

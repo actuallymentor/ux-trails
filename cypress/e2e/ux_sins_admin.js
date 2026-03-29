@@ -22,7 +22,9 @@ context( 'Admin page (/admin)', () => {
         cy.contains( 'harder to find and tap' ).should( 'be.visible' )
         cy.contains( 'No informative icons' ).should( 'be.visible' )
         cy.contains( 'decorative icons are hidden' ).should( 'be.visible' )
-        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 4 )
+        cy.contains( 'Buttons disguised as text' ).should( 'be.visible' )
+        cy.contains( 'no background, no border' ).should( 'be.visible' )
+        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 5 )
     } )
 
     it( 'Toggles start unchecked by default', () => {

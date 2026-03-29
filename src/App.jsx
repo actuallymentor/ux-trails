@@ -23,6 +23,28 @@ const NoIconsStyle = createGlobalStyle`
     }
 `
 
+// When the "buttons as text" sin is active, strip all button styling.
+// Buttons become indistinguishable from body text, only underlined on hover.
+const ButtonsAsTextStyle = createGlobalStyle`
+    [data-ux-button] {
+        background: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        color: ${ ( { theme } ) => theme.colors.text } !important;
+        font-size: inherit !important;
+        text-decoration: none !important;
+        display: inline !important;
+    }
+    [data-ux-button]:hover {
+        text-decoration: underline !important;
+    }
+    [data-ux-button][disabled] {
+        opacity: 0.5 !important;
+        text-decoration: none !important;
+    }
+`
+
 // ///////////////////////////////
 // Render component
 // ///////////////////////////////
@@ -30,11 +52,13 @@ export default function App( ) {
 
     const { enabled_sins } = useUxSinsStore()
     const no_icons = !!enabled_sins?.no_icons
+    const buttons_as_text = !!enabled_sins?.buttons_as_text
 
     return <Router>
         <QueryParamProvider adapter={ ReactRouter6Adapter }>
             <Theme>
                 { no_icons && <NoIconsStyle /> }
+                { buttons_as_text && <ButtonsAsTextStyle /> }
                 <Toast />
                 <Routes />
             </Theme>
