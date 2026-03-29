@@ -1,7 +1,6 @@
 import { Route, Routes as DOMRoutes, useNavigate } from "react-router-dom"
 import { lazy, Suspense, useEffect } from "react"
 import Loading from "../components/molecules/Loading"
-import Toast from "../components/molecules/ToastContainer"
 import { prefetch } from 'less-lazy'
 import { useTranslation } from "react-i18next"
 
@@ -47,8 +46,6 @@ export default function Routes() {
     
     return <Suspense fallback={ <Loading delay="500" message={ t( 'common.loading' ) } /> }>
 
-        <Toast />
-        
         <DOMRoutes>
 
             <Route exact path='/' element={ <Homepage /> } />
