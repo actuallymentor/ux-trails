@@ -282,6 +282,53 @@ context( 'UX Sin: No informative icons', () => {
 
 } )
 
+context( 'UX Sin: Slightly too small text', () => {
+
+    context( 'When sin is disabled (default)', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', { onBeforeLoad: set_english } )
+        } )
+
+        it( 'Root font size is at the browser default', () => {
+            cy.window().then( win => {
+                const size = parseFloat( win.getComputedStyle( win.document.documentElement ).fontSize )
+                // Browser default is 16px
+                expect( size ).to.be.at.least( 15 )
+            } )
+        } )
+
+    } )
+
+    context( 'When sin is enabled', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', {
+                onBeforeLoad: win => enable_sin( win, 'small_text' ),
+            } )
+        } )
+
+        it( 'Root font size is reduced below the default', () => {
+            // Wait for Zustand to hydrate and inject the global style
+            cy.contains( 'Welcome' ).should( 'be.visible' )
+            cy.window().then( win => {
+                const size = parseFloat( win.getComputedStyle( win.document.documentElement ).fontSize )
+                // 85% of 16px = ~13.6px
+                expect( size ).to.be.lessThan( 15 )
+                expect( size ).to.be.greaterThan( 10 )
+            } )
+        } )
+
+        it( 'Text content is still readable', () => {
+            cy.contains( 'Welcome' ).should( 'be.visible' )
+        } )
+
+    } )
+
+} )
+
 context( 'UX Sin: Buttons disguised as text', () => {
 
     context( 'When sin is disabled (default)', () => {

@@ -23,6 +23,14 @@ const NoIconsStyle = createGlobalStyle`
     }
 `
 
+// When the "small text" sin is active, reduce the root font size by 15%.
+// Most components use rem units, so targeting html scales everything.
+const SmallTextStyle = createGlobalStyle`
+    html {
+        font-size: 85% !important;
+    }
+`
+
 // When the "buttons as text" sin is active, strip all button styling.
 // Buttons become indistinguishable from body text, only underlined on hover.
 const ButtonsAsTextStyle = createGlobalStyle`
@@ -53,12 +61,14 @@ export default function App( ) {
     const { enabled_sins } = useUxSinsStore()
     const no_icons = !!enabled_sins?.no_icons
     const buttons_as_text = !!enabled_sins?.buttons_as_text
+    const small_text = !!enabled_sins?.small_text
 
     return <Router>
         <QueryParamProvider adapter={ ReactRouter6Adapter }>
             <Theme>
                 { no_icons && <NoIconsStyle /> }
                 { buttons_as_text && <ButtonsAsTextStyle /> }
+                { small_text && <SmallTextStyle /> }
                 <Toast />
                 <Routes />
             </Theme>

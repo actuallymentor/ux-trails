@@ -1,8 +1,9 @@
 # Changelog
 
-## [0.7.0] - 2026-03-29
+## [0.8.0] - 2026-03-29
 
 ### Added
+- add UX sin: slightly too small text — reduces root font size by 15%
 - add UX sin: buttons disguised as text — strips all button styling to plain text
 - add UX sin: no informative icons — hides decorative SVG icons app-wide via global CSS
 - add UX sin: forced small hamburger menu on all screen sizes with smaller icon

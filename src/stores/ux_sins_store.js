@@ -28,6 +28,11 @@ export const SIN_CATALOG = [
         description: 'All informative and decorative icons are hidden. Functional icons like the hamburger menu, modal close buttons, and password visibility toggles are preserved.',
     },
     {
+        id: 'small_text',
+        name: 'Slightly too small text',
+        description: 'The base font size is reduced by 15%, making all text just a bit too small to read comfortably without being obviously broken.',
+    },
+    {
         id: 'buttons_as_text',
         name: 'Buttons disguised as text',
         description: 'Buttons lose all visual distinction — no background, no border, no color difference. They look like regular text and only reveal themselves with an underline on hover.',
