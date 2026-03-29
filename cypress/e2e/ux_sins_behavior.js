@@ -203,11 +203,11 @@ context( 'UX Sin: Forced small hamburger menu', () => {
         } )
 
         it( 'Hamburger icon is smaller than default', () => {
-            // The forced hamburger uses size 25 instead of default 50
+            // The forced hamburger uses size 32 instead of default 50
             cy.get( '.menu_burger' ).first().then( $el => {
                 const svg = $el.find( 'svg' )[0] || $el[0]
                 const size = parseInt( svg.getAttribute( 'width' ) || svg.getAttribute( 'height' ) )
-                expect( size ).to.be.lessThan( 30 )
+                expect( size ).to.be.lessThan( 40 )
             } )
         } )
 

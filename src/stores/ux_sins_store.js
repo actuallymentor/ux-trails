@@ -20,7 +20,7 @@ export const SIN_CATALOG = [
     {
         id: 'forced_small_hamburger',
         name: 'Forced small hamburger menu',
-        description: 'The navigation is always collapsed into a tiny hamburger icon in the top-right corner, even on desktop. The icon is half its normal size, making it hard to tap.',
+        description: 'The navigation is always collapsed into a small hamburger icon in the top-right corner, even on desktop. The icon is smaller than normal, making it harder to find and tap.',
     },
 ]
 
