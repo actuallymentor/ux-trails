@@ -232,3 +232,52 @@ context( 'UX Sin: Forced small hamburger menu', () => {
     } )
 
 } )
+
+context( 'UX Sin: No informative icons', () => {
+
+    context( 'When sin is disabled (default)', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', { onBeforeLoad: set_english } )
+        } )
+
+        it( 'Shows informative icons in navigation links', () => {
+            // Menu links should contain SVG icons
+            cy.get( '.menu_links a svg' ).should( 'have.length.at.least', 1 )
+        } )
+
+    } )
+
+    context( 'When sin is enabled', () => {
+
+        beforeEach( () => {
+            cy.clearLocalStorage()
+            cy.visit( '/', {
+                onBeforeLoad: win => enable_sin( win, 'no_icons' ),
+            } )
+        } )
+
+        it( 'Hides informative icons in navigation links', () => {
+            // SVGs inside nav links should be hidden (display: none)
+            cy.get( '.menu_links a svg' ).should( 'exist' )
+            cy.get( '.menu_links a svg' ).first().should( 'not.be.visible' )
+        } )
+
+        it( 'Navigation text is still visible without icons', () => {
+            cy.contains( 'Dashboard' ).should( 'be.visible' )
+            cy.contains( 'Log in' ).should( 'be.visible' )
+        } )
+
+        it( 'Preserves functional hamburger icon on mobile', () => {
+            cy.viewport( 400, 800 )
+            cy.visit( '/', {
+                onBeforeLoad: win => enable_sin( win, 'no_icons' ),
+            } )
+            // Hamburger menu icon (the SVG itself has class menu_burger)
+            cy.get( 'svg.menu_burger' ).should( 'be.visible' )
+        } )
+
+    } )
+
+} )

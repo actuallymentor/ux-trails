@@ -19,8 +19,10 @@ context( 'Admin page (/admin)', () => {
         cy.contains( 'Toast notifications in center of screen' ).should( 'be.visible' )
         cy.contains( 'blocking content' ).should( 'be.visible' )
         cy.contains( 'Forced small hamburger menu' ).should( 'be.visible' )
-        cy.contains( 'tiny hamburger icon' ).should( 'be.visible' )
-        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 3 )
+        cy.contains( 'harder to find and tap' ).should( 'be.visible' )
+        cy.contains( 'No informative icons' ).should( 'be.visible' )
+        cy.contains( 'decorative icons are hidden' ).should( 'be.visible' )
+        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 4 )
     } )
 
     it( 'Toggles start unchecked by default', () => {

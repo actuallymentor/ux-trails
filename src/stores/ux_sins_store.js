@@ -22,6 +22,11 @@ export const SIN_CATALOG = [
         name: 'Forced small hamburger menu',
         description: 'The navigation is always collapsed into a small hamburger icon in the top-right corner, even on desktop. The icon is smaller than normal, making it harder to find and tap.',
     },
+    {
+        id: 'no_icons',
+        name: 'No informative icons',
+        description: 'All informative and decorative icons are hidden. Functional icons like the hamburger menu, modal close buttons, and password visibility toggles are preserved.',
+    },
 ]
 
 // Build the default enabled_sins map from the catalog (all disabled)

@@ -1,12 +1,14 @@
 # Changelog
 
-## [0.5.0] - 2026-03-29
+## [0.6.0] - 2026-03-29
 
 ### Added
-- add UX sin: forced small hamburger menu on all screen sizes with half-size icon
+- add UX sin: no informative icons — hides decorative SVG icons app-wide via global CSS
+- add UX sin: forced small hamburger menu on all screen sizes with smaller icon
 
 ### Fixed
 - fix duplicate toast rendering from redundant ToastContainer in Routes (5fe981c)
+- exempt charts (recharts) and functional icons from no-icons sin
 
 ## [0.4.0] - 2026-03-29
 
