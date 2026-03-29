@@ -315,9 +315,9 @@ context( 'UX Sin: Slightly too small text', () => {
             cy.contains( 'Welcome' ).should( 'be.visible' )
             cy.window().then( win => {
                 const size = parseFloat( win.getComputedStyle( win.document.documentElement ).fontSize )
-                // 85% of 16px = ~13.6px
+                // Root is set to 10px when sin is active
                 expect( size ).to.be.lessThan( 15 )
-                expect( size ).to.be.greaterThan( 10 )
+                expect( size ).to.be.at.most( 10 )
             } )
         } )
 

@@ -23,7 +23,7 @@ context( 'Admin page (/admin)', () => {
         cy.contains( 'No informative icons' ).should( 'be.visible' )
         cy.contains( 'decorative icons are hidden' ).should( 'be.visible' )
         cy.contains( 'Slightly too small text' ).should( 'be.visible' )
-        cy.contains( 'base font size is reduced' ).should( 'be.visible' )
+        cy.contains( 'base font size is set to 10px' ).should( 'be.visible' )
         cy.contains( 'Buttons disguised as text' ).should( 'be.visible' )
         cy.contains( 'no background, no border' ).should( 'be.visible' )
         cy.get( 'input[type="checkbox"]' ).should( 'have.length', 6 )

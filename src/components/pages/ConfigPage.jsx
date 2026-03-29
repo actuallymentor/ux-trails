@@ -31,7 +31,7 @@ export default function ConfigPage() {
             toast.success( t( 'config.toast.applied' ) )
         }
 
-    }, [ searchParams ] )
+    }, [ searchParams, t, set_sins_from_params ] )
 
     // Show the current state of all sins (reflecting what was just applied)
     const catalog = get_sin_catalog()

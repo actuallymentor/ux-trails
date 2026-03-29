@@ -23,7 +23,7 @@ const NoIconsStyle = createGlobalStyle`
     }
 `
 
-// When the "small text" sin is active, reduce the root font size by 22%.
+// When the "small text" sin is active, set root font size to 10px.
 // Most components use rem units, so targeting html scales everything.
 const SmallTextStyle = createGlobalStyle`
     html {

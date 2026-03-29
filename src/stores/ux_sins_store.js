@@ -30,7 +30,7 @@ export const SIN_CATALOG = [
     {
         id: 'small_text',
         name: 'Slightly too small text',
-        description: 'The base font size is reduced by 15%, making all text just a bit too small to read comfortably without being obviously broken.',
+        description: 'The base font size is set to 10px, making all text uncomfortably small to read.',
     },
     {
         id: 'buttons_as_text',
