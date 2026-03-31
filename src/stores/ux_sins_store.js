@@ -119,3 +119,22 @@ export const useUxSinsStore = create()( persist(
     }
 
 ) )
+
+// Cross-tab sync: when another tab/window modifies the persisted sins,
+// update this tab's store so changes activate without a page refresh.
+if ( typeof window !== 'undefined' ) {
+    window.addEventListener( 'storage', event => {
+
+        if ( event.key !== 'ux-sins-storage' ) return
+
+        try {
+            const { state } = JSON.parse( event.newValue )
+            if ( state?.enabled_sins ) {
+                useUxSinsStore.setState( { enabled_sins: state.enabled_sins } )
+            }
+        } catch {
+            useUxSinsStore.persist.rehydrate()
+        }
+
+    } )
+}

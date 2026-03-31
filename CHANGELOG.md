@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.8.1] - 2026-03-31
+
+### Fixed
+- fix UX sins not syncing across browser tabs/windows without page refresh
+
 ## [0.8.0] - 2026-03-29
 
 ### Added
