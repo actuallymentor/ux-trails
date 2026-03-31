@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "Wird geladen",
+        "close": "Schließen",
+        "save": "Speichern",
+        "backToOverview": "Zurück zur Übersicht"
+    },
+    "menu": {
+        "home": "Übersicht",
+        "login": "Anmelden",
+        "labs": "Laborergebnisse",
+        "appointments": "Termine",
+        "messages": "Nachrichten",
+        "documents": "Dokumente",
+        "settings": "Profil",
+        "logout": "Abmelden"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Patientenportal",
+        "welcomeUser": "Willkommen {{name}}",
+        "welcomeSubtext": "Hier ist eine Übersicht Ihrer Gesundheitsinformationen",
+        "heroTitle": "Willkommen im Patientenportal",
+        "heroSubtitle": "Melden Sie sich an, um Ihre Informationen einzusehen",
+        "loginButton": "Anmelden",
+        "registerButton": "Registrieren",
+        "tiles": {
+            "labs": {
+                "title": "Ergebnisse",
+                "body": "Klicken Sie hier, um Ihre Testergebnisse einzusehen."
+            },
+            "appointments": {
+                "title": "Termine",
+                "body": "Klicken Sie hier, um Ihre Termine zu verwalten."
+            },
+            "documents": {
+                "title": "Dokumente",
+                "body": "Klicken Sie hier, um Ihre Dokumente einzusehen."
+            },
+            "messages": {
+                "title": "Nachrichten",
+                "body": "Klicken Sie hier, um Ihre Nachrichten zu lesen."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Ihre Termine",
+        "new": "Neuer Termin",
+        "cardTitle": "Termin",
+        "badgeUpcoming": "Bevorstehend",
+        "badgePast": "Vergangen",
+        "defaultLocation": "In der Praxis",
+        "viewDetails": "Details anzeigen",
+        "cancel": "Termin absagen",
+        "emptyState": "Sie haben keine Termine geplant.",
+        "detailsTitle": "Termindetails",
+        "selectTime": "Wählen Sie eine verfügbare Zeit:",
+        "noSlots": "Keine Zeitfenster an diesem Datum verfügbar.",
+        "form": {
+            "dateLabel": "Termindatum",
+            "dateError": "Bitte wählen Sie heute oder ein zukünftiges Datum.",
+            "reasonLabel": "Termingrund",
+            "reasonPlaceholder": "z. B. \"Routineuntersuchung\"",
+            "reasonError": "Bitte geben Sie einen gültigen Grund ein (mindestens 10 Zeichen).",
+            "confirm": "Termin bestätigen"
+        },
+        "toast": {
+            "missingReason": "Bitte geben Sie einen Grund ein.",
+            "invalidDate": "Bitte wählen Sie ein gültiges Datum.",
+            "missingSlot": "Bitte wählen Sie ein Zeitfenster.",
+            "cancelConfirm": "Möchten Sie Ihren Termin am {{date}} wirklich absagen?",
+            "cancelConfirmWithTime": "Möchten Sie Ihren Termin am {{date}} um {{time}} wirklich absagen?",
+            "cancelSuccess": "Termin erfolgreich abgesagt.",
+            "cancelAbort": "Termin wurde nicht abgesagt."
+        }
+    },
+    "documents": {
+        "pageTitle": "Ihre Dokumente",
+        "download": "Dokument herunterladen"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Blutdruck",
+            "cholesterol": "Cholesterin",
+            "glucose": "Blutzucker"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Unbekanntes Ergebnis",
+        "unknownDescription": "Wir konnten dieses Laborergebnis nicht finden. Bitte versuchen Sie es erneut von der Übersicht.",
+        "pageTitle": "Laborergebnisse",
+        "metrics": "Messungen: {{count}}",
+        "average": "Durchschnittswert: {{value}} {{unit}}",
+        "latestReading": "Letzte Messung (Tag {{day}}): {{value}} {{unit}}",
+        "view": "Ergebnisse anzeigen",
+        "emptyState": "Noch keine Laborergebnisse verfügbar.",
+        "trend": "Trend",
+        "averageBadge": "Durchschnitt: {{value}} {{unit}}",
+        "overview": "Übersicht",
+        "readingsCount": "Es sind {{count}} Messungen verfügbar.",
+        "readingItem": "Messung {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Anmelden",
+        "register": "Registrieren",
+        "loginDescription": "Melden Sie sich mit Ihren Zugangsdaten an oder",
+        "createAccount": "erstellen Sie ein neues Konto.",
+        "registerDescription": "Erstellen Sie ein neues Konto oder",
+        "loginExisting": "melden Sie sich mit Ihren vorhandenen Daten an.",
+        "labels": {
+            "name": "Vollständiger Name",
+            "email": "E-Mail oder Benutzername",
+            "password": "Passwort"
+        },
+        "info": {
+            "name": "Ihr vollständiger Name",
+            "email": "Ihre E-Mail-Adresse",
+            "password": "Das Passwort muss mindestens 5 Zeichen lang sein"
+        },
+        "hint": {
+            "password": "Das Passwort muss mindestens 5 Zeichen lang sein"
+        },
+        "error": {
+            "password": "Das Passwort muss mindestens 5 Zeichen lang sein",
+            "passwordVague": "Das Passwort erfüllt nicht die Anforderungen"
+        },
+        "placeholders": {
+            "name": "Max Mustermann",
+            "email": "sie@email.com",
+            "password": "Passwort"
+        },
+        "button": {
+            "login": "Anmelden",
+            "register": "Registrieren"
+        },
+        "toast": {
+            "userNotFound": "Benutzer nicht gefunden",
+            "wrongPassword": "Das Passwort ist falsch",
+            "loggedIn": "Angemeldet",
+            "userExists": "Benutzer existiert bereits",
+            "registered": "Registriert und angemeldet"
+        }
+    },
+    "messages": {
+        "pageTitle": "Ihr Posteingang",
+        "view": "Nachricht anzeigen",
+        "close": "Nachricht schließen"
+    },
+    "settings": {
+        "pageTitle": "Einstellungen",
+        "labels": {
+            "name": "Vollständiger Name",
+            "phone": "Telefonnummer",
+            "postcode": "Postleitzahl",
+            "doctor": "Hausarzt",
+            "email": "E-Mail oder Benutzername",
+            "password": "Passwort"
+        },
+        "info": {
+            "name": "Ihr vollständiger Name wie im System hinterlegt",
+            "phone": "Ihre Telefonnummer",
+            "postcode": "Ihre Postleitzahl",
+            "doctor": "Name Ihres Hausarztes",
+            "email": "Ihre E-Mail-Adresse",
+            "password": "Ihr Passwort"
+        },
+        "placeholders": {
+            "name": "Max Mustermann",
+            "phone": "+49 170 1234567",
+            "postcode": "10115",
+            "doctor": "Dr. Müller",
+            "email": "sie@email.com",
+            "password": "Passwort"
+        },
+        "toast": {
+            "success": "Profil gespeichert",
+            "missingRequired": "E-Mail und Passwort sind erforderlich",
+            "duplicateEmail": "Ein Benutzer mit dieser E-Mail-Adresse existiert bereits",
+            "invalidEmail": "Ungültige E-Mail-Adresse",
+            "invalidPostcode": "Ungültige Postleitzahl (z. B. 10115)",
+            "genericError": "Fehler beim Speichern des Profils: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "UX-Sünden-Konfiguration",
+        "pageDescription": "Aktivieren oder deaktivieren Sie UX-Anti-Patterns, um deren Auswirkungen auf die Benutzererfahrung zu demonstrieren.",
+        "shareTitle": "Konfiguration teilen",
+        "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",
+        "copyUrl": "URL kopieren",
+        "toast": {
+            "copied": "URL in die Zwischenablage kopiert",
+            "copyError": "URL konnte nicht kopiert werden"
+        }
+    },
+    "config": {
+        "pageTitle": "Konfiguration angewendet",
+        "pageDescription": "Die folgenden UX-Muster wurden auf diesem Gerät aktiviert.",
+        "noSins": "Derzeit sind keine UX-Muster aktiv.",
+        "goHome": "Zur Startseite",
+        "toast": {
+            "applied": "Konfiguration erfolgreich angewendet"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "sehr geehrte Damen und Herren",
+        "subject": "Ergebnis des {{testName}}-Tests Tag {{day}}",
+        "message": "Sehr geehrte/r {{patientName}},\n\nSie haben uns kürzlich für einen {{testName}}-Test besucht.\n\nAnbei finden Sie das Ergebnis Ihres Tests.\n\nDer Wert Ihres {{testName}} beträgt {{value}} {{unit}}, gemessen am Tag {{day}}.\n\nMit freundlichen Grüßen,\n\nIhr Gesundheitsdienstleister"
+    }
+}

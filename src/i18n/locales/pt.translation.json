@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "A carregar",
+        "close": "Fechar",
+        "save": "Guardar",
+        "backToOverview": "Voltar à visão geral"
+    },
+    "menu": {
+        "home": "Painel",
+        "login": "Iniciar sessão",
+        "labs": "Resultados laboratoriais",
+        "appointments": "Consultas",
+        "messages": "Mensagens",
+        "documents": "Documentos",
+        "settings": "Perfil",
+        "logout": "Terminar sessão"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Portal do paciente",
+        "welcomeUser": "Bem-vindo/a {{name}}",
+        "welcomeSubtext": "Aqui tem uma visão geral das suas informações de saúde",
+        "heroTitle": "Bem-vindo/a ao portal do paciente",
+        "heroSubtitle": "Inicie sessão para ver as suas informações",
+        "loginButton": "Iniciar sessão",
+        "registerButton": "Registar",
+        "tiles": {
+            "labs": {
+                "title": "Resultados",
+                "body": "Clique aqui para ver os seus resultados de análises."
+            },
+            "appointments": {
+                "title": "Consultas",
+                "body": "Clique aqui para gerir as suas consultas."
+            },
+            "documents": {
+                "title": "Documentos",
+                "body": "Clique aqui para ver os seus documentos."
+            },
+            "messages": {
+                "title": "Mensagens",
+                "body": "Clique aqui para ler as suas mensagens."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "As suas consultas",
+        "new": "Nova consulta",
+        "cardTitle": "Consulta",
+        "badgeUpcoming": "Próxima",
+        "badgePast": "Passada",
+        "defaultLocation": "No consultório",
+        "viewDetails": "Ver detalhes",
+        "cancel": "Cancelar consulta",
+        "emptyState": "Não tem consultas agendadas.",
+        "detailsTitle": "Detalhes da consulta",
+        "selectTime": "Selecione um horário disponível:",
+        "noSlots": "Não há horários disponíveis nesta data.",
+        "form": {
+            "dateLabel": "Data da consulta",
+            "dateError": "Escolha hoje ou uma data futura.",
+            "reasonLabel": "Motivo da consulta",
+            "reasonPlaceholder": "Ex. \"Exame de rotina\"",
+            "reasonError": "Introduza um motivo válido (mínimo 10 caracteres).",
+            "confirm": "Confirmar consulta"
+        },
+        "toast": {
+            "missingReason": "Introduza um motivo, por favor.",
+            "invalidDate": "Escolha uma data válida, por favor.",
+            "missingSlot": "Selecione um horário, por favor.",
+            "cancelConfirm": "Tem a certeza de que deseja cancelar a sua consulta de {{date}}?",
+            "cancelConfirmWithTime": "Tem a certeza de que deseja cancelar a sua consulta de {{date}} às {{time}}?",
+            "cancelSuccess": "Consulta cancelada com sucesso.",
+            "cancelAbort": "A consulta não foi cancelada."
+        }
+    },
+    "documents": {
+        "pageTitle": "Os seus documentos",
+        "download": "Descarregar documento"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Pressão arterial",
+            "cholesterol": "Colesterol",
+            "glucose": "Glicemia"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Resultado desconhecido",
+        "unknownDescription": "Não foi possível encontrar este resultado laboratorial. Tente novamente a partir da visão geral.",
+        "pageTitle": "Resultados laboratoriais",
+        "metrics": "Medições: {{count}}",
+        "average": "Valor médio: {{value}} {{unit}}",
+        "latestReading": "Última medição (dia {{day}}): {{value}} {{unit}}",
+        "view": "Ver resultados",
+        "emptyState": "Ainda não há resultados laboratoriais disponíveis.",
+        "trend": "Tendência",
+        "averageBadge": "Média: {{value}} {{unit}}",
+        "overview": "Visão geral",
+        "readingsCount": "Existem {{count}} medições disponíveis.",
+        "readingItem": "Medição {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Iniciar sessão",
+        "register": "Registar",
+        "loginDescription": "Inicie sessão com as suas credenciais ou",
+        "createAccount": "crie uma nova conta.",
+        "registerDescription": "Registe uma nova conta ou",
+        "loginExisting": "inicie sessão com os seus dados existentes.",
+        "labels": {
+            "name": "Nome completo",
+            "email": "Email ou nome de utilizador",
+            "password": "Palavra-passe"
+        },
+        "info": {
+            "name": "O seu nome completo",
+            "email": "O seu endereço de email",
+            "password": "A palavra-passe deve ter pelo menos 5 caracteres"
+        },
+        "hint": {
+            "password": "A palavra-passe deve ter pelo menos 5 caracteres"
+        },
+        "error": {
+            "password": "A palavra-passe deve ter pelo menos 5 caracteres",
+            "passwordVague": "A palavra-passe não cumpre os requisitos"
+        },
+        "placeholders": {
+            "name": "João Silva",
+            "email": "voce@email.com",
+            "password": "palavra-passe"
+        },
+        "button": {
+            "login": "Iniciar sessão",
+            "register": "Registar"
+        },
+        "toast": {
+            "userNotFound": "Utilizador não encontrado",
+            "wrongPassword": "A palavra-passe está incorreta",
+            "loggedIn": "Sessão iniciada",
+            "userExists": "O utilizador já existe",
+            "registered": "Registado e com sessão iniciada"
+        }
+    },
+    "messages": {
+        "pageTitle": "A sua caixa de entrada",
+        "view": "Ver mensagem",
+        "close": "Fechar mensagem"
+    },
+    "settings": {
+        "pageTitle": "Definições",
+        "labels": {
+            "name": "Nome completo",
+            "phone": "Número de telefone",
+            "postcode": "Código postal",
+            "doctor": "Médico de família",
+            "email": "Email ou nome de utilizador",
+            "password": "Palavra-passe"
+        },
+        "info": {
+            "name": "O seu nome completo tal como aparece no sistema",
+            "phone": "O seu número de telefone",
+            "postcode": "O seu código postal",
+            "doctor": "Nome do seu médico de família",
+            "email": "O seu endereço de email",
+            "password": "A sua palavra-passe"
+        },
+        "placeholders": {
+            "name": "João Silva",
+            "phone": "+351 912 345 678",
+            "postcode": "1000-001",
+            "doctor": "Dr. Santos",
+            "email": "voce@email.com",
+            "password": "palavra-passe"
+        },
+        "toast": {
+            "success": "Perfil guardado",
+            "missingRequired": "Email e palavra-passe são obrigatórios",
+            "duplicateEmail": "Já existe um utilizador com este endereço de email",
+            "invalidEmail": "Endereço de email inválido",
+            "invalidPostcode": "Código postal inválido (ex. 1000-001)",
+            "genericError": "Erro ao guardar o perfil: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "Configuração de pecados UX",
+        "pageDescription": "Ative ou desative anti-padrões de UX para demonstrar o seu impacto na experiência do utilizador.",
+        "shareTitle": "Partilhar configuração",
+        "shareDescription": "Partilhe este URL ou digitalize o código QR para aplicar esta configuração noutro dispositivo.",
+        "copyUrl": "Copiar URL",
+        "toast": {
+            "copied": "URL copiado para a área de transferência",
+            "copyError": "Não foi possível copiar o URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Configuração aplicada",
+        "pageDescription": "Os seguintes padrões de UX foram ativados neste dispositivo.",
+        "noSins": "Nenhum padrão de UX está ativo atualmente.",
+        "goHome": "Ir para a página inicial",
+        "toast": {
+            "applied": "Configuração aplicada com sucesso"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "Exmo./Exma. Senhor/a",
+        "subject": "Resultado da análise de {{testName}} dia {{day}}",
+        "message": "Caro/a {{patientName}},\n\nRecentemente visitou-nos para uma análise de {{testName}}.\n\nEm anexo encontra o resultado da sua análise.\n\nO valor do seu {{testName}} é {{value}} {{unit}} medido no dia {{day}}.\n\nCom os melhores cumprimentos,\n\nO seu profissional de saúde"
+    }
+}

@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "Chargement",
+        "close": "Fermer",
+        "save": "Enregistrer",
+        "backToOverview": "Retour à l'aperçu"
+    },
+    "menu": {
+        "home": "Tableau de bord",
+        "login": "Se connecter",
+        "labs": "Résultats de laboratoire",
+        "appointments": "Rendez-vous",
+        "messages": "Messages",
+        "documents": "Documents",
+        "settings": "Profil",
+        "logout": "Se déconnecter"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Portail patient",
+        "welcomeUser": "Bienvenue {{name}}",
+        "welcomeSubtext": "Voici un aperçu de vos informations de santé",
+        "heroTitle": "Bienvenue sur le portail patient",
+        "heroSubtitle": "Connectez-vous pour consulter vos informations",
+        "loginButton": "Se connecter",
+        "registerButton": "S'inscrire",
+        "tiles": {
+            "labs": {
+                "title": "Résultats",
+                "body": "Cliquez ici pour consulter vos résultats d'analyses."
+            },
+            "appointments": {
+                "title": "Rendez-vous",
+                "body": "Cliquez ici pour gérer vos rendez-vous."
+            },
+            "documents": {
+                "title": "Documents",
+                "body": "Cliquez ici pour consulter vos documents."
+            },
+            "messages": {
+                "title": "Messages",
+                "body": "Cliquez ici pour lire vos messages."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Vos rendez-vous",
+        "new": "Nouveau rendez-vous",
+        "cardTitle": "Rendez-vous",
+        "badgeUpcoming": "À venir",
+        "badgePast": "Passé",
+        "defaultLocation": "Au cabinet",
+        "viewDetails": "Voir les détails",
+        "cancel": "Annuler le rendez-vous",
+        "emptyState": "Vous n'avez aucun rendez-vous programmé.",
+        "detailsTitle": "Détails du rendez-vous",
+        "selectTime": "Sélectionnez un créneau disponible :",
+        "noSlots": "Aucun créneau disponible à cette date.",
+        "form": {
+            "dateLabel": "Date du rendez-vous",
+            "dateError": "Veuillez choisir aujourd'hui ou une date future.",
+            "reasonLabel": "Motif du rendez-vous",
+            "reasonPlaceholder": "Ex. « Contrôle de routine »",
+            "reasonError": "Veuillez saisir un motif valide (minimum 10 caractères).",
+            "confirm": "Confirmer le rendez-vous"
+        },
+        "toast": {
+            "missingReason": "Veuillez saisir un motif.",
+            "invalidDate": "Veuillez choisir une date valide.",
+            "missingSlot": "Veuillez sélectionner un créneau horaire.",
+            "cancelConfirm": "Êtes-vous sûr(e) de vouloir annuler votre rendez-vous du {{date}} ?",
+            "cancelConfirmWithTime": "Êtes-vous sûr(e) de vouloir annuler votre rendez-vous du {{date}} à {{time}} ?",
+            "cancelSuccess": "Rendez-vous annulé avec succès.",
+            "cancelAbort": "Le rendez-vous n'a pas été annulé."
+        }
+    },
+    "documents": {
+        "pageTitle": "Vos documents",
+        "download": "Télécharger le document"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Tension artérielle",
+            "cholesterol": "Cholestérol",
+            "glucose": "Glycémie"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Résultat inconnu",
+        "unknownDescription": "Nous n'avons pas pu trouver ce résultat de laboratoire. Veuillez réessayer depuis l'aperçu.",
+        "pageTitle": "Résultats de laboratoire",
+        "metrics": "Mesures : {{count}}",
+        "average": "Valeur moyenne : {{value}} {{unit}}",
+        "latestReading": "Dernière mesure (jour {{day}}) : {{value}} {{unit}}",
+        "view": "Voir les résultats",
+        "emptyState": "Aucun résultat de laboratoire disponible pour le moment.",
+        "trend": "Tendance",
+        "averageBadge": "Moyenne : {{value}} {{unit}}",
+        "overview": "Aperçu",
+        "readingsCount": "Il y a {{count}} mesures disponibles.",
+        "readingItem": "Mesure {{day}} : {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Se connecter",
+        "register": "S'inscrire",
+        "loginDescription": "Connectez-vous avec vos identifiants ou",
+        "createAccount": "créez un nouveau compte.",
+        "registerDescription": "Créez un nouveau compte ou",
+        "loginExisting": "connectez-vous avec vos identifiants existants.",
+        "labels": {
+            "name": "Nom complet",
+            "email": "E-mail ou identifiant",
+            "password": "Mot de passe"
+        },
+        "info": {
+            "name": "Votre nom complet",
+            "email": "Votre adresse e-mail",
+            "password": "Le mot de passe doit contenir au moins 5 caractères"
+        },
+        "hint": {
+            "password": "Le mot de passe doit contenir au moins 5 caractères"
+        },
+        "error": {
+            "password": "Le mot de passe doit contenir au moins 5 caractères",
+            "passwordVague": "Le mot de passe ne remplit pas les conditions requises"
+        },
+        "placeholders": {
+            "name": "Jean Dupont",
+            "email": "vous@email.com",
+            "password": "mot de passe"
+        },
+        "button": {
+            "login": "Se connecter",
+            "register": "S'inscrire"
+        },
+        "toast": {
+            "userNotFound": "Utilisateur introuvable",
+            "wrongPassword": "Le mot de passe est incorrect",
+            "loggedIn": "Connecté",
+            "userExists": "L'utilisateur existe déjà",
+            "registered": "Inscrit et connecté"
+        }
+    },
+    "messages": {
+        "pageTitle": "Votre boîte de réception",
+        "view": "Voir le message",
+        "close": "Fermer le message"
+    },
+    "settings": {
+        "pageTitle": "Paramètres",
+        "labels": {
+            "name": "Nom complet",
+            "phone": "Numéro de téléphone",
+            "postcode": "Code postal",
+            "doctor": "Médecin traitant",
+            "email": "E-mail ou identifiant",
+            "password": "Mot de passe"
+        },
+        "info": {
+            "name": "Votre nom complet tel qu'il apparaît dans le système",
+            "phone": "Votre numéro de téléphone",
+            "postcode": "Votre code postal",
+            "doctor": "Nom de votre médecin traitant",
+            "email": "Votre adresse e-mail",
+            "password": "Votre mot de passe"
+        },
+        "placeholders": {
+            "name": "Jean Dupont",
+            "phone": "+33 6 12 34 56 78",
+            "postcode": "75001",
+            "doctor": "Dr. Martin",
+            "email": "vous@email.com",
+            "password": "mot de passe"
+        },
+        "toast": {
+            "success": "Profil enregistré",
+            "missingRequired": "L'e-mail et le mot de passe sont obligatoires",
+            "duplicateEmail": "Un utilisateur avec cette adresse e-mail existe déjà",
+            "invalidEmail": "Adresse e-mail invalide",
+            "invalidPostcode": "Code postal invalide (ex. 75001)",
+            "genericError": "Erreur lors de l'enregistrement du profil : {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "Configuration des péchés UX",
+        "pageDescription": "Activez ou désactivez des anti-patterns UX pour démontrer leur impact sur l'expérience utilisateur.",
+        "shareTitle": "Partager la configuration",
+        "shareDescription": "Partagez cette URL ou scannez le code QR pour appliquer cette configuration sur un autre appareil.",
+        "copyUrl": "Copier l'URL",
+        "toast": {
+            "copied": "URL copiée dans le presse-papiers",
+            "copyError": "Impossible de copier l'URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Configuration appliquée",
+        "pageDescription": "Les anti-patterns UX suivants ont été activés sur cet appareil.",
+        "noSins": "Aucun anti-pattern UX n'est actuellement actif.",
+        "goHome": "Aller à la page d'accueil",
+        "toast": {
+            "applied": "Configuration appliquée avec succès"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "Madame, Monsieur",
+        "subject": "Résultat de l'analyse {{testName}} jour {{day}}",
+        "message": "Cher/Chère {{patientName}},\n\nVous nous avez récemment consulté pour une analyse de {{testName}}.\n\nVeuillez trouver ci-joint le résultat de votre analyse.\n\nLa valeur de votre {{testName}} est de {{value}} {{unit}} mesurée le jour {{day}}.\n\nCordialement,\n\nVotre professionnel de santé"
+    }
+}

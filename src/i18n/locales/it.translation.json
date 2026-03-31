@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "Caricamento",
+        "close": "Chiudi",
+        "save": "Salva",
+        "backToOverview": "Torna alla panoramica"
+    },
+    "menu": {
+        "home": "Pannello",
+        "login": "Accedi",
+        "labs": "Risultati di laboratorio",
+        "appointments": "Appuntamenti",
+        "messages": "Messaggi",
+        "documents": "Documenti",
+        "settings": "Profilo",
+        "logout": "Esci"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Portale paziente",
+        "welcomeUser": "Benvenuto/a {{name}}",
+        "welcomeSubtext": "Ecco una panoramica delle tue informazioni sanitarie",
+        "heroTitle": "Benvenuto/a nel portale paziente",
+        "heroSubtitle": "Accedi per visualizzare le tue informazioni",
+        "loginButton": "Accedi",
+        "registerButton": "Registrati",
+        "tiles": {
+            "labs": {
+                "title": "Risultati",
+                "body": "Clicca qui per visualizzare i risultati delle tue analisi."
+            },
+            "appointments": {
+                "title": "Appuntamenti",
+                "body": "Clicca qui per gestire i tuoi appuntamenti."
+            },
+            "documents": {
+                "title": "Documenti",
+                "body": "Clicca qui per visualizzare i tuoi documenti."
+            },
+            "messages": {
+                "title": "Messaggi",
+                "body": "Clicca qui per leggere i tuoi messaggi."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "I tuoi appuntamenti",
+        "new": "Nuovo appuntamento",
+        "cardTitle": "Appuntamento",
+        "badgeUpcoming": "In programma",
+        "badgePast": "Passato",
+        "defaultLocation": "Presso lo studio",
+        "viewDetails": "Visualizza dettagli",
+        "cancel": "Annulla appuntamento",
+        "emptyState": "Non hai appuntamenti programmati.",
+        "detailsTitle": "Dettagli dell'appuntamento",
+        "selectTime": "Seleziona un orario disponibile:",
+        "noSlots": "Nessuna fascia oraria disponibile in questa data.",
+        "form": {
+            "dateLabel": "Data dell'appuntamento",
+            "dateError": "Scegli oggi o una data futura.",
+            "reasonLabel": "Motivo dell'appuntamento",
+            "reasonPlaceholder": "Es. \"Controllo di routine\"",
+            "reasonError": "Inserisci un motivo valido (minimo 10 caratteri).",
+            "confirm": "Conferma appuntamento"
+        },
+        "toast": {
+            "missingReason": "Inserisci un motivo.",
+            "invalidDate": "Scegli una data valida.",
+            "missingSlot": "Seleziona una fascia oraria.",
+            "cancelConfirm": "Sei sicuro/a di voler annullare il tuo appuntamento del {{date}}?",
+            "cancelConfirmWithTime": "Sei sicuro/a di voler annullare il tuo appuntamento del {{date}} alle {{time}}?",
+            "cancelSuccess": "Appuntamento annullato con successo.",
+            "cancelAbort": "L'appuntamento non è stato annullato."
+        }
+    },
+    "documents": {
+        "pageTitle": "I tuoi documenti",
+        "download": "Scarica documento"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Pressione sanguigna",
+            "cholesterol": "Colesterolo",
+            "glucose": "Glicemia"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Risultato sconosciuto",
+        "unknownDescription": "Non è stato possibile trovare questo risultato di laboratorio. Riprova dalla panoramica.",
+        "pageTitle": "Risultati di laboratorio",
+        "metrics": "Misurazioni: {{count}}",
+        "average": "Valore medio: {{value}} {{unit}}",
+        "latestReading": "Ultima misurazione (giorno {{day}}): {{value}} {{unit}}",
+        "view": "Visualizza risultati",
+        "emptyState": "Nessun risultato di laboratorio ancora disponibile.",
+        "trend": "Tendenza",
+        "averageBadge": "Media: {{value}} {{unit}}",
+        "overview": "Panoramica",
+        "readingsCount": "Sono disponibili {{count}} misurazioni.",
+        "readingItem": "Misurazione {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Accedi",
+        "register": "Registrati",
+        "loginDescription": "Accedi con le tue credenziali oppure",
+        "createAccount": "crea un nuovo account.",
+        "registerDescription": "Registra un nuovo account oppure",
+        "loginExisting": "accedi con i tuoi dati esistenti.",
+        "labels": {
+            "name": "Nome completo",
+            "email": "Email o nome utente",
+            "password": "Password"
+        },
+        "info": {
+            "name": "Il tuo nome completo",
+            "email": "Il tuo indirizzo email",
+            "password": "La password deve contenere almeno 5 caratteri"
+        },
+        "hint": {
+            "password": "La password deve contenere almeno 5 caratteri"
+        },
+        "error": {
+            "password": "La password deve contenere almeno 5 caratteri",
+            "passwordVague": "La password non soddisfa i requisiti"
+        },
+        "placeholders": {
+            "name": "Mario Rossi",
+            "email": "tu@email.com",
+            "password": "password"
+        },
+        "button": {
+            "login": "Accedi",
+            "register": "Registrati"
+        },
+        "toast": {
+            "userNotFound": "Utente non trovato",
+            "wrongPassword": "La password non è corretta",
+            "loggedIn": "Accesso effettuato",
+            "userExists": "L'utente esiste già",
+            "registered": "Registrato e connesso"
+        }
+    },
+    "messages": {
+        "pageTitle": "La tua casella di posta",
+        "view": "Visualizza messaggio",
+        "close": "Chiudi messaggio"
+    },
+    "settings": {
+        "pageTitle": "Impostazioni",
+        "labels": {
+            "name": "Nome completo",
+            "phone": "Numero di telefono",
+            "postcode": "Codice postale",
+            "doctor": "Medico di famiglia",
+            "email": "Email o nome utente",
+            "password": "Password"
+        },
+        "info": {
+            "name": "Il tuo nome completo come appare nel sistema",
+            "phone": "Il tuo numero di telefono",
+            "postcode": "Il tuo codice postale",
+            "doctor": "Nome del tuo medico di famiglia",
+            "email": "Il tuo indirizzo email",
+            "password": "La tua password"
+        },
+        "placeholders": {
+            "name": "Mario Rossi",
+            "phone": "+39 333 1234567",
+            "postcode": "00100",
+            "doctor": "Dott. Bianchi",
+            "email": "tu@email.com",
+            "password": "password"
+        },
+        "toast": {
+            "success": "Profilo salvato",
+            "missingRequired": "Email e password sono obbligatori",
+            "duplicateEmail": "Esiste già un utente con questo indirizzo email",
+            "invalidEmail": "Indirizzo email non valido",
+            "invalidPostcode": "Codice postale non valido (es. 00100)",
+            "genericError": "Errore nel salvataggio del profilo: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "Configurazione peccati UX",
+        "pageDescription": "Attiva o disattiva anti-pattern UX per dimostrare il loro impatto sull'esperienza utente.",
+        "shareTitle": "Condividi configurazione",
+        "shareDescription": "Condividi questo URL o scansiona il codice QR per applicare questa configurazione su un altro dispositivo.",
+        "copyUrl": "Copia URL",
+        "toast": {
+            "copied": "URL copiato negli appunti",
+            "copyError": "Impossibile copiare l'URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Configurazione applicata",
+        "pageDescription": "I seguenti pattern UX sono stati attivati su questo dispositivo.",
+        "noSins": "Nessun pattern UX attualmente attivo.",
+        "goHome": "Vai alla pagina iniziale",
+        "toast": {
+            "applied": "Configurazione applicata con successo"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "gentile paziente",
+        "subject": "Risultato dell'esame {{testName}} giorno {{day}}",
+        "message": "Gentile {{patientName}},\n\nRecentemente ci ha visitato per un esame di {{testName}}.\n\nIn allegato troverà il risultato del suo esame.\n\nIl valore del suo {{testName}} è {{value}} {{unit}} misurato il giorno {{day}}.\n\nCordiali saluti,\n\nIl suo operatore sanitario"
+    }
+}

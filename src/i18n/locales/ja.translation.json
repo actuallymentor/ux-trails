@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "読み込み中",
+        "close": "閉じる",
+        "save": "保存",
+        "backToOverview": "概要に戻る"
+    },
+    "menu": {
+        "home": "ダッシュボード",
+        "login": "ログイン",
+        "labs": "検査結果",
+        "appointments": "予約",
+        "messages": "メッセージ",
+        "documents": "書類",
+        "settings": "プロフィール",
+        "logout": "ログアウト"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "患者ポータル",
+        "welcomeUser": "ようこそ、{{name}}さん",
+        "welcomeSubtext": "こちらは健康情報の概要です",
+        "heroTitle": "患者ポータルへようこそ",
+        "heroSubtitle": "ログインして情報をご確認ください",
+        "loginButton": "ログイン",
+        "registerButton": "新規登録",
+        "tiles": {
+            "labs": {
+                "title": "検査結果",
+                "body": "こちらをクリックして検査結果を確認できます。"
+            },
+            "appointments": {
+                "title": "予約",
+                "body": "こちらをクリックして予約を管理できます。"
+            },
+            "documents": {
+                "title": "書類",
+                "body": "こちらをクリックして書類を確認できます。"
+            },
+            "messages": {
+                "title": "メッセージ",
+                "body": "こちらをクリックしてメッセージを読めます。"
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "あなたの予約",
+        "new": "新しい予約",
+        "cardTitle": "予約",
+        "badgeUpcoming": "今後",
+        "badgePast": "過去",
+        "defaultLocation": "クリニックにて",
+        "viewDetails": "詳細を見る",
+        "cancel": "予約をキャンセル",
+        "emptyState": "予定されている予約はありません。",
+        "detailsTitle": "予約の詳細",
+        "selectTime": "利用可能な時間を選択してください：",
+        "noSlots": "この日付には利用可能な時間枠がありません。",
+        "form": {
+            "dateLabel": "予約日",
+            "dateError": "本日以降の日付を選択してください。",
+            "reasonLabel": "予約理由",
+            "reasonPlaceholder": "例：「定期検診」",
+            "reasonError": "有効な理由を入力してください（10文字以上）。",
+            "confirm": "予約を確定"
+        },
+        "toast": {
+            "missingReason": "理由を入力してください。",
+            "invalidDate": "有効な日付を選択してください。",
+            "missingSlot": "時間枠を選択してください。",
+            "cancelConfirm": "{{date}}の予約をキャンセルしてもよろしいですか？",
+            "cancelConfirmWithTime": "{{date}} {{time}}の予約をキャンセルしてもよろしいですか？",
+            "cancelSuccess": "予約がキャンセルされました。",
+            "cancelAbort": "予約はキャンセルされませんでした。"
+        }
+    },
+    "documents": {
+        "pageTitle": "あなたの書類",
+        "download": "書類をダウンロード"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "血圧",
+            "cholesterol": "コレステロール",
+            "glucose": "血糖値"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "不明な結果",
+        "unknownDescription": "この検査結果が見つかりませんでした。概要からもう一度お試しください。",
+        "pageTitle": "検査結果",
+        "metrics": "測定数：{{count}}",
+        "average": "平均値：{{value}} {{unit}}",
+        "latestReading": "最新の測定（{{day}}日目）：{{value}} {{unit}}",
+        "view": "結果を見る",
+        "emptyState": "まだ検査結果はありません。",
+        "trend": "傾向",
+        "averageBadge": "平均：{{value}} {{unit}}",
+        "overview": "概要",
+        "readingsCount": "{{count}}件の測定データがあります。",
+        "readingItem": "測定{{day}}日目：{{value}} {{unit}}"
+    },
+    "login": {
+        "login": "ログイン",
+        "register": "新規登録",
+        "loginDescription": "認証情報でログインするか、",
+        "createAccount": "新しいアカウントを作成してください。",
+        "registerDescription": "新しいアカウントを登録するか、",
+        "loginExisting": "既存のアカウントでログインしてください。",
+        "labels": {
+            "name": "氏名",
+            "email": "メールアドレスまたはユーザー名",
+            "password": "パスワード"
+        },
+        "info": {
+            "name": "あなたのフルネーム",
+            "email": "メールアドレス",
+            "password": "パスワードは5文字以上必要です"
+        },
+        "hint": {
+            "password": "パスワードは5文字以上必要です"
+        },
+        "error": {
+            "password": "パスワードは5文字以上必要です",
+            "passwordVague": "パスワードが要件を満たしていません"
+        },
+        "placeholders": {
+            "name": "山田太郎",
+            "email": "you@email.com",
+            "password": "パスワード"
+        },
+        "button": {
+            "login": "ログイン",
+            "register": "新規登録"
+        },
+        "toast": {
+            "userNotFound": "ユーザーが見つかりません",
+            "wrongPassword": "パスワードが正しくありません",
+            "loggedIn": "ログインしました",
+            "userExists": "このユーザーは既に存在します",
+            "registered": "登録してログインしました"
+        }
+    },
+    "messages": {
+        "pageTitle": "受信トレイ",
+        "view": "メッセージを見る",
+        "close": "メッセージを閉じる"
+    },
+    "settings": {
+        "pageTitle": "設定",
+        "labels": {
+            "name": "氏名",
+            "phone": "電話番号",
+            "postcode": "郵便番号",
+            "doctor": "かかりつけ医",
+            "email": "メールアドレスまたはユーザー名",
+            "password": "パスワード"
+        },
+        "info": {
+            "name": "システムに登録されている氏名",
+            "phone": "電話番号",
+            "postcode": "郵便番号",
+            "doctor": "かかりつけ医の名前",
+            "email": "メールアドレス",
+            "password": "パスワード"
+        },
+        "placeholders": {
+            "name": "山田太郎",
+            "phone": "+81 90 1234 5678",
+            "postcode": "100-0001",
+            "doctor": "田中医師",
+            "email": "you@email.com",
+            "password": "パスワード"
+        },
+        "toast": {
+            "success": "プロフィールを保存しました",
+            "missingRequired": "メールアドレスとパスワードは必須です",
+            "duplicateEmail": "このメールアドレスのユーザーは既に存在します",
+            "invalidEmail": "無効なメールアドレス",
+            "invalidPostcode": "無効な郵便番号（例：100-0001）",
+            "genericError": "プロフィールの保存中にエラーが発生しました：{{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "UXシン設定",
+        "pageDescription": "UXアンチパターンの切り替えで、ユーザー体験への影響を実演します。",
+        "shareTitle": "設定を共有",
+        "shareDescription": "このURLを共有するか、QRコードをスキャンして、他のデバイスでこの設定を適用できます。",
+        "copyUrl": "URLをコピー",
+        "toast": {
+            "copied": "URLをクリップボードにコピーしました",
+            "copyError": "URLのコピーに失敗しました"
+        }
+    },
+    "config": {
+        "pageTitle": "設定が適用されました",
+        "pageDescription": "以下のUXパターンがこのデバイスで有効化されました。",
+        "noSins": "現在アクティブなUXパターンはありません。",
+        "goHome": "ホームページへ",
+        "toast": {
+            "applied": "設定が正常に適用されました"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "患者様",
+        "subject": "{{testName}}検査結果 {{day}}日目",
+        "message": "{{patientName}}様、\n\n先日は{{testName}}検査のためにご来院いただきありがとうございました。\n\n検査結果を添付いたします。\n\nお客様の{{testName}}の値は{{day}}日目に測定された{{value}} {{unit}}です。\n\n敬具、\n\n担当医療従事者"
+    }
+}

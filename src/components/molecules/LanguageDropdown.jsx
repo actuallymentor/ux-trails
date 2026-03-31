@@ -19,7 +19,14 @@ export default function LanguageSelector( { ...props } ) {
         { code: 'nl', label: `🇳🇱` },
         { code: 'en', label: `🇬🇧` },
         { code: 'es', label: `🇪🇸` },
-        { code: 'zh', label: `🇨🇳` }
+        { code: 'fr', label: `🇫🇷` },
+        { code: 'de', label: `🇩🇪` },
+        { code: 'it', label: `🇮🇹` },
+        { code: 'pt', label: `🇵🇹` },
+        { code: 'pl', label: `🇵🇱` },
+        { code: 'ru', label: `🇷🇺` },
+        { code: 'zh', label: `🇨🇳` },
+        { code: 'ja', label: `🇯🇵` }
     ]
 
 

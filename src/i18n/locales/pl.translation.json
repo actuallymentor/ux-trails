@@ -1,0 +1,211 @@
+{
+    "common": {
+        "loading": "Ładowanie",
+        "close": "Zamknij",
+        "save": "Zapisz",
+        "backToOverview": "Powrót do przeglądu"
+    },
+    "menu": {
+        "home": "Panel",
+        "login": "Zaloguj się",
+        "labs": "Wyniki badań",
+        "appointments": "Wizyty",
+        "messages": "Wiadomości",
+        "documents": "Dokumenty",
+        "settings": "Profil",
+        "logout": "Wyloguj się"
+    },
+    "footer": {
+        "copyright": "© Mentor"
+    },
+    "homepage": {
+        "patientArea": "Portal pacjenta",
+        "welcomeUser": "Witaj {{name}}",
+        "welcomeSubtext": "Oto przegląd Twoich informacji zdrowotnych",
+        "heroTitle": "Witamy w portalu pacjenta",
+        "heroSubtitle": "Zaloguj się, aby zobaczyć swoje informacje",
+        "loginButton": "Zaloguj się",
+        "registerButton": "Zarejestruj się",
+        "tiles": {
+            "labs": {
+                "title": "Wyniki",
+                "body": "Kliknij tutaj, aby zobaczyć wyniki badań."
+            },
+            "appointments": {
+                "title": "Wizyty",
+                "body": "Kliknij tutaj, aby zarządzać swoimi wizytami."
+            },
+            "documents": {
+                "title": "Dokumenty",
+                "body": "Kliknij tutaj, aby zobaczyć swoje dokumenty."
+            },
+            "messages": {
+                "title": "Wiadomości",
+                "body": "Kliknij tutaj, aby przeczytać swoje wiadomości."
+            }
+        }
+    },
+    "appointments": {
+        "pageTitle": "Twoje wizyty",
+        "new": "Nowa wizyta",
+        "cardTitle": "Wizyta",
+        "badgeUpcoming": "Nadchodząca",
+        "badgePast": "Przeszła",
+        "defaultLocation": "W gabinecie",
+        "viewDetails": "Zobacz szczegóły",
+        "cancel": "Anuluj wizytę",
+        "emptyState": "Nie masz zaplanowanych wizyt.",
+        "detailsTitle": "Szczegóły wizyty",
+        "selectTime": "Wybierz dostępny termin:",
+        "noSlots": "Brak dostępnych terminów w tym dniu.",
+        "form": {
+            "dateLabel": "Data wizyty",
+            "dateError": "Wybierz dzisiejszą lub przyszłą datę.",
+            "reasonLabel": "Powód wizyty",
+            "reasonPlaceholder": "Np. \"Badanie kontrolne\"",
+            "reasonError": "Podaj prawidłowy powód (minimum 10 znaków).",
+            "confirm": "Potwierdź wizytę"
+        },
+        "toast": {
+            "missingReason": "Podaj powód wizyty.",
+            "invalidDate": "Wybierz prawidłową datę.",
+            "missingSlot": "Wybierz termin.",
+            "cancelConfirm": "Czy na pewno chcesz anulować wizytę w dniu {{date}}?",
+            "cancelConfirmWithTime": "Czy na pewno chcesz anulować wizytę w dniu {{date}} o godzinie {{time}}?",
+            "cancelSuccess": "Wizyta została anulowana.",
+            "cancelAbort": "Wizyta nie została anulowana."
+        }
+    },
+    "documents": {
+        "pageTitle": "Twoje dokumenty",
+        "download": "Pobierz dokument"
+    },
+    "labs": {
+        "types": {
+            "bloodpressure": "Ciśnienie krwi",
+            "cholesterol": "Cholesterol",
+            "glucose": "Glukoza we krwi"
+        }
+    },
+    "labTests": {
+        "unknownTitle": "Nieznany wynik",
+        "unknownDescription": "Nie udało się znaleźć tego wyniku badania. Spróbuj ponownie z przeglądu.",
+        "pageTitle": "Wyniki badań laboratoryjnych",
+        "metrics": "Pomiary: {{count}}",
+        "average": "Średnia wartość: {{value}} {{unit}}",
+        "latestReading": "Ostatni pomiar (dzień {{day}}): {{value}} {{unit}}",
+        "view": "Zobacz wyniki",
+        "emptyState": "Brak dostępnych wyników badań.",
+        "trend": "Trend",
+        "averageBadge": "Średnia: {{value}} {{unit}}",
+        "overview": "Przegląd",
+        "readingsCount": "Dostępnych jest {{count}} pomiarów.",
+        "readingItem": "Pomiar {{day}}: {{value}} {{unit}}"
+    },
+    "login": {
+        "login": "Zaloguj się",
+        "register": "Zarejestruj się",
+        "loginDescription": "Zaloguj się swoimi danymi lub",
+        "createAccount": "utwórz nowe konto.",
+        "registerDescription": "Zarejestruj nowe konto lub",
+        "loginExisting": "zaloguj się istniejącymi danymi.",
+        "labels": {
+            "name": "Imię i nazwisko",
+            "email": "Email lub nazwa użytkownika",
+            "password": "Hasło"
+        },
+        "info": {
+            "name": "Twoje pełne imię i nazwisko",
+            "email": "Twój adres email",
+            "password": "Hasło musi mieć co najmniej 5 znaków"
+        },
+        "hint": {
+            "password": "Hasło musi mieć co najmniej 5 znaków"
+        },
+        "error": {
+            "password": "Hasło musi mieć co najmniej 5 znaków",
+            "passwordVague": "Hasło nie spełnia wymagań"
+        },
+        "placeholders": {
+            "name": "Jan Kowalski",
+            "email": "ty@email.com",
+            "password": "hasło"
+        },
+        "button": {
+            "login": "Zaloguj się",
+            "register": "Zarejestruj się"
+        },
+        "toast": {
+            "userNotFound": "Nie znaleziono użytkownika",
+            "wrongPassword": "Hasło jest nieprawidłowe",
+            "loggedIn": "Zalogowano",
+            "userExists": "Użytkownik już istnieje",
+            "registered": "Zarejestrowano i zalogowano"
+        }
+    },
+    "messages": {
+        "pageTitle": "Twoja skrzynka odbiorcza",
+        "view": "Zobacz wiadomość",
+        "close": "Zamknij wiadomość"
+    },
+    "settings": {
+        "pageTitle": "Ustawienia",
+        "labels": {
+            "name": "Imię i nazwisko",
+            "phone": "Numer telefonu",
+            "postcode": "Kod pocztowy",
+            "doctor": "Lekarz rodzinny",
+            "email": "Email lub nazwa użytkownika",
+            "password": "Hasło"
+        },
+        "info": {
+            "name": "Twoje pełne imię i nazwisko w systemie",
+            "phone": "Twój numer telefonu",
+            "postcode": "Twój kod pocztowy",
+            "doctor": "Imię i nazwisko lekarza rodzinnego",
+            "email": "Twój adres email",
+            "password": "Twoje hasło"
+        },
+        "placeholders": {
+            "name": "Jan Kowalski",
+            "phone": "+48 600 123 456",
+            "postcode": "00-001",
+            "doctor": "Dr Nowak",
+            "email": "ty@email.com",
+            "password": "hasło"
+        },
+        "toast": {
+            "success": "Profil zapisany",
+            "missingRequired": "Email i hasło są wymagane",
+            "duplicateEmail": "Użytkownik z tym adresem email już istnieje",
+            "invalidEmail": "Nieprawidłowy adres email",
+            "invalidPostcode": "Nieprawidłowy kod pocztowy (np. 00-001)",
+            "genericError": "Błąd podczas zapisywania profilu: {{message}}"
+        }
+    },
+    "admin": {
+        "pageTitle": "Konfiguracja grzechów UX",
+        "pageDescription": "Włącz lub wyłącz anty-wzorce UX, aby zademonstrować ich wpływ na doświadczenie użytkownika.",
+        "shareTitle": "Udostępnij konfigurację",
+        "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",
+        "copyUrl": "Kopiuj URL",
+        "toast": {
+            "copied": "URL skopiowany do schowka",
+            "copyError": "Nie udało się skopiować URL"
+        }
+    },
+    "config": {
+        "pageTitle": "Konfiguracja zastosowana",
+        "pageDescription": "Następujące wzorce UX zostały aktywowane na tym urządzeniu.",
+        "noSins": "Obecnie nie ma aktywnych wzorców UX.",
+        "goHome": "Przejdź do strony głównej",
+        "toast": {
+            "applied": "Konfiguracja zastosowana pomyślnie"
+        }
+    },
+    "letters": {
+        "defaultPatientName": "Szanowny Pacjencie",
+        "subject": "Wynik badania {{testName}} dzień {{day}}",
+        "message": "Szanowny/a {{patientName}},\n\nNiedawno odwiedził/a nas Pan/Pani w celu wykonania badania {{testName}}.\n\nW załączniku znajdzie Pan/Pani wynik badania.\n\nWartość Pana/Pani {{testName}} wynosi {{value}} {{unit}}, zmierzona w dniu {{day}}.\n\nZ poważaniem,\n\nTwój lekarz"
+    }
+}
