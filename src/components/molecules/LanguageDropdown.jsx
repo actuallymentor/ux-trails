@@ -6,7 +6,7 @@ const LanguageDropdownBase = styled.div`
     padding: 0!important;
     select {
         border: none;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 `
 
@@ -16,17 +16,17 @@ export default function LanguageSelector( { ...props } ) {
     const [ current_language ] = ( i18n.resolvedLanguage || i18n.language || 'nl' ).split( '-' )
 
     const available_languages = [
-        { code: 'nl', label: `🇳🇱` },
-        { code: 'en', label: `🇬🇧` },
-        { code: 'es', label: `🇪🇸` },
-        { code: 'fr', label: `🇫🇷` },
-        { code: 'de', label: `🇩🇪` },
-        { code: 'it', label: `🇮🇹` },
-        { code: 'pt', label: `🇵🇹` },
-        { code: 'pl', label: `🇵🇱` },
-        { code: 'ru', label: `🇷🇺` },
-        { code: 'zh', label: `🇨🇳` },
-        { code: 'ja', label: `🇯🇵` }
+        { code: 'nl', label: `Nederlands` },
+        { code: 'en', label: `English` },
+        { code: 'es', label: `Español` },
+        { code: 'fr', label: `Français` },
+        { code: 'de', label: `Deutsch` },
+        { code: 'it', label: `Italiano` },
+        { code: 'pt', label: `Português` },
+        { code: 'pl', label: `Polski` },
+        { code: 'ru', label: `Русский` },
+        { code: 'zh', label: `中文` },
+        { code: 'ja', label: `日本語` }
     ]
 
 
