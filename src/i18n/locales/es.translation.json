@@ -43,6 +43,12 @@
                 "title": "Mensajes",
                 "body": "Haga clic aquí para leer sus mensajes."
             }
+        },
+        "quickActions": {
+            "title": "Acciones rápidas",
+            "newAppointment": "Crear una nueva cita",
+            "editProfile": "Editar tu perfil",
+            "changeLanguage": "Cambiar tu idioma predeterminado"
         }
     },
     "appointments": {

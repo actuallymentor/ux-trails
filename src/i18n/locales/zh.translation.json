@@ -43,6 +43,12 @@
                 "title": "消息",
                 "body": "点击此处阅读您的消息。"
             }
+        },
+        "quickActions": {
+            "title": "快捷操作",
+            "newAppointment": "创建新预约",
+            "editProfile": "编辑个人资料",
+            "changeLanguage": "更改默认语言"
         }
     },
     "appointments": {

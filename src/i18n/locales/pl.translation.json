@@ -43,6 +43,12 @@
                 "title": "Wiadomości",
                 "body": "Kliknij tutaj, aby przeczytać swoje wiadomości."
             }
+        },
+        "quickActions": {
+            "title": "Szybkie akcje",
+            "newAppointment": "Utwórz nową wizytę",
+            "editProfile": "Edytuj swój profil",
+            "changeLanguage": "Zmień domyślny język"
         }
     },
     "appointments": {

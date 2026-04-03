@@ -43,6 +43,12 @@
                 "title": "メッセージ",
                 "body": "こちらをクリックしてメッセージを読めます。"
             }
+        },
+        "quickActions": {
+            "title": "クイックアクション",
+            "newAppointment": "新しい予約を作成",
+            "editProfile": "プロフィールを編集",
+            "changeLanguage": "デフォルト言語を変更"
         }
     },
     "appointments": {

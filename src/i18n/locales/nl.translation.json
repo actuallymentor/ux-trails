@@ -43,6 +43,12 @@
                 "title": "Berichten",
                 "body": "Klik hier om uw berichten te lezen."
             }
+        },
+        "quickActions": {
+            "title": "Snelle acties",
+            "newAppointment": "Nieuwe afspraak maken",
+            "editProfile": "Profiel bewerken",
+            "changeLanguage": "Standaardtaal wijzigen"
         }
     },
     "appointments": {

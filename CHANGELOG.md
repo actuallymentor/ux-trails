@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.14.0] - 2026-04-03
+
+### Added
+- Add "Quick actions" section to homepage with new appointment, edit profile, and change language links (uncommitted)
+- Add `homepage.quickActions` i18n keys across all 11 locales (uncommitted)
+
 ## [0.13.0] - 2026-04-03
 
 ### Added

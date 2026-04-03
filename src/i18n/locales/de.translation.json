@@ -43,6 +43,12 @@
                 "title": "Nachrichten",
                 "body": "Klicken Sie hier, um Ihre Nachrichten zu lesen."
             }
+        },
+        "quickActions": {
+            "title": "Schnellaktionen",
+            "newAppointment": "Neuen Termin erstellen",
+            "editProfile": "Profil bearbeiten",
+            "changeLanguage": "Standardsprache ändern"
         }
     },
     "appointments": {
