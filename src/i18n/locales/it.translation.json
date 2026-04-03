@@ -189,6 +189,9 @@
         "pageDescription": "Attiva o disattiva anti-pattern UX per dimostrare il loro impatto sull'esperienza utente.",
         "sectionZhang": "Euristiche di Zhang et al.",
         "sectionOther": "Altri peccati UX",
+        "subcategory": {
+            "visibility_of_system_state": "Visibilità dello stato del sistema"
+        },
         "shareTitle": "Condividi configurazione",
         "shareDescription": "Condividi questo URL o scansiona il codice QR per applicare questa configurazione su un altro dispositivo.",
         "copyUrl": "Copia URL",

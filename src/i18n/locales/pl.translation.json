@@ -189,6 +189,9 @@
         "pageDescription": "Włącz lub wyłącz anty-wzorce UX, aby zademonstrować ich wpływ na doświadczenie użytkownika.",
         "sectionZhang": "Heurystyki Zhang et al.",
         "sectionOther": "Inne grzechy UX",
+        "subcategory": {
+            "visibility_of_system_state": "Widoczność stanu systemu"
+        },
         "shareTitle": "Udostępnij konfigurację",
         "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",
         "copyUrl": "Kopiuj URL",

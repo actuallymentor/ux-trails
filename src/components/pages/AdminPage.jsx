@@ -91,6 +91,9 @@ export default function AdminPage() {
     const zhang_sins = catalog.filter( sin => sin.category === SIN_CATEGORIES.zhang )
     const other_sins = catalog.filter( sin => sin.category === SIN_CATEGORIES.other )
 
+    // Group Zhang sins by subcategory for subsection rendering
+    const zhang_subcategories = [ ...new Set( zhang_sins.map( s => s.subcategory ) ) ]
+
     const copy_url = () => {
         navigator.clipboard.writeText( url )
             .then( () => toast.success( t( 'admin.toast.copied' ) ) )
@@ -123,7 +126,10 @@ export default function AdminPage() {
 
             { /* Zhang et al. heuristics */ }
             <H2 $margin="0 0 .5rem 0">{ t( 'admin.sectionZhang' ) }</H2>
-            { zhang_sins.map( render_sin ) }
+            { zhang_subcategories.map( sub => <div key={ sub }>
+                <Sidenote $align="left" $margin=".5rem 0 .25rem 0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
+                { zhang_sins.filter( s => s.subcategory === sub ).map( render_sin ) }
+            </div> ) }
 
             <Spacer />
 

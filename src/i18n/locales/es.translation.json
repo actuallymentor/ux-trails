@@ -189,6 +189,9 @@
         "pageDescription": "Active o desactive antipatrones de UX para demostrar su impacto en la experiencia del usuario.",
         "sectionZhang": "Heurísticas de Zhang et al.",
         "sectionOther": "Otros pecados de UX",
+        "subcategory": {
+            "visibility_of_system_state": "Visibilidad del estado del sistema"
+        },
         "shareTitle": "Compartir configuración",
         "shareDescription": "Comparta esta URL o escanee el código QR para aplicar esta configuración en otro dispositivo.",
         "copyUrl": "Copiar URL",

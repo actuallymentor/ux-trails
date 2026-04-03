@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.12.0] - 2026-04-03
+
+### Added
+- Add subcategory grouping under Zhang heuristics section (uncommitted)
+- Add "Visibility of system state" subcategory with i18n across all 11 locales (uncommitted)
+
 ## [0.11.0] - 2026-04-03
 
 ### Added

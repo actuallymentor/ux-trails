@@ -17,6 +17,7 @@ export const SIN_CATALOG = [
     {
         id: 'hidden_password_requirements',
         category: SIN_CATEGORIES.zhang,
+        subcategory: 'visibility_of_system_state',
         name: 'Hidden password requirements',
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },

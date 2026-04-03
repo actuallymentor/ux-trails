@@ -189,6 +189,9 @@
         "pageDescription": "Toggle UX anti-patterns to demonstrate their impact on user experience.",
         "sectionZhang": "Zhang et al. heuristics",
         "sectionOther": "Other UX sins",
+        "subcategory": {
+            "visibility_of_system_state": "Visibility of system state"
+        },
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",
         "copyUrl": "Copy URL",
