@@ -14,15 +14,21 @@ export function measurements_to_letters( { patient_name=i18n.t( 'letters.default
         return [ ...acc, ...formatted_readings ]
     }, [] )
 
-    return readings.map( ( { type, value, unit, day } ) => {
+    // Subject line variants, cycled per reading for variety
+    const subject_keys = [ 'letters.subject', 'letters.subject_available', 'letters.subject_bracketed', 'letters.subject_lab' ]
+
+    return readings.map( ( { type, value, unit, day }, index ) => {
 
         // When confusing synonym sin is active, use "Pulse rate" for heart rate
         const test_name = enabled_sins.confusing_synonym && type === 'heartrate'
             ? i18n.t( 'labs.synonyms.heartrate', { defaultValue: type } )
             : i18n.t( `labs.types.${ type }`, { defaultValue: type } )
+
+        const subject_key = subject_keys[ index % subject_keys.length ]
+
         return {
             day,
-            subject: i18n.t( 'letters.subject', { testName: test_name, day } ),
+            subject: i18n.t( subject_key, { testName: test_name, day } ),
             message: multiline_trim( i18n.t( 'letters.message', { patientName: patient_name, testName: test_name, value, unit, day } ) )
         }
     } )

@@ -239,6 +239,9 @@
     "letters": {
         "defaultPatientName": "heer/mevrouw",
         "subject": "Uitslag {{testName}} onderzoek {{day}}",
+        "subject_available": "Uw {{testName}} resultaten zijn beschikbaar gekomen op {{day}}",
+        "subject_bracketed": "[{{day}}] {{testName}} uitslag",
+        "subject_lab": "Laboratorium heeft {{testName}} aangeleverd voor patiënt",
         "message": "Geachte {{patientName}},\n\nU bent recent bij ons geweest voor een {{testName}} onderzoek.\n\nZie bijgesloten de uitslag van uw onderzoek.\n\nDe waarde van uw {{testName}} is {{value}} {{unit}} gemeten op {{day}}.\n\nMet vriendelijke groet,\n\nUw zorgverlener"
     }
 }

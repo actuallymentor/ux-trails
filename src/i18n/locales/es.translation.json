@@ -239,6 +239,9 @@
     "letters": {
         "defaultPatientName": "señor/a",
         "subject": "Resultado del análisis de {{testName}} día {{day}}",
+        "subject_available": "Sus resultados de {{testName}} están disponibles desde el {{day}}",
+        "subject_bracketed": "[{{day}}] Resultado de {{testName}}",
+        "subject_lab": "El laboratorio ha proporcionado {{testName}} para el paciente",
         "message": "Estimado/a {{patientName}},\n\nRecientemente nos visitó para un análisis de {{testName}}.\n\nAdjunto encontrará el resultado de su análisis.\n\nEl valor de su {{testName}} es {{value}} {{unit}} medido el día {{day}}.\n\nAtentamente,\n\nSu profesional sanitario"
     }
 }

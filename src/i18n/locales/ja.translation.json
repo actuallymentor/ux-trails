@@ -239,6 +239,9 @@
     "letters": {
         "defaultPatientName": "患者様",
         "subject": "{{testName}}検査結果 {{day}}日目",
+        "subject_available": "{{testName}}の結果が{{day}}に届きました",
+        "subject_bracketed": "[{{day}}] {{testName}}結果",
+        "subject_lab": "検査室から{{testName}}の結果が届きました",
         "message": "{{patientName}}様、\n\n先日は{{testName}}検査のためにご来院いただきありがとうございました。\n\n検査結果を添付いたします。\n\nお客様の{{testName}}の値は{{day}}日目に測定された{{value}} {{unit}}です。\n\n敬具、\n\n担当医療従事者"
     }
 }

@@ -239,6 +239,9 @@
     "letters": {
         "defaultPatientName": "先生/女士",
         "subject": "{{testName}}检查结果 第{{day}}天",
+        "subject_available": "您的{{testName}}结果已于{{day}}可查",
+        "subject_bracketed": "[{{day}}] {{testName}}结果",
+        "subject_lab": "实验室已提供患者的{{testName}}结果",
         "message": "尊敬的 {{patientName}}，\n\n您最近到访我们进行了{{testName}}检查。\n\n附件为您的检查结果。\n\n您的{{testName}}值为 {{value}} {{unit}}，测量于第 {{day}} 天。\n\n此致，\n\n您的医疗服务提供者"
     }
 }

@@ -239,6 +239,9 @@
     "letters": {
         "defaultPatientName": "уважаемый пациент",
         "subject": "Результат анализа {{testName}} день {{day}}",
+        "subject_available": "Результаты {{testName}} стали доступны {{day}}",
+        "subject_bracketed": "[{{day}}] Результат {{testName}}",
+        "subject_lab": "Лаборатория предоставила {{testName}} для пациента",
         "message": "Уважаемый/ая {{patientName}},\n\nВы недавно посещали нас для проведения анализа {{testName}}.\n\nВ приложении — результат вашего анализа.\n\nЗначение вашего {{testName}} составляет {{value}} {{unit}}, измерено в день {{day}}.\n\nС уважением,\n\nВаш медицинский специалист"
     }
 }
