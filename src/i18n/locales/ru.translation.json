@@ -231,7 +231,8 @@
             "match_between_system_and_real_world": "Соответствие между системой и реальным миром",
             "minimalist": "Минималистичный",
             "minimize_memory_load": "Минимизировать нагрузку на память",
-            "informative_feedback": "Информативная обратная связь"
+            "informative_feedback": "Информативная обратная связь",
+            "flexibility_and_efficiency": "Гибкость и эффективность"
         },
         "shareTitle": "Поделиться конфигурацией",
         "shareDescription": "Поделитесь этим URL или отсканируйте QR-код, чтобы применить эту конфигурацию на другом устройстве.",

@@ -231,7 +231,8 @@
             "match_between_system_and_real_world": "Übereinstimmung zwischen System und realer Welt",
             "minimalist": "Minimalistisch",
             "minimize_memory_load": "Gedächtnisbelastung minimieren",
-            "informative_feedback": "Informatives Feedback"
+            "informative_feedback": "Informatives Feedback",
+            "flexibility_and_efficiency": "Flexibilität und Effizienz"
         },
         "shareTitle": "Konfiguration teilen",
         "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",

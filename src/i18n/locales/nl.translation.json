@@ -231,7 +231,8 @@
             "match_between_system_and_real_world": "Overeenkomst tussen systeem en echte wereld",
             "minimalist": "Minimalistisch",
             "minimize_memory_load": "Minimaliseer geheugenbelasting",
-            "informative_feedback": "Informatieve feedback"
+            "informative_feedback": "Informatieve feedback",
+            "flexibility_and_efficiency": "Flexibiliteit en efficiëntie"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",

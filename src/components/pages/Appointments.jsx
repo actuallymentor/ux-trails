@@ -16,10 +16,13 @@ import Section from "../atoms/Section"
 import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
+import AppointmentChatbot from "../molecules/AppointmentChatbot"
 
 export default function Appointments() {
 
     const [ makenew, set_makenew ] = useState( false )
+    // Counter to force re-render of appointments list after chatbot creates one
+    const [ , set_refresh ] = useState( 0 )
     const [ new_appointment, set_new_appointment ] = useState( { reason: '', date: '' } )
     const [ view_appointment, set_view_appointment ] = useState( null )
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
@@ -27,6 +30,7 @@ export default function Appointments() {
     const { t } = useTranslation()
     const { enabled_sins } = useUxSinsStore()
     const ApptIcon = enabled_sins?.ambiguous_icons ? HospitalIcon : CalendarIcon
+    const use_chatbot = !!enabled_sins?.force_chatbot_appointments
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -75,7 +79,7 @@ export default function Appointments() {
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
             <H1 $margin='0'><ApptIcon size='2.2rem' />{ t( 'appointments.pageTitle' ) }</H1>
-            <Button onClick={ () => set_makenew( true ) }>{ t( 'appointments.new' ) }</Button>
+            { !use_chatbot && <Button onClick={ () => set_makenew( true ) }>{ t( 'appointments.new' ) }</Button> }
         </Column>
 
         <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
@@ -172,6 +176,9 @@ export default function Appointments() {
                 </Button>
             </Card>
         </Modal> }
+
+        { /* Chatbot widget — replaces the normal form when the sin is active */ }
+        { use_chatbot && <AppointmentChatbot on_created={ () => set_refresh( n => n + 1 ) } /> }
 
     </Container>
 

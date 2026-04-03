@@ -92,6 +92,13 @@ export const SIN_CATALOG = [
         description: 'Quick actions on the home screen open a modal with instructions on where to click in the menu, instead of navigating directly.',
     },
     {
+        id: 'force_chatbot_appointments',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'flexibility_and_efficiency',
+        name: 'Force chatbot on user for appointments',
+        description: 'The normal appointment form is replaced by a rigid chatbot that asks superfluous questions and requires exact text input, making a simple task painfully slow.',
+    },
+    {
         id: 'no_input_feedback',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'informative_feedback',

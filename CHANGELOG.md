@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.20.0] - 2026-04-03
+
+### Added
+- "Force chatbot on user for appointments" UX sin with rigid chat widget (uncommitted)
+- Zhang subcategory "Flexibility and efficiency" with i18n for all 11 locales (uncommitted)
+- "Informative feedback" Zhang subcategory (b5f713f)
+
+### Changed
+- Move "Forced small hamburger menu" from Other to Zhang / Informative feedback (b5f713f)
+- Update "change language" instruction to reference menu dropdown (cdfdaa2)
+
 ## [0.19.0] - 2026-04-03
 
 ### Added

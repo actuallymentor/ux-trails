@@ -231,7 +231,8 @@
             "match_between_system_and_real_world": "系统与现实世界的匹配",
             "minimalist": "极简主义",
             "minimize_memory_load": "最小化记忆负荷",
-            "informative_feedback": "信息反馈"
+            "informative_feedback": "信息反馈",
+            "flexibility_and_efficiency": "灵活性与效率"
         },
         "shareTitle": "分享配置",
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",
