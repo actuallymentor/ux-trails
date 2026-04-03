@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "La tua casella di posta",
         "view": "Visualizza messaggio",
-        "close": "Chiudi messaggio"
+        "viewShort": "Vedi",
+        "close": "Chiudi messaggio",
+        "read": "Letto",
+        "unread": "Non letto",
+        "markRead": "Segna letto"
     },
     "settings": {
         "pageTitle": "Impostazioni",

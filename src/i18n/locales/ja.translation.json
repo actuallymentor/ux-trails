@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "受信トレイ",
         "view": "メッセージを見る",
-        "close": "メッセージを閉じる"
+        "viewShort": "表示",
+        "close": "メッセージを閉じる",
+        "read": "既読",
+        "unread": "未読",
+        "markRead": "既読にする"
     },
     "settings": {
         "pageTitle": "設定",

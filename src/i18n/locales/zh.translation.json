@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "您的收件箱",
         "view": "查看消息",
-        "close": "关闭消息"
+        "viewShort": "查看",
+        "close": "关闭消息",
+        "read": "已读",
+        "unread": "未读",
+        "markRead": "标记已读"
     },
     "settings": {
         "pageTitle": "设置",

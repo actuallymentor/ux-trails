@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "A sua caixa de entrada",
         "view": "Ver mensagem",
-        "close": "Fechar mensagem"
+        "viewShort": "Ver",
+        "close": "Fechar mensagem",
+        "read": "Lida",
+        "unread": "Não lida",
+        "markRead": "Marcar lida"
     },
     "settings": {
         "pageTitle": "Definições",

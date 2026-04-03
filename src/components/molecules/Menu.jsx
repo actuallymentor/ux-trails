@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, SettingsIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
+import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
 import { useTranslation } from 'react-i18next'
 import LanguageSelector from './LanguageDropdown'
 import { useUxSinsStore } from '../../stores/ux_sins_store'
+import { useMessagesStore } from '../../stores/messages_store'
+import { measurements_to_letters } from '../../modules/letters'
+import Badge from './Badge'
 
 const MenuBase = styled.nav`
 
@@ -132,7 +135,13 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const use_burger = force_hamburger || width < menu_cutoff
     $float = force_hamburger ? 'right' : ( use_burger ? 'left' : $float )
     const burger_icon_size = force_hamburger ? '36' : '50'
-    const { t, i18n } = useTranslation()
+    const { t, i18n: { language } } = useTranslation()
+    const { labtest_scores } = useLabTestScoreStore()
+    const { get_unread_count, clear_messages } = useMessagesStore()
+
+    // Compute unread message count for the menu badge
+    const letters = useMemo( () => user ? measurements_to_letters( { patient_name: user?.name, labtest_scores } ) : [], [ user?.name, labtest_scores, language ] )
+    const unread_count = get_unread_count( letters )
 
     useEffect( () => {
         if( !use_burger ) set_open( false )
@@ -143,6 +152,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
         clear_user()
         clear_labs()
         clear_appointments()
+        clear_messages()
         log.info( 'User logged out' )
     }
 
@@ -151,10 +161,9 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const logged_in_links = [
         <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><TestTubesIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
         <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><CalendarIcon size={ icon_size } />{ t( 'menu.appointments' ) }</Link>,
-        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MailIcon size={ icon_size } />{ t( 'menu.messages' ) }</Link>,
+        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MailIcon size={ icon_size } />{ t( 'menu.messages' ) }{ unread_count > 0 && <Badge $position='static' $background='accent' $margin='0 0 0 .4rem'>{ unread_count }</Badge> }</Link>,
         <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileTextIcon size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
         <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><UserIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
-        <Link key='app-settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/app-settings'><SettingsIcon size={ icon_size } />{ t( 'menu.appSettings' ) }</Link>,
         <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
     ]
     const links = [

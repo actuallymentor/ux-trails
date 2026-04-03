@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.18.0] - 2026-04-03
+
+### Added
+- Read/unread message state with status badges and mark-read buttons (uncommitted)
+- Unread message count pill in menu navigation (uncommitted)
+
+### Changed
+- Unread badge uses accent color instead of primary (uncommitted)
+- Remove app settings link from menu navigation (uncommitted)
+
+### Fixed
+- Messages page layout alignment via Column width/wrap overrides (uncommitted)
+
 ## [0.17.0] - 2026-04-03
 
 ### Added

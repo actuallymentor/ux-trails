@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Your inbox",
         "view": "View message",
-        "close": "Close message"
+        "viewShort": "View",
+        "close": "Close message",
+        "read": "Read",
+        "unread": "Unread",
+        "markRead": "Mark read"
     },
     "settings": {
         "pageTitle": "Settings",

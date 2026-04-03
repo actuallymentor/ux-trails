@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Uw berichtenbox",
         "view": "Bekijk bericht",
-        "close": "Sluit bericht"
+        "viewShort": "Bekijk",
+        "close": "Sluit bericht",
+        "read": "Gelezen",
+        "unread": "Ongelezen",
+        "markRead": "Markeer gelezen"
     },
     "settings": {
         "pageTitle": "Instellingen",

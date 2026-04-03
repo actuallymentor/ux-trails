@@ -9,8 +9,10 @@ import { H1, Text } from "../atoms/Text"
 import Button from "../atoms/Button"
 import Modal from "../molecules/Modal"
 import Column from "../atoms/Column"
+import Badge from "../molecules/Badge"
 import { MailIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { useMessagesStore } from "../../stores/messages_store"
 
 export default function Berichten() {
 
@@ -19,23 +21,42 @@ export default function Berichten() {
     const { t, i18n: { language } } = useTranslation()
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ user?.name, labtest_scores, language ] )
     const [ letter_index, set_letter_index ] = useState( null )
+    const { mark_read, is_read } = useMessagesStore()
 
     return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
             <H1 $margin='0'><MailIcon size='2.2rem' />{ t( 'messages.pageTitle' ) }</H1>
         </Column>
-        
-        <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
-            { letters.map( ( { subject, message, day }, index ) => <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
-                <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
-                    <Text><MailIcon />{ subject }</Text>
-                    <Button $variant='outline' onClick={ () => set_letter_index( index ) } >
-                        { t( 'messages.view' ) }
-                    </Button>
-                </Section>
-            </Card> ) }
 
+        <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
+            { letters.map( ( { subject, message, day }, index ) => {
+
+                const read = is_read( subject )
+
+                return <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
+                    <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" $wrap="nowrap" >
+
+                        <Column $direction="row" $align="center" $gap=".75rem" $padding="0" $margin="0" $width="auto" $wrap="nowrap">
+                            <Badge $position="static" $background={ read ? 'hint' : 'accent' }>
+                                { read ? t( 'messages.read' ) : t( 'messages.unread' ) }
+                            </Badge>
+                            <Text $margin="0"><MailIcon />{ subject }</Text>
+                        </Column>
+
+                        <Column $direction="row" $align="center" $gap=".5rem" $padding="0" $margin="0" $width="auto" $wrap="nowrap">
+                            { !read && <Button $variant='outline' onClick={ () => mark_read( subject ) }>
+                                { t( 'messages.markRead' ) }
+                            </Button> }
+                            <Button $variant='outline' onClick={ () => set_letter_index( index ) }>
+                                { t( 'messages.viewShort' ) }
+                            </Button>
+                        </Column>
+
+                    </Section>
+                </Card>
+
+            } ) }
         </Section>
 
         { letter_index !== null && <Modal onClose={ () => set_letter_index( null ) }>

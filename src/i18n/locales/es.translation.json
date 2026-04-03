@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Su bandeja de entrada",
         "view": "Ver mensaje",
-        "close": "Cerrar mensaje"
+        "viewShort": "Ver",
+        "close": "Cerrar mensaje",
+        "read": "Leído",
+        "unread": "No leído",
+        "markRead": "Marcar leído"
     },
     "settings": {
         "pageTitle": "Configuración",

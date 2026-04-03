@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Twoja skrzynka odbiorcza",
         "view": "Zobacz wiadomość",
-        "close": "Zamknij wiadomość"
+        "viewShort": "Zobacz",
+        "close": "Zamknij wiadomość",
+        "read": "Przeczytana",
+        "unread": "Nieprzeczytana",
+        "markRead": "Oznacz jako przeczytaną"
     },
     "settings": {
         "pageTitle": "Ustawienia",

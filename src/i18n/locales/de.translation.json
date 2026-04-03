@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Ihr Posteingang",
         "view": "Nachricht anzeigen",
-        "close": "Nachricht schließen"
+        "viewShort": "Ansehen",
+        "close": "Nachricht schließen",
+        "read": "Gelesen",
+        "unread": "Ungelesen",
+        "markRead": "Als gelesen markieren"
     },
     "settings": {
         "pageTitle": "Einstellungen",

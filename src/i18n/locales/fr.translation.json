@@ -162,7 +162,11 @@
     "messages": {
         "pageTitle": "Votre boîte de réception",
         "view": "Voir le message",
-        "close": "Fermer le message"
+        "viewShort": "Voir",
+        "close": "Fermer le message",
+        "read": "Lu",
+        "unread": "Non lu",
+        "markRead": "Marquer lu"
     },
     "settings": {
         "pageTitle": "Paramètres",
