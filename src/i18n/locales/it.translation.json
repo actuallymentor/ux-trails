@@ -13,6 +13,7 @@
         "messages": "Messaggi",
         "documents": "Documenti",
         "settings": "Profilo",
+        "appSettings": "Impostazioni app",
         "logout": "Esci"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Codice postale non valido (es. 00100)",
             "genericError": "Errore nel salvataggio del profilo: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "Impostazioni app",
+        "pageDescription": "Gestisci le tue preferenze dell'applicazione.",
+        "languageLabel": "Lingua"
     },
     "admin": {
         "pageTitle": "Configurazione peccati UX",

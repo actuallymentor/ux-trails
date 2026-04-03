@@ -13,6 +13,7 @@
         "messages": "Сообщения",
         "documents": "Документы",
         "settings": "Профиль",
+        "appSettings": "Настройки приложения",
         "logout": "Выйти"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Недействительный почтовый индекс (например, 101000)",
             "genericError": "Ошибка при сохранении профиля: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "Настройки приложения",
+        "pageDescription": "Управляйте настройками приложения.",
+        "languageLabel": "Язык"
     },
     "admin": {
         "pageTitle": "Настройка UX-грехов",

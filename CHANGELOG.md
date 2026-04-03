@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.15.0] - 2026-04-03
+
+### Added
+- Add "App Settings" page at `/profile/app-settings` with language selector (uncommitted)
+- Add "App settings" link to navigation menu (uncommitted)
+- Add `appSettings` and `menu.appSettings` i18n keys across all 11 locales (uncommitted)
+
+### Changed
+- Homepage "Change language" quick action now links to App Settings page (uncommitted)
+
 ## [0.14.0] - 2026-04-03
 
 ### Added

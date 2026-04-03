@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
+import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, SettingsIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
@@ -154,6 +154,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
         <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MailIcon size={ icon_size } />{ t( 'menu.messages' ) }</Link>,
         <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileTextIcon size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
         <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><UserIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
+        <Link key='app-settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/app-settings'><SettingsIcon size={ icon_size } />{ t( 'menu.appSettings' ) }</Link>,
         <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
     ]
     const links = [

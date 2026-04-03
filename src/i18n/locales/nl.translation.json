@@ -13,6 +13,7 @@
         "messages": "Berichten",
         "documents": "Documenten",
         "settings": "Profiel",
+        "appSettings": "App-instellingen",
         "logout": "Uitloggen"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Ongeldige postcode (bijv. 1234 AB)",
             "genericError": "Fout bij opslaan profiel: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "App-instellingen",
+        "pageDescription": "Beheer uw applicatievoorkeuren.",
+        "languageLabel": "Taal"
     },
     "admin": {
         "pageTitle": "UX-zonden configuratie",

@@ -13,6 +13,7 @@
         "messages": "Nachrichten",
         "documents": "Dokumente",
         "settings": "Profil",
+        "appSettings": "App-Einstellungen",
         "logout": "Abmelden"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Ungültige Postleitzahl (z. B. 10115)",
             "genericError": "Fehler beim Speichern des Profils: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "App-Einstellungen",
+        "pageDescription": "Verwalten Sie Ihre Anwendungseinstellungen.",
+        "languageLabel": "Sprache"
     },
     "admin": {
         "pageTitle": "UX-Sünden-Konfiguration",

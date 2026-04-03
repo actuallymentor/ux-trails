@@ -13,6 +13,7 @@
         "messages": "消息",
         "documents": "文档",
         "settings": "个人资料",
+        "appSettings": "应用设置",
         "logout": "退出登录"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "邮政编码无效（例如 1234 AB）",
             "genericError": "保存个人资料时出错：{{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "应用设置",
+        "pageDescription": "管理您的应用偏好设置。",
+        "languageLabel": "语言"
     },
     "admin": {
         "pageTitle": "UX 问题配置",

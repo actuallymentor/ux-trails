@@ -13,6 +13,7 @@
         "messages": "Messages",
         "documents": "Documents",
         "settings": "Profile",
+        "appSettings": "App settings",
         "logout": "Log out"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Invalid postcode (e.g. 1234 AB)",
             "genericError": "Error saving profile: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "App Settings",
+        "pageDescription": "Manage your application preferences.",
+        "languageLabel": "Language"
     },
     "admin": {
         "pageTitle": "UX Sins Configuration",

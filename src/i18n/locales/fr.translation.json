@@ -13,6 +13,7 @@
         "messages": "Messages",
         "documents": "Documents",
         "settings": "Profil",
+        "appSettings": "Paramètres de l'app",
         "logout": "Se déconnecter"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Code postal invalide (ex. 75001)",
             "genericError": "Erreur lors de l'enregistrement du profil : {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "Paramètres de l'application",
+        "pageDescription": "Gérez vos préférences d'application.",
+        "languageLabel": "Langue"
     },
     "admin": {
         "pageTitle": "Configuration des péchés UX",

@@ -13,6 +13,7 @@
         "messages": "メッセージ",
         "documents": "書類",
         "settings": "プロフィール",
+        "appSettings": "アプリ設定",
         "logout": "ログアウト"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "無効な郵便番号（例：100-0001）",
             "genericError": "プロフィールの保存中にエラーが発生しました：{{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "アプリ設定",
+        "pageDescription": "アプリケーションの設定を管理します。",
+        "languageLabel": "言語"
     },
     "admin": {
         "pageTitle": "UXシン設定",

@@ -47,7 +47,7 @@ export default function Homepage() {
     const quick_actions = [
         { icon: PlusIcon, label: t( 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
         { icon: UserIcon, label: t( 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
-        { icon: GlobeIcon, label: t( 'homepage.quickActions.changeLanguage' ), nav: '/profile/settings' },
+        { icon: GlobeIcon, label: t( 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
     ]
 
     if( user ) return <Container>

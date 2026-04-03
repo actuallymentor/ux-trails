@@ -13,6 +13,7 @@
         "messages": "Mensagens",
         "documents": "Documentos",
         "settings": "Perfil",
+        "appSettings": "Definições da app",
         "logout": "Terminar sessão"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Código postal inválido (ex. 1000-001)",
             "genericError": "Erro ao guardar o perfil: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "Definições da aplicação",
+        "pageDescription": "Gerir as suas preferências da aplicação.",
+        "languageLabel": "Idioma"
     },
     "admin": {
         "pageTitle": "Configuração de pecados UX",

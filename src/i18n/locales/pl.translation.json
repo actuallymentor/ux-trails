@@ -13,6 +13,7 @@
         "messages": "Wiadomości",
         "documents": "Dokumenty",
         "settings": "Profil",
+        "appSettings": "Ustawienia aplikacji",
         "logout": "Wyloguj się"
     },
     "footer": {
@@ -192,6 +193,11 @@
             "invalidPostcode": "Nieprawidłowy kod pocztowy (np. 00-001)",
             "genericError": "Błąd podczas zapisywania profilu: {{message}}"
         }
+    },
+    "appSettings": {
+        "pageTitle": "Ustawienia aplikacji",
+        "pageDescription": "Zarządzaj preferencjami aplikacji.",
+        "languageLabel": "Język"
     },
     "admin": {
         "pageTitle": "Konfiguracja grzechów UX",
