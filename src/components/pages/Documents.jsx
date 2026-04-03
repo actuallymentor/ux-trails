@@ -20,6 +20,7 @@ export default function Documents() {
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ user?.name, labtest_scores, language ] )
     const { enabled_sins } = useUxSinsStore()
     const DocIcon = enabled_sins?.ambiguous_icons ? VanIcon : FileTextIcon
+    const chaotic = !!enabled_sins?.chaotic_item_management
 
     async function download_pdf( index ) {
 
@@ -42,9 +43,9 @@ export default function Documents() {
         </Column>
 
 
-        <Section $overflow='scroll' $height='80vh' $wrap='nowrap' $padding='0'>
+        <Section $overflow='scroll' $height='80vh' $wrap={ chaotic ? 'wrap' : 'nowrap' } $padding='0' $direction={ chaotic ? 'row' : 'column' }>
 
-            { letters.map( ( { subject, message, day }, index ) => <Card $width="99%" $padding=".25rem .5rem" key={ subject }>
+            { letters.map( ( { subject, message, day }, index ) => <Card $width={ chaotic ? 'auto' : '99%' } $padding=".25rem .5rem" key={ subject } $margin={ chaotic ? '.25rem' : undefined }>
                 <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
                     <Text><DocIcon />{ subject }</Text>
                     <Button $variant='outline' onClick={ () => download_pdf( index ) } >
