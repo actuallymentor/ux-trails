@@ -2,38 +2,51 @@ import { log } from "mentie"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
+// Categories for grouping sins in the admin UI
+export const SIN_CATEGORIES = {
+    zhang: 'zhang',
+    other: 'other',
+}
+
 // Static catalog of all UX sins available in the system.
-// Each sin has an id (used as key), a human-readable name, and a description
-// of the anti-pattern it introduces. This array is the single source of truth
-// for what sins exist — the admin and config pages derive their UI from it.
+// Each sin has an id (used as key), a human-readable name, a description
+// of the anti-pattern it introduces, and a category for UI grouping.
+// This array is the single source of truth for what sins exist — the admin
+// and config pages derive their UI from it.
 export const SIN_CATALOG = [
     {
         id: 'hidden_password_requirements',
+        category: SIN_CATEGORIES.zhang,
         name: 'Hidden password requirements',
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
     {
         id: 'centered_toast',
+        category: SIN_CATEGORIES.other,
         name: 'Toast notifications in center of screen',
         description: 'Toast notifications appear in the center of the screen, blocking content and requiring the user to wait for them to disappear.',
     },
     {
         id: 'forced_small_hamburger',
+        category: SIN_CATEGORIES.other,
         name: 'Forced small hamburger menu',
         description: 'The navigation is always collapsed into a small hamburger icon in the top-right corner, even on desktop. The icon is smaller than normal, making it harder to find and tap.',
     },
     {
         id: 'no_icons',
+        category: SIN_CATEGORIES.other,
         name: 'No informative icons',
         description: 'All informative and decorative icons are hidden. Functional icons like the hamburger menu, modal close buttons, and password visibility toggles are preserved.',
     },
     {
         id: 'small_text',
+        category: SIN_CATEGORIES.other,
         name: 'Slightly too small text',
         description: 'The base font size is set to 10px, making all text uncomfortably small to read.',
     },
     {
         id: 'buttons_as_text',
+        category: SIN_CATEGORIES.other,
         name: 'Buttons disguised as text',
         description: 'Buttons lose all visual distinction — no background, no border, no color difference. They look like regular text and only reveal themselves with an underline on hover.',
     },

@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "Configuração de pecados UX",
         "pageDescription": "Ative ou desative anti-padrões de UX para demonstrar o seu impacto na experiência do utilizador.",
+        "sectionZhang": "Heurísticas de Zhang et al.",
+        "sectionOther": "Outros pecados de UX",
         "shareTitle": "Partilhar configuração",
         "shareDescription": "Partilhe este URL ou digitalize o código QR para aplicar esta configuração noutro dispositivo.",
         "copyUrl": "Copiar URL",

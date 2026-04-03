@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "UX-Sünden-Konfiguration",
         "pageDescription": "Aktivieren oder deaktivieren Sie UX-Anti-Patterns, um deren Auswirkungen auf die Benutzererfahrung zu demonstrieren.",
+        "sectionZhang": "Zhang et al. Heuristiken",
+        "sectionOther": "Weitere UX-Sünden",
         "shareTitle": "Konfiguration teilen",
         "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",
         "copyUrl": "URL kopieren",

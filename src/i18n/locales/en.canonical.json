@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "UX Sins Configuration",
         "pageDescription": "Toggle UX anti-patterns to demonstrate their impact on user experience.",
+        "sectionZhang": "Zhang et al. heuristics",
+        "sectionOther": "Other UX sins",
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",
         "copyUrl": "Copy URL",

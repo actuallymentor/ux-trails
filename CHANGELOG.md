@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0] - 2026-04-03
+
+### Added
+- Split admin page UX sins into "Zhang et al. heuristics" and "Other UX sins" sections (uncommitted)
+- Add `category` field to `SIN_CATALOG` for section grouping (uncommitted)
+- Add i18n keys `sectionZhang` and `sectionOther` across all 11 locales (uncommitted)
+
 ## [0.9.0] - 2026-03-31
 
 ### Added

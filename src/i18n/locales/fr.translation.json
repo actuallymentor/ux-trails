@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "Configuration des péchés UX",
         "pageDescription": "Activez ou désactivez des anti-patterns UX pour démontrer leur impact sur l'expérience utilisateur.",
+        "sectionZhang": "Heuristiques de Zhang et al.",
+        "sectionOther": "Autres péchés UX",
         "shareTitle": "Partager la configuration",
         "shareDescription": "Partagez cette URL ou scannez le code QR pour appliquer cette configuration sur un autre appareil.",
         "copyUrl": "Copier l'URL",

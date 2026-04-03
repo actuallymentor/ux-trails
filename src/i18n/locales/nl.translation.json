@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "UX-zonden configuratie",
         "pageDescription": "Schakel UX-antipatronen in of uit om hun impact op de gebruikerservaring te demonstreren.",
+        "sectionZhang": "Zhang et al. heuristieken",
+        "sectionOther": "Overige UX-zonden",
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",
         "copyUrl": "URL kopiëren",

@@ -9,7 +9,7 @@ import Card from "../atoms/Card"
 import { H1, H2, Sidenote } from "../atoms/Text"
 import Button from "../atoms/Button"
 import Spacer from "../atoms/Spacer"
-import { useUxSinsStore } from "../../stores/ux_sins_store"
+import { useUxSinsStore, SIN_CATEGORIES } from "../../stores/ux_sins_store"
 
 // Toggle switch — styled checkbox used only on this page
 const ToggleLabel = styled.label`
@@ -88,11 +88,31 @@ export default function AdminPage() {
     const catalog = get_sin_catalog()
     const url = get_shareable_url()
 
+    const zhang_sins = catalog.filter( sin => sin.category === SIN_CATEGORIES.zhang )
+    const other_sins = catalog.filter( sin => sin.category === SIN_CATEGORIES.other )
+
     const copy_url = () => {
         navigator.clipboard.writeText( url )
             .then( () => toast.success( t( 'admin.toast.copied' ) ) )
             .catch( () => toast.error( t( 'admin.toast.copyError' ) ) )
     }
+
+    const render_sin = sin => (
+        <Card key={ sin.id } $width="100%">
+            <SinRow>
+                <ToggleLabel>
+                    <input
+                        type="checkbox"
+                        checked={ sin.enabled }
+                        onChange={ () => toggle_sin( sin.id ) }
+                    />
+                    <span />
+                </ToggleLabel>
+                <H2 $margin="0">{ sin.name }</H2>
+            </SinRow>
+            <Sidenote $align="left" $margin=".5rem 0 0 0">{ sin.description }</Sidenote>
+        </Card>
+    )
 
     return <Container>
 
@@ -101,23 +121,15 @@ export default function AdminPage() {
             <H1>{ t( 'admin.pageTitle' ) }</H1>
             <Sidenote $align="left" $margin="0 0 2rem 0">{ t( 'admin.pageDescription' ) }</Sidenote>
 
-            { /* Sin toggles */ }
-            { catalog.map( sin => (
-                <Card key={ sin.id } $width="100%">
-                    <SinRow>
-                        <ToggleLabel>
-                            <input
-                                type="checkbox"
-                                checked={ sin.enabled }
-                                onChange={ () => toggle_sin( sin.id ) }
-                            />
-                            <span />
-                        </ToggleLabel>
-                        <H2 $margin="0">{ sin.name }</H2>
-                    </SinRow>
-                    <Sidenote $align="left" $margin=".5rem 0 0 0">{ sin.description }</Sidenote>
-                </Card>
-            ) ) }
+            { /* Zhang et al. heuristics */ }
+            <H2 $margin="0 0 .5rem 0">{ t( 'admin.sectionZhang' ) }</H2>
+            { zhang_sins.map( render_sin ) }
+
+            <Spacer />
+
+            { /* Other UX sins */ }
+            <H2 $margin="0 0 .5rem 0">{ t( 'admin.sectionOther' ) }</H2>
+            { other_sins.map( render_sin ) }
 
             <Spacer />
 

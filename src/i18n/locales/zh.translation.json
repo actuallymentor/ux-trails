@@ -186,6 +186,8 @@
     "admin": {
         "pageTitle": "UX 问题配置",
         "pageDescription": "切换 UX 反模式以展示其对用户体验的影响。",
+        "sectionZhang": "Zhang et al. 启发式评估",
+        "sectionOther": "其他用户体验问题",
         "shareTitle": "分享配置",
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",
         "copyUrl": "复制 URL",
