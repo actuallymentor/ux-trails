@@ -49,7 +49,12 @@
             "title": "Быстрые действия",
             "newAppointment": "Создать новую запись",
             "editProfile": "Редактировать профиль",
-            "changeLanguage": "Изменить язык по умолчанию"
+            "changeLanguage": "Изменить язык по умолчанию",
+            "alt": {
+                "newAppointment": "Запланировать визит",
+                "editProfile": "Редактировать карту пациента",
+                "changeLanguage": "Изменить языковые настройки приложения"
+            }
         }
     },
     "appointments": {

@@ -29,6 +29,13 @@ export const SIN_CATALOG = [
         description: 'Heart rate is referred to as "Pulse rate" on detail views, documents, and messages, while the overview still calls it "Heart rate".',
     },
     {
+        id: 'inconsistent_action_naming',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'consistency_and_standards',
+        name: 'Inconsistent action naming',
+        description: 'Quick actions on the home screen use different wording than the rest of the app, making it harder to recognise familiar actions.',
+    },
+    {
         id: 'centered_toast',
         category: SIN_CATEGORIES.other,
         name: 'Toast notifications in center of screen',

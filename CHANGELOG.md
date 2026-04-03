@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.16.0] - 2026-04-03
+
+### Added
+- Add "Inconsistent action naming" UX sin under Zhang / Consistency and standards (uncommitted)
+- When enabled, homepage quick actions show confusing alternative labels (uncommitted)
+
 ## [0.15.0] - 2026-04-03
 
 ### Added

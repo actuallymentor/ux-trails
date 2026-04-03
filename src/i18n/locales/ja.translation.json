@@ -49,7 +49,12 @@
             "title": "クイックアクション",
             "newAppointment": "新しい予約を作成",
             "editProfile": "プロフィールを編集",
-            "changeLanguage": "デフォルト言語を変更"
+            "changeLanguage": "デフォルト言語を変更",
+            "alt": {
+                "newAppointment": "来院を計画する",
+                "editProfile": "患者ファイルを編集",
+                "changeLanguage": "アプリのロケール設定を編集"
+            }
         }
     },
     "appointments": {

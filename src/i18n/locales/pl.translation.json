@@ -49,7 +49,12 @@
             "title": "Szybkie akcje",
             "newAppointment": "Utwórz nową wizytę",
             "editProfile": "Edytuj swój profil",
-            "changeLanguage": "Zmień domyślny język"
+            "changeLanguage": "Zmień domyślny język",
+            "alt": {
+                "newAppointment": "Zaplanuj wizytę",
+                "editProfile": "Edytuj kartotekę pacjenta",
+                "changeLanguage": "Edytuj ustawienia regionalne aplikacji"
+            }
         }
     },
     "appointments": {

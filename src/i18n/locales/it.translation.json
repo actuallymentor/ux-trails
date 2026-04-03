@@ -49,7 +49,12 @@
             "title": "Azioni rapide",
             "newAppointment": "Crea un nuovo appuntamento",
             "editProfile": "Modifica il tuo profilo",
-            "changeLanguage": "Cambia la lingua predefinita"
+            "changeLanguage": "Cambia la lingua predefinita",
+            "alt": {
+                "newAppointment": "Pianifica una visita",
+                "editProfile": "Modifica la tua cartella clinica",
+                "changeLanguage": "Modifica impostazioni lingua dell'app"
+            }
         }
     },
     "appointments": {

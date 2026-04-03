@@ -49,7 +49,12 @@
             "title": "Acciones rápidas",
             "newAppointment": "Crear una nueva cita",
             "editProfile": "Editar tu perfil",
-            "changeLanguage": "Cambiar tu idioma predeterminado"
+            "changeLanguage": "Cambiar tu idioma predeterminado",
+            "alt": {
+                "newAppointment": "Planificar una visita",
+                "editProfile": "Editar su expediente de paciente",
+                "changeLanguage": "Editar configuración regional de la app"
+            }
         }
     },
     "appointments": {

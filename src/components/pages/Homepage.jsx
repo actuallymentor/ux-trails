@@ -11,6 +11,7 @@ import Spacer from "../atoms/Spacer"
 import Tile from "../molecules/Tile"
 import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 
 const ActionRow = styled.div`
     display: flex;
@@ -36,6 +37,8 @@ export default function Homepage() {
     const { user } = useUserStore()
     const navigate = useNavigate()
     const { t } = useTranslation()
+    const { enabled_sins } = useUxSinsStore()
+    const rename = enabled_sins.inconsistent_action_naming
 
     const tiles = [
         { icon: TestTubesIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
@@ -45,9 +48,9 @@ export default function Homepage() {
     ]
 
     const quick_actions = [
-        { icon: PlusIcon, label: t( 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
-        { icon: UserIcon, label: t( 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
-        { icon: GlobeIcon, label: t( 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
+        { icon: PlusIcon, label: t( rename ? 'homepage.quickActions.alt.newAppointment' : 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
+        { icon: UserIcon, label: t( rename ? 'homepage.quickActions.alt.editProfile' : 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
+        { icon: GlobeIcon, label: t( rename ? 'homepage.quickActions.alt.changeLanguage' : 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
     ]
 
     if( user ) return <Container>

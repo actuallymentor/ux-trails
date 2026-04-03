@@ -49,7 +49,12 @@
             "title": "Schnellaktionen",
             "newAppointment": "Neuen Termin erstellen",
             "editProfile": "Profil bearbeiten",
-            "changeLanguage": "Standardsprache ändern"
+            "changeLanguage": "Standardsprache ändern",
+            "alt": {
+                "newAppointment": "Einen Besuch planen",
+                "editProfile": "Patientenakte bearbeiten",
+                "changeLanguage": "App-Spracheinstellungen bearbeiten"
+            }
         }
     },
     "appointments": {

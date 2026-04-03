@@ -49,7 +49,12 @@
             "title": "Snelle acties",
             "newAppointment": "Nieuwe afspraak maken",
             "editProfile": "Profiel bewerken",
-            "changeLanguage": "Standaardtaal wijzigen"
+            "changeLanguage": "Standaardtaal wijzigen",
+            "alt": {
+                "newAppointment": "Plan een bezoek",
+                "editProfile": "Bewerk uw patiëntendossier",
+                "changeLanguage": "Bewerk app-taalinstellingen"
+            }
         }
     },
     "appointments": {

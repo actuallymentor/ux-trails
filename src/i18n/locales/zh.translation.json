@@ -49,7 +49,12 @@
             "title": "快捷操作",
             "newAppointment": "创建新预约",
             "editProfile": "编辑个人资料",
-            "changeLanguage": "更改默认语言"
+            "changeLanguage": "更改默认语言",
+            "alt": {
+                "newAppointment": "安排一次就诊",
+                "editProfile": "编辑您的患者档案",
+                "changeLanguage": "编辑应用区域设置"
+            }
         }
     },
     "appointments": {

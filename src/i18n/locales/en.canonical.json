@@ -49,7 +49,12 @@
             "title": "Quick actions",
             "newAppointment": "Create a new appointment",
             "editProfile": "Edit your profile",
-            "changeLanguage": "Change your default language"
+            "changeLanguage": "Change your default language",
+            "alt": {
+                "newAppointment": "Plan a visit",
+                "editProfile": "Edit your patient file",
+                "changeLanguage": "Edit app locale settings"
+            }
         }
     },
     "appointments": {
