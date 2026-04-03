@@ -44,14 +44,9 @@ export default function Berichten() {
                             <Text $margin="0"><MailIcon />{ subject }</Text>
                         </Column>
 
-                        <Column $direction="row" $align="center" $gap=".5rem" $padding="0" $margin="0" $width="auto" $wrap="nowrap">
-                            { !read && <Button $variant='outline' onClick={ () => mark_read( subject ) }>
-                                { t( 'messages.markRead' ) }
-                            </Button> }
-                            <Button $variant='outline' onClick={ () => set_letter_index( index ) }>
-                                { t( 'messages.viewShort' ) }
-                            </Button>
-                        </Column>
+                        <Button $variant='outline' onClick={ () => { mark_read( subject ); set_letter_index( index ) } }>
+                            { t( 'messages.viewShort' ) }
+                        </Button>
 
                     </Section>
                 </Card>
