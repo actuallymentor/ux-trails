@@ -10,9 +10,10 @@ import Button from "../atoms/Button"
 import Modal from "../molecules/Modal"
 import Column from "../atoms/Column"
 import Badge from "../molecules/Badge"
-import { MailIcon } from "lucide-react"
+import { BirdIcon, MailIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useMessagesStore } from "../../stores/messages_store"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 
 export default function Berichten() {
 
@@ -22,12 +23,14 @@ export default function Berichten() {
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ user?.name, labtest_scores, language ] )
     const [ letter_index, set_letter_index ] = useState( null )
     const { mark_read, is_read, get_unread_count } = useMessagesStore()
+    const { enabled_sins } = useUxSinsStore()
+    const MsgIcon = enabled_sins?.ambiguous_icons ? BirdIcon : MailIcon
     const unread_count = get_unread_count( letters )
 
     return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0'>
-            <H1 $margin='0'><MailIcon size='2.2rem' />{ t( 'messages.pageTitle' ) }</H1>
+            <H1 $margin='0'><MsgIcon size='2.2rem' />{ t( 'messages.pageTitle' ) }</H1>
         </Column>
         <Sidenote $align='left' $margin='0 0 2rem' $width='100%'>{ t( 'messages.unreadCount', { unread: unread_count, total: letters.length } ) }</Sidenote>
 
@@ -43,7 +46,7 @@ export default function Berichten() {
                             <Badge $position="static" $background={ read ? 'hint' : 'accent' }>
                                 { read ? t( 'messages.read' ) : t( 'messages.unread' ) }
                             </Badge>
-                            <Text $margin="0"><MailIcon />{ subject }</Text>
+                            <Text $margin="0"><MsgIcon />{ subject }</Text>
                         </Column>
 
                         <Button $variant='outline' onClick={ () => { mark_read( subject ); set_letter_index( index ) } }>

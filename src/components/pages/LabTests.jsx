@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react"
 import { prefetch } from 'less-lazy'
 import { useQueryParam } from "use-query-params"
-import { FlaskConicalIcon, ArrowLeftIcon, BarChart3Icon } from "lucide-react"
+import { FlaskConicalIcon, ArrowLeftIcon, BarChart3Icon, SyringeIcon } from "lucide-react"
 import { useLabTestScoreStore } from "../../stores/labtest_score"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
 import Container from "../atoms/Container"
@@ -40,6 +40,8 @@ export default function LabTests() {
     const { enabled_sins } = useUxSinsStore()
 
     const opaque_counts = !!enabled_sins.opaque_lab_counts
+    const ambiguous = !!enabled_sins?.ambiguous_icons
+    const LabIcon = ambiguous ? SyringeIcon : FlaskConicalIcon
 
     // When the confusing synonym sin is active, use "Pulse rate" instead of
     // "Heart rate" on the detail view (overview keeps the original name)
@@ -64,7 +66,7 @@ export default function LabTests() {
     if( !current_test ) return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0 0 2rem'>
-            <H1 $margin='0'><FlaskConicalIcon size='2.2rem' />{ t( 'labTests.pageTitle' ) }</H1>
+            <H1 $margin='0'><LabIcon size='2.2rem' />{ t( 'labTests.pageTitle' ) }</H1>
         </Column>
 
 
@@ -76,7 +78,7 @@ export default function LabTests() {
                     const display_name = t( `labs.types.${ type }`, { defaultValue: type } )
 
                     return <Card key={ type } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
-                        <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ display_name }</H2>
+                        <H2 $margin='0 0 1rem'><LabIcon size='1.2rem' />{ display_name }</H2>
                         <Badge $position='absolute' $right='1.5rem' $top='1rem'>{ t( 'labTests.metrics', { count: opaque_counts ? '1+' : readings.length } ) }</Badge>
                         <Text $margin='0' $color='hint'>{ t( 'labTests.average', { value: average, unit } ) }</Text>
                         { latest_reading && <Text $margin='0' $color='hint'>{ t( 'labTests.latestReading', { day: latest_reading.day, value: latest_reading.value, unit: latest_reading.unit } ) }</Text> }
@@ -96,7 +98,7 @@ export default function LabTests() {
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $max-width='1100px' $margin='0 0 2rem'>
             <H1 $margin='0'>
-                <FlaskConicalIcon size='2.2rem' />{ detail_name( current_data?.type ) }
+                <LabIcon size='2.2rem' />{ detail_name( current_data?.type ) }
             </H1>
             <Button $variant='outline' onClick={ () => set_current_test( undefined ) }>
                 <ArrowLeftIcon size='1.2rem' />{ t( 'common.backToOverview' ) }

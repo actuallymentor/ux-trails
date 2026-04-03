@@ -7,7 +7,7 @@ import Card from "../atoms/Card"
 import { useAppointmentsStore } from '../../stores/appointments'
 import Input from "../molecules/Input"
 import { log, truncate } from "mentie"
-import { CalendarIcon, ClockIcon, MapPinIcon, NotebookIcon, PencilIcon, XIcon } from "lucide-react"
+import { CalendarIcon, ClockIcon, HospitalIcon, MapPinIcon, NotebookIcon, PencilIcon, XIcon } from "lucide-react"
 import Column from "../atoms/Column"
 import { toast } from "react-toastify"
 import { date_after_timestamp_validator, date_to_locale_string, is_future, today_yyyy_mm_dd } from "../../modules/dates"
@@ -15,6 +15,7 @@ import Badge from "../molecules/Badge"
 import Section from "../atoms/Section"
 import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 
 export default function Appointments() {
 
@@ -24,6 +25,8 @@ export default function Appointments() {
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
     const slots = get_slots_for_date( new_appointment.date )
     const { t } = useTranslation()
+    const { enabled_sins } = useUxSinsStore()
+    const ApptIcon = enabled_sins?.ambiguous_icons ? HospitalIcon : CalendarIcon
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -71,7 +74,7 @@ export default function Appointments() {
     return <Container $align='center' $justify='center'>
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
-            <H1 $margin='0'><CalendarIcon size='2.2rem' />{ t( 'appointments.pageTitle' ) }</H1>
+            <H1 $margin='0'><ApptIcon size='2.2rem' />{ t( 'appointments.pageTitle' ) }</H1>
             <Button onClick={ () => set_makenew( true ) }>{ t( 'appointments.new' ) }</Button>
         </Column>
 
@@ -87,7 +90,7 @@ export default function Appointments() {
                         <Badge $background={ future ? 'accent' : 'hint' } $margin='2rem'>{ future ? t( 'appointments.badgeUpcoming' ) : t( 'appointments.badgePast' ) }</Badge>
 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
-                            { date && <Text $margin='.1rem 0' $color='hint'><CalendarIcon />{ date_to_locale_string( date ) }</Text> }
+                            { date && <Text $margin='.1rem 0' $color='hint'><ApptIcon />{ date_to_locale_string( date ) }</Text> }
                             { time && <Text $margin='.1rem 0' $color='hint'><ClockIcon />{ time }</Text> }
                         </Column>
                         <Text $color='hint' $margin='.1rem 0'><MapPinIcon />{ appointments[ index ]?.location || t( 'appointments.defaultLocation' ) }</Text>
@@ -116,7 +119,7 @@ export default function Appointments() {
                     <XIcon size={ 20 } />
                 </button>
                 <H2>{ t( 'appointments.detailsTitle' ) }</H2>
-                { view_appointment?.date && <Text><CalendarIcon />{ view_appointment?.date }</Text> }
+                { view_appointment?.date && <Text><ApptIcon />{ view_appointment?.date }</Text> }
                 { view_appointment?.time && <Text><ClockIcon />{ view_appointment?.time }</Text> }
                 { view_appointment?.location && <Text><MapPinIcon />{ view_appointment?.location }</Text> }
                 { view_appointment?.reason && <Text><NotebookIcon />{ view_appointment?.reason }</Text> }
