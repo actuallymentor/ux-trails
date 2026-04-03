@@ -43,6 +43,13 @@ export const SIN_CATALOG = [
         description: 'The unread messages pill in the menu no longer shows the exact count, displaying "1+" instead of the actual number.',
     },
     {
+        id: 'ambiguous_icons',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'match_between_system_and_real_world',
+        name: 'Ambiguous icons',
+        description: 'Navigation and action icons are replaced with unrelated alternatives, making it harder to identify functions by their visual cues.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',

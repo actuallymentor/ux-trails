@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { CalendarIcon, FileTextIcon, HomeIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, TestTubesIcon, UserIcon, XIcon } from 'lucide-react'
+import { BirdIcon, BookIcon, CalendarIcon, Columns2Icon, FileTextIcon, FootprintsIcon, HomeIcon, HospitalIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, ScrollIcon, SyringeIcon, TestTubesIcon, UserIcon, VanIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
@@ -139,6 +139,9 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     const { labtest_scores } = useLabTestScoreStore()
     const { get_unread_count, clear_messages } = useMessagesStore()
 
+    // Ambiguous icons sin: swap navigation icons for unrelated ones
+    const ambiguous = !!enabled_sins?.ambiguous_icons
+
     // Compute unread message count for the menu badge
     const opaque_messages = !!enabled_sins?.opaque_message_counts
     const letters = useMemo( () => user ? measurements_to_letters( { patient_name: user?.name, labtest_scores } ) : [], [ user?.name, labtest_scores, language ] )
@@ -159,16 +162,25 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
 
     // Make list of link components
     const icon_size = '1rem'
+    const DashboardIcon = ambiguous ? ScrollIcon : HomeIcon
+    const LabsIcon = ambiguous ? SyringeIcon : TestTubesIcon
+    const AppointmentsIcon = ambiguous ? HospitalIcon : CalendarIcon
+    const MessagesIcon = ambiguous ? BirdIcon : MailIcon
+    const DocsIcon = ambiguous ? VanIcon : FileTextIcon
+    const ProfileIcon = ambiguous ? BookIcon : UserIcon
+    const ExitIcon = ambiguous ? FootprintsIcon : LogOutIcon
+    const BurgerIcon = ambiguous ? Columns2Icon : MenuIcon
+
     const logged_in_links = [
-        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><TestTubesIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
-        <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><CalendarIcon size={ icon_size } />{ t( 'menu.appointments' ) }</Link>,
-        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MailIcon size={ icon_size } />{ t( 'menu.messages' ) }{ unread_count > 0 && <Badge $position='static' $background='accent' $margin='0 0 0 .4rem'>{ opaque_messages ? '1+' : unread_count }</Badge> }</Link>,
-        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><FileTextIcon size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
-        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><UserIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
-        <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><LogOutIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
+        <Link key='bloodtest' $align={ use_burger ? 'left' : 'center' } navigate='/profile/labs'><LabsIcon size={ icon_size } />{ t( 'menu.labs' ) }</Link>,
+        <Link key='appointments' $align={ use_burger ? 'left' : 'center' } navigate='/profile/appointments'><AppointmentsIcon size={ icon_size } />{ t( 'menu.appointments' ) }</Link>,
+        <Link key='inbox' $align={ use_burger ? 'left' : 'center' } navigate='/profile/inbox'><MessagesIcon size={ icon_size } />{ t( 'menu.messages' ) }{ unread_count > 0 && <Badge $position='static' $background='accent' $margin='0 0 0 .4rem'>{ opaque_messages ? '1+' : unread_count }</Badge> }</Link>,
+        <Link key='documenten' $align={ use_burger ? 'left' : 'center' } navigate='/profile/documents'><DocsIcon size={ icon_size } />{ t( 'menu.documents' ) }</Link>,
+        <Link key='settings' $align={ use_burger ? 'left' : 'center' } navigate='/profile/settings'><ProfileIcon size={ icon_size } />{ t( 'menu.settings' ) }</Link>,
+        <Link key="logout" $align={ use_burger ? 'left' : 'center' } onClick={ logout }><ExitIcon size={ icon_size } />{ t( 'menu.logout' ) }</Link>
     ]
     const links = [
-        <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><HomeIcon size={ icon_size } />{ t( 'menu.home' ) }</Link>,
+        <Link key="home" $align={ use_burger ? 'left' : 'center' } navigate='/'><DashboardIcon size={ icon_size } />{ t( 'menu.home' ) }</Link>,
         !user && !use_burger && <span key="nav-spacer" style={ { flex: 1 } } />,
         !user && <Link key="login" $align={ use_burger ? 'left' : 'center' } navigate='/login'><LogInIcon size={ icon_size } />{ t( 'menu.login' ) }</Link>,
         user && logged_in_links,
@@ -179,7 +191,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
 
     return <MenuBase $menu_height={ $menu_height } $float={ $float } $mobile_open={ open }>
 
-        { use_burger && !open && <MenuIcon size={ burger_icon_size } className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
+        { use_burger && !open && <BurgerIcon size={ burger_icon_size } className='menu_burger open' $mobile_open={ open } onClick={ f => set_open( !open ) } /> }
 
         { /* Always render burger menu container for animation, but conditionally render fullscreen */ }
         { use_burger && <span className='menu_links burger'>

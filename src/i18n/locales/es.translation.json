@@ -216,7 +216,8 @@
         "sectionOther": "Otros pecados de UX",
         "subcategory": {
             "visibility_of_system_state": "Visibilidad del estado del sistema",
-            "consistency_and_standards": "Consistencia y estándares"
+            "consistency_and_standards": "Consistencia y estándares",
+            "match_between_system_and_real_world": "Correspondencia entre el sistema y el mundo real"
         },
         "shareTitle": "Compartir configuración",
         "shareDescription": "Comparta esta URL o escanee el código QR para aplicar esta configuración en otro dispositivo.",

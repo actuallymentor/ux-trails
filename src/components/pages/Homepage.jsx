@@ -5,7 +5,7 @@ import { H1, H2, Sidenote, Text } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import { CalendarIcon, FileTextIcon, GlobeIcon, MailIcon, PlusIcon, TestTubesIcon, UserIcon } from "lucide-react"
+import { BookIcon, CalendarIcon, FileTextIcon, GlobeIcon, HospitalIcon, MailIcon, MegaphoneIcon, PlusIcon, TestTubesIcon, UserIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import Spacer from "../atoms/Spacer"
 import Tile from "../molecules/Tile"
@@ -39,6 +39,7 @@ export default function Homepage() {
     const { t } = useTranslation()
     const { enabled_sins } = useUxSinsStore()
     const rename = enabled_sins.inconsistent_action_naming
+    const ambiguous = !!enabled_sins?.ambiguous_icons
 
     const tiles = [
         { icon: TestTubesIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
@@ -48,9 +49,9 @@ export default function Homepage() {
     ]
 
     const quick_actions = [
-        { icon: PlusIcon, label: t( rename ? 'homepage.quickActions.alt.newAppointment' : 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
-        { icon: UserIcon, label: t( rename ? 'homepage.quickActions.alt.editProfile' : 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
-        { icon: GlobeIcon, label: t( rename ? 'homepage.quickActions.alt.changeLanguage' : 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
+        { icon: ambiguous ? HospitalIcon : PlusIcon, label: t( rename ? 'homepage.quickActions.alt.newAppointment' : 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
+        { icon: ambiguous ? BookIcon : UserIcon, label: t( rename ? 'homepage.quickActions.alt.editProfile' : 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
+        { icon: ambiguous ? MegaphoneIcon : GlobeIcon, label: t( rename ? 'homepage.quickActions.alt.changeLanguage' : 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
     ]
 
     if( user ) return <Container>

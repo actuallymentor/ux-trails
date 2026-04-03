@@ -216,7 +216,8 @@
         "sectionOther": "Autres péchés UX",
         "subcategory": {
             "visibility_of_system_state": "Visibilité de l'état du système",
-            "consistency_and_standards": "Cohérence et standards"
+            "consistency_and_standards": "Cohérence et standards",
+            "match_between_system_and_real_world": "Correspondance entre le système et le monde réel"
         },
         "shareTitle": "Partager la configuration",
         "shareDescription": "Partagez cette URL ou scannez le code QR pour appliquer cette configuration sur un autre appareil.",
