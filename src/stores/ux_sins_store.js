@@ -75,7 +75,7 @@ export const SIN_CATALOG = [
         category: SIN_CATEGORIES.zhang,
         subcategory: 'minimalist',
         name: 'Chaotic item management',
-        description: 'Messages are sized to fit their content and packed onto lines instead of listed vertically, creating an uneven, hard-to-scan layout.',
+        description: 'Messages and documents are sized to fit their content and packed onto lines instead of listed vertically, creating an uneven, hard-to-scan layout.',
     },
     {
         id: 'confusing_synonym',
