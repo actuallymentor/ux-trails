@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Para crear una nueva cita, haga clic en \"Citas\" en el menú y luego en \"Nueva cita\".",
                 "editProfile": "Para editar su perfil, haga clic en \"Perfil\" en el menú y actualice sus datos.",
-                "changeLanguage": "Para cambiar su idioma, haga clic en \"Perfil\" en el menú y navegue a Ajustes de la app."
+                "changeLanguage": "Para cambiar su idioma, use el selector de idioma en el menú."
             }
         }
     },

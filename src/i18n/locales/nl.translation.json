@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Om een nieuwe afspraak te maken, klikt u op \"Afspraken\" in het menu en vervolgens op \"Nieuwe afspraak\".",
                 "editProfile": "Om uw profiel te bewerken, klikt u op \"Profiel\" in het menu en past u uw gegevens aan.",
-                "changeLanguage": "Om uw taal te wijzigen, klikt u op \"Profiel\" in het menu en navigeert u naar App-instellingen."
+                "changeLanguage": "Om uw taal te wijzigen, gebruikt u de taalkeuze in het menu."
             }
         }
     },

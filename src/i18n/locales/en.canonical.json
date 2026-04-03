@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "To create a new appointment, click \"Appointments\" in the menu, then click \"New appointment\".",
                 "editProfile": "To edit your profile, click \"Profile\" in the menu and update your details.",
-                "changeLanguage": "To change your language, click \"Profile\" in the menu, then navigate to App Settings."
+                "changeLanguage": "To change your language, use the language dropdown in the menu."
             }
         }
     },

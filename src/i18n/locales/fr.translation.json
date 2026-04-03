@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Pour créer un nouveau rendez-vous, cliquez sur \"Rendez-vous\" dans le menu, puis sur \"Nouveau rendez-vous\".",
                 "editProfile": "Pour modifier votre profil, cliquez sur \"Profil\" dans le menu et mettez à jour vos informations.",
-                "changeLanguage": "Pour changer votre langue, cliquez sur \"Profil\" dans le menu, puis accédez aux Paramètres de l'app."
+                "changeLanguage": "Pour changer votre langue, utilisez le menu déroulant de langue dans le menu."
             }
         }
     },

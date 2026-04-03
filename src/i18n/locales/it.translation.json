@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Per creare un nuovo appuntamento, clicca su \"Appuntamenti\" nel menu, poi su \"Nuovo appuntamento\".",
                 "editProfile": "Per modificare il tuo profilo, clicca su \"Profilo\" nel menu e aggiorna i tuoi dati.",
-                "changeLanguage": "Per cambiare la lingua, clicca su \"Profilo\" nel menu, poi vai alle Impostazioni app."
+                "changeLanguage": "Per cambiare la lingua, usa il selettore di lingua nel menu."
             }
         }
     },

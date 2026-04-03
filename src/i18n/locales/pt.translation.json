@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Para criar uma nova consulta, clique em \"Consultas\" no menu e depois em \"Nova consulta\".",
                 "editProfile": "Para editar o seu perfil, clique em \"Perfil\" no menu e atualize os seus dados.",
-                "changeLanguage": "Para alterar o seu idioma, clique em \"Perfil\" no menu e navegue até Definições da app."
+                "changeLanguage": "Para alterar o seu idioma, use o seletor de idioma no menu."
             }
         }
     },

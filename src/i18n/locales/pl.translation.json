@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Aby utworzyć nową wizytę, kliknij \"Wizyty\" w menu, a następnie \"Nowa wizyta\".",
                 "editProfile": "Aby edytować swój profil, kliknij \"Profil\" w menu i zaktualizuj swoje dane.",
-                "changeLanguage": "Aby zmienić język, kliknij \"Profil\" w menu, a następnie przejdź do Ustawienia aplikacji."
+                "changeLanguage": "Aby zmienić język, użyj listy rozwijanej języków w menu."
             }
         }
     },

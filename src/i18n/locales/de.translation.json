@@ -58,7 +58,7 @@
             "instructions": {
                 "newAppointment": "Um einen neuen Termin zu erstellen, klicken Sie im Menü auf \"Termine\" und dann auf \"Neuer Termin\".",
                 "editProfile": "Um Ihr Profil zu bearbeiten, klicken Sie im Menü auf \"Profil\" und aktualisieren Sie Ihre Daten.",
-                "changeLanguage": "Um Ihre Sprache zu ändern, klicken Sie im Menü auf \"Profil\" und navigieren Sie zu App-Einstellungen."
+                "changeLanguage": "Um Ihre Sprache zu ändern, verwenden Sie das Sprach-Dropdown im Menü."
             }
         }
     },
