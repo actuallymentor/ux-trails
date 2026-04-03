@@ -29,6 +29,13 @@ export const SIN_CATALOG = [
         description: 'The lab results page no longer shows the exact number of measurements, displaying "1+" instead of the actual count.',
     },
     {
+        id: 'opaque_message_counts',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'visibility_of_system_state',
+        name: 'Opaque messages count',
+        description: 'The unread messages pill in the menu no longer shows the exact count, displaying "1+" instead of the actual number.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',

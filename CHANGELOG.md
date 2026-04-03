@@ -5,6 +5,7 @@
 ### Added
 - Read/unread message state with status badges (uncommitted)
 - Unread message count pill in menu navigation (uncommitted)
+- "Opaque messages count" UX sin under Zhang / Visibility of system state (uncommitted)
 
 ### Changed
 - Viewing a message marks it as read automatically (uncommitted)
