@@ -50,6 +50,20 @@ export const SIN_CATALOG = [
         description: 'Navigation and action icons are replaced with unrelated alternatives, making it harder to identify functions by their visual cues.',
     },
     {
+        id: 'buttons_as_text',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'match_between_system_and_real_world',
+        name: 'Buttons disguised as text',
+        description: 'Buttons lose all visual distinction — no background, no border, no color difference. They look like regular text and only reveal themselves with an underline on hover.',
+    },
+    {
+        id: 'hidden_dropdown_icon',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'match_between_system_and_real_world',
+        name: 'Dropdown icon from language select is missing',
+        description: 'The dropdown chevron on the language selector is hidden, making it unclear that the element is interactive.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',
@@ -86,12 +100,6 @@ export const SIN_CATALOG = [
         category: SIN_CATEGORIES.other,
         name: 'Slightly too small text',
         description: 'The base font size is set to 10px, making all text uncomfortably small to read.',
-    },
-    {
-        id: 'buttons_as_text',
-        category: SIN_CATEGORIES.other,
-        name: 'Buttons disguised as text',
-        description: 'Buttons lose all visual distinction — no background, no border, no color difference. They look like regular text and only reveal themselves with an underline on hover.',
     },
 ]
 

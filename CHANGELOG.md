@@ -9,8 +9,11 @@
 - Unread count subtitle on messages page (uncommitted)
 - "No input feedback" UX sin under Zhang / Visibility of system state (uncommitted)
 - "Ambiguous icons" UX sin under Zhang / Match between system and real world (uncommitted)
+- "Dropdown icon from language select is missing" UX sin (uncommitted)
+- Globe icon on language selector in menu (uncommitted)
 
 ### Changed
+- Move "Buttons disguised as text" sin to Zhang / Match between system and real world (uncommitted)
 - Viewing a message marks it as read automatically (uncommitted)
 - Unread badge uses accent color instead of primary (uncommitted)
 - Remove app settings link from menu navigation (uncommitted)
