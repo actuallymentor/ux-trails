@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWidth } from '../../hooks/window'
 import Link from '../atoms/Link'
 import { useUserStore } from '../../stores/user_store'
-import { BirdIcon, BookIcon, CalendarIcon, Columns2Icon, FileTextIcon, FootprintsIcon, HomeIcon, HospitalIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, ScrollIcon, SyringeIcon, TestTubesIcon, UserIcon, VanIcon, XIcon } from 'lucide-react'
+import { BirdIcon, BookIcon, CalendarIcon, Columns2Icon, FileTextIcon, FlaskConicalIcon, FootprintsIcon, HomeIcon, HospitalIcon, LogInIcon, LogOutIcon, MailIcon, MenuIcon, ScrollIcon, SyringeIcon, UserIcon, VanIcon, XIcon } from 'lucide-react'
 import { useLabTestScoreStore } from '../../stores/labtest_score'
 import { useAppointmentsStore } from '../../stores/appointments'
 import { log } from 'mentie'
@@ -163,7 +163,7 @@ export default function Menu( { $menu_height, $float='center', ...props } ) {
     // Make list of link components
     const icon_size = '1rem'
     const DashboardIcon = ambiguous ? ScrollIcon : HomeIcon
-    const LabsIcon = ambiguous ? SyringeIcon : TestTubesIcon
+    const LabsIcon = ambiguous ? SyringeIcon : FlaskConicalIcon
     const AppointmentsIcon = ambiguous ? HospitalIcon : CalendarIcon
     const MessagesIcon = ambiguous ? BirdIcon : MailIcon
     const DocsIcon = ambiguous ? VanIcon : FileTextIcon

@@ -5,7 +5,7 @@ import { H1, H2, Sidenote, Text } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import { BirdIcon, BookIcon, CalendarIcon, FileTextIcon, GlobeIcon, HospitalIcon, MailIcon, MegaphoneIcon, PlusIcon, SyringeIcon, TestTubesIcon, UserIcon, VanIcon } from "lucide-react"
+import { BirdIcon, BookIcon, CalendarIcon, FileTextIcon, FlaskConicalIcon, GlobeIcon, HospitalIcon, MailIcon, MegaphoneIcon, PlusIcon, SyringeIcon, UserIcon, VanIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import Spacer from "../atoms/Spacer"
 import Tile from "../molecules/Tile"
@@ -42,7 +42,7 @@ export default function Homepage() {
     const ambiguous = !!enabled_sins?.ambiguous_icons
 
     const tiles = [
-        { icon: ambiguous ? SyringeIcon : TestTubesIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
+        { icon: ambiguous ? SyringeIcon : FlaskConicalIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
         { icon: ambiguous ? HospitalIcon : CalendarIcon, title: t( 'homepage.tiles.appointments.title' ), nav: '/profile/appointments', text: t( 'homepage.tiles.appointments.body' ) },
         { icon: ambiguous ? VanIcon : FileTextIcon, title: t( 'homepage.tiles.documents.title' ), nav: '/profile/documents', text: t( 'homepage.tiles.documents.body' ) },
         { icon: ambiguous ? BirdIcon : MailIcon, title: t( 'homepage.tiles.messages.title' ), nav: '/profile/inbox', text: t( 'homepage.tiles.messages.body' ) },
