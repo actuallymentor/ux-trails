@@ -29,6 +29,13 @@ export const SIN_CATALOG = [
         description: 'The lab results page no longer shows the exact number of measurements, displaying "1+" instead of the actual count.',
     },
     {
+        id: 'no_input_feedback',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'visibility_of_system_state',
+        name: 'No input feedback',
+        description: 'Input fields no longer show visual feedback on validation — no green/red borders and no error messages beneath inputs.',
+    },
+    {
         id: 'opaque_message_counts',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'visibility_of_system_state',

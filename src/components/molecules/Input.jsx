@@ -5,6 +5,7 @@ import { useDebounce } from 'use-debounce'
 import useInterval from 'use-interval'
 import { log } from 'mentie'
 import { EyeClosedIcon, EyeIcon } from 'lucide-react'
+import { useUxSinsStore } from '../../stores/ux_sins_store'
 
 const InputBase = styled.span`
 
@@ -130,6 +131,8 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
     const { current: internalId } = useRef( id || `input-${ Math.random() }` )
     const special_types = [ 'dropdown', 'textarea' ]
     const [ is_focused, set_is_focused ] = useState( false )
+    const { enabled_sins } = useUxSinsStore()
+    const hide_feedback = !!enabled_sins?.no_input_feedback
 
     // Separate props into parent and childs
     const { placeholder, value, min, max, readOnly, ...parent_props } = props
@@ -210,7 +213,7 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
         if( typing_timed_out && is_typing ) set_is_typing( false )
     }, value && !valid ? 1000 : null )
 
-    return <InputBase onClick={ onClick } highlight={ highlight } { ...{ ...parent_props, $has_content: value?.length > 0, $is_focused: is_focused } } $valid={ valid } >
+    return <InputBase onClick={ onClick } highlight={ highlight } { ...{ ...parent_props, $has_content: value?.length > 0, $is_focused: is_focused } } $valid={ hide_feedback ? undefined : valid } >
 
         { label && <label htmlFor={ internalId }><span>{ label }</span> { info && <span onClick={ f => alert( info ) } onMouseDown={ e => e.preventDefault() }>?</span> }</label> }
 
@@ -236,7 +239,7 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
         { title && <p id="title">{ title }</p> }
 
         { hint && <p className="input-hint">{ hint }</p> }
-        { !is_typing && !empty && !valid && <p className="input-error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
+        { !hide_feedback && !is_typing && !empty && !valid && <p className="input-error">{ error || `Please enter a valid ${ type || 'input' }` }</p> }
 		
     </InputBase>
 
