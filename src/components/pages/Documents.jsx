@@ -39,7 +39,7 @@ export default function Documents() {
         </Column>
 
 
-        <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
+        <Section $overflow='scroll' $height='80vh' $wrap='nowrap' $padding='0'>
 
             { letters.map( ( { subject, message, day }, index ) => <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
                 <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
