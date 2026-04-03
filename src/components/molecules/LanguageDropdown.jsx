@@ -33,20 +33,21 @@ export default function LanguageSelector( { ...props } ) {
     const { enabled_sins } = useUxSinsStore()
     const ambiguous = !!enabled_sins?.ambiguous_icons
     const hide_chevron = !!enabled_sins?.hidden_dropdown_icon
+    const use_locale_codes = !!enabled_sins?.locale_code_languages
     const LangIcon = ambiguous ? MegaphoneIcon : GlobeIcon
 
     const available_languages = [
-        { code: 'nl', label: `Nederlands` },
-        { code: 'en', label: `English` },
-        { code: 'es', label: `Español` },
-        { code: 'fr', label: `Français` },
-        { code: 'de', label: `Deutsch` },
-        { code: 'it', label: `Italiano` },
-        { code: 'pt', label: `Português` },
-        { code: 'pl', label: `Polski` },
-        { code: 'ru', label: `Русский` },
-        { code: 'zh', label: `中文` },
-        { code: 'ja', label: `日本語` }
+        { code: 'nl', label: use_locale_codes ? 'nl' : 'Nederlands' },
+        { code: 'en', label: use_locale_codes ? 'en' : 'English' },
+        { code: 'es', label: use_locale_codes ? 'es' : 'Español' },
+        { code: 'fr', label: use_locale_codes ? 'fr' : 'Français' },
+        { code: 'de', label: use_locale_codes ? 'de' : 'Deutsch' },
+        { code: 'it', label: use_locale_codes ? 'it' : 'Italiano' },
+        { code: 'pt', label: use_locale_codes ? 'pt' : 'Português' },
+        { code: 'pl', label: use_locale_codes ? 'pl' : 'Polski' },
+        { code: 'ru', label: use_locale_codes ? 'ru' : 'Русский' },
+        { code: 'zh', label: use_locale_codes ? 'zh' : '中文' },
+        { code: 'ja', label: use_locale_codes ? 'ja' : '日本語' }
     ]
 
 

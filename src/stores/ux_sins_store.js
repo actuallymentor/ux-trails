@@ -64,6 +64,13 @@ export const SIN_CATALOG = [
         description: 'The dropdown chevron on the language selector is hidden, making it unclear that the element is interactive.',
     },
     {
+        id: 'locale_code_languages',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'match_between_system_and_real_world',
+        name: 'Languages use locale codes',
+        description: 'The language selector shows raw locale codes (nl, en, es…) instead of human-readable language names.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',
