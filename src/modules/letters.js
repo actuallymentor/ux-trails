@@ -19,10 +19,12 @@ export function measurements_to_letters( { patient_name=i18n.t( 'letters.default
 
     return readings.map( ( { type, value, unit, day }, index ) => {
 
-        // When confusing synonym sin is active, use "Pulse rate" for heart rate
-        const test_name = enabled_sins.confusing_synonym && type === 'heartrate'
-            ? i18n.t( 'labs.synonyms.heartrate', { defaultValue: type } )
-            : i18n.t( `labs.types.${ type }`, { defaultValue: type } )
+        // Acronym sin takes priority, then confusing synonym, then default
+        const test_name = enabled_sins.acronym_lab_names
+            ? i18n.t( `labs.acronyms.${ type }`, { defaultValue: type } )
+            : enabled_sins.confusing_synonym && type === 'heartrate'
+                ? i18n.t( 'labs.synonyms.heartrate', { defaultValue: type } )
+                : i18n.t( `labs.types.${ type }`, { defaultValue: type } )
 
         const subject_key = subject_keys[ index % subject_keys.length ]
 

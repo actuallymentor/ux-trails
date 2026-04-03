@@ -54,6 +54,11 @@
                 "newAppointment": "Zaplanuj wizytę",
                 "editProfile": "Edytuj kartotekę pacjenta",
                 "changeLanguage": "Edytuj ustawienia regionalne aplikacji"
+            },
+            "instructions": {
+                "newAppointment": "Aby utworzyć nową wizytę, kliknij \"Wizyty\" w menu, a następnie \"Nowa wizyta\".",
+                "editProfile": "Aby edytować swój profil, kliknij \"Profil\" w menu i zaktualizuj swoje dane.",
+                "changeLanguage": "Aby zmienić język, kliknij \"Profil\" w menu, a następnie przejdź do Ustawienia aplikacji."
             }
         }
     },
@@ -101,6 +106,12 @@
         },
         "synonyms": {
             "heartrate": "Puls"
+        },
+        "acronyms": {
+            "bloodpressure": "BP",
+            "cholesterol": "TC",
+            "glucose": "GLU",
+            "heartrate": "HR"
         }
     },
     "labTests": {
@@ -218,7 +229,8 @@
             "visibility_of_system_state": "Widoczność stanu systemu",
             "consistency_and_standards": "Spójność i standardy",
             "match_between_system_and_real_world": "Zgodność między systemem a światem rzeczywistym",
-            "minimalist": "Minimalistyczny"
+            "minimalist": "Minimalistyczny",
+            "minimize_memory_load": "Minimalizuj obciążenie pamięci"
         },
         "shareTitle": "Udostępnij konfigurację",
         "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",

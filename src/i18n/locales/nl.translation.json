@@ -54,6 +54,11 @@
                 "newAppointment": "Plan een bezoek",
                 "editProfile": "Bewerk uw patiëntendossier",
                 "changeLanguage": "Bewerk app-taalinstellingen"
+            },
+            "instructions": {
+                "newAppointment": "Om een nieuwe afspraak te maken, klikt u op \"Afspraken\" in het menu en vervolgens op \"Nieuwe afspraak\".",
+                "editProfile": "Om uw profiel te bewerken, klikt u op \"Profiel\" in het menu en past u uw gegevens aan.",
+                "changeLanguage": "Om uw taal te wijzigen, klikt u op \"Profiel\" in het menu en navigeert u naar App-instellingen."
             }
         }
     },
@@ -101,6 +106,12 @@
         },
         "synonyms": {
             "heartrate": "Polsslag"
+        },
+        "acronyms": {
+            "bloodpressure": "BP",
+            "cholesterol": "TC",
+            "glucose": "GLU",
+            "heartrate": "HR"
         }
     },
     "labTests": {
@@ -218,7 +229,8 @@
             "visibility_of_system_state": "Zichtbaarheid van systeemstatus",
             "consistency_and_standards": "Consistentie en standaarden",
             "match_between_system_and_real_world": "Overeenkomst tussen systeem en echte wereld",
-            "minimalist": "Minimalistisch"
+            "minimalist": "Minimalistisch",
+            "minimize_memory_load": "Minimaliseer geheugenbelasting"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",

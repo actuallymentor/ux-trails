@@ -78,6 +78,20 @@ export const SIN_CATALOG = [
         description: 'Messages and documents are sized to fit their content and packed onto lines instead of listed vertically, creating an uneven, hard-to-scan layout.',
     },
     {
+        id: 'acronym_lab_names',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'minimize_memory_load',
+        name: 'Call lab results by acronyms',
+        description: 'Lab result names are replaced with clinical acronyms (BP, TC, GLU, HR) that most patients won\'t recognise.',
+    },
+    {
+        id: 'instruct_instead_of_do',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'minimize_memory_load',
+        name: 'Instruct instead of do',
+        description: 'Quick actions on the home screen open a modal with instructions on where to click in the menu, instead of navigating directly.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',

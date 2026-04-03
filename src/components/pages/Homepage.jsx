@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled from "styled-components"
 import Container from "../atoms/Container"
 import Hero from "../molecules/Hero"
@@ -5,13 +6,44 @@ import { H1, H2, Sidenote, Text } from "../atoms/Text"
 import Button from "../atoms/Button"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import { BirdIcon, BookIcon, CalendarIcon, FileTextIcon, FlaskConicalIcon, GlobeIcon, HospitalIcon, MailIcon, MegaphoneIcon, PlusIcon, SyringeIcon, UserIcon, VanIcon } from "lucide-react"
+import { BirdIcon, BookIcon, CalendarIcon, FileTextIcon, FlaskConicalIcon, GlobeIcon, HospitalIcon, MailIcon, MegaphoneIcon, PlusIcon, SyringeIcon, UserIcon, VanIcon, XIcon } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import Spacer from "../atoms/Spacer"
 import Tile from "../molecules/Tile"
 import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
+
+const Overlay = styled.div`
+    position: fixed;
+    inset: 0;
+    background: rgba( 0, 0, 0, 0.45 );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+`
+
+const ModalCard = styled( Card )`
+    max-width: 480px;
+    width: 90%;
+    padding: 2rem 2.5rem;
+    position: relative;
+`
+
+const CloseButton = styled.button`
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: ${ ( { theme } ) => theme.colors.hint };
+    padding: 0.25rem;
+    display: flex;
+
+    &:hover { color: ${ ( { theme } ) => theme.colors.text }; }
+`
 
 const ActionRow = styled.div`
     display: flex;
@@ -40,6 +72,8 @@ export default function Homepage() {
     const { enabled_sins } = useUxSinsStore()
     const rename = enabled_sins.inconsistent_action_naming
     const ambiguous = !!enabled_sins?.ambiguous_icons
+    const instruct = !!enabled_sins?.instruct_instead_of_do
+    const [ instruction_text, set_instruction_text ] = useState( null )
 
     const tiles = [
         { icon: ambiguous ? SyringeIcon : FlaskConicalIcon, title: t( 'homepage.tiles.labs.title' ), nav: '/profile/labs', text: t( 'homepage.tiles.labs.body' ) },
@@ -49,10 +83,17 @@ export default function Homepage() {
     ]
 
     const quick_actions = [
-        { icon: ambiguous ? HospitalIcon : PlusIcon, label: t( rename ? 'homepage.quickActions.alt.newAppointment' : 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments' },
-        { icon: ambiguous ? BookIcon : UserIcon, label: t( rename ? 'homepage.quickActions.alt.editProfile' : 'homepage.quickActions.editProfile' ), nav: '/profile/settings' },
-        { icon: ambiguous ? MegaphoneIcon : GlobeIcon, label: t( rename ? 'homepage.quickActions.alt.changeLanguage' : 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings' },
+        { icon: ambiguous ? HospitalIcon : PlusIcon, label: t( rename ? 'homepage.quickActions.alt.newAppointment' : 'homepage.quickActions.newAppointment' ), nav: '/profile/appointments', instruction: 'homepage.quickActions.instructions.newAppointment' },
+        { icon: ambiguous ? BookIcon : UserIcon, label: t( rename ? 'homepage.quickActions.alt.editProfile' : 'homepage.quickActions.editProfile' ), nav: '/profile/settings', instruction: 'homepage.quickActions.instructions.editProfile' },
+        { icon: ambiguous ? MegaphoneIcon : GlobeIcon, label: t( rename ? 'homepage.quickActions.alt.changeLanguage' : 'homepage.quickActions.changeLanguage' ), nav: '/profile/app-settings', instruction: 'homepage.quickActions.instructions.changeLanguage' },
     ]
+
+    // When "instruct instead of do" sin is active, show a modal with instructions
+    // instead of navigating to the target page
+    const handle_action = ( { nav, instruction } ) => {
+        if( instruct ) return set_instruction_text( t( instruction ) )
+        navigate( nav )
+    }
 
     if( user ) return <Container>
 
@@ -73,13 +114,21 @@ export default function Homepage() {
         { /* Quick actions */ }
         <Card $width="100%">
             <H2 $margin="0 0 .5rem">{ t( 'homepage.quickActions.title' ) }</H2>
-            { quick_actions.map( ( { icon: Icon, label, nav } ) =>
-                <ActionRow key={ label } onClick={ () => navigate( nav ) }>
-                    <Icon size="1.1rem" />
-                    <Text $margin="0">{ label }</Text>
+            { quick_actions.map( ( action ) =>
+                <ActionRow key={ action.label } onClick={ () => handle_action( action ) }>
+                    <action.icon size="1.1rem" />
+                    <Text $margin="0">{ action.label }</Text>
                 </ActionRow>
             ) }
         </Card>
+
+        { /* Instruction modal — shown when "instruct instead of do" sin is active */ }
+        { instruction_text && <Overlay onClick={ () => set_instruction_text( null ) }>
+            <ModalCard onClick={ e => e.stopPropagation() }>
+                <CloseButton onClick={ () => set_instruction_text( null ) }><XIcon size="1.2rem" /></CloseButton>
+                <Text $margin="0">{ instruction_text }</Text>
+            </ModalCard>
+        </Overlay> }
 
     </Container>
 

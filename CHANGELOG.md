@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0] - 2026-04-03
+
+### Added
+- "Call lab results by acronyms" UX sin under Zhang / Minimize memory load (uncommitted)
+- "Instruct instead of do" UX sin with instruction modal (uncommitted)
+- Zhang subcategory "Minimize memory load" with i18n for all 11 locales (uncommitted)
+
 ## [0.18.0] - 2026-04-03
 
 ### Added

@@ -54,6 +54,11 @@
                 "newAppointment": "Pianifica una visita",
                 "editProfile": "Modifica la tua cartella clinica",
                 "changeLanguage": "Modifica impostazioni lingua dell'app"
+            },
+            "instructions": {
+                "newAppointment": "Per creare un nuovo appuntamento, clicca su \"Appuntamenti\" nel menu, poi su \"Nuovo appuntamento\".",
+                "editProfile": "Per modificare il tuo profilo, clicca su \"Profilo\" nel menu e aggiorna i tuoi dati.",
+                "changeLanguage": "Per cambiare la lingua, clicca su \"Profilo\" nel menu, poi vai alle Impostazioni app."
             }
         }
     },
@@ -101,6 +106,12 @@
         },
         "synonyms": {
             "heartrate": "Frequenza del polso"
+        },
+        "acronyms": {
+            "bloodpressure": "BP",
+            "cholesterol": "TC",
+            "glucose": "GLU",
+            "heartrate": "HR"
         }
     },
     "labTests": {
@@ -218,7 +229,8 @@
             "visibility_of_system_state": "Visibilità dello stato del sistema",
             "consistency_and_standards": "Coerenza e standard",
             "match_between_system_and_real_world": "Corrispondenza tra sistema e mondo reale",
-            "minimalist": "Minimalista"
+            "minimalist": "Minimalista",
+            "minimize_memory_load": "Minimizzare il carico di memoria"
         },
         "shareTitle": "Condividi configurazione",
         "shareDescription": "Condividi questo URL o scansiona il codice QR per applicare questa configurazione su un altro dispositivo.",
