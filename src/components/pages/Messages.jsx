@@ -29,9 +29,9 @@ export default function Berichten() {
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0'>
             <H1 $margin='0'><MailIcon size='2.2rem' />{ t( 'messages.pageTitle' ) }</H1>
         </Column>
-        <Sidenote $align='left' $margin='0 0 2rem'>{ t( 'messages.unreadCount', { unread: unread_count, total: letters.length } ) }</Sidenote>
+        <Sidenote $align='left' $margin='0 0 2rem' $width='100%'>{ t( 'messages.unreadCount', { unread: unread_count, total: letters.length } ) }</Sidenote>
 
-        <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
+        <Section $overflow='scroll' $height='80vh' $wrap='nowrap' $padding='0'>
             { letters.map( ( { subject, message, day }, index ) => {
 
                 const read = is_read( subject )
