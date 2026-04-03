@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
-import { MessageCircleIcon, XIcon, SendIcon } from "lucide-react"
+import { XIcon, SendIcon } from "lucide-react"
 import { useAppointmentsStore } from "../../stores/appointments"
 import { local_date_string } from "../../modules/dates"
 
@@ -21,27 +21,6 @@ const STEPS = {
 }
 
 // ─── Styled components ─────────────────────────────────────────
-
-const Launcher = styled.button`
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: ${ ( { theme } ) => theme.colors.accent };
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba( 0, 0, 0, 0.25 );
-    z-index: 999;
-    transition: transform 0.15s;
-
-    &:hover { transform: scale( 1.08 ); }
-`
 
 const ChatWindow = styled.div`
     position: fixed;
@@ -155,55 +134,42 @@ function next_weekdays( count = 5 ) {
 
 // ─── Component ──────────────────────────────────────────────────
 
-export default function AppointmentChatbot( { on_created } ) {
+export default function AppointmentChatbot( { on_close } ) {
 
-    const [ open, set_open ] = useState( false )
     const [ messages, set_messages ] = useState( [] )
     const [ input, set_input ] = useState( '' )
-    const [ step, set_step ] = useState( STEPS.greeting )
+    const [ step, set_step ] = useState( STEPS.ask_name )
     const [ data, set_data ] = useState( {} )
     const [ available_dates ] = useState( () => next_weekdays( 5 ) )
     const [ available_times, set_available_times ] = useState( [] )
     const scroll_ref = useRef( null )
     const input_ref = useRef( null )
     const { get_slots_for_date, add_appointment } = useAppointmentsStore()
+    const started = useRef( false )
 
     // Auto-scroll to bottom when messages change
     useEffect( () => {
         if( scroll_ref.current ) scroll_ref.current.scrollTop = scroll_ref.current.scrollHeight
     }, [ messages ] )
 
-    // Focus input when chat opens
+    // Focus input when step changes
     useEffect( () => {
-        if( open && input_ref.current ) input_ref.current.focus()
-    }, [ open, step ] )
+        if( input_ref.current ) input_ref.current.focus()
+    }, [ step ] )
+
+    // Send greeting on mount
+    useEffect( () => {
+        if( started.current ) return
+        started.current = true
+        set_messages( [
+            { from: 'bot', text: 'Hello! I\'m the appointment assistant. I\'ll help you book an appointment.' },
+            { from: 'bot', text: 'To get started, what is your full name?' },
+        ] )
+    }, [] )
 
     // Add a bot message with a small visual delay
     const bot_say = text => {
         set_messages( prev => [ ...prev, { from: 'bot', text } ] )
-    }
-
-    // Start the conversation when the chat opens
-    const start_chat = () => {
-        set_open( true )
-        set_messages( [] )
-        set_step( STEPS.ask_name )
-        set_data( {} )
-
-        // Greeting + first question after a tick so React renders the window first
-        setTimeout( () => {
-            set_messages( [
-                { from: 'bot', text: 'Hello! I\'m the appointment assistant. I\'ll help you book an appointment.' },
-                { from: 'bot', text: 'To get started, what is your full name?' },
-            ] )
-        }, 80 )
-    }
-
-    const close_chat = () => {
-        set_open( false )
-        set_messages( [] )
-        set_step( STEPS.greeting )
-        set_data( {} )
     }
 
     // Core handler — very literal matching, no fuzzy logic
@@ -323,10 +289,9 @@ export default function AppointmentChatbot( { on_created } ) {
                         add_appointment( { ...slot, reason: data.reason } )
                         bot_say( 'Your appointment has been created successfully! You can close this chat now.' )
                         set_step( STEPS.done )
-                        if( on_created ) on_created()
                     } else {
                         bot_say( 'Something went wrong — that time slot is no longer available. Please try again.' )
-                        close_chat()
+                        set_step( STEPS.done )
                     }
 
                 } else if( value === 'no' ) {
@@ -344,17 +309,12 @@ export default function AppointmentChatbot( { on_created } ) {
         }
     }
 
-    // Render the launcher bubble when closed
-    if( !open ) return <Launcher onClick={ start_chat }>
-        <MessageCircleIcon size={ 26 } />
-    </Launcher>
-
     // Render the chat window
     return <ChatWindow>
 
         <Header>
             <span>Appointment Assistant</span>
-            <CloseBtn onClick={ close_chat }><XIcon size={ 18 } /></CloseBtn>
+            <CloseBtn onClick={ on_close }><XIcon size={ 18 } /></CloseBtn>
         </Header>
 
         <Messages ref={ scroll_ref }>

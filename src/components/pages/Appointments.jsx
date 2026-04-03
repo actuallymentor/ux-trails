@@ -21,8 +21,7 @@ import AppointmentChatbot from "../molecules/AppointmentChatbot"
 export default function Appointments() {
 
     const [ makenew, set_makenew ] = useState( false )
-    // Counter to force re-render of appointments list after chatbot creates one
-    const [ , set_refresh ] = useState( 0 )
+    const [ show_chatbot, set_show_chatbot ] = useState( false )
     const [ new_appointment, set_new_appointment ] = useState( { reason: '', date: '' } )
     const [ view_appointment, set_view_appointment ] = useState( null )
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
@@ -79,7 +78,7 @@ export default function Appointments() {
 
         <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
             <H1 $margin='0'><ApptIcon size='2.2rem' />{ t( 'appointments.pageTitle' ) }</H1>
-            { !use_chatbot && <Button onClick={ () => set_makenew( true ) }>{ t( 'appointments.new' ) }</Button> }
+            <Button onClick={ () => use_chatbot ? set_show_chatbot( true ) : set_makenew( true ) }>{ t( 'appointments.new' ) }</Button>
         </Column>
 
         <Section $width='1600px' $align='center' $justify='center' $padding='0' $margin='0' >
@@ -177,8 +176,8 @@ export default function Appointments() {
             </Card>
         </Modal> }
 
-        { /* Chatbot widget — replaces the normal form when the sin is active */ }
-        { use_chatbot && <AppointmentChatbot on_created={ () => set_refresh( n => n + 1 ) } /> }
+        { /* Chatbot widget — pops up when the sin is active and user clicks "New appointment" */ }
+        { show_chatbot && <AppointmentChatbot on_close={ () => set_show_chatbot( false ) } /> }
 
     </Container>
 
