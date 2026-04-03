@@ -5,7 +5,7 @@ import Section from "../atoms/Section"
 import { measurements_to_letters } from "../../modules/letters"
 import { useUserStore } from "../../stores/user_store"
 import Card from "../atoms/Card"
-import { H1, Text } from "../atoms/Text"
+import { H1, Sidenote, Text } from "../atoms/Text"
 import Button from "../atoms/Button"
 import Modal from "../molecules/Modal"
 import Column from "../atoms/Column"
@@ -21,13 +21,15 @@ export default function Berichten() {
     const { t, i18n: { language } } = useTranslation()
     const letters = useMemo( () => measurements_to_letters( { patient_name: user?.name, labtest_scores } ), [ user?.name, labtest_scores, language ] )
     const [ letter_index, set_letter_index ] = useState( null )
-    const { mark_read, is_read } = useMessagesStore()
+    const { mark_read, is_read, get_unread_count } = useMessagesStore()
+    const unread_count = get_unread_count( letters )
 
     return <Container $align='center' $justify='center'>
 
-        <Column $direction='row' $justify='space-between' $width='100%' $align='center' $margin='0 0 2rem' >
+        <Column $direction='row' $justify='space-between' $align='center' $width='100%' $padding='0' $margin='0'>
             <H1 $margin='0'><MailIcon size='2.2rem' />{ t( 'messages.pageTitle' ) }</H1>
         </Column>
+        <Sidenote $align='left' $margin='0 0 2rem'>{ t( 'messages.unreadCount', { unread: unread_count, total: letters.length } ) }</Sidenote>
 
         <Section $overflow='scroll' $height='80vh' $wrap='nowrap'>
             { letters.map( ( { subject, message, day }, index ) => {

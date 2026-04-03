@@ -166,7 +166,8 @@
         "close": "Zamknij wiadomość",
         "read": "Przeczytana",
         "unread": "Nieprzeczytana",
-        "markRead": "Oznacz jako przeczytaną"
+        "markRead": "Oznacz jako przeczytaną",
+        "unreadCount": "{{unread}} z {{total}} nieprzeczytanych"
     },
     "settings": {
         "pageTitle": "Ustawienia",

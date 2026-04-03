@@ -166,7 +166,8 @@
         "close": "Cerrar mensaje",
         "read": "Leído",
         "unread": "No leído",
-        "markRead": "Marcar leído"
+        "markRead": "Marcar leído",
+        "unreadCount": "{{unread}} de {{total}} no leídos"
     },
     "settings": {
         "pageTitle": "Configuración",

@@ -166,7 +166,8 @@
         "close": "Sluit bericht",
         "read": "Gelezen",
         "unread": "Ongelezen",
-        "markRead": "Markeer gelezen"
+        "markRead": "Markeer gelezen",
+        "unreadCount": "{{unread}} van {{total}} ongelezen"
     },
     "settings": {
         "pageTitle": "Instellingen",

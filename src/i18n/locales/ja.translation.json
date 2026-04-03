@@ -166,7 +166,8 @@
         "close": "メッセージを閉じる",
         "read": "既読",
         "unread": "未読",
-        "markRead": "既読にする"
+        "markRead": "既読にする",
+        "unreadCount": "{{total}}件中{{unread}}件が未読"
     },
     "settings": {
         "pageTitle": "設定",

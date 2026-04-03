@@ -166,7 +166,8 @@
         "close": "Chiudi messaggio",
         "read": "Letto",
         "unread": "Non letto",
-        "markRead": "Segna letto"
+        "markRead": "Segna letto",
+        "unreadCount": "{{unread}} di {{total}} non letti"
     },
     "settings": {
         "pageTitle": "Impostazioni",

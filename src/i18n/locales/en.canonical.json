@@ -166,7 +166,8 @@
         "close": "Close message",
         "read": "Read",
         "unread": "Unread",
-        "markRead": "Mark read"
+        "markRead": "Mark read",
+        "unreadCount": "{{unread}} of {{total}} unread"
     },
     "settings": {
         "pageTitle": "Settings",

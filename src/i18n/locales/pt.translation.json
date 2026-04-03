@@ -166,7 +166,8 @@
         "close": "Fechar mensagem",
         "read": "Lida",
         "unread": "Não lida",
-        "markRead": "Marcar lida"
+        "markRead": "Marcar lida",
+        "unreadCount": "{{unread}} de {{total}} não lidas"
     },
     "settings": {
         "pageTitle": "Definições",

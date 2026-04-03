@@ -166,7 +166,8 @@
         "close": "Nachricht schließen",
         "read": "Gelesen",
         "unread": "Ungelesen",
-        "markRead": "Als gelesen markieren"
+        "markRead": "Als gelesen markieren",
+        "unreadCount": "{{unread}} von {{total}} ungelesen"
     },
     "settings": {
         "pageTitle": "Einstellungen",

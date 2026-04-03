@@ -166,7 +166,8 @@
         "close": "Fermer le message",
         "read": "Lu",
         "unread": "Non lu",
-        "markRead": "Marquer lu"
+        "markRead": "Marquer lu",
+        "unreadCount": "{{unread}} sur {{total}} non lus"
     },
     "settings": {
         "pageTitle": "Paramètres",

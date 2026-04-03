@@ -166,7 +166,8 @@
         "close": "关闭消息",
         "read": "已读",
         "unread": "未读",
-        "markRead": "标记已读"
+        "markRead": "标记已读",
+        "unreadCount": "{{total}}条中{{unread}}条未读"
     },
     "settings": {
         "pageTitle": "设置",
