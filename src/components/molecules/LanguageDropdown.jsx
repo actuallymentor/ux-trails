@@ -37,17 +37,17 @@ export default function LanguageSelector( { ...props } ) {
     const LangIcon = ambiguous ? MegaphoneIcon : GlobeIcon
 
     const available_languages = [
-        { code: 'nl', label: use_locale_codes ? 'nl_NL.UTF-8' : 'Nederlands' },
-        { code: 'en', label: use_locale_codes ? 'en_US.UTF-8' : 'English' },
-        { code: 'es', label: use_locale_codes ? 'es_ES.UTF-8' : 'Español' },
-        { code: 'fr', label: use_locale_codes ? 'fr_FR.UTF-8' : 'Français' },
-        { code: 'de', label: use_locale_codes ? 'de_DE.UTF-8' : 'Deutsch' },
-        { code: 'it', label: use_locale_codes ? 'it_IT.UTF-8' : 'Italiano' },
-        { code: 'pt', label: use_locale_codes ? 'pt_PT.UTF-8' : 'Português' },
-        { code: 'pl', label: use_locale_codes ? 'pl_PL.UTF-8' : 'Polski' },
-        { code: 'ru', label: use_locale_codes ? 'ru_RU.UTF-8' : 'Русский' },
-        { code: 'zh', label: use_locale_codes ? 'zh_CN.UTF-8' : '中文' },
-        { code: 'ja', label: use_locale_codes ? 'ja_JP.UTF-8' : '日本語' }
+        { code: 'nl', label: use_locale_codes ? 'nl_NL' : 'Nederlands' },
+        { code: 'en', label: use_locale_codes ? 'en_US' : 'English' },
+        { code: 'es', label: use_locale_codes ? 'es_ES' : 'Español' },
+        { code: 'fr', label: use_locale_codes ? 'fr_FR' : 'Français' },
+        { code: 'de', label: use_locale_codes ? 'de_DE' : 'Deutsch' },
+        { code: 'it', label: use_locale_codes ? 'it_IT' : 'Italiano' },
+        { code: 'pt', label: use_locale_codes ? 'pt_PT' : 'Português' },
+        { code: 'pl', label: use_locale_codes ? 'pl_PL' : 'Polski' },
+        { code: 'ru', label: use_locale_codes ? 'ru_RU' : 'Русский' },
+        { code: 'zh', label: use_locale_codes ? 'zh_CN' : '中文' },
+        { code: 'ja', label: use_locale_codes ? 'ja_JP' : '日本語' }
     ]
 
 

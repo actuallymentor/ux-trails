@@ -68,7 +68,7 @@ export const SIN_CATALOG = [
         category: SIN_CATEGORIES.zhang,
         subcategory: 'match_between_system_and_real_world',
         name: 'Languages use locale codes',
-        description: 'The language selector shows raw locale codes (nl, en, es…) instead of human-readable language names.',
+        description: 'The language selector shows POSIX locale codes (nl_NL, en_US, de_DE…) instead of human-readable language names.',
     },
     {
         id: 'confusing_synonym',
