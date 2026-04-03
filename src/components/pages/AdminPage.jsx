@@ -139,11 +139,11 @@ export default function AdminPage() {
                 const group = zhang_sins.filter( s => s.subcategory === sub )
                 return <div key={ sub }>
                     <SinRow>
+                        <Sidenote $align="left" $margin="0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
                         <ToggleLabel>
                             <input type="checkbox" checked={ all_enabled( group ) } onChange={ () => toggle_group( group ) } />
                             <span />
                         </ToggleLabel>
-                        <Sidenote $align="left" $margin="0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
                     </SinRow>
                     { group.map( render_sin ) }
                 </div>
@@ -153,11 +153,11 @@ export default function AdminPage() {
 
             { /* Other UX sins */ }
             <SinRow>
+                <H2 $margin="0">{ t( 'admin.sectionOther' ) }</H2>
                 <ToggleLabel>
                     <input type="checkbox" checked={ all_enabled( other_sins ) } onChange={ () => toggle_group( other_sins ) } />
                     <span />
                 </ToggleLabel>
-                <H2 $margin="0">{ t( 'admin.sectionOther' ) }</H2>
             </SinRow>
             { other_sins.map( render_sin ) }
 
