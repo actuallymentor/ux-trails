@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import Theme from './components/atoms/Theme'
@@ -57,6 +58,15 @@ const ButtonsAsTextStyle = createGlobalStyle`
 // Render component
 // ///////////////////////////////
 export default function App( ) {
+
+    // Wipe all persisted data when ?wipe_data=true is present
+    useEffect( () => {
+        const params = new URLSearchParams( window.location.search )
+        if( params.get( 'wipe_data' ) === 'true' ) {
+            localStorage.clear()
+            window.location.replace( window.location.origin + window.location.pathname )
+        }
+    }, [] )
 
     const { enabled_sins } = useUxSinsStore()
     const no_icons = !!enabled_sins?.no_icons
