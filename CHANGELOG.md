@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.17.0] - 2026-04-03
+
+### Added
+- Add "Opaque lab measurement counts" UX sin under Zhang / Visibility of system state (uncommitted)
+- When enabled, lab result counts show "1+" instead of actual numbers (uncommitted)
+
 ## [0.16.0] - 2026-04-03
 
 ### Added

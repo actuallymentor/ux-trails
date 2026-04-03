@@ -39,6 +39,8 @@ export default function LabTests() {
     const { t } = useTranslation()
     const { enabled_sins } = useUxSinsStore()
 
+    const opaque_counts = !!enabled_sins.opaque_lab_counts
+
     // When the confusing synonym sin is active, use "Pulse rate" instead of
     // "Heart rate" on the detail view (overview keeps the original name)
     const detail_name = type => {
@@ -75,7 +77,7 @@ export default function LabTests() {
 
                     return <Card key={ type } $padding='1rem 1.5rem' $width={ `${ theme.container /2 }px` } $max-width='48%' >
                         <H2 $margin='0 0 1rem'><FlaskConicalIcon size='1.2rem' />{ display_name }</H2>
-                        <Badge $position='absolute' $right='1.5rem' $top='1rem'>{ t( 'labTests.metrics', { count: readings.length } ) }</Badge>
+                        <Badge $position='absolute' $right='1.5rem' $top='1rem'>{ t( 'labTests.metrics', { count: opaque_counts ? '1+' : readings.length } ) }</Badge>
                         <Text $margin='0' $color='hint'>{ t( 'labTests.average', { value: average, unit } ) }</Text>
                         { latest_reading && <Text $margin='0' $color='hint'>{ t( 'labTests.latestReading', { day: latest_reading.day, value: latest_reading.value, unit: latest_reading.unit } ) }</Text> }
                         <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_current_test( type ) }>
@@ -112,7 +114,7 @@ export default function LabTests() {
             <Card $width='40%' $min-width='min(450px, 100%)' $padding='2rem 2.5rem'>
                 <Badge $position='absolute' $right='2rem' $top='2rem'>{ t( 'labTests.averageBadge', { value: current_data?.average, unit: current_data?.unit } ) }</Badge>
                 <H2 $margin='0 0 1rem'>{ t( 'labTests.overview' ) }</H2>
-                <Text $color='hint'>{ t( 'labTests.readingsCount', { count: current_data?.readings.length } ) }</Text>
+                <Text $color='hint'>{ t( 'labTests.readingsCount', { count: opaque_counts ? '1+' : current_data?.readings.length } ) }</Text>
                 <Column $width='100%' $margin='1.5rem 0 0' $gap='0.5rem'>
                     { sort_readings_newest_first( current_data?.readings || [] ).map( ( { day, value, unit }, index ) => <Text key={ `${ current_data.type }-${ index }` } $margin='.2rem 0' $color='hint'>{ t( 'labTests.readingItem', { day, value, unit } ) }</Text> ) }
                 </Column>

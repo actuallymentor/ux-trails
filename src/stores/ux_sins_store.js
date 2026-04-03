@@ -22,6 +22,13 @@ export const SIN_CATALOG = [
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
     {
+        id: 'opaque_lab_counts',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'visibility_of_system_state',
+        name: 'Opaque lab measurement counts',
+        description: 'The lab results page no longer shows the exact number of measurements, displaying "1+" instead of the actual count.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',
