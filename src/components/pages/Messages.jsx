@@ -39,7 +39,7 @@ export default function Berichten() {
 
                 const read = is_read( subject )
 
-                return <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
+                return <Card $width="99%" $padding=".25rem .5rem" key={ subject }>
                     <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" $wrap="nowrap" >
 
                         <Column $direction="row" $align="center" $gap=".75rem" $padding="0" $margin="0" $width="auto" $wrap="nowrap">
