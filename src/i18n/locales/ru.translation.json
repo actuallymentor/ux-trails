@@ -84,7 +84,8 @@
         "types": {
             "bloodpressure": "Артериальное давление",
             "cholesterol": "Холестерин",
-            "glucose": "Глюкоза крови"
+            "glucose": "Глюкоза крови",
+            "heartrate": "Частота сердечных сокращений"
         }
     },
     "labTests": {

@@ -84,7 +84,8 @@
         "types": {
             "bloodpressure": "血圧",
             "cholesterol": "コレステロール",
-            "glucose": "血糖値"
+            "glucose": "血糖値",
+            "heartrate": "心拍数"
         }
     },
     "labTests": {

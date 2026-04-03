@@ -84,7 +84,8 @@
         "types": {
             "bloodpressure": "Blutdruck",
             "cholesterol": "Cholesterin",
-            "glucose": "Blutzucker"
+            "glucose": "Blutzucker",
+            "heartrate": "Herzfrequenz"
         }
     },
     "labTests": {

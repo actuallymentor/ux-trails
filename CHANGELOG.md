@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.11.0] - 2026-04-03
+
+### Added
+- Add heart rate lab result (60–100 bpm) with mock data generation (uncommitted)
+- Add `heartrate` i18n key across all 11 locales (uncommitted)
+
 ## [0.10.0] - 2026-04-03
 
 ### Added

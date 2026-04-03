@@ -29,6 +29,7 @@ const dummy_value_spec = [
     { type: 'bloodpressure', amount_of_readings: random_number_between( 12, 3 ), min_value: 90, max_value: 140, unit: 'mmHg' },
     { type: 'cholesterol', amount_of_readings: random_number_between( 12, 3 ), min_value: 150, max_value: 250, unit: 'mg/dL' },
     { type: 'glucose', amount_of_readings: random_number_between( 12, 3 ), min_value: 70, max_value: 130, unit: 'mg/dL' },
+    { type: 'heartrate', amount_of_readings: random_number_between( 12, 3 ), min_value: 60, max_value: 100, unit: 'bpm' },
 ]
 
 

@@ -84,7 +84,8 @@
         "types": {
             "bloodpressure": "Ciśnienie krwi",
             "cholesterol": "Cholesterol",
-            "glucose": "Glukoza we krwi"
+            "glucose": "Glukoza we krwi",
+            "heartrate": "Tętno"
         }
     },
     "labTests": {

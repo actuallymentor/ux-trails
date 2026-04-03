@@ -84,7 +84,8 @@
         "types": {
             "bloodpressure": "Bloeddruk",
             "cholesterol": "Cholesterol",
-            "glucose": "Bloedsuiker"
+            "glucose": "Bloedsuiker",
+            "heartrate": "Hartslag"
         }
     },
     "labTests": {
