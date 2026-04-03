@@ -83,7 +83,7 @@ const QrWrapper = styled.div`
 export default function AdminPage() {
 
     const { t } = useTranslation()
-    const { toggle_sin, get_sin_catalog, get_shareable_url } = useUxSinsStore()
+    const { toggle_sin, enable_sin, disable_sin, get_sin_catalog, get_shareable_url } = useUxSinsStore()
 
     const catalog = get_sin_catalog()
     const url = get_shareable_url()
@@ -93,6 +93,15 @@ export default function AdminPage() {
 
     // Group Zhang sins by subcategory for subsection rendering
     const zhang_subcategories = [ ...new Set( zhang_sins.map( s => s.subcategory ) ) ]
+
+    // Check if all sins in a group are enabled
+    const all_enabled = sins => sins.length > 0 && sins.every( s => s.enabled )
+
+    // Toggle all sins in a group on or off
+    const toggle_group = sins => {
+        const action = all_enabled( sins ) ? disable_sin : enable_sin
+        sins.forEach( s => action( s.id ) )
+    }
 
     const copy_url = () => {
         navigator.clipboard.writeText( url )
@@ -126,15 +135,30 @@ export default function AdminPage() {
 
             { /* Zhang et al. heuristics */ }
             <H2 $margin="0 0 .5rem 0">{ t( 'admin.sectionZhang' ) }</H2>
-            { zhang_subcategories.map( sub => <div key={ sub }>
-                <Sidenote $align="left" $margin=".5rem 0 .25rem 0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
-                { zhang_sins.filter( s => s.subcategory === sub ).map( render_sin ) }
-            </div> ) }
+            { zhang_subcategories.map( sub => {
+                const group = zhang_sins.filter( s => s.subcategory === sub )
+                return <div key={ sub }>
+                    <SinRow>
+                        <ToggleLabel>
+                            <input type="checkbox" checked={ all_enabled( group ) } onChange={ () => toggle_group( group ) } />
+                            <span />
+                        </ToggleLabel>
+                        <Sidenote $align="left" $margin="0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
+                    </SinRow>
+                    { group.map( render_sin ) }
+                </div>
+            } ) }
 
             <Spacer />
 
             { /* Other UX sins */ }
-            <H2 $margin="0 0 .5rem 0">{ t( 'admin.sectionOther' ) }</H2>
+            <SinRow>
+                <ToggleLabel>
+                    <input type="checkbox" checked={ all_enabled( other_sins ) } onChange={ () => toggle_group( other_sins ) } />
+                    <span />
+                </ToggleLabel>
+                <H2 $margin="0">{ t( 'admin.sectionOther' ) }</H2>
+            </SinRow>
             { other_sins.map( render_sin ) }
 
             <Spacer />
