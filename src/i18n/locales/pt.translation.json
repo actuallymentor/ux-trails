@@ -230,7 +230,8 @@
             "consistency_and_standards": "Consistência e padrões",
             "match_between_system_and_real_world": "Correspondência entre o sistema e o mundo real",
             "minimalist": "Minimalista",
-            "minimize_memory_load": "Minimizar a carga de memória"
+            "minimize_memory_load": "Minimizar a carga de memória",
+            "informative_feedback": "Feedback informativo"
         },
         "shareTitle": "Partilhar configuração",
         "shareDescription": "Partilhe este URL ou digitalize o código QR para aplicar esta configuração noutro dispositivo.",

@@ -109,8 +109,8 @@ export default function AdminPage() {
             .catch( () => toast.error( t( 'admin.toast.copyError' ) ) )
     }
 
-    const render_sin = sin => (
-        <Card key={ sin.id } $width="100%">
+    const render_sin = ( sin, index ) => (
+        <Card key={ `${ sin.id }-${ index }` } $width="100%">
             <SinRow>
                 <ToggleLabel>
                     <input

@@ -230,7 +230,8 @@
             "consistency_and_standards": "一貫性と標準",
             "match_between_system_and_real_world": "システムと現実世界の一致",
             "minimalist": "ミニマリスト",
-            "minimize_memory_load": "記憶負荷を最小化する"
+            "minimize_memory_load": "記憶負荷を最小化する",
+            "informative_feedback": "情報提供フィードバック"
         },
         "shareTitle": "設定を共有",
         "shareDescription": "このURLを共有するか、QRコードをスキャンして、他のデバイスでこの設定を適用できます。",

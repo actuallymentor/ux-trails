@@ -92,6 +92,20 @@ export const SIN_CATALOG = [
         description: 'Quick actions on the home screen open a modal with instructions on where to click in the menu, instead of navigating directly.',
     },
     {
+        id: 'no_input_feedback',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'informative_feedback',
+        name: 'No input feedback',
+        description: 'Input fields no longer show visual feedback on validation — no green/red borders and no error messages beneath inputs.',
+    },
+    {
+        id: 'forced_small_hamburger',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'informative_feedback',
+        name: 'Forced small hamburger menu',
+        description: 'The navigation is always collapsed into a small hamburger icon in the top-right corner, even on desktop. The icon is smaller than normal, making it harder to find and tap.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',
@@ -110,12 +124,6 @@ export const SIN_CATALOG = [
         category: SIN_CATEGORIES.other,
         name: 'Toast notifications in center of screen',
         description: 'Toast notifications appear in the center of the screen, blocking content and requiring the user to wait for them to disappear.',
-    },
-    {
-        id: 'forced_small_hamburger',
-        category: SIN_CATEGORIES.other,
-        name: 'Forced small hamburger menu',
-        description: 'The navigation is always collapsed into a small hamburger icon in the top-right corner, even on desktop. The icon is smaller than normal, making it harder to find and tap.',
     },
     {
         id: 'no_icons',

@@ -230,7 +230,8 @@
             "consistency_and_standards": "Consistency and standards",
             "match_between_system_and_real_world": "Match between system and real world",
             "minimalist": "Minimalist",
-            "minimize_memory_load": "Minimize memory load"
+            "minimize_memory_load": "Minimize memory load",
+            "informative_feedback": "Informative feedback"
         },
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",

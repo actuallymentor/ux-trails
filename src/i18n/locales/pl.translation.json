@@ -230,7 +230,8 @@
             "consistency_and_standards": "Spójność i standardy",
             "match_between_system_and_real_world": "Zgodność między systemem a światem rzeczywistym",
             "minimalist": "Minimalistyczny",
-            "minimize_memory_load": "Minimalizuj obciążenie pamięci"
+            "minimize_memory_load": "Minimalizuj obciążenie pamięci",
+            "informative_feedback": "Informacyjna informacja zwrotna"
         },
         "shareTitle": "Udostępnij konfigurację",
         "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",
