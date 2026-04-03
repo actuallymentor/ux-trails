@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0] - 2026-04-03
+
+### Added
+- Add "Confusing synonym use" UX sin under Zhang / Consistency and standards (uncommitted)
+- When enabled, "Heart rate" shown as "Pulse rate" on detail, documents, and messages pages (uncommitted)
+- Add `labs.synonyms.heartrate` i18n key across all 11 locales (uncommitted)
+
 ## [0.12.0] - 2026-04-03
 
 ### Added

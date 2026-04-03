@@ -86,6 +86,9 @@
             "cholesterol": "Холестерин",
             "glucose": "Глюкоза крови",
             "heartrate": "Частота сердечных сокращений"
+        },
+        "synonyms": {
+            "heartrate": "Частота пульса"
         }
     },
     "labTests": {
@@ -190,7 +193,8 @@
         "sectionZhang": "Эвристики Zhang et al.",
         "sectionOther": "Другие UX-грехи",
         "subcategory": {
-            "visibility_of_system_state": "Видимость состояния системы"
+            "visibility_of_system_state": "Видимость состояния системы",
+            "consistency_and_standards": "Согласованность и стандарты"
         },
         "shareTitle": "Поделиться конфигурацией",
         "shareDescription": "Поделитесь этим URL или отсканируйте QR-код, чтобы применить эту конфигурацию на другом устройстве.",

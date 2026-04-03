@@ -22,6 +22,13 @@ export const SIN_CATALOG = [
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
     {
+        id: 'confusing_synonym',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'consistency_and_standards',
+        name: 'Confusing synonym use',
+        description: 'Heart rate is referred to as "Pulse rate" on detail views, documents, and messages, while the overview still calls it "Heart rate".',
+    },
+    {
         id: 'centered_toast',
         category: SIN_CATEGORIES.other,
         name: 'Toast notifications in center of screen',

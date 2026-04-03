@@ -86,6 +86,9 @@
             "cholesterol": "Cholesterol",
             "glucose": "Blood glucose",
             "heartrate": "Heart rate"
+        },
+        "synonyms": {
+            "heartrate": "Pulse rate"
         }
     },
     "labTests": {
@@ -190,7 +193,8 @@
         "sectionZhang": "Zhang et al. heuristics",
         "sectionOther": "Other UX sins",
         "subcategory": {
-            "visibility_of_system_state": "Visibility of system state"
+            "visibility_of_system_state": "Visibility of system state",
+            "consistency_and_standards": "Consistency and standards"
         },
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",

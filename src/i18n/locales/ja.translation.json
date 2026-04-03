@@ -86,6 +86,9 @@
             "cholesterol": "コレステロール",
             "glucose": "血糖値",
             "heartrate": "心拍数"
+        },
+        "synonyms": {
+            "heartrate": "脈拍数"
         }
     },
     "labTests": {
@@ -190,7 +193,8 @@
         "sectionZhang": "Zhang et al. のヒューリスティクス",
         "sectionOther": "その他のUXの問題",
         "subcategory": {
-            "visibility_of_system_state": "システム状態の可視性"
+            "visibility_of_system_state": "システム状態の可視性",
+            "consistency_and_standards": "一貫性と標準"
         },
         "shareTitle": "設定を共有",
         "shareDescription": "このURLを共有するか、QRコードをスキャンして、他のデバイスでこの設定を適用できます。",

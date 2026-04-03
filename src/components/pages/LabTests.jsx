@@ -3,6 +3,7 @@ import { prefetch } from 'less-lazy'
 import { useQueryParam } from "use-query-params"
 import { FlaskConicalIcon, ArrowLeftIcon, BarChart3Icon } from "lucide-react"
 import { useLabTestScoreStore } from "../../stores/labtest_score"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 import Container from "../atoms/Container"
 import Section from "../atoms/Section"
 import Card from "../atoms/Card"
@@ -36,6 +37,14 @@ export default function LabTests() {
     const current_data = labtest_scores.find( t => t.type == current_test )
     const theme = useTheme()
     const { t } = useTranslation()
+    const { enabled_sins } = useUxSinsStore()
+
+    // When the confusing synonym sin is active, use "Pulse rate" instead of
+    // "Heart rate" on the detail view (overview keeps the original name)
+    const detail_name = type => {
+        if( enabled_sins.confusing_synonym && type === 'heartrate' ) return t( 'labs.synonyms.heartrate', { defaultValue: type } )
+        return t( `labs.types.${ type }`, { defaultValue: type } )
+    }
 
     if( current_test && !current_data ) {
         return <Container $align='center' $justify='center'>
@@ -85,7 +94,7 @@ export default function LabTests() {
 
         <Column $direction='row' $justify='space-between' $align='center' $width='100%' $max-width='1100px' $margin='0 0 2rem'>
             <H1 $margin='0'>
-                <FlaskConicalIcon size='2.2rem' />{ t( `labs.types.${ current_data?.type }`, { defaultValue: current_data?.type } ) }
+                <FlaskConicalIcon size='2.2rem' />{ detail_name( current_data?.type ) }
             </H1>
             <Button $variant='outline' onClick={ () => set_current_test( undefined ) }>
                 <ArrowLeftIcon size='1.2rem' />{ t( 'common.backToOverview' ) }
@@ -96,7 +105,7 @@ export default function LabTests() {
             <Card $width='50%' $justify='center' $min-width='min(450px, 100%)' $padding='2rem 2.5rem'>
                 <H2 $align='center' $margin='0'><BarChart3Icon size='1.6rem' /> { t( 'labTests.trend' ) }</H2>
                 <Suspense fallback={ <Spinner /> }>
-                    <LabChart data={ current_data } display_name={ t( `labs.types.${ current_data?.type }`, { defaultValue: current_data?.type } ) } width={ 600 } />
+                    <LabChart data={ current_data } display_name={ detail_name( current_data?.type ) } width={ 600 } />
                 </Suspense>
             </Card>
 

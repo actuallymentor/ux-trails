@@ -86,6 +86,9 @@
             "cholesterol": "Colesterol",
             "glucose": "Glicemia",
             "heartrate": "Frequência cardíaca"
+        },
+        "synonyms": {
+            "heartrate": "Frequência de pulso"
         }
     },
     "labTests": {
@@ -190,7 +193,8 @@
         "sectionZhang": "Heurísticas de Zhang et al.",
         "sectionOther": "Outros pecados de UX",
         "subcategory": {
-            "visibility_of_system_state": "Visibilidade do estado do sistema"
+            "visibility_of_system_state": "Visibilidade do estado do sistema",
+            "consistency_and_standards": "Consistência e padrões"
         },
         "shareTitle": "Partilhar configuração",
         "shareDescription": "Partilhe este URL ou digitalize o código QR para aplicar esta configuração noutro dispositivo.",

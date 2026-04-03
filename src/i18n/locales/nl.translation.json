@@ -86,6 +86,9 @@
             "cholesterol": "Cholesterol",
             "glucose": "Bloedsuiker",
             "heartrate": "Hartslag"
+        },
+        "synonyms": {
+            "heartrate": "Polsslag"
         }
     },
     "labTests": {
@@ -190,7 +193,8 @@
         "sectionZhang": "Zhang et al. heuristieken",
         "sectionOther": "Overige UX-zonden",
         "subcategory": {
-            "visibility_of_system_state": "Zichtbaarheid van systeemstatus"
+            "visibility_of_system_state": "Zichtbaarheid van systeemstatus",
+            "consistency_and_standards": "Consistentie en standaarden"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",
