@@ -217,7 +217,8 @@
         "subcategory": {
             "visibility_of_system_state": "Visibilità dello stato del sistema",
             "consistency_and_standards": "Coerenza e standard",
-            "match_between_system_and_real_world": "Corrispondenza tra sistema e mondo reale"
+            "match_between_system_and_real_world": "Corrispondenza tra sistema e mondo reale",
+            "minimalist": "Minimalista"
         },
         "shareTitle": "Condividi configurazione",
         "shareDescription": "Condividi questo URL o scansiona il codice QR per applicare questa configurazione su un altro dispositivo.",

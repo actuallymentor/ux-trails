@@ -25,6 +25,7 @@ export default function Berichten() {
     const { mark_read, is_read, get_unread_count } = useMessagesStore()
     const { enabled_sins } = useUxSinsStore()
     const MsgIcon = enabled_sins?.ambiguous_icons ? BirdIcon : MailIcon
+    const chaotic = !!enabled_sins?.chaotic_item_management
     const unread_count = get_unread_count( letters )
 
     return <Container $align='center' $justify='center'>
@@ -34,12 +35,12 @@ export default function Berichten() {
         </Column>
         <Sidenote $align='left' $margin='0 0 2rem' $width='100%'>{ t( 'messages.unreadCount', { unread: unread_count, total: letters.length } ) }</Sidenote>
 
-        <Section $overflow='scroll' $height='80vh' $wrap='nowrap' $padding='0'>
+        <Section $overflow='scroll' $height='80vh' $wrap={ chaotic ? 'wrap' : 'nowrap' } $padding='0' $direction={ chaotic ? 'row' : 'column' }>
             { letters.map( ( { subject, message, day }, index ) => {
 
                 const read = is_read( subject )
 
-                return <Card $width="99%" $padding=".25rem .5rem" key={ subject }>
+                return <Card $width={ chaotic ? 'auto' : '99%' } $padding=".25rem .5rem" key={ subject } $margin={ chaotic ? '.25rem' : undefined }>
                     <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" $wrap="nowrap" >
 
                         <Column $direction="row" $align="center" $gap=".75rem" $padding="0" $margin="0" $width="auto" $wrap="nowrap">

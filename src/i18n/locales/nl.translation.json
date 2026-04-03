@@ -217,7 +217,8 @@
         "subcategory": {
             "visibility_of_system_state": "Zichtbaarheid van systeemstatus",
             "consistency_and_standards": "Consistentie en standaarden",
-            "match_between_system_and_real_world": "Overeenkomst tussen systeem en echte wereld"
+            "match_between_system_and_real_world": "Overeenkomst tussen systeem en echte wereld",
+            "minimalist": "Minimalistisch"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",

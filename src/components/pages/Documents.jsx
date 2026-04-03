@@ -44,7 +44,7 @@ export default function Documents() {
 
         <Section $overflow='scroll' $height='80vh' $wrap='nowrap' $padding='0'>
 
-            { letters.map( ( { subject, message, day }, index ) => <Card $width="700px" $padding=".25rem .5rem" key={ subject }>
+            { letters.map( ( { subject, message, day }, index ) => <Card $width="99%" $padding=".25rem .5rem" key={ subject }>
                 <Section $padding="0" $margin="0" $direction="row" $align="center" $justify="space-between" >
                     <Text><DocIcon />{ subject }</Text>
                     <Button $variant='outline' onClick={ () => download_pdf( index ) } >

@@ -217,7 +217,8 @@
         "subcategory": {
             "visibility_of_system_state": "系统状态可见性",
             "consistency_and_standards": "一致性与标准",
-            "match_between_system_and_real_world": "系统与现实世界的匹配"
+            "match_between_system_and_real_world": "系统与现实世界的匹配",
+            "minimalist": "极简主义"
         },
         "shareTitle": "分享配置",
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",

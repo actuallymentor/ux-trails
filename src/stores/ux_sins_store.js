@@ -71,6 +71,13 @@ export const SIN_CATALOG = [
         description: 'The language selector shows POSIX locale codes (nl_NL, en_US, de_DE…) instead of human-readable language names.',
     },
     {
+        id: 'chaotic_item_management',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'minimalist',
+        name: 'Chaotic item management',
+        description: 'Messages are sized to fit their content and packed onto lines instead of listed vertically, creating an uneven, hard-to-scan layout.',
+    },
+    {
         id: 'confusing_synonym',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'consistency_and_standards',

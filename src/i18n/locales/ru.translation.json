@@ -217,7 +217,8 @@
         "subcategory": {
             "visibility_of_system_state": "Видимость состояния системы",
             "consistency_and_standards": "Согласованность и стандарты",
-            "match_between_system_and_real_world": "Соответствие между системой и реальным миром"
+            "match_between_system_and_real_world": "Соответствие между системой и реальным миром",
+            "minimalist": "Минималистичный"
         },
         "shareTitle": "Поделиться конфигурацией",
         "shareDescription": "Поделитесь этим URL или отсканируйте QR-код, чтобы применить эту конфигурацию на другом устройстве.",
