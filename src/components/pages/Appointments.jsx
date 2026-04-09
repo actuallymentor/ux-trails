@@ -8,7 +8,7 @@ import Card from "../atoms/Card"
 import { useAppointmentsStore } from '../../stores/appointments'
 import Input from "../molecules/Input"
 import { log, truncate } from "mentie"
-import { CalendarIcon, ClockIcon, HospitalIcon, MapPinIcon, NotebookIcon, PencilIcon, XIcon } from "lucide-react"
+import { CalendarIcon, ClockIcon, HospitalIcon, MapPinIcon, NotebookIcon, PencilIcon, XIcon, TimerIcon, AnchorIcon, BrushIcon, CandyIcon } from "lucide-react"
 import Column from "../atoms/Column"
 import { toast } from "react-toastify"
 import { date_after_timestamp_validator, date_to_locale_string, is_future, today_yyyy_mm_dd } from "../../modules/dates"
@@ -32,7 +32,12 @@ export default function Appointments() {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const { enabled_sins } = useUxSinsStore()
-    const ApptIcon = enabled_sins?.ambiguous_icons ? HospitalIcon : CalendarIcon
+    const ambiguous = !!enabled_sins?.ambiguous_icons
+    const ApptIcon = ambiguous ? HospitalIcon : CalendarIcon
+    const TimeIcon = ambiguous ? TimerIcon : ClockIcon
+    const LocIcon = ambiguous ? AnchorIcon : MapPinIcon
+    const ReasonIcon = ambiguous ? CandyIcon : PencilIcon
+    const DetailIcon = ambiguous ? BrushIcon : NotebookIcon
     const use_chatbot = !!enabled_sins?.force_chatbot_appointments
     const redirect_home = !!enabled_sins?.appointment_redirect_home
     const hide_cancel = !!enabled_sins?.remove_cancel_appointment
@@ -118,10 +123,10 @@ export default function Appointments() {
 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='1rem' >
                             { date && <Text $margin='.1rem 0' $color='hint'><ApptIcon />{ date_to_locale_string( date ) }</Text> }
-                            { time && <Text $margin='.1rem 0' $color='hint'><ClockIcon />{ time }</Text> }
+                            { time && <Text $margin='.1rem 0' $color='hint'><TimeIcon />{ time }</Text> }
                         </Column>
-                        <Text $color='hint' $margin='.1rem 0'><MapPinIcon />{ appointments[ index ]?.location || t( 'appointments.defaultLocation' ) }</Text>
-                        { reason && <Text $color='hint' $margin='0'><PencilIcon />{ truncate( reason, 40 ) }</Text> }
+                        <Text $color='hint' $margin='.1rem 0'><LocIcon />{ appointments[ index ]?.location || t( 'appointments.defaultLocation' ) }</Text>
+                        { reason && <Text $color='hint' $margin='0'><ReasonIcon />{ truncate( reason, 40 ) }</Text> }
                 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='0rem' >
                             <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>{ t( 'appointments.viewDetails' ) }</Button>  
@@ -147,9 +152,9 @@ export default function Appointments() {
                 </button>
                 <H2>{ t( 'appointments.detailsTitle' ) }</H2>
                 { view_appointment?.date && <Text><ApptIcon />{ view_appointment?.date }</Text> }
-                { view_appointment?.time && <Text><ClockIcon />{ view_appointment?.time }</Text> }
-                { view_appointment?.location && <Text><MapPinIcon />{ view_appointment?.location }</Text> }
-                { view_appointment?.reason && <Text><NotebookIcon />{ view_appointment?.reason }</Text> }
+                { view_appointment?.time && <Text><TimeIcon />{ view_appointment?.time }</Text> }
+                { view_appointment?.location && <Text><LocIcon />{ view_appointment?.location }</Text> }
+                { view_appointment?.reason && <Text><DetailIcon />{ view_appointment?.reason }</Text> }
                 <Button $margin='1rem 0 0' onClick={ () => set_view_appointment( null ) }>{ t( 'common.close' ) }</Button>
             </Card>
         </Modal> }

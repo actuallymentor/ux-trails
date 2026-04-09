@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { HelpCircleIcon, XIcon, PhoneIcon, MailIcon } from "lucide-react"
+import { HelpCircleIcon, XIcon, PhoneIcon, MailIcon, AnchorIcon, DrumIcon, UmbrellaIcon } from "lucide-react"
 import Modal from "./Modal"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
 
@@ -125,6 +125,10 @@ export default function HelpButton() {
 
     const { enabled_sins } = useUxSinsStore()
     const broken = !!enabled_sins?.broken_help_button
+    const ambiguous = !!enabled_sins?.ambiguous_icons
+    const HelpIcon = ambiguous ? AnchorIcon : HelpCircleIcon
+    const PhIcon = ambiguous ? DrumIcon : PhoneIcon
+    const EmIcon = ambiguous ? UmbrellaIcon : MailIcon
     const [ open, set_open ] = useState( false )
     const [ contact ] = useState( () => ( {
         phone: random_pick( phone_numbers ),
@@ -134,7 +138,7 @@ export default function HelpButton() {
     return <>
 
         <FloatingBtn onClick={ () => { if( !broken ) set_open( true ) } } aria-label="Help">
-            <HelpCircleIcon size={ 26 } />
+            <HelpIcon size={ 26 } />
         </FloatingBtn>
 
         { open && <Modal onClose={ () => set_open( false ) }>
@@ -148,7 +152,7 @@ export default function HelpButton() {
                 <Subtitle>If you need help, you can reach us at:</Subtitle>
 
                 <ContactRow>
-                    <PhoneIcon size={ 22 } />
+                    <PhIcon size={ 22 } />
                     <div>
                         <ContactLabel>Phone</ContactLabel>
                         <ContactValue>{ contact.phone }</ContactValue>
@@ -156,7 +160,7 @@ export default function HelpButton() {
                 </ContactRow>
 
                 <ContactRow>
-                    <MailIcon size={ 22 } />
+                    <EmIcon size={ 22 } />
                     <div>
                         <ContactLabel>Email</ContactLabel>
                         <ContactValue>{ contact.email }</ContactValue>
