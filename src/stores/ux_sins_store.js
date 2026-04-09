@@ -106,6 +106,20 @@ export const SIN_CATALOG = [
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
     {
+        id: 'disable_toasts',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'clear_closure',
+        name: 'Disable all toasts',
+        description: 'All toast notification messages are blocked. No feedback toasts appear for any action — success, error, or informational.',
+    },
+    {
+        id: 'appointment_redirect_home',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'clear_closure',
+        name: 'New appointment button refers straight to home',
+        description: 'After successfully creating a new appointment, the user is redirected to the home page instead of staying on the appointments page where they could see their new appointment.',
+    },
+    {
         id: 'remove_tooltips',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'error_prevention',

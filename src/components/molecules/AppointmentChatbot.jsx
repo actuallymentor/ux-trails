@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { XIcon, SendIcon } from "lucide-react"
 import { useAppointmentsStore } from "../../stores/appointments"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 import { local_date_string } from "../../modules/dates"
 
 // ─── Chat flow steps ───────────────────────────────────────────
@@ -145,6 +147,9 @@ export default function AppointmentChatbot( { on_close } ) {
     const scroll_ref = useRef( null )
     const input_ref = useRef( null )
     const { get_slots_for_date, add_appointment } = useAppointmentsStore()
+    const { enabled_sins } = useUxSinsStore()
+    const navigate = useNavigate()
+    const redirect_home = !!enabled_sins?.appointment_redirect_home
     const started = useRef( false )
 
     // Auto-scroll to bottom when messages change
@@ -289,6 +294,9 @@ export default function AppointmentChatbot( { on_close } ) {
                         add_appointment( { ...slot, reason: data.reason } )
                         bot_say( 'Your appointment has been created successfully! You can close this chat now.' )
                         set_step( STEPS.done )
+
+                        // When the sin is active, redirect to home instead of staying on appointments
+                        if( redirect_home ) { on_close(); navigate( '/' ) }
                     } else {
                         bot_say( 'Something went wrong — that time slot is no longer available. Please try again.' )
                         set_step( STEPS.done )

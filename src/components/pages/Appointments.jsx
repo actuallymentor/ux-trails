@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Container from "../atoms/Container"
 import { H1, H2, Text } from "../atoms/Text"
 import Modal from "../molecules/Modal"
@@ -27,9 +28,11 @@ export default function Appointments() {
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
     const slots = get_slots_for_date( new_appointment.date )
     const { t } = useTranslation()
+    const navigate = useNavigate()
     const { enabled_sins } = useUxSinsStore()
     const ApptIcon = enabled_sins?.ambiguous_icons ? HospitalIcon : CalendarIcon
     const use_chatbot = !!enabled_sins?.force_chatbot_appointments
+    const redirect_home = !!enabled_sins?.appointment_redirect_home
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -55,6 +58,9 @@ export default function Appointments() {
         add_appointment( { ...slot, reason } )
         set_makenew( false )
         set_new_appointment( { reason: '', date: '' } )
+
+        // When the sin is active, redirect to home instead of staying on appointments
+        if( redirect_home ) navigate( '/' )
     }
 
 

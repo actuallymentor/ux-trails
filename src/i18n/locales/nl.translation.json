@@ -234,7 +234,8 @@
             "informative_feedback": "Informatieve feedback",
             "flexibility_and_efficiency": "Flexibiliteit en efficiëntie",
             "good_error_messages": "Goede foutmeldingen",
-            "error_prevention": "Foutpreventie"
+            "error_prevention": "Foutpreventie",
+            "clear_closure": "Duidelijke afsluiting"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",

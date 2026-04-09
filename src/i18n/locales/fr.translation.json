@@ -234,7 +234,8 @@
             "informative_feedback": "Retour informatif",
             "flexibility_and_efficiency": "Flexibilité et efficacité",
             "good_error_messages": "Bons messages d'erreur",
-            "error_prevention": "Prévention des erreurs"
+            "error_prevention": "Prévention des erreurs",
+            "clear_closure": "Clôture claire"
         },
         "shareTitle": "Partager la configuration",
         "shareDescription": "Partagez cette URL ou scannez le code QR pour appliquer cette configuration sur un autre appareil.",

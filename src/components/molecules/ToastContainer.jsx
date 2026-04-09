@@ -50,6 +50,9 @@ export default function Toast( props ) {
     const { enabled_sins } = useUxSinsStore()
     const centered = !!enabled_sins?.centered_toast
 
+    // When the disable_toasts sin is active, render nothing — all toasts are silently swallowed
+    if( enabled_sins?.disable_toasts ) return null
+
     return (
         <Suspense fallback={ null }>
             <StyledToast

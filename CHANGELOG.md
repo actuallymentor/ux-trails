@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.0] - 2026-04-09
+
+### Added
+- "Clear closure" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Disable all toasts" UX sin — blocks all toast notifications (uncommitted)
+- "New appointment redirects to home" UX sin — regular form and chatbot (uncommitted)
+
 ## [0.22.0] - 2026-04-09
 
 ### Added

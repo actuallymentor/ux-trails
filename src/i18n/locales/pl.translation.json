@@ -234,7 +234,8 @@
             "informative_feedback": "Informacyjna informacja zwrotna",
             "flexibility_and_efficiency": "Elastyczność i wydajność",
             "good_error_messages": "Dobre komunikaty błędów",
-            "error_prevention": "Zapobieganie błędom"
+            "error_prevention": "Zapobieganie błędom",
+            "clear_closure": "Wyraźne zakończenie"
         },
         "shareTitle": "Udostępnij konfigurację",
         "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",
