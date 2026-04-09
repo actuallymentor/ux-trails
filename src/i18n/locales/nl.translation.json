@@ -244,7 +244,8 @@
             "clear_closure": "Duidelijke afsluiting",
             "reversible_actions": "Omkeerbare acties",
             "use_users_language": "Gebruik de taal van de gebruiker",
-            "give_users_control": "Geef gebruikers controle"
+            "give_users_control": "Geef gebruikers controle",
+            "help_and_documentation": "Hulp en documentatie"
         },
         "shareTitle": "Configuratie delen",
         "shareDescription": "Deel deze URL of scan de QR-code om deze configuratie op een ander apparaat toe te passen.",

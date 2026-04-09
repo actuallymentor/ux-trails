@@ -244,7 +244,8 @@
             "clear_closure": "明确的结束",
             "reversible_actions": "可逆操作",
             "use_users_language": "使用用户的语言",
-            "give_users_control": "赋予用户控制权"
+            "give_users_control": "赋予用户控制权",
+            "help_and_documentation": "帮助和文档"
         },
         "shareTitle": "分享配置",
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",

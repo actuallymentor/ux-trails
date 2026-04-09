@@ -134,6 +134,13 @@ export const SIN_CATALOG = [
         description: 'Instead of a simple cancel button, users must go through a rigid chatbot that asks them to type the appointment details, their name, email, postal code, and reason for cancellation before confirming.',
     },
     {
+        id: 'broken_help_button',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'help_and_documentation',
+        name: 'Floating contact button doesn\'t work',
+        description: 'The floating help button in the bottom-right corner does nothing when clicked — no modal appears and no feedback is given.',
+    },
+    {
         id: 'jargon_lab_names',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'use_users_language',

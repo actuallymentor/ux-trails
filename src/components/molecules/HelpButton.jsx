@@ -2,6 +2,7 @@ import { useState } from "react"
 import styled from "styled-components"
 import { HelpCircleIcon, XIcon, PhoneIcon, MailIcon } from "lucide-react"
 import Modal from "./Modal"
+import { useUxSinsStore } from "../../stores/ux_sins_store"
 
 // ─── Floating button ───────────────────────────────────────────
 
@@ -122,6 +123,8 @@ function random_pick( arr ) {
 
 export default function HelpButton() {
 
+    const { enabled_sins } = useUxSinsStore()
+    const broken = !!enabled_sins?.broken_help_button
     const [ open, set_open ] = useState( false )
     const [ contact ] = useState( () => ( {
         phone: random_pick( phone_numbers ),
@@ -130,7 +133,7 @@ export default function HelpButton() {
 
     return <>
 
-        <FloatingBtn onClick={ () => set_open( true ) } aria-label="Help">
+        <FloatingBtn onClick={ () => { if( !broken ) set_open( true ) } } aria-label="Help">
             <HelpCircleIcon size={ 26 } />
         </FloatingBtn>
 

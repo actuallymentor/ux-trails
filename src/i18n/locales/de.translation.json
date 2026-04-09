@@ -244,7 +244,8 @@
             "clear_closure": "Klarer Abschluss",
             "reversible_actions": "Umkehrbare Aktionen",
             "use_users_language": "Sprache des Nutzers verwenden",
-            "give_users_control": "Nutzern Kontrolle geben"
+            "give_users_control": "Nutzern Kontrolle geben",
+            "help_and_documentation": "Hilfe und Dokumentation"
         },
         "shareTitle": "Konfiguration teilen",
         "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",

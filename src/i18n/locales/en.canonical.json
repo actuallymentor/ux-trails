@@ -244,7 +244,8 @@
             "clear_closure": "Clear closure",
             "reversible_actions": "Reversible actions",
             "use_users_language": "Use users' language",
-            "give_users_control": "Give users control"
+            "give_users_control": "Give users control",
+            "help_and_documentation": "Help and documentation"
         },
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",

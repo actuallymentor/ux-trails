@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.28.0] - 2026-04-09
+
+### Added
+- "Help and documentation" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Floating contact button doesn't work" UX sin (uncommitted)
+
 ## [0.27.0] - 2026-04-09
 
 ### Added
