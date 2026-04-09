@@ -99,6 +99,13 @@ export const SIN_CATALOG = [
         description: 'The normal appointment form is replaced by a rigid chatbot that asks superfluous questions and requires exact text input, making a simple task painfully slow.',
     },
     {
+        id: 'hidden_password_requirements',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'good_error_messages',
+        name: 'Hidden password requirements',
+        description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
+    },
+    {
         id: 'no_input_feedback',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'informative_feedback',

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.21.0] - 2026-04-09
+
+### Added
+- "Good error messages" Zhang subcategory with hidden password requirements sin (uncommitted)
+- i18n for "Good error messages" subcategory across all 11 locales (uncommitted)
+
 ## [0.20.0] - 2026-04-03
 
 ### Added

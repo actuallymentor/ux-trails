@@ -232,7 +232,8 @@
             "minimalist": "Minimalistisch",
             "minimize_memory_load": "Gedächtnisbelastung minimieren",
             "informative_feedback": "Informatives Feedback",
-            "flexibility_and_efficiency": "Flexibilität und Effizienz"
+            "flexibility_and_efficiency": "Flexibilität und Effizienz",
+            "good_error_messages": "Gute Fehlermeldungen"
         },
         "shareTitle": "Konfiguration teilen",
         "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",
