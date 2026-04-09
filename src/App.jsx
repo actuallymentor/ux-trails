@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import Theme from './components/atoms/Theme'
 import Routes from './routes/Routes'
 import Toast from './components/molecules/ToastContainer'
+import HelpButton from './components/molecules/HelpButton'
 import { QueryParamProvider } from 'use-query-params'
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'
 import { useUxSinsStore } from './stores/ux_sins_store'
@@ -80,6 +81,7 @@ export default function App( ) {
                 { buttons_as_text && <ButtonsAsTextStyle /> }
                 { small_text && <SmallTextStyle /> }
                 <Toast />
+                <HelpButton />
                 <Routes />
             </Theme>
         </QueryParamProvider>

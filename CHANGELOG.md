@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.27.0] - 2026-04-09
+
+### Added
+- Floating help button with random contact details modal (uncommitted)
+
 ## [0.26.0] - 2026-04-09
 
 ### Added
