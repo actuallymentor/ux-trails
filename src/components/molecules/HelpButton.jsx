@@ -32,7 +32,7 @@ const FloatingBtn = styled.button`
 // ─── Modal card ────────────────────────────────────────────────
 
 const HelpCard = styled.div`
-    background: ${ ( { theme } ) => theme.colors.card };
+    background: ${ ( { theme } ) => theme.colors.backdrop };
     border-radius: 12px;
     padding: 2.5rem 3rem;
     width: 420px;
