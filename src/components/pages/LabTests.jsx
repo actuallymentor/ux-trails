@@ -44,9 +44,11 @@ export default function LabTests() {
     const LabIcon = ambiguous ? SyringeIcon : FlaskConicalIcon
 
     const use_acronyms = !!enabled_sins.acronym_lab_names
+    const use_jargon = !!enabled_sins.jargon_lab_names
 
     // Resolve the display name for a lab type, respecting active sins
     const type_name = type => {
+        if( use_jargon ) return t( `labs.jargon.${ type }`, { defaultValue: type } )
         if( use_acronyms ) return t( `labs.acronyms.${ type }`, { defaultValue: type } )
         return t( `labs.types.${ type }`, { defaultValue: type } )
     }
@@ -54,6 +56,7 @@ export default function LabTests() {
     // When the confusing synonym sin is active, use "Pulse rate" instead of
     // "Heart rate" on the detail view (overview keeps the original name)
     const detail_name = type => {
+        if( use_jargon ) return t( `labs.jargon.${ type }`, { defaultValue: type } )
         if( use_acronyms ) return t( `labs.acronyms.${ type }`, { defaultValue: type } )
         if( enabled_sins.confusing_synonym && type === 'heartrate' ) return t( 'labs.synonyms.heartrate', { defaultValue: type } )
         return t( `labs.types.${ type }`, { defaultValue: type } )

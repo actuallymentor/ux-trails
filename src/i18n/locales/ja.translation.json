@@ -112,6 +112,12 @@
             "cholesterol": "TC",
             "glucose": "GLU",
             "heartrate": "HR"
+        },
+        "jargon": {
+            "bloodpressure": "Systolic/Diastolic BP",
+            "cholesterol": "Serum total lipoprotein",
+            "glucose": "Fasting plasma dextrose",
+            "heartrate": "Sinus rhythm cyclic ventricular depolarisation"
         }
     },
     "labTests": {
@@ -236,7 +242,8 @@
             "good_error_messages": "適切なエラーメッセージ",
             "error_prevention": "エラー防止",
             "clear_closure": "明確な完了",
-            "reversible_actions": "元に戻せる操作"
+            "reversible_actions": "元に戻せる操作",
+            "use_users_language": "ユーザーの言語を使用する"
         },
         "shareTitle": "設定を共有",
         "shareDescription": "このURLを共有するか、QRコードをスキャンして、他のデバイスでこの設定を適用できます。",

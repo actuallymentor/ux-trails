@@ -112,6 +112,12 @@
             "cholesterol": "TC",
             "glucose": "GLU",
             "heartrate": "HR"
+        },
+        "jargon": {
+            "bloodpressure": "Systolic/Diastolic BP",
+            "cholesterol": "Serum total lipoprotein",
+            "glucose": "Fasting plasma dextrose",
+            "heartrate": "Sinus rhythm cyclic ventricular depolarisation"
         }
     },
     "labTests": {
@@ -236,7 +242,8 @@
             "good_error_messages": "Хорошие сообщения об ошибках",
             "error_prevention": "Предотвращение ошибок",
             "clear_closure": "Чёткое завершение",
-            "reversible_actions": "Обратимые действия"
+            "reversible_actions": "Обратимые действия",
+            "use_users_language": "Использовать язык пользователя"
         },
         "shareTitle": "Поделиться конфигурацией",
         "shareDescription": "Поделитесь этим URL или отсканируйте QR-код, чтобы применить эту конфигурацию на другом устройстве.",

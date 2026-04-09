@@ -120,6 +120,13 @@ export const SIN_CATALOG = [
         description: 'After successfully creating a new appointment, the user is redirected to the home page instead of staying on the appointments page where they could see their new appointment.',
     },
     {
+        id: 'jargon_lab_names',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'use_users_language',
+        name: 'Use extreme jargon for results',
+        description: 'Lab result names are replaced with obscure medical jargon that most patients would never understand.',
+    },
+    {
         id: 'remove_cancel_appointment',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'reversible_actions',

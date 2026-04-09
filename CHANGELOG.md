@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0] - 2026-04-09
+
+### Added
+- "Use users' language" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Use extreme jargon for results" UX sin — replaces lab names with obscure medical terminology (uncommitted)
+- `labs.jargon.*` translation keys across all 11 locales (uncommitted)
+
 ## [0.24.0] - 2026-04-09
 
 ### Added
