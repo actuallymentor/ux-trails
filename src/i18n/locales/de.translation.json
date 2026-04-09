@@ -243,7 +243,8 @@
             "error_prevention": "Fehlervermeidung",
             "clear_closure": "Klarer Abschluss",
             "reversible_actions": "Umkehrbare Aktionen",
-            "use_users_language": "Sprache des Nutzers verwenden"
+            "use_users_language": "Sprache des Nutzers verwenden",
+            "give_users_control": "Nutzern Kontrolle geben"
         },
         "shareTitle": "Konfiguration teilen",
         "shareDescription": "Teilen Sie diese URL oder scannen Sie den QR-Code, um diese Konfiguration auf einem anderen Gerät anzuwenden.",

@@ -150,6 +150,7 @@ export default function AppointmentChatbot( { on_close } ) {
     const { enabled_sins } = useUxSinsStore()
     const navigate = useNavigate()
     const redirect_home = !!enabled_sins?.appointment_redirect_home
+    const external_times = !!enabled_sins?.external_appointment_times
     const started = useRef( false )
 
     // Auto-scroll to bottom when messages change
@@ -230,6 +231,15 @@ export default function AppointmentChatbot( { on_close } ) {
                 const slots = get_slots_for_date( value )
                 if( slots.length === 0 ) {
                     bot_say( `Sorry, there are no available time slots on ${ value }. Please pick another date.` )
+                    break
+                }
+
+                // When external times sin is active, skip time selection — assign random
+                if( external_times ) {
+                    const random_time = slots[ Math.floor( Math.random() * slots.length ) ].time
+                    set_data( prev => ( { ...prev, time: random_time } ) )
+                    set_step( STEPS.ask_reason )
+                    bot_say( 'Please check your email for the time at which you are expected to show up for your appointment.\n\nWhat is the reason for your appointment? Please type it below.' )
                     break
                 }
 

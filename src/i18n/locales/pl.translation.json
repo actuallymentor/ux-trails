@@ -243,7 +243,8 @@
             "error_prevention": "Zapobieganie błędom",
             "clear_closure": "Wyraźne zakończenie",
             "reversible_actions": "Odwracalne działania",
-            "use_users_language": "Używaj języka użytkownika"
+            "use_users_language": "Używaj języka użytkownika",
+            "give_users_control": "Daj użytkownikom kontrolę"
         },
         "shareTitle": "Udostępnij konfigurację",
         "shareDescription": "Udostępnij ten URL lub zeskanuj kod QR, aby zastosować tę konfigurację na innym urządzeniu.",

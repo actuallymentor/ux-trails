@@ -243,7 +243,8 @@
             "error_prevention": "Prevenzione degli errori",
             "clear_closure": "Chiusura chiara",
             "reversible_actions": "Azioni reversibili",
-            "use_users_language": "Usare la lingua dell'utente"
+            "use_users_language": "Usare la lingua dell'utente",
+            "give_users_control": "Dare il controllo agli utenti"
         },
         "shareTitle": "Condividi configurazione",
         "shareDescription": "Condividi questo URL o scansiona il codice QR per applicare questa configurazione su un altro dispositivo.",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.0] - 2026-04-09
+
+### Added
+- "Give users control" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Appointment times are externally determined" UX sin — hides time selection, assigns random slot (uncommitted)
+- "Appointment cancellation uses chatbot" UX sin with CancelChatbot component (uncommitted)
+
 ## [0.25.0] - 2026-04-09
 
 ### Added

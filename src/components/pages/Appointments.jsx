@@ -18,11 +18,13 @@ import Grid from "../atoms/Grid"
 import { useTranslation } from "react-i18next"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
 import AppointmentChatbot from "../molecules/AppointmentChatbot"
+import CancelChatbot from "../molecules/CancelChatbot"
 
 export default function Appointments() {
 
     const [ makenew, set_makenew ] = useState( false )
     const [ show_chatbot, set_show_chatbot ] = useState( false )
+    const [ show_cancel_chatbot, set_show_cancel_chatbot ] = useState( false )
     const [ new_appointment, set_new_appointment ] = useState( { reason: '', date: '' } )
     const [ view_appointment, set_view_appointment ] = useState( null )
     const { appointments, add_appointment, get_slots_for_date, clear_appointment } = useAppointmentsStore()
@@ -34,6 +36,8 @@ export default function Appointments() {
     const use_chatbot = !!enabled_sins?.force_chatbot_appointments
     const redirect_home = !!enabled_sins?.appointment_redirect_home
     const hide_cancel = !!enabled_sins?.remove_cancel_appointment
+    const external_times = !!enabled_sins?.external_appointment_times
+    const chatbot_cancel = !!enabled_sins?.chatbot_cancel_appointment
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -43,6 +47,19 @@ export default function Appointments() {
 
         // Validate date is today or in the future (mobile browsers may bypass the min attribute)
         if( !date || !is_future( date ) ) return toast.error( t( 'appointments.toast.invalidDate' ) )
+
+        // When external times sin is active, skip time validation — pick a random slot
+        if( external_times ) {
+            if( !reason || reason.length < 10 ) return toast.error( t( 'appointments.toast.missingReason' ) )
+            const random_slot = slots[ Math.floor( Math.random() * slots.length ) ]
+            if( !random_slot ) return toast.error( t( 'appointments.toast.missingSlot' ) )
+            add_appointment( { ...random_slot, reason } )
+            set_makenew( false )
+            set_new_appointment( { reason: '', date: '' } )
+            alert( 'Please check your email for the time at which you are expected to show up for your appointment.' )
+            if( redirect_home ) navigate( '/' )
+            return
+        }
 
         // Validate a time slot was selected
         if( !slot?.time ) return toast.error( t( 'appointments.toast.missingSlot' ) )
@@ -108,7 +125,7 @@ export default function Appointments() {
                 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='0rem' >
                             <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>{ t( 'appointments.viewDetails' ) }</Button>  
-                            { !hide_cancel && <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => cancel_appointment( index ) }>{ t( 'appointments.cancel' ) }</Button> }
+                            { !hide_cancel && <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => chatbot_cancel ? set_show_cancel_chatbot( true ) : cancel_appointment( index ) }>{ t( 'appointments.cancel' ) }</Button> }
                         </Column>
                     </Card>
             
@@ -157,7 +174,7 @@ export default function Appointments() {
                     min={ today_yyyy_mm_dd }
                     onChange={ ( e ) => set_new_appointment( prev => ( { ...prev, date: e.target.value, slot: null, slot_index: null } ) ) }
                 />
-                { new_appointment.date && <>
+                { new_appointment.date && !external_times && <>
                     <Text $margin='1rem 0 0.5rem'>{ t( 'appointments.selectTime' ) }</Text>
                     { slots.map( ( slot, slot_index ) => {
                         return <Button key={ slot_index } $variant={ slot_index == new_appointment.slot_index ? 'solid' : 'outline' } $margin='.1rem .3rem'  onClick={ () => set_new_appointment( prev => ( { ...prev, slot, slot_index } ) ) }>{ slot.time }</Button>
@@ -176,7 +193,7 @@ export default function Appointments() {
                 <Button
                     $margin='1rem 0 0'
                     onClick={ save_appointment }
-                    disabled={ !new_appointment.date || !date_after_timestamp_validator( new_appointment.date ) || new_appointment.slot_index == null || !new_appointment.reason || new_appointment.reason.length < 10 }
+                    disabled={ !new_appointment.date || !date_after_timestamp_validator( new_appointment.date ) || ( !external_times && new_appointment.slot_index == null ) || !new_appointment.reason || new_appointment.reason.length < 10 }
                 >
                     { t( 'appointments.form.confirm' ) }
                 </Button>
@@ -185,6 +202,9 @@ export default function Appointments() {
 
         { /* Chatbot widget — pops up when the sin is active and user clicks "New appointment" */ }
         { show_chatbot && <AppointmentChatbot on_close={ () => set_show_chatbot( false ) } /> }
+
+        { /* Cancel chatbot — pops up when the chatbot_cancel sin is active and user clicks "Cancel" */ }
+        { show_cancel_chatbot && <CancelChatbot on_close={ () => set_show_cancel_chatbot( false ) } /> }
 
     </Container>
 

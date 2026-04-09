@@ -120,6 +120,20 @@ export const SIN_CATALOG = [
         description: 'After successfully creating a new appointment, the user is redirected to the home page instead of staying on the appointments page where they could see their new appointment.',
     },
     {
+        id: 'external_appointment_times',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'give_users_control',
+        name: 'Appointment times are externally determined',
+        description: 'Users can select a day but have no control over the time. A random time is assigned and they are told to check their email for the scheduled time.',
+    },
+    {
+        id: 'chatbot_cancel_appointment',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'give_users_control',
+        name: 'Appointment cancellation uses chatbot',
+        description: 'Instead of a simple cancel button, users must go through a rigid chatbot that asks them to type the appointment details, their name, email, postal code, and reason for cancellation before confirming.',
+    },
+    {
         id: 'jargon_lab_names',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'use_users_language',
