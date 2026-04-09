@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.29.0] - 2026-04-09
+
+### Changed
+- Config share link auto-redirects to homepage when sins param is present (uncommitted)
+
 ## [0.28.0] - 2026-04-09
 
 ### Added

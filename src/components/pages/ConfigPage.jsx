@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { toast } from "react-toastify"
 
@@ -15,10 +15,12 @@ export default function ConfigPage() {
 
     const { t } = useTranslation()
     const [ searchParams ] = useSearchParams()
+    const navigate = useNavigate()
     const { set_sins_from_params, get_sin_catalog } = useUxSinsStore()
     const applied = useRef( false )
 
     // On mount, hydrate sins from URL params and persist to localStorage
+    // When sins param is present, apply and redirect straight to homepage
     useEffect( () => {
 
         if ( applied.current ) return
@@ -29,9 +31,10 @@ export default function ConfigPage() {
             const ids = sins_param.split( ',' ).filter( Boolean )
             set_sins_from_params( ids )
             toast.success( t( 'config.toast.applied' ) )
+            navigate( '/', { replace: true } )
         }
 
-    }, [ searchParams, t, set_sins_from_params ] )
+    }, [ searchParams, t, set_sins_from_params, navigate ] )
 
     // Show the current state of all sins (reflecting what was just applied)
     const catalog = get_sin_catalog()
