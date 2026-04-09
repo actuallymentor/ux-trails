@@ -233,7 +233,8 @@
             "minimize_memory_load": "最小化记忆负荷",
             "informative_feedback": "信息反馈",
             "flexibility_and_efficiency": "灵活性与效率",
-            "good_error_messages": "良好的错误消息"
+            "good_error_messages": "良好的错误消息",
+            "error_prevention": "错误预防"
         },
         "shareTitle": "分享配置",
         "shareDescription": "分享此 URL 或扫描二维码以在其他设备上应用此配置。",

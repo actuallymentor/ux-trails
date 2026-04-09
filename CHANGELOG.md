@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.0] - 2026-04-09
+
+### Added
+- "Error prevention" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Remove all tooltips from input fields" UX sin (uncommitted)
+- "Remove placeholders from input fields" UX sin (uncommitted)
+
 ## [0.21.0] - 2026-04-09
 
 ### Added

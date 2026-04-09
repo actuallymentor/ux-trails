@@ -233,7 +233,8 @@
             "minimize_memory_load": "Minimizar la carga de memoria",
             "informative_feedback": "Retroalimentación informativa",
             "flexibility_and_efficiency": "Flexibilidad y eficiencia",
-            "good_error_messages": "Buenos mensajes de error"
+            "good_error_messages": "Buenos mensajes de error",
+            "error_prevention": "Prevención de errores"
         },
         "shareTitle": "Compartir configuración",
         "shareDescription": "Comparta esta URL o escanee el código QR para aplicar esta configuración en otro dispositivo.",

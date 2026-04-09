@@ -233,7 +233,8 @@
             "minimize_memory_load": "Minimize memory load",
             "informative_feedback": "Informative feedback",
             "flexibility_and_efficiency": "Flexibility and efficiency",
-            "good_error_messages": "Good error messages"
+            "good_error_messages": "Good error messages",
+            "error_prevention": "Error prevention"
         },
         "shareTitle": "Share Configuration",
         "shareDescription": "Share this URL or scan the QR code to apply this configuration on another device.",

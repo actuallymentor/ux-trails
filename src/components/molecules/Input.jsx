@@ -133,10 +133,12 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
     const [ is_focused, set_is_focused ] = useState( false )
     const { enabled_sins } = useUxSinsStore()
     const hide_feedback = !!enabled_sins?.no_input_feedback
+    const hide_tooltips = !!enabled_sins?.remove_tooltips
+    const hide_placeholders = !!enabled_sins?.remove_placeholders
 
     // Separate props into parent and childs
     const { placeholder, value, min, max, readOnly, ...parent_props } = props
-    const child_props = { placeholder, value, min, max, readOnly }
+    const child_props = { placeholder: hide_placeholders ? undefined : placeholder, value, min, max, readOnly }
 
     // Manage validation
     const empty = !value || `${ value }`.length == 0
@@ -215,7 +217,7 @@ export default function Input( { onChange, onEnter, type, label, info, hint, hig
 
     return <InputBase onClick={ onClick } highlight={ highlight } { ...{ ...parent_props, $has_content: value?.length > 0, $is_focused: is_focused } } $valid={ hide_feedback ? undefined : valid } >
 
-        { label && <label htmlFor={ internalId }><span>{ label }</span> { info && <span onClick={ f => alert( info ) } onMouseDown={ e => e.preventDefault() }>?</span> }</label> }
+        { label && <label htmlFor={ internalId }><span>{ label }</span> { info && !hide_tooltips && <span onClick={ f => alert( info ) } onMouseDown={ e => e.preventDefault() }>?</span> }</label> }
 
         { /* Regular input field */ } 
         { !title && !special_types.includes( type ) && <input data-testid={ internalId } { ...child_props } onKeyDown={ handle_enter } id={ internalId } onChange={ handle_change } onFocus={ handle_focus } onBlur={ handle_blur } type={ type_override || type || 'text' } /> }

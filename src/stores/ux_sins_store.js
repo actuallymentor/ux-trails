@@ -106,6 +106,20 @@ export const SIN_CATALOG = [
         description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
     },
     {
+        id: 'remove_tooltips',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'error_prevention',
+        name: 'Remove all tooltips from input fields',
+        description: 'The informational tooltip icons next to input labels are removed, so users can no longer tap the "?" to learn what a field expects.',
+    },
+    {
+        id: 'remove_placeholders',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'error_prevention',
+        name: 'Remove placeholders from input fields',
+        description: 'Placeholder text inside input fields is removed, leaving blank fields with no hint of the expected format or value.',
+    },
+    {
         id: 'no_input_feedback',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'informative_feedback',
