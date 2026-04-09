@@ -235,7 +235,8 @@
             "flexibility_and_efficiency": "Гибкость и эффективность",
             "good_error_messages": "Хорошие сообщения об ошибках",
             "error_prevention": "Предотвращение ошибок",
-            "clear_closure": "Чёткое завершение"
+            "clear_closure": "Чёткое завершение",
+            "reversible_actions": "Обратимые действия"
         },
         "shareTitle": "Поделиться конфигурацией",
         "shareDescription": "Поделитесь этим URL или отсканируйте QR-код, чтобы применить эту конфигурацию на другом устройстве.",

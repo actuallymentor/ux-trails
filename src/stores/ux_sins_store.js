@@ -120,6 +120,13 @@ export const SIN_CATALOG = [
         description: 'After successfully creating a new appointment, the user is redirected to the home page instead of staying on the appointments page where they could see their new appointment.',
     },
     {
+        id: 'remove_cancel_appointment',
+        category: SIN_CATEGORIES.zhang,
+        subcategory: 'reversible_actions',
+        name: 'Remove cancel appointment button',
+        description: 'The cancel button on appointment cards is removed, leaving users with no way to remove or undo a booked appointment.',
+    },
+    {
         id: 'remove_tooltips',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'error_prevention',

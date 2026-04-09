@@ -235,7 +235,8 @@
             "flexibility_and_efficiency": "Flexibilidad y eficiencia",
             "good_error_messages": "Buenos mensajes de error",
             "error_prevention": "Prevención de errores",
-            "clear_closure": "Cierre claro"
+            "clear_closure": "Cierre claro",
+            "reversible_actions": "Acciones reversibles"
         },
         "shareTitle": "Compartir configuración",
         "shareDescription": "Comparta esta URL o escanee el código QR para aplicar esta configuración en otro dispositivo.",

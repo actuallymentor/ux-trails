@@ -33,6 +33,7 @@ export default function Appointments() {
     const ApptIcon = enabled_sins?.ambiguous_icons ? HospitalIcon : CalendarIcon
     const use_chatbot = !!enabled_sins?.force_chatbot_appointments
     const redirect_home = !!enabled_sins?.appointment_redirect_home
+    const hide_cancel = !!enabled_sins?.remove_cancel_appointment
     log.info( 'Available slots for date', new_appointment.date, slots )
 
     function save_appointment() {
@@ -107,7 +108,7 @@ export default function Appointments() {
                 
                         <Column $direction='row' $align='center' $justify='flex-start' $padding='0' $gap='0rem' >
                             <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => set_view_appointment( appointments[ index ] ) }>{ t( 'appointments.viewDetails' ) }</Button>  
-                            <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => cancel_appointment( index ) }>{ t( 'appointments.cancel' ) }</Button>
+                            { !hide_cancel && <Button $scale='.9' $variant='outline' $margin='1rem 0 0' onClick={ () => cancel_appointment( index ) }>{ t( 'appointments.cancel' ) }</Button> }
                         </Column>
                     </Card>
             

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.24.0] - 2026-04-09
+
+### Added
+- "Reversible actions" Zhang subcategory with i18n for all 11 locales (uncommitted)
+- "Remove cancel appointment button" UX sin (uncommitted)
+
 ## [0.23.0] - 2026-04-09
 
 ### Added
