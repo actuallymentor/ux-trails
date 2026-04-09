@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { HelpCircleIcon, XIcon, PhoneIcon, MailIcon, AnchorIcon, DrumIcon, UmbrellaIcon } from "lucide-react"
+import { HelpCircleIcon, XIcon, PhoneIcon, MailIcon, MegaphoneIcon, DrumIcon, UmbrellaIcon } from "lucide-react"
 import Modal from "./Modal"
 import { useUxSinsStore } from "../../stores/ux_sins_store"
 
@@ -126,7 +126,7 @@ export default function HelpButton() {
     const { enabled_sins } = useUxSinsStore()
     const broken = !!enabled_sins?.broken_help_button
     const ambiguous = !!enabled_sins?.ambiguous_icons
-    const HelpIcon = ambiguous ? AnchorIcon : HelpCircleIcon
+    const HelpIcon = ambiguous ? MegaphoneIcon : HelpCircleIcon
     const PhIcon = ambiguous ? DrumIcon : PhoneIcon
     const EmIcon = ambiguous ? UmbrellaIcon : MailIcon
     const [ open, set_open ] = useState( false )
