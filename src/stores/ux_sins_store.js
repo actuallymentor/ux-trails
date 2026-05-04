@@ -1,4 +1,4 @@
-import { log } from "mentie"
+import { log, shallow_compare_objects } from "mentie"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
@@ -11,29 +11,15 @@ export const SIN_CATEGORIES = {
 // Static catalog of all UX sins available in the system.
 // Each sin has an id (used as key), a human-readable name, a description
 // of the anti-pattern it introduces, and a category for UI grouping.
-// This array is the single source of truth for what sins exist — the admin
-// and config pages derive their UI from it.
+// This array is the single source of truth for what sins exist. IDs must be
+// unique because the persisted enabled_sins map stores one boolean per ID.
 export const SIN_CATALOG = [
-    {
-        id: 'hidden_password_requirements',
-        category: SIN_CATEGORIES.zhang,
-        subcategory: 'visibility_of_system_state',
-        name: 'Hidden password requirements',
-        description: 'Password requirements are not shown during registration. When validation fails, the error message says the password doesn\'t meet requirements but doesn\'t explain what those requirements are.',
-    },
     {
         id: 'opaque_lab_counts',
         category: SIN_CATEGORIES.zhang,
         subcategory: 'visibility_of_system_state',
         name: 'Opaque lab measurement counts',
         description: 'The lab results page no longer shows the exact number of measurements, displaying "1+" instead of the actual count.',
-    },
-    {
-        id: 'no_input_feedback',
-        category: SIN_CATEGORIES.zhang,
-        subcategory: 'visibility_of_system_state',
-        name: 'No input feedback',
-        description: 'Input fields no longer show visual feedback on validation — no green/red borders and no error messages beneath inputs.',
     },
     {
         id: 'opaque_message_counts',
@@ -221,6 +207,10 @@ const default_enabled_sins = Object.fromEntries(
     SIN_CATALOG.map( sin => [ sin.id, false ] )
 )
 
+const state_has_changes = ( current={}, next={} ) => {
+    return Object.keys( shallow_compare_objects( current, next ) ).length > 0
+}
+
 export const useUxSinsStore = create()( persist(
 
     // Store definition
@@ -229,35 +219,62 @@ export const useUxSinsStore = create()( persist(
         // Map of sin ID → boolean (persisted to localStorage)
         enabled_sins: { ...default_enabled_sins },
 
+        // Set a sin from a concrete checkbox state instead of inverting blindly.
+        set_sin_enabled: ( id, enabled ) => {
+            const current = get().enabled_sins
+            const next_enabled = !!enabled
+
+            if( current[ id ] === next_enabled ) return
+
+            const updated = { ...current, [ id ]: next_enabled }
+            log.info( `${ next_enabled ? 'Enabling' : 'Disabling' } sin "${ id }"` )
+            set( { enabled_sins: updated } )
+        },
+
         // Toggle a sin on/off
         toggle_sin: id => {
             const current = get().enabled_sins
-            const updated = { ...current, [ id ]: !current[ id ] }
-            log.info( `Toggling sin "${ id }":`, !current[ id ] )
-            set( { enabled_sins: updated } )
+            get().set_sin_enabled( id, !current[ id ] )
         },
 
         // Explicitly enable a sin
         enable_sin: id => {
-            const updated = { ...get().enabled_sins, [ id ]: true }
-            log.info( `Enabling sin "${ id }"` )
-            set( { enabled_sins: updated } )
+            get().set_sin_enabled( id, true )
         },
 
         // Explicitly disable a sin
         disable_sin: id => {
-            const updated = { ...get().enabled_sins, [ id ]: false }
-            log.info( `Disabling sin "${ id }"` )
+            get().set_sin_enabled( id, false )
+        },
+
+        // Explicitly set a collection in a single write so group toggles do
+        // not cascade through many intermediate checked states.
+        set_sins_enabled: ( ids_array, enabled ) => {
+            const current = get().enabled_sins
+            const next_enabled = !!enabled
+            const ids = [ ...new Set( ids_array ) ].filter( id => id in default_enabled_sins )
+
+            const updated = ids.reduce( ( next, id ) => ( {
+                ...next,
+                [ id ]: next_enabled,
+            } ), { ...current } )
+
+            if( !state_has_changes( current, updated ) ) return
+
+            log.info( `${ next_enabled ? 'Enabling' : 'Disabling' } sins:`, ids )
             set( { enabled_sins: updated } )
         },
 
         // Reset all sins then enable only the ones in the provided array.
         // Used when hydrating from a shared URL's query params.
         set_sins_from_params: ids_array => {
-            const fresh = { ...default_enabled_sins }
-            for( const id of ids_array ) {
-                if( id in fresh ) fresh[ id ] = true
-            }
+            const ids = new Set( ids_array )
+            const fresh = Object.fromEntries(
+                Object.keys( default_enabled_sins ).map( id => [ id, ids.has( id ) ] )
+            )
+
+            if( !state_has_changes( get().enabled_sins, fresh ) ) return
+
             log.info( 'Setting sins from params:', fresh )
             set( { enabled_sins: fresh } )
         },
@@ -306,9 +323,12 @@ if( typeof window !== 'undefined' ) {
 
         try {
             const { state } = JSON.parse( event.newValue )
-            if( state?.enabled_sins ) {
-                useUxSinsStore.setState( { enabled_sins: state.enabled_sins } )
-            }
+            if( !state?.enabled_sins ) return
+
+            const { enabled_sins } = useUxSinsStore.getState()
+            if( !state_has_changes( enabled_sins, state.enabled_sins ) ) return
+
+            useUxSinsStore.setState( { enabled_sins: state.enabled_sins } )
         } catch {
             useUxSinsStore.persist.rehydrate()
         }

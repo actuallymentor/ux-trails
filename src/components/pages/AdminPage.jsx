@@ -83,7 +83,7 @@ const QrWrapper = styled.div`
 export default function AdminPage() {
 
     const { t } = useTranslation()
-    const { toggle_sin, enable_sin, disable_sin, get_sin_catalog, get_shareable_url } = useUxSinsStore()
+    const { set_sin_enabled, set_sins_enabled, get_sin_catalog, get_shareable_url } = useUxSinsStore()
 
     const catalog = get_sin_catalog()
     const url = get_shareable_url()
@@ -97,11 +97,10 @@ export default function AdminPage() {
     // Check if all sins in a group are enabled
     const all_enabled = sins => sins.length > 0 && sins.every( s => s.enabled )
 
+    const sin_ids = sins => sins.map( s => s.id )
+
     // Toggle all sins in a group on or off
-    const toggle_group = sins => {
-        const action = all_enabled( sins ) ? disable_sin : enable_sin
-        sins.forEach( s => action( s.id ) )
-    }
+    const set_group_enabled = ( sins, enabled ) => set_sins_enabled( sin_ids( sins ), enabled )
 
     const copy_url = () => {
         navigator.clipboard.writeText( url )
@@ -116,7 +115,7 @@ export default function AdminPage() {
                     <input
                         type="checkbox"
                         checked={ sin.enabled }
-                        onChange={ () => toggle_sin( sin.id ) }
+                        onChange={ event => set_sin_enabled( sin.id, event.target.checked ) }
                     />
                     <span />
                 </ToggleLabel>
@@ -141,7 +140,7 @@ export default function AdminPage() {
                     <SinRow>
                         <Sidenote $align="left" $margin="0">{ t( `admin.subcategory.${ sub }` ) }</Sidenote>
                         <ToggleLabel>
-                            <input type="checkbox" checked={ all_enabled( group ) } onChange={ () => toggle_group( group ) } />
+                            <input type="checkbox" checked={ all_enabled( group ) } onChange={ event => set_group_enabled( group, event.target.checked ) } />
                             <span />
                         </ToggleLabel>
                     </SinRow>
@@ -155,7 +154,7 @@ export default function AdminPage() {
             <SinRow>
                 <H2 $margin="0">{ t( 'admin.sectionOther' ) }</H2>
                 <ToggleLabel>
-                    <input type="checkbox" checked={ all_enabled( other_sins ) } onChange={ () => toggle_group( other_sins ) } />
+                    <input type="checkbox" checked={ all_enabled( other_sins ) } onChange={ event => set_group_enabled( other_sins, event.target.checked ) } />
                     <span />
                 </ToggleLabel>
             </SinRow>

@@ -3,6 +3,11 @@ import { set_english } from '../support/commands'
 
 context( 'Admin page (/admin)', () => {
 
+    const expected_checkbox_count = 42
+    const shared_sin_names = [ 'Hidden password requirements', 'No input feedback' ]
+    const row_toggle = label => cy.contains( 'h2', label ).parent().find( 'input[type="checkbox"]' )
+    const group_toggle = label => cy.contains( 'p', label ).parent().find( 'input[type="checkbox"]' )
+
     beforeEach( () => {
         cy.clearLocalStorage()
         cy.visit( '/admin', { onBeforeLoad: set_english } )
@@ -26,7 +31,13 @@ context( 'Admin page (/admin)', () => {
         cy.contains( 'base font size is set to 10px' ).should( 'be.visible' )
         cy.contains( 'Buttons disguised as text' ).should( 'be.visible' )
         cy.contains( 'no background, no border' ).should( 'be.visible' )
-        cy.get( 'input[type="checkbox"]' ).should( 'have.length', 6 )
+        cy.get( 'input[type="checkbox"]' ).should( 'have.length', expected_checkbox_count )
+    } )
+
+    it( 'Renders shared sin names only once', () => {
+        shared_sin_names.forEach( sin_name => {
+            cy.get( 'h2' ).filter( ( _index, el ) => el.textContent.trim() === sin_name ).should( 'have.length', 1 )
+        } )
     } )
 
     it( 'Toggles start unchecked by default', () => {
@@ -36,11 +47,21 @@ context( 'Admin page (/admin)', () => {
     } )
 
     it( 'Toggle can be checked and unchecked', () => {
-        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
+        row_toggle( 'Hidden password requirements' ).check( { force: true } )
+        row_toggle( 'Hidden password requirements' ).should( 'be.checked' )
 
-        cy.get( 'input[type="checkbox"]' ).first().uncheck( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).first().should( 'not.be.checked' )
+        row_toggle( 'Hidden password requirements' ).uncheck( { force: true } )
+        row_toggle( 'Hidden password requirements' ).should( 'not.be.checked' )
+    } )
+
+    it( 'Group toggles apply one stable checked state', () => {
+        group_toggle( 'Good error messages' ).check( { force: true } )
+        row_toggle( 'Hidden password requirements' ).should( 'be.checked' )
+        cy.get( 'code' ).invoke( 'text' ).should( 'include', 'sins=hidden_password_requirements' )
+
+        group_toggle( 'Good error messages' ).uncheck( { force: true } )
+        row_toggle( 'Hidden password requirements' ).should( 'not.be.checked' )
+        cy.get( 'code' ).invoke( 'text' ).should( 'not.include', 'hidden_password_requirements' )
     } )
 
     it( 'Shows share section with URL and QR code', () => {
@@ -55,20 +76,20 @@ context( 'Admin page (/admin)', () => {
         cy.get( 'code' ).invoke( 'text' ).should( 'include', '/config' )
         cy.get( 'code' ).invoke( 'text' ).should( 'not.include', 'sins=' )
 
-        // Toggle first sin on
-        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
+        // Toggle a specific sin on
+        row_toggle( 'Hidden password requirements' ).check( { force: true } )
 
         // URL should now include the sin ID
         cy.get( 'code' ).invoke( 'text' ).should( 'include', 'sins=hidden_password_requirements' )
     } )
 
     it( 'Persists toggle state across page reloads', () => {
-        cy.get( 'input[type="checkbox"]' ).first().check( { force: true } )
-        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
+        row_toggle( 'Hidden password requirements' ).check( { force: true } )
+        row_toggle( 'Hidden password requirements' ).should( 'be.checked' )
 
         // Reload and verify persistence
         cy.visit( '/admin', { onBeforeLoad: set_english } )
-        cy.get( 'input[type="checkbox"]' ).first().should( 'be.checked' )
+        row_toggle( 'Hidden password requirements' ).should( 'be.checked' )
     } )
 
 } )

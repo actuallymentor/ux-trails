@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.29.1] - 2026-05-04
+
+### Fixed
+- Prevent admin UX sin toggles from jittering on grouped changes (uncommitted)
+
 ## [0.29.0] - 2026-04-09
 
 ### Changed
